@@ -316,6 +316,12 @@ ul,ol{margin:0;padding:0;list-style:none}
   outline:none;border-color:var(--mint);box-shadow:0 0 0 3px rgba(79,209,197,.25);background:#fff;
 }
 .cta-form .btn{margin-top:6px}
+.cta-form-embed{padding:16px}
+.cta-form-embed iframe{
+  width:1px;min-width:100%;border:0;border-radius:var(--radius-sm);
+  min-height:640px;display:block;background:#fff;
+}
+.cta-form-embed .form-fine{margin-top:10px}
 .form-fine{font-size:.76rem;color:var(--gray-2);margin-top:12px}
 .form-success{
   margin-top:14px;padding:12px 14px;border-radius:var(--radius-sm);

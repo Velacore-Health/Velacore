@@ -40,24 +40,7 @@
     });
   }
 
-  // Lead form (demo handler — replace with your intake provider)
-  var form = document.getElementById('leadForm');
-  var success = document.getElementById('formSuccess');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      // TODO: send `new FormData(form)` to your CRM / intake endpoint.
-      if (success) success.hidden = false;
-      form.querySelector('button[type="submit"]').textContent = 'Request received ✓';
-      form.querySelectorAll('input, select, button').forEach(function (el) {
-        el.disabled = true;
-      });
-    });
-  }
+  // The telehealth intake is the embedded JotForm in #start (see index.html).
 
   // Subtle reveal on scroll. Handled purely in CSS via the `.reveal` class so
   // content is ALWAYS visible by default — the class only adds an entrance

@@ -320,6 +320,12 @@ ul,ol{margin:0;padding:0;list-style:none}
   outline:none;border-color:var(--mint);box-shadow:0 0 0 3px rgba(79,209,197,.25);background:#fff;
 }
 .cta-form .btn{margin-top:6px}
+.cta-form-embed{padding:16px}
+.cta-form-embed iframe{
+  width:1px;min-width:100%;border:0;border-radius:var(--radius-sm);
+  min-height:640px;display:block;background:#fff;
+}
+.cta-form-embed .form-fine{margin-top:10px}
 .form-fine{font-size:.76rem;color:var(--gray-2);margin-top:12px}
 .form-success{
   margin-top:14px;padding:12px 14px;border-radius:var(--radius-sm);
@@ -565,9 +571,6 @@ ul,ol{margin:0;padding:0;list-style:none}
         <a href="#provider">Providers</a>
         <a href="#guarantee">Guarantee</a>
         <a href="#faq">FAQ</a>
-        <!-- MEMBER LOGIN: point href to your gated, server-authenticated member portal URL -->
-        <a href="#" class="nav-login">Member login</a>
-        <!-- CTA: point href to your JotForm intake ("Find Your Protocol") -->
         <a href="#start" class="btn btn-primary btn-sm">Start online visit</a>
       </nav>
 
@@ -925,37 +928,11 @@ ul,ol{margin:0;padding:0;list-style:none}
           </ul>
         </div>
 
-        <!-- NOTE: Replace this demo form with your JotForm telehealth intake, or point the button to it. -->
-        <form class="cta-form" id="leadForm" novalidate>
-          <div class="field">
-            <label for="name">Full name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Jane Doe" />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="state">State</label>
-              <input id="state" name="state" type="text" autocomplete="address-level1" placeholder="e.g. Texas" />
-            </div>
-            <div class="field">
-              <label for="goal">Interest</label>
-              <select id="goal" name="goal">
-                <option value="">Select…</option>
-                <option>Weight management (GLP-1)</option>
-                <option>NAD+</option>
-                <option>Glutathione</option>
-                <option>Sermorelin</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Start online visit</button>
-          <p class="form-fine">Prescription required. Submitting begins a telehealth intake; it is not a guarantee of treatment. Replace this form with your JotForm intake to go live.</p>
-          <p class="form-success" id="formSuccess" hidden>Thanks! We've received your request and will be in touch shortly.</p>
-        </form>
+        <!-- Live JotForm telehealth intake (embedded). Form ID: 261070496021449 -->
+        <div class="cta-form cta-form-embed">
+          <div class="img-slot" style="min-height:560px;border-radius:12px"><div class="img-slot-inner"><span class="img-slot-tag">JOTFORM</span><p>Telehealth intake</p><small>Embedded live on the deployed site (form.jotform.com/261070496021449).<br>External forms don’t render inside this preview.</small></div></div>
+          <p class="form-fine">Prescription required. Submitting begins a telehealth intake; it is not a guarantee of treatment.</p>
+        </div>
       </div>
     </section>
 
@@ -993,9 +970,8 @@ ul,ol{margin:0;padding:0;list-style:none}
         <a href="#provider">Providers</a>
         <a href="#guarantee">Guarantee</a>
       </nav>
-      <nav class="footer-col" aria-label="Account">
-        <h4>Account</h4>
-        <a href="#">Member login</a>
+      <nav class="footer-col" aria-label="More">
+        <h4>More</h4>
         <a href="#faq">FAQ</a>
         <a href="#start">Start online visit</a>
         <a href="mailto:hello@velacorehealth.com">Contact</a>
@@ -1031,6 +1007,7 @@ ul,ol{margin:0;padding:0;list-style:none}
     </div>
   </footer>
 
+  
   
 
 <script>
@@ -1076,24 +1053,7 @@ ul,ol{margin:0;padding:0;list-style:none}
     });
   }
 
-  // Lead form (demo handler — replace with your intake provider)
-  var form = document.getElementById('leadForm');
-  var success = document.getElementById('formSuccess');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      // TODO: send `new FormData(form)` to your CRM / intake endpoint.
-      if (success) success.hidden = false;
-      form.querySelector('button[type="submit"]').textContent = 'Request received ✓';
-      form.querySelectorAll('input, select, button').forEach(function (el) {
-        el.disabled = true;
-      });
-    });
-  }
+  // The telehealth intake is the embedded JotForm in #start (see index.html).
 
   // Subtle reveal on scroll. Handled purely in CSS via the `.reveal` class so
   // content is ALWAYS visible by default — the class only adds an entrance

@@ -43,9 +43,6 @@
         <a href="#provider">Providers</a>
         <a href="#guarantee">Guarantee</a>
         <a href="#faq">FAQ</a>
-        <!-- MEMBER LOGIN: point href to your gated, server-authenticated member portal URL -->
-        <a href="#" class="nav-login">Member login</a>
-        <!-- CTA: point href to your JotForm intake ("Find Your Protocol") -->
         <a href="#start" class="btn btn-primary btn-sm">Start online visit</a>
       </nav>
 
@@ -403,37 +400,18 @@
           </ul>
         </div>
 
-        <!-- NOTE: Replace this demo form with your JotForm telehealth intake, or point the button to it. -->
-        <form class="cta-form" id="leadForm" novalidate>
-          <div class="field">
-            <label for="name">Full name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Jane Doe" />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="state">State</label>
-              <input id="state" name="state" type="text" autocomplete="address-level1" placeholder="e.g. Texas" />
-            </div>
-            <div class="field">
-              <label for="goal">Interest</label>
-              <select id="goal" name="goal">
-                <option value="">Select…</option>
-                <option>Weight management (GLP-1)</option>
-                <option>NAD+</option>
-                <option>Glutathione</option>
-                <option>Sermorelin</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Start online visit</button>
-          <p class="form-fine">Prescription required. Submitting begins a telehealth intake; it is not a guarantee of treatment. Replace this form with your JotForm intake to go live.</p>
-          <p class="form-success" id="formSuccess" hidden>Thanks! We've received your request and will be in touch shortly.</p>
-        </form>
+        <!-- Live JotForm telehealth intake (embedded). Form ID: 261070496021449 -->
+        <div class="cta-form cta-form-embed">
+          <iframe
+            id="JotFormIFrame-261070496021449"
+            title="Velacore Health telehealth intake"
+            allow="geolocation; microphone; camera; fullscreen; payment"
+            src="https://form.jotform.com/261070496021449"
+            frameborder="0"
+            scrolling="no"
+            loading="lazy"></iframe>
+          <p class="form-fine">Prescription required. Submitting begins a telehealth intake; it is not a guarantee of treatment.</p>
+        </div>
       </div>
     </section>
 
@@ -471,9 +449,8 @@
         <a href="#provider">Providers</a>
         <a href="#guarantee">Guarantee</a>
       </nav>
-      <nav class="footer-col" aria-label="Account">
-        <h4>Account</h4>
-        <a href="#">Member login</a>
+      <nav class="footer-col" aria-label="More">
+        <h4>More</h4>
         <a href="#faq">FAQ</a>
         <a href="#start">Start online visit</a>
         <a href="mailto:hello@velacorehealth.com">Contact</a>
@@ -510,5 +487,17 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- JotForm auto-resize: keeps the embedded intake at its natural height -->
+  <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      if (window.jotformEmbedHandler) {
+        window.jotformEmbedHandler(
+          "iframe[id='JotFormIFrame-261070496021449']",
+          "https://form.jotform.com"
+        );
+      }
+    });
+  </script>
 </body>
 </html>

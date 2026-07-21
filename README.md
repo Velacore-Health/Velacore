@@ -21,11 +21,17 @@ with an `<img>`. Suggested dimensions are noted inside each placeholder and in n
 
 ## Structure
 
-| File | Purpose |
+The deployable website lives in **`public/`** (that folder is what gets served — everything
+outside it, like this README and `COMPLIANCE.md`, stays private and off the live site).
+
+| Path | Purpose |
 |------|---------|
-| `index.html` | All page content and sections |
-| `styles.css` | Full design system (colors, layout, responsive) |
-| `script.js` | Mobile nav, FAQ accordion, lead form, scroll reveals |
+| `public/index.html` | All page content and sections |
+| `public/styles.css` | Full design system (colors, layout, responsive) |
+| `public/script.js` | Mobile nav, FAQ accordion, scroll reveals |
+| `vercel.json` | Vercel config (serves `public/`, security headers) |
+| `.github/workflows/deploy-pages.yml` | Auto-deploys `public/` to GitHub Pages |
+| `velacore-preview.html` | Self-contained design preview (for the Artifact link) — not deployed |
 
 ## Sections
 
@@ -36,25 +42,30 @@ with an `<img>`. Suggested dimensions are noted inside each placeholder and in n
 5. **Providers** — "Meet a prescribing provider" (Dr. Broussard, independent)
 6. **Guarantee** — prescribe-or-refund
 7. **FAQ** — prescription-required, model, refund, states
-8. **Get started** — telehealth intake form (demo; wire to JotForm)
+8. **Get started** — embedded JotForm telehealth intake (form `261070496021449`)
 9. **Please note** — critical compliance disclaimer
-10. **Footer** — nav, member login, states-served, medical/legal disclaimer
+10. **Footer** — nav, states-served, medical/legal disclaimer
 
 ## Preview locally
 
 ```bash
 # From the project folder:
-python3 -m http.server 8000
+python3 -m http.server 8000 --directory public
 # then open http://localhost:8000
 ```
 
 ## Deploy
 
-Drop the folder on any static host:
+### Vercel (recommended)
+1. Sign in at <https://vercel.com> with GitHub.
+2. **Add New → Project → Import** `Velacore-Health/Velacore`.
+3. Set **Production Branch** to `claude/velacore-health-website-qnjdnh` (Settings → Git), or make
+   that branch the repo default first. `vercel.json` already serves `public/`.
+4. **Deploy.** Add the `velacorehealth.com` domain under Settings → Domains and follow the DNS steps.
 
-- **Netlify / Vercel:** drag-and-drop the folder, or connect the repo.
-- **GitHub Pages:** enable Pages on this branch, root folder.
-- **Cloudflare Pages / S3:** upload as static assets.
+### GitHub Pages (backup)
+1. Repo **Settings → Pages → Build and deployment → Source = "GitHub Actions".**
+2. The `deploy-pages.yml` workflow publishes `public/` on every push to the site branch.
 
 ## Before going live — replace the placeholders
 
