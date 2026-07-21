@@ -1,21 +1,23 @@
 # Velacore Health — Website
 
-Marketing website for **Velacore Health**, a **telehealth coordination platform** that provides
-structured wellness resources and coordinates access to independent licensed physicians and 503A
-compounding pharmacies. All medical decisions are made solely by the independent provider.
+Marketing website for **Velacore Health**, a **telehealth platform** that coordinates access to
+independent, licensed physicians and 503A compounding pharmacies. All prescribing decisions are made
+solely by the independent physician; all treatments are prescription only.
 
 Built as a fast, self-contained static site — no build step, no dependencies. Just open
-`index.html` or deploy the folder anywhere.
+`index.html` or deploy the folder anywhere. Intended to **replace** the current site.
 
-> **Compliance:** copy and positioning follow the LegitScript launch brief. Before changing wording
-> or going live, read **[`COMPLIANCE.md`](./COMPLIANCE.md)** — it records what must not be undone
-> and what's still outstanding (attorney review, SOPs, states list, pharmacy routing).
+> **Compliance — read first:** the public site names **only the five permitted treatments**
+> (Tirzepatide, Semaglutide, NAD+, Glutathione, Sermorelin) and contains **no restricted product
+> names, no coaching language, and no health claims.** Before changing any wording, read
+> **[`COMPLIANCE.md`](./COMPLIANCE.md)** — including why restricted products must live behind a
+> **server-side** member gate (a client-side password does not work) and what's still outstanding.
 
 ## Swapping in images
 
 Every image is a dashed **placeholder** — search the HTML for `img-slot` and replace each block
 with an `<img>`. Suggested dimensions are noted inside each placeholder and in nearby comments
-(hero visual, provider headshot, program photos, founder photo).
+(hero visual, provider headshot, five treatment photos).
 
 ## Structure
 
@@ -27,15 +29,16 @@ with an `<img>`. Suggested dimensions are noted inside each placeholder and in n
 
 ## Sections
 
-1. **Hero** — headline, value prop, eligibility CTA, protocol preview card
-2. **How it works** — 4-step process
-3. **Programs** — Metabolic & Weight, Recovery, Longevity, Hormone, Sleep
-4. **Why Velacore** — differentiators + stats
-5. **Pricing** — placeholder membership tiers
-6. **Safety & compliance** — trust cards
-7. **FAQ** — common questions
-8. **Get started** — lead-capture form (demo)
-9. **Footer** — nav, contact, medical/legal disclaimer
+1. **Hero** — telehealth positioning, "Start online visit" CTA, image slot
+2. **How it works** — 5 steps (online visit → physician review → 503A fulfillment → coordination → refund)
+3. **Why Velacore** — 4 pillars
+4. **Treatments** — the 5 permitted products (Tirzepatide, Semaglutide, NAD+, Glutathione, Sermorelin) with prices + "refund if not prescribed" badges
+5. **Providers** — "Meet a prescribing provider" (Dr. Broussard, independent)
+6. **Guarantee** — prescribe-or-refund
+7. **FAQ** — prescription-required, model, refund, states
+8. **Get started** — telehealth intake form (demo; wire to JotForm)
+9. **Please note** — critical compliance disclaimer
+10. **Footer** — nav, member login, states-served, medical/legal disclaimer
 
 ## Preview locally
 
@@ -55,14 +58,15 @@ Drop the folder on any static host:
 
 ## Before going live — replace the placeholders
 
-- [ ] **Pricing** — real membership/medication pricing (`#pricing` section).
-- [ ] **Lead form** — wire `#leadForm` to your intake/CRM provider (see `TODO` in `script.js`).
-- [ ] **Programs** — confirm the exact therapies and language your clinicians offer.
-- [ ] **States served** — list the states where you're licensed.
+- [ ] **Intake form** — wire `#leadForm` to your JotForm telehealth intake (see `NOTE` in `index.html` / `TODO` in `script.js`).
+- [ ] **Treatment prices** — confirm the five program prices are current.
+- [ ] **Member gate** — build the **server-authenticated** member area for restricted products, then point "Member login" at it (see `COMPLIANCE.md`).
+- [ ] **States served** — replace the placeholder line with the confirmed licensed-states list.
 - [ ] **Legal pages** — Privacy, Terms, Telehealth consent (footer links are stubs).
 - [ ] **Contact email** — update `hello@velacorehealth.com`.
-- [ ] **Compliance review** — have counsel/clinical review all medical claims and the disclaimer.
+- [ ] **Compliance review** — LegitScript pre-submission audit + healthcare attorney (see `COMPLIANCE.md`).
 
-> ⚠️ **Regulatory note:** Peptide and telehealth marketing is heavily regulated. Have all
-> medical claims, disclaimers, and the intake flow reviewed by qualified legal/clinical
-> advisors before launch.
+> ⚠️ **Regulatory note:** Telehealth and prescription marketing is heavily regulated. The public
+> site names only the five permitted treatments and carries no health claims — keep it that way.
+> Have all copy, disclaimers, and the intake flow reviewed by qualified legal/clinical advisors
+> before launch.

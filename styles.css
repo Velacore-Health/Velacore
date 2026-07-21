@@ -393,8 +393,26 @@ ul,ol{margin:0;padding:0;list-style:none}
 .stats-section{padding:56px 0}
 .stats-4{grid-template-columns:repeat(4,1fr)}
 
-/* ---------- Steps (6) ---------- */
+/* ---------- Steps ---------- */
 .steps-6{grid-template-columns:repeat(3,1fr)}
+.steps-5{grid-template-columns:repeat(5,1fr)}
+@media (max-width:1080px){.steps-5{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- Nav login link ---------- */
+.nav-login{font-size:.95rem;font-weight:600;color:var(--teal)!important}
+.nav-login:hover{color:var(--ink)!important}
+
+/* ---------- Treatment category label ---------- */
+.prog-cat{
+  display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--gray-2);margin-bottom:8px;
+}
+
+/* ---------- Prescription note ---------- */
+.rx-note{
+  margin-top:28px;text-align:center;color:var(--gray-2);font-size:.84rem;
+  max-width:56rem;margin-left:auto;margin-right:auto;font-style:italic;
+}
 
 /* ---------- Pillars ---------- */
 .cards-4{grid-template-columns:repeat(4,1fr)}
