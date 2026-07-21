@@ -1,0 +1,1111 @@
+<title>Velacore Health — Telehealth Coordination Platform</title>
+<style>
+/* ============================================================
+   Velacore Health — styles
+   Palette: deep navy/teal + fresh mint accent
+   ============================================================ */
+:root{
+  --ink:#0b1f2a;          /* deep navy-teal */
+  --ink-2:#123141;
+  --teal:#0e7c86;
+  --mint:#4fd1c5;
+  --mint-2:#7ee6da;
+  --paper:#f7faf9;
+  --paper-2:#eef4f3;
+  --white:#ffffff;
+  --gray:#5c6b72;
+  --gray-2:#8a979d;
+  --line:#e3eae9;
+  --radius:18px;
+  --radius-sm:12px;
+  --shadow:0 20px 50px -24px rgba(11,31,42,.35);
+  --shadow-sm:0 8px 24px -14px rgba(11,31,42,.4);
+  --maxw:1140px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --display:ui-serif,'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0;
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--display);font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- Buttons ---------- */
+.btn{
+  --pad:14px 24px;
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:var(--pad);border-radius:999px;font-weight:600;font-size:.98rem;
+  cursor:pointer;border:1px solid transparent;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s var(--ease),color .2s var(--ease);
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-sm{--pad:10px 18px;font-size:.9rem}
+.btn-block{display:flex;width:100%}
+.btn-primary{background:var(--mint);color:var(--ink);box-shadow:0 10px 24px -10px rgba(79,209,197,.7)}
+.btn-primary:hover{background:var(--mint-2)}
+.btn-ghost{background:transparent;border-color:rgba(11,31,42,.18);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink);background:rgba(11,31,42,.03)}
+
+/* ---------- Top bar ---------- */
+.topbar{
+  background:var(--ink);color:var(--paper-2);text-align:center;
+  font-size:.82rem;padding:8px 16px;letter-spacing:.01em;
+}
+.topbar span{opacity:.9}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,250,249,.82);backdrop-filter:saturate(160%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:700}
+.brand-mark{width:30px;height:30px;color:var(--ink)}
+.brand-name{font-family:var(--display);font-size:1.28rem;letter-spacing:-.02em}
+.brand-accent{color:var(--teal);margin-left:1px}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:.95rem;font-weight:500;color:var(--ink-2)}
+.nav-links a:not(.btn):hover{color:var(--teal)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.nav-toggle span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s var(--ease)}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 500px at 88% -10%, rgba(79,209,197,.18), transparent 60%),
+    radial-gradient(700px 500px at -5% 10%, rgba(14,124,134,.12), transparent 55%),
+    var(--paper);
+  padding:76px 0 88px;
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.eyebrow{
+  text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;font-weight:700;
+  color:var(--teal);margin-bottom:18px;
+}
+.eyebrow-light{color:var(--mint-2)}
+.hero h1{font-size:clamp(2.4rem,5vw,3.6rem);margin-bottom:20px}
+.grad{
+  background:linear-gradient(100deg,var(--teal),var(--mint));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.lede{font-size:1.14rem;color:var(--gray);max-width:34rem;margin-bottom:30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+.hero-trust{display:flex;flex-wrap:wrap;gap:18px;font-size:.9rem;color:var(--ink-2);font-weight:500}
+.hero-trust li{display:inline-flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(79,209,197,.18)}
+
+/* Hero card */
+.hero-card{position:relative}
+.card-glow{
+  position:absolute;inset:-30px;border-radius:40px;
+  background:radial-gradient(circle at 30% 20%,rgba(79,209,197,.35),transparent 60%);
+  filter:blur(20px);z-index:0;
+}
+.card{
+  position:relative;z-index:1;background:var(--white);border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;
+}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.avatar{
+  width:42px;height:42px;border-radius:12px;flex:none;
+  background:linear-gradient(135deg,var(--teal),var(--ink));color:#fff;
+  display:grid;place-items:center;font-family:var(--display);font-size:1.2rem;
+}
+.card-title{font-weight:700;font-size:.98rem}
+.card-sub{font-size:.82rem;color:var(--gray-2)}
+.pill{
+  font-size:.72rem;font-weight:600;padding:5px 10px;border-radius:999px;
+  background:var(--paper-2);color:var(--ink-2);
+}
+.pill-live{margin-left:auto;background:rgba(79,209,197,.18);color:var(--teal)}
+.card-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:11px 0;border-top:1px solid var(--line);font-size:.9rem;color:var(--gray);
+}
+.card-row strong{color:var(--ink);font-weight:600}
+.card-progress{margin:14px 0;padding-top:14px;border-top:1px solid var(--line)}
+.bar{height:8px;border-radius:999px;background:var(--paper-2);overflow:hidden}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--mint));border-radius:999px}
+.card-progress p{font-size:.8rem;color:var(--gray-2);margin-top:8px}
+.card-foot{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ---------- Strip ---------- */
+.strip{background:var(--ink);color:var(--paper-2)}
+.strip-inner{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
+  padding:20px 24px;font-size:.85rem;
+}
+.strip-inner>span{opacity:.6;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:600}
+.strip-items{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-weight:500;opacity:.9}
+
+/* ---------- Sections ---------- */
+.section{padding:88px 0}
+.section-alt{background:var(--paper-2)}
+.section-head{max-width:42rem;margin:0 auto 52px;text-align:center}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:14px}
+.section-sub{color:var(--gray);font-size:1.06rem}
+
+/* ---------- Steps ---------- */
+.steps{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:step;
+}
+.step{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 22px;box-shadow:var(--shadow-sm);position:relative;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.step:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.step-num{
+  font-family:var(--display);font-size:1.05rem;font-weight:600;color:var(--teal);
+  width:44px;height:44px;border-radius:12px;background:rgba(14,124,134,.1);
+  display:grid;place-items:center;margin-bottom:16px;
+}
+.step h3{font-size:1.14rem;margin-bottom:8px}
+.step p{color:var(--gray);font-size:.94rem}
+
+/* ---------- Programs ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.prog{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s;
+}
+.prog:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--mint)}
+.prog-ic{
+  width:52px;height:52px;border-radius:14px;margin-bottom:18px;
+  background:linear-gradient(135deg,rgba(14,124,134,.14),rgba(79,209,197,.22));
+  position:relative;
+}
+.prog-ic::after{
+  content:"";position:absolute;inset:0;margin:auto;width:24px;height:24px;
+  background:var(--teal);
+  -webkit-mask-position:center;mask-position:center;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-size:contain;mask-size:contain;
+}
+.prog-ic[data-ic="metabolic"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12h4l2 6 4-14 2 8h6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12h4l2 6 4-14 2 8h6'/%3E%3C/svg%3E")}
+.prog-ic[data-ic="recovery"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z'/%3E%3C/svg%3E")}
+.prog-ic[data-ic="longevity"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2a7 7 0 0 0-4 12.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3A7 7 0 0 0 12 2z'/%3E%3Cpath d='M9 22h6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2a7 7 0 0 0-4 12.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3A7 7 0 0 0 12 2z'/%3E%3Cpath d='M9 22h6'/%3E%3C/svg%3E")}
+.prog-ic[data-ic="hormone"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='6'/%3E%3Cpath d='M12 16v6M9 19h6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='6'/%3E%3Cpath d='M12 16v6M9 19h6'/%3E%3C/svg%3E")}
+.prog-ic[data-ic="sleep"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/%3E%3C/svg%3E")}
+.prog h3{font-size:1.22rem;margin-bottom:10px}
+.prog p{color:var(--gray);font-size:.95rem}
+.prog-tag{
+  display:inline-block;margin-top:14px;font-size:.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--teal);
+  background:rgba(14,124,134,.1);padding:5px 10px;border-radius:999px;
+}
+.prog-cta{
+  background:linear-gradient(150deg,var(--ink),var(--ink-2));color:var(--paper-2);
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+}
+.prog-cta:hover{border-color:transparent}
+.prog-cta h3{color:#fff}
+.prog-cta p{color:rgba(247,250,249,.72);margin-bottom:18px}
+
+/* ---------- Why ---------- */
+.why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.why-copy .section-sub{margin-bottom:26px}
+.why-list{display:grid;gap:18px}
+.why-list li{display:flex;gap:14px;align-items:flex-start}
+.why-list strong{color:var(--ink)}
+.why-list div{color:var(--gray);font-size:.98rem}
+.check{
+  flex:none;width:26px;height:26px;border-radius:50%;background:var(--mint);
+  color:var(--ink);display:grid;place-items:center;font-weight:700;font-size:.85rem;margin-top:2px;
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 22px;box-shadow:var(--shadow-sm);text-align:center;
+}
+.stat-num{font-family:var(--display);font-size:2.1rem;color:var(--teal);line-height:1}
+.stat-label{color:var(--gray);font-size:.86rem;margin-top:8px}
+
+/* ---------- Pricing ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.plan{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;position:relative;
+}
+.plan h3{font-size:1.3rem;margin-bottom:10px}
+.plan-price{font-family:var(--display);font-size:2.4rem;color:var(--ink);line-height:1;margin-bottom:6px}
+.plan-per{font-size:1rem;color:var(--gray-2)}
+.plan-desc{color:var(--gray);font-size:.92rem;margin-bottom:20px}
+.plan-list{display:grid;gap:11px;margin-bottom:24px;flex:1}
+.plan-list li{position:relative;padding-left:26px;color:var(--ink-2);font-size:.94rem}
+.plan-list li::before{
+  content:"✓";position:absolute;left:0;top:0;color:var(--teal);font-weight:700;
+}
+.plan-featured{
+  border:1.5px solid var(--mint);box-shadow:var(--shadow);
+  background:linear-gradient(180deg,#fff, #f6fdfc);
+}
+.plan-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--mint);color:var(--ink);font-size:.72rem;font-weight:700;
+  padding:5px 14px;border-radius:999px;text-transform:uppercase;letter-spacing:.08em;
+}
+.plan-note{font-size:.78rem;color:var(--gray-2);margin-top:12px;text-align:center}
+.pricing-disclaimer{text-align:center;color:var(--gray-2);font-size:.82rem;margin-top:22px;font-style:italic}
+
+/* ---------- Safety ---------- */
+.safety-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+.safety-copy{max-width:46rem;margin:0 auto;text-align:center}
+.safety-copy .section-sub{margin-bottom:0}
+.safety-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;text-align:left;box-shadow:var(--shadow-sm);
+}
+.safety-card h3{font-size:1.12rem;margin-bottom:8px;color:var(--teal)}
+.safety-card p{color:var(--gray);font-size:.94rem}
+
+/* ---------- FAQ ---------- */
+.faq-wrap{max-width:820px;margin:0 auto}
+.faq{display:grid;gap:12px}
+.faq-item{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:4px 22px;box-shadow:var(--shadow-sm);
+}
+.faq-item summary{
+  cursor:pointer;list-style:none;padding:18px 0;font-weight:600;font-size:1.04rem;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--ink);
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";font-size:1.5rem;color:var(--teal);font-weight:400;transition:transform .25s var(--ease);flex:none;
+}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-body{padding:0 0 18px;color:var(--gray);font-size:.96rem}
+
+/* ---------- CTA ---------- */
+.cta{
+  background:
+    radial-gradient(700px 400px at 85% 0%, rgba(79,209,197,.22), transparent 60%),
+    linear-gradient(160deg,var(--ink),var(--ink-2));
+  color:var(--paper-2);
+}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.cta-copy h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:14px}
+.cta-copy>p{color:rgba(247,250,249,.78);font-size:1.06rem;margin-bottom:22px;max-width:30rem}
+.cta-points{display:grid;gap:12px}
+.cta-points li{display:flex;align-items:center;gap:10px;color:var(--paper-2);font-size:.96rem}
+.cta-form{
+  background:var(--white);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow);color:var(--ink);
+}
+.field{margin-bottom:16px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:7px;color:var(--ink-2)}
+.field input,.field select{
+  width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius-sm);
+  font:inherit;font-size:.95rem;color:var(--ink);background:var(--paper);transition:border-color .2s,box-shadow .2s;
+}
+.field input:focus,.field select:focus{
+  outline:none;border-color:var(--mint);box-shadow:0 0 0 3px rgba(79,209,197,.25);background:#fff;
+}
+.cta-form .btn{margin-top:6px}
+.form-fine{font-size:.76rem;color:var(--gray-2);margin-top:12px}
+.form-success{
+  margin-top:14px;padding:12px 14px;border-radius:var(--radius-sm);
+  background:rgba(79,209,197,.16);color:var(--teal);font-weight:600;font-size:.9rem;
+}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--ink);color:var(--paper-2);padding:64px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-brand .brand{color:#fff;margin-bottom:14px}
+.footer-brand .brand-mark{color:#fff}
+.footer-brand .brand-accent{color:var(--mint)}
+.footer-brand p{color:rgba(247,250,249,.6);font-size:.92rem;max-width:22rem}
+.footer-col h4{font-family:var(--body);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mint-2);margin-bottom:16px;font-weight:700}
+.footer-col a{display:block;color:rgba(247,250,249,.72);font-size:.94rem;margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-legal{padding-top:28px}
+.disclaimer{font-size:.8rem;color:rgba(247,250,249,.5);line-height:1.7;max-width:60rem;margin-bottom:22px}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;font-size:.85rem;color:rgba(247,250,249,.6)}
+.footer-bottom nav{display:flex;gap:18px}
+.footer-bottom a:hover{color:#fff}
+
+/* ---------- Responsive ---------- */
+@media (max-width:960px){
+  .hero-grid,.why-grid,.cta-grid,.safety-grid{grid-template-columns:1fr;gap:40px}
+  .hero-card{max-width:440px}
+  .steps{grid-template-columns:1fr 1fr}
+  .cards,.plans{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .nav-links{
+    position:fixed;inset:68px 0 auto 0;flex-direction:column;align-items:stretch;
+    background:var(--paper);border-bottom:1px solid var(--line);padding:18px 24px;gap:6px;
+    transform:translateY(-140%);transition:transform .3s var(--ease);box-shadow:var(--shadow);
+  }
+  .nav-links a{padding:12px 4px}
+  .nav-links.open{transform:translateY(0)}
+  .nav-toggle{display:flex}
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .section{padding:64px 0}
+  .steps,.cards,.plans,.stats,.safety-cards,.field-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .strip-inner{justify-content:center;text-align:center}
+}
+
+/* ============================================================
+   Additional components (compliant redesign)
+   ============================================================ */
+
+/* ---------- Image slots (swap these for real <img>) ---------- */
+.img-slot{
+  position:relative;z-index:1;border-radius:var(--radius);overflow:hidden;
+  background:
+    linear-gradient(135deg,rgba(14,124,134,.10),rgba(79,209,197,.16)),
+    repeating-linear-gradient(45deg,transparent 0 14px,rgba(11,31,42,.03) 14px 28px);
+  border:1.5px dashed rgba(14,124,134,.35);
+  display:grid;place-items:center;color:var(--teal);text-align:center;min-height:220px;
+}
+.img-slot-inner{padding:20px}
+.img-slot-inner p{font-family:var(--display);font-size:1.1rem;color:var(--ink);margin-top:6px}
+.img-slot-inner small{display:block;color:var(--gray-2);font-size:.78rem;margin-top:4px}
+.img-slot-tag{
+  display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;
+  background:var(--teal);color:#fff;padding:4px 10px;border-radius:999px;
+}
+.img-slot-hero{aspect-ratio:56/62;min-height:360px;box-shadow:var(--shadow)}
+.img-slot-prog{min-height:0;aspect-ratio:4/3;border-radius:var(--radius-sm)}
+.img-slot-provider{aspect-ratio:42/52;min-height:340px;box-shadow:var(--shadow-sm)}
+.img-slot-founder{aspect-ratio:1;min-height:320px;box-shadow:var(--shadow-sm)}
+
+/* ---------- Stats section ---------- */
+.stats-section{padding:56px 0}
+.stats-4{grid-template-columns:repeat(4,1fr)}
+
+/* ---------- Steps (6) ---------- */
+.steps-6{grid-template-columns:repeat(3,1fr)}
+
+/* ---------- Pillars ---------- */
+.cards-4{grid-template-columns:repeat(4,1fr)}
+.cards-3{grid-template-columns:repeat(3,1fr)}
+.pillar{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.pillar-ic{
+  width:48px;height:48px;border-radius:13px;margin-bottom:16px;
+  background:linear-gradient(135deg,rgba(14,124,134,.14),rgba(79,209,197,.22));position:relative;
+}
+.pillar-ic::after{
+  content:"";position:absolute;inset:0;margin:auto;width:22px;height:22px;background:var(--teal);
+  -webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-size:contain;mask-size:contain;
+}
+.pillar-ic[data-ic="coordinate"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 2v4M12 18v4M2 12h4M18 12h4'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 2v4M12 18v4M2 12h4M18 12h4'/%3E%3C/svg%3E")}
+.pillar-ic[data-ic="independent"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E")}
+.pillar-ic[data-ic="pharmacy"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 8.5 12 3l7.5 5.5V20a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1z'/%3E%3Cpath d='M12 10v6M9 13h6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 8.5 12 3l7.5 5.5V20a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1z'/%3E%3Cpath d='M12 10v6M9 13h6'/%3E%3C/svg%3E")}
+.pillar-ic[data-ic="support"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E")}
+.pillar h3{font-size:1.14rem;margin-bottom:8px}
+.pillar p{color:var(--gray);font-size:.94rem}
+
+/* ---------- Program cards (image + body) ---------- */
+.prog{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s;
+}
+.prog:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--mint)}
+.prog .img-slot-prog{border-radius:0;border-left:0;border-right:0;border-top:0}
+.prog-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.prog-body h3{font-size:1.2rem;margin-bottom:8px}
+.prog-body>p{color:var(--gray);font-size:.94rem;flex:1}
+.prog-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0}
+.prog-price{font-family:var(--display);font-size:1.5rem;color:var(--ink)}
+.prog-price span{font-size:.85rem;color:var(--gray-2)}
+.prog-badge{
+  font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);
+  background:rgba(14,124,134,.1);padding:5px 9px;border-radius:999px;text-align:center;
+}
+.programs-more{
+  margin-top:32px;text-align:center;padding:26px;border:1.5px dashed var(--line);border-radius:var(--radius);
+  background:var(--white);
+}
+.programs-more p{color:var(--gray);margin-bottom:16px}
+
+/* ---------- Provider ---------- */
+.provider-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center}
+.provider-role{color:var(--teal);font-weight:600;margin-bottom:14px}
+.provider-copy>p{color:var(--gray);margin-bottom:14px}
+.provider-note{
+  background:var(--paper-2);border-left:3px solid var(--mint);border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:14px 16px;font-size:.92rem;color:var(--ink-2)!important;
+}
+.provider-list{display:grid;gap:10px;margin-top:20px}
+.provider-list li{display:flex;align-items:center;gap:10px;color:var(--ink-2);font-size:.95rem}
+
+/* ---------- Guarantee ---------- */
+.guarantee-inner{
+  max-width:52rem;margin:0 auto;text-align:center;background:var(--white);
+  border:1px solid var(--line);border-radius:var(--radius);padding:48px 40px;box-shadow:var(--shadow-sm);
+}
+.guarantee-inner h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:16px}
+.guarantee-lede{color:var(--gray);font-size:1.08rem;max-width:40rem;margin:0 auto 24px}
+
+/* ---------- Access + resources ---------- */
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.access-copy>p{color:var(--gray);margin-top:12px}
+.resources{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.resources h3{font-size:1.2rem;margin-bottom:6px}
+.resources-sub{color:var(--gray);font-size:.9rem;margin-bottom:18px}
+.resource-list{display:grid;gap:12px}
+.resource-list li{display:flex;align-items:center;gap:12px;color:var(--ink-2);font-size:.96rem;background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px}
+.res-ic{width:20px;height:20px;flex:none;border-radius:6px;background:linear-gradient(135deg,var(--teal),var(--mint))}
+
+/* ---------- Founder ---------- */
+.section-founder{background:linear-gradient(160deg,var(--ink),var(--ink-2));color:var(--paper-2)}
+.founder-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:center}
+.founder-copy h2{color:#fff;font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:14px}
+.founder-copy>p{color:rgba(247,250,249,.8);margin-bottom:12px}
+.founder-fine{font-size:.82rem;color:rgba(247,250,249,.5)!important}
+.section-founder .img-slot{border-color:rgba(79,209,197,.5);background:linear-gradient(135deg,rgba(79,209,197,.14),rgba(255,255,255,.04))}
+.section-founder .img-slot-inner p{color:#fff}
+.section-founder .img-slot-inner small{color:rgba(247,250,249,.6)}
+
+/* ---------- Please note (critical disclaimer) ---------- */
+.please-note{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.please-note .container{padding-top:26px;padding-bottom:26px}
+.please-note p{font-size:.92rem;color:var(--ink-2);max-width:64rem;margin:0 auto;text-align:center;line-height:1.7}
+
+/* ---------- Footer additions ---------- */
+.states-served{font-size:.86rem;color:rgba(247,250,249,.72);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08)}
+
+/* ---------- Responsive additions ---------- */
+@media (max-width:960px){
+  .stats-4{grid-template-columns:1fr 1fr}
+  .steps-6{grid-template-columns:1fr 1fr}
+  .cards-4{grid-template-columns:1fr 1fr}
+  .cards-3{grid-template-columns:1fr 1fr}
+  .provider-grid,.access-grid,.founder-grid{grid-template-columns:1fr;gap:36px}
+  .img-slot-provider,.img-slot-founder{max-width:420px}
+}
+@media (max-width:680px){
+  .stats-4,.steps-6,.cards-4,.cards-3{grid-template-columns:1fr}
+  .guarantee-inner{padding:34px 22px}
+}
+
+/* ---------- Scroll reveal (safe: visible by default) ---------- */
+/* Elements stay fully visible; the entrance animation only plays once the
+   observer adds .is-visible. If JS or the observer never runs, nothing hides. */
+.reveal.is-visible{animation:revealUp .6s var(--ease) both}
+@keyframes revealUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+  .reveal.is-visible{animation:none!important}
+}
+
+</style>
+
+  <!-- Announcement bar -->
+  <div class="topbar">
+    <span>Telehealth programs available to residents of select US states · Free wellness evaluation to begin</span>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Velacore Health home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 3 L27 9 V19 C27 25 16 30 16 30 C16 30 5 25 5 19 V9 Z" fill="currentColor"/>
+          <path d="M11 13 l5 8 5 -8" fill="none" stroke="#4fd1c5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-name">Velacore<span class="brand-accent">Health</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#programs">Programs</a>
+        <a href="#provider">Providers</a>
+        <a href="#guarantee">Guarantee</a>
+        <a href="#faq">FAQ</a>
+        <!-- CTA: point href to your JotForm "Find Your Protocol" evaluation (e.g. /find-your-protocol) -->
+        <a href="#start" class="btn btn-primary btn-sm">Find your protocol</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Telehealth coordination platform</p>
+          <h1>Structured wellness programs, <span class="grad">coordinated with independent physicians.</span></h1>
+          <p class="lede">
+            Velacore Health provides structured wellness resources and coordinates access to
+            independent licensed physicians and 503A compounding pharmacies. You complete a free
+            evaluation; an independent provider makes every medical decision.
+          </p>
+          <div class="hero-cta">
+            <!-- CTA: link to your JotForm evaluation quiz -->
+            <a href="#start" class="btn btn-primary">Find your protocol</a>
+            <a href="#how" class="btn btn-ghost">See how it works</a>
+          </div>
+          <ul class="hero-trust">
+            <li><span class="dot"></span> Independent licensed physicians</li>
+            <li><span class="dot"></span> 503A compounding pharmacies</li>
+            <li><span class="dot"></span> LegitScript-certified partner network</li>
+          </ul>
+        </div>
+
+        <!-- ▓▓ IMAGE SLOT: hero visual. Replace this block with an <img>. Suggested ~560×620. ▓▓ -->
+        <div class="hero-card">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="img-slot img-slot-hero" role="img" aria-label="Hero image placeholder">
+            <div class="img-slot-inner">
+              <span class="img-slot-tag">IMAGE</span>
+              <p>Hero visual</p>
+              <small>Swap for lifestyle / product photo · ~560×620</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="strip">
+      <div class="container strip-inner">
+        <span>How Velacore works with its partners</span>
+        <div class="strip-items">
+          <span>Independent physician review</span>
+          <span>·</span>
+          <span>503A pharmacy fulfillment</span>
+          <span>·</span>
+          <span>LegitScript-certified telemedicine partner</span>
+          <span>·</span>
+          <span>Select US states</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats bar -->
+    <section class="section stats-section">
+      <div class="container stats stats-4">
+        <div class="stat">
+          <p class="stat-num">Free</p>
+          <p class="stat-label">Wellness evaluation to start</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">503A</p>
+          <p class="stat-label">Compounding pharmacy fulfillment</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">100%</p>
+          <p class="stat-label">Medical decisions by the independent provider</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">15-day</p>
+          <p class="stat-label">Full refund if a program isn't approved</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section-alt" id="how">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>From evaluation to fulfillment</h2>
+          <p class="section-sub">Velacore coordinates each step. An independent licensed physician makes every medical decision.</p>
+        </div>
+
+        <ol class="steps steps-6">
+          <li class="step">
+            <div class="step-num">00</div>
+            <h3>Free wellness evaluation</h3>
+            <p>Start with a free Velacore wellness evaluation to assess your goals, lifestyle, and baseline health markers. Determines the right program path before any medical review.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">01</div>
+            <h3>Choose a program path</h3>
+            <p>Based on your evaluation, we help you identify the structured wellness program path that fits your goals.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">02</div>
+            <h3>Independent physician review</h3>
+            <p>Your information is shared with an independent, licensed physician who reviews it and makes the medical decision — approve, adjust, or decline.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">03</div>
+            <h3>Pharmacy fulfillment</h3>
+            <p>If a program is approved, it's fulfilled by a licensed 503A compounding pharmacy and shipped to you with instructions.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">04</div>
+            <h3>Ongoing coordination</h3>
+            <p>Message the Velacore care team for coordination and support throughout your program.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">05</div>
+            <h3>Not approved? Full refund</h3>
+            <p>If the independent reviewing physician does not approve your program, you're refunded in full — including the physician review fee — within 15 days.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Why Velacore — 4 pillars -->
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Why Velacore</p>
+          <h2>Four pillars of the platform</h2>
+          <p class="section-sub">A coordination layer built around independent clinical oversight and licensed pharmacy fulfillment.</p>
+        </div>
+        <div class="cards cards-4">
+          <article class="pillar">
+            <div class="pillar-ic" data-ic="coordinate"></div>
+            <h3>Coordinated, not clinical</h3>
+            <p>Velacore coordinates access and logistics. All medical decisions are made solely by the independent provider.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-ic" data-ic="independent"></div>
+            <h3>Independent physicians</h3>
+            <p>Members may be referred to independent, licensed healthcare providers for evaluation of physician-directed programs.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-ic" data-ic="pharmacy"></div>
+            <h3>503A pharmacy network</h3>
+            <p>Approved programs are fulfilled through licensed 503A compounding pharmacies.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-ic" data-ic="support"></div>
+            <h3>Support &amp; resources</h3>
+            <p>Structured wellness resources and a care team to help you coordinate every step.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="section section-alt" id="programs">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Programs</p>
+          <h2>Structured program paths</h2>
+          <p class="section-sub">Program paths coordinate an evaluation, independent physician review, and pharmacy fulfillment. Eligibility and any medical decision are determined solely by the independent provider.</p>
+        </div>
+
+        <!-- NOTE: Replace these placeholder cards with your real 13 programs, pricing, and badges.
+             Keep language descriptive/neutral — no health, outcome, or efficacy claims (LegitScript). -->
+        <div class="cards cards-3">
+          <article class="prog">
+            <div class="img-slot img-slot-prog" role="img" aria-label="Program image placeholder">
+              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Program photo · 4:3</small></div>
+            </div>
+            <div class="prog-body">
+              <h3>Metabolic &amp; Weight</h3>
+              <p>A structured program path focused on metabolic and weight-related goals, coordinated with an independent physician.</p>
+              <div class="prog-meta">
+                <span class="prog-price">$—<span>/mo</span></span>
+                <span class="prog-badge">Physician-approval refund</span>
+              </div>
+              <a href="#start" class="btn btn-ghost btn-block btn-sm">Take the evaluation</a>
+            </div>
+          </article>
+
+          <article class="prog">
+            <div class="img-slot img-slot-prog" role="img" aria-label="Program image placeholder">
+              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Program photo · 4:3</small></div>
+            </div>
+            <div class="prog-body">
+              <h3>Recovery &amp; Performance</h3>
+              <p>A structured program path oriented toward recovery and performance goals, coordinated with an independent physician.</p>
+              <div class="prog-meta">
+                <span class="prog-price">$—<span>/mo</span></span>
+                <span class="prog-badge">Physician-approval refund</span>
+              </div>
+              <a href="#start" class="btn btn-ghost btn-block btn-sm">Take the evaluation</a>
+            </div>
+          </article>
+
+          <article class="prog">
+            <div class="img-slot img-slot-prog" role="img" aria-label="Program image placeholder">
+              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Program photo · 4:3</small></div>
+            </div>
+            <div class="prog-body">
+              <h3>Longevity &amp; Vitality</h3>
+              <p>A structured program path organized around longevity and vitality goals, coordinated with an independent physician.</p>
+              <div class="prog-meta">
+                <span class="prog-price">$—<span>/mo</span></span>
+                <span class="prog-badge">Physician-approval refund</span>
+              </div>
+              <a href="#start" class="btn btn-ghost btn-block btn-sm">Take the evaluation</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="programs-more">
+          <p>These are placeholders for your full program lineup. <strong>Add your remaining programs, pricing, and badges here.</strong></p>
+          <a href="#start" class="btn btn-primary">See all programs &amp; find your protocol</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet a Prescribing Provider -->
+    <section class="section" id="provider">
+      <div class="container provider-grid">
+        <!-- ▓▓ IMAGE SLOT: provider headshot. Replace with an <img>. Suggested ~420×520. ▓▓ -->
+        <div class="img-slot img-slot-provider" role="img" aria-label="Provider photo placeholder">
+          <div class="img-slot-inner">
+            <span class="img-slot-tag">IMAGE</span>
+            <p>Provider headshot</p>
+            <small>~420×520</small>
+          </div>
+        </div>
+        <div class="provider-copy">
+          <p class="eyebrow">Meet a prescribing provider</p>
+          <h2>Dr. Crystal Ray Broussard</h2>
+          <p class="provider-role">Independent, licensed prescribing provider</p>
+          <p>
+            Members of Velacore Health may be referred to independent, licensed healthcare
+            providers for evaluation of physician-directed wellness programs. Dr. Broussard is an
+            independent, licensed provider who may review and prescribe as clinically appropriate.
+          </p>
+          <p class="provider-note">
+            Velacore Health does not provide medical care. All clinical decisions — to approve,
+            adjust, or decline a program — are made solely by the independent provider.
+          </p>
+          <ul class="provider-list">
+            <li><span class="check">✓</span> Licensed, independent provider</li>
+            <li><span class="check">✓</span> Credentials verifiable through public licensing registries</li>
+            <li><span class="check">✓</span> Independent clinical judgment on every case</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section class="section section-alt" id="guarantee">
+      <div class="container guarantee">
+        <div class="guarantee-inner">
+          <p class="eyebrow">The guarantee</p>
+          <h2>Approved by the physician — or your money back</h2>
+          <p class="guarantee-lede">
+            If the independent reviewing physician does not approve your program, you will be
+            refunded in full — including your program payment <strong>and</strong> the physician
+            review fee — within 15 days. Medications are non-returnable once dispensed.
+          </p>
+          <a href="#start" class="btn btn-primary">Start your free evaluation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Independent Physician Access Program -->
+    <section class="section" id="access">
+      <div class="container access-grid">
+        <div class="access-copy">
+          <p class="eyebrow">Independent physician access</p>
+          <h2>A courtesy referral, when eligible</h2>
+          <p>
+            Velacore Health members may be eligible for a courtesy referral to an independent,
+            licensed healthcare provider for evaluation of physician-directed wellness programs.
+          </p>
+        </div>
+        <!-- Resource library — Four Pillars (placeholders) -->
+        <div class="resources">
+          <h3>Resource library — the four pillars</h3>
+          <p class="resources-sub">Downloadable wellness resources. <em>Add your four PDF resources here.</em></p>
+          <ul class="resource-list">
+            <li><span class="res-ic"></span> Pillar 1 — <em>Add title</em></li>
+            <li><span class="res-ic"></span> Pillar 2 — <em>Add title</em></li>
+            <li><span class="res-ic"></span> Pillar 3 — <em>Add title</em></li>
+            <li><span class="res-ic"></span> Pillar 4 — <em>Add title</em></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder story teaser -->
+    <section class="section section-founder">
+      <div class="container founder-grid">
+        <!-- ▓▓ IMAGE SLOT: founder photo. Replace with an <img>. Suggested ~480×480. ▓▓ -->
+        <div class="img-slot img-slot-founder" role="img" aria-label="Founder photo placeholder">
+          <div class="img-slot-inner">
+            <span class="img-slot-tag">IMAGE</span>
+            <p>Founder photo</p>
+            <small>~480×480</small>
+          </div>
+        </div>
+        <div class="founder-copy">
+          <p class="eyebrow eyebrow-light">The founder's story</p>
+          <h2>Why we built Velacore</h2>
+          <p><em>Add the founder's personal story here.</em> Keep it framed as a personal experience.</p>
+          <p class="founder-fine">Individual experience. Not typical, and not a guarantee of any result.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt" id="faq">
+      <div class="container faq-wrap">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions, answered</h2>
+        </div>
+
+        <div class="faq" id="faqList">
+          <details class="faq-item">
+            <summary>What is Velacore Health?</summary>
+            <div class="faq-body"><p>Velacore Health is a telehealth coordination platform. We provide structured wellness resources and coordinate access to independent licensed physicians and 503A compounding pharmacies. We do not provide, guarantee, or facilitate any medical services, prescriptions, or treatments — all medical decisions are made solely by the independent provider.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>How does the process work?</summary>
+            <div class="faq-body"><p>You start with a free wellness evaluation, choose a program path, and — if you proceed — your information is reviewed by an independent, licensed physician who makes the medical decision. Approved programs are fulfilled by a licensed 503A compounding pharmacy and shipped to you.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Does Velacore prescribe or provide medical care?</summary>
+            <div class="faq-body"><p>No. Velacore coordinates access and logistics. Independent, licensed physicians make all clinical decisions, and licensed 503A pharmacies handle fulfillment.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>What is your refund policy?</summary>
+            <div class="faq-body"><p>If the independent reviewing physician does not approve your program, you will be refunded in full — including your program payment and the physician review fee — within 15 days. Medications are non-returnable once dispensed.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Which states do you serve?</summary>
+            <div class="faq-body"><p>Velacore Health telehealth programs are currently available to residents of select US states. Contact our care team to confirm availability in your state.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>How do I get started?</summary>
+            <div class="faq-body"><p>Begin with the free wellness evaluation. It helps determine the right program path before any medical review — with no obligation.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get started / CTA + form -->
+    <section class="section cta" id="start">
+      <div class="container cta-grid">
+        <div class="cta-copy">
+          <p class="eyebrow eyebrow-light">Get started</p>
+          <h2>Find your protocol</h2>
+          <p>Take the free wellness evaluation. It determines the right program path before any medical review — no obligation.</p>
+          <ul class="cta-points">
+            <li><span class="dot"></span> Free to begin, no obligation</li>
+            <li><span class="dot"></span> Independent physician makes the medical decision</li>
+            <li><span class="dot"></span> Full refund if a program isn't approved</li>
+          </ul>
+        </div>
+
+        <!-- NOTE: This demo form is a placeholder. Embed your JotForm "Find Your Protocol"
+             quiz here, or point the button to your JotForm URL. -->
+        <form class="cta-form" id="leadForm" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Jane Doe" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="state">State</label>
+              <input id="state" name="state" type="text" autocomplete="address-level1" placeholder="e.g. Texas" />
+            </div>
+            <div class="field">
+              <label for="goal">Program interest</label>
+              <select id="goal" name="goal">
+                <option value="">Select…</option>
+                <option>Metabolic &amp; Weight</option>
+                <option>Recovery &amp; Performance</option>
+                <option>Longevity &amp; Vitality</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Start free evaluation</button>
+          <p class="form-fine">By continuing you agree to be contacted about your request. Replace this form with your JotForm evaluation to go live.</p>
+          <p class="form-success" id="formSuccess" hidden>Thanks! We've received your request and will be in touch shortly.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- CRITICAL COMPLIANCE DISCLAIMER (approved copy — do not alter without compliance review) -->
+    <section class="please-note">
+      <div class="container">
+        <p>
+          <strong>Please note:</strong> Velacore Health is a telehealth coordination platform. We
+          do not provide, guarantee, or facilitate any medical services, prescriptions, or
+          treatments. Our platform coordinates access to independent licensed physicians and 503A
+          compounding pharmacies. All medical decisions are made solely by the independent provider.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16 3 L27 9 V19 C27 25 16 30 16 30 C16 30 5 25 5 19 V9 Z" fill="currentColor"/>
+            <path d="M11 13 l5 8 5 -8" fill="none" stroke="#4fd1c5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-name">Velacore<span class="brand-accent">Health</span></span>
+        </a>
+        <p>Velacore Health is a telehealth coordination platform that provides structured wellness resources and coordinates access to independent physician-directed programs.</p>
+      </div>
+      <nav class="footer-col" aria-label="Platform">
+        <h4>Platform</h4>
+        <a href="#how">How it works</a>
+        <a href="#programs">Programs</a>
+        <a href="#provider">Providers</a>
+        <a href="#guarantee">Guarantee</a>
+      </nav>
+      <nav class="footer-col" aria-label="Resources">
+        <h4>Resources</h4>
+        <a href="#access">Physician access</a>
+        <a href="#faq">FAQ</a>
+        <a href="#start">Find your protocol</a>
+        <a href="mailto:hello@velacorehealth.com">Contact</a>
+      </nav>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="mailto:hello@velacorehealth.com">hello@velacorehealth.com</a>
+        <a href="#start">Start free evaluation</a>
+      </div>
+    </div>
+
+    <div class="container footer-legal">
+      <p class="states-served">
+        Velacore Health telehealth programs are currently available to residents of select US
+        states. Contact our care team to confirm availability in your state.
+      </p>
+      <p class="disclaimer">
+        <strong>Important:</strong> Velacore Health does not provide, guarantee, or facilitate any
+        medical services, prescriptions, or treatments. The platform coordinates access to
+        independent licensed physicians and 503A compounding pharmacies; all medical decisions are
+        made solely by the independent provider. Content on this site is for general informational
+        purposes only and is not medical advice. Always consult a qualified healthcare provider.
+      </p>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Velacore Health · First Venture Group LLC. All rights reserved.</p>
+        <nav aria-label="Legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Telehealth consent</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  
+
+<script>
+/* Velacore Health — light interactivity */
+(function () {
+  'use strict';
+
+  // Current year in footer
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    // Close menu after choosing a link
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // FAQ: keep only one item open at a time
+  var faq = document.getElementById('faqList');
+  if (faq) {
+    var items = faq.querySelectorAll('details');
+    items.forEach(function (item) {
+      item.addEventListener('toggle', function () {
+        if (item.open) {
+          items.forEach(function (other) {
+            if (other !== item) other.open = false;
+          });
+        }
+      });
+    });
+  }
+
+  // Lead form (demo handler — replace with your intake provider)
+  var form = document.getElementById('leadForm');
+  var success = document.getElementById('formSuccess');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      // TODO: send `new FormData(form)` to your CRM / intake endpoint.
+      if (success) success.hidden = false;
+      form.querySelector('button[type="submit"]').textContent = 'Request received ✓';
+      form.querySelectorAll('input, select, button').forEach(function (el) {
+        el.disabled = true;
+      });
+    });
+  }
+
+  // Subtle reveal on scroll. Handled purely in CSS via the `.reveal` class so
+  // content is ALWAYS visible by default — the class only adds an entrance
+  // animation when it scrolls into view, and can never leave a section blank.
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var revealEls = document.querySelectorAll('.step, .prog, .pillar, .stat');
+    revealEls.forEach(function (el) { el.classList.add('reveal'); });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+})();
+
+</script>
