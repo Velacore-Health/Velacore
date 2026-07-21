@@ -63,7 +63,7 @@
   // content is ALWAYS visible by default — the class only adds an entrance
   // animation when it scrolls into view, and can never leave a section blank.
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var revealEls = document.querySelectorAll('.step, .prog, .plan, .safety-card, .stat');
+    var revealEls = document.querySelectorAll('.step, .prog, .pillar, .stat');
     revealEls.forEach(function (el) { el.classList.add('reveal'); });
 
     var io = new IntersectionObserver(function (entries) {

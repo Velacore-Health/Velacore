@@ -1,10 +1,21 @@
 # Velacore Health — Website
 
-Marketing website for **Velacore Health**, a telehealth practice offering clinician-guided,
-pharmacy-compounded peptide therapy delivered to patients at home.
+Marketing website for **Velacore Health**, a **telehealth coordination platform** that provides
+structured wellness resources and coordinates access to independent licensed physicians and 503A
+compounding pharmacies. All medical decisions are made solely by the independent provider.
 
 Built as a fast, self-contained static site — no build step, no dependencies. Just open
 `index.html` or deploy the folder anywhere.
+
+> **Compliance:** copy and positioning follow the LegitScript launch brief. Before changing wording
+> or going live, read **[`COMPLIANCE.md`](./COMPLIANCE.md)** — it records what must not be undone
+> and what's still outstanding (attorney review, SOPs, states list, pharmacy routing).
+
+## Swapping in images
+
+Every image is a dashed **placeholder** — search the HTML for `img-slot` and replace each block
+with an `<img>`. Suggested dimensions are noted inside each placeholder and in nearby comments
+(hero visual, provider headshot, program photos, founder photo).
 
 ## Structure
 
