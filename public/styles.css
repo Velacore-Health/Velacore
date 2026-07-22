@@ -183,6 +183,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .tcard-media{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#f3f2f9,#e7e9f3);display:grid;place-items:center;overflow:hidden}
 .tcard-media .node-glyph{width:70px;height:70px;opacity:.9}
 .tcard-photo{width:100%;height:100%;object-fit:cover;display:block}
+.start-viz{position:absolute;inset:0;width:100%;height:100%}
 .tcard-cat{position:absolute;top:14px;left:14px;font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--jade);background:rgba(7,12,11,.62);border:1px solid var(--line-dark-2);padding:5px 10px;border-radius:999px;backdrop-filter:blur(6px)}
 .tcard-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
 .tcard-body h3{font-size:1.35rem;margin-bottom:5px}
