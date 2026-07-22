@@ -99,7 +99,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 }
 .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
 .brand{display:inline-flex;align-items:center;gap:10px;color:var(--on-dark);font-weight:700}
-.brand-mark{width:30px;height:30px;color:var(--on-dark)}
+.brand-mark{width:auto;height:34px;display:block}
 .brand-name{font-family:var(--display);font-size:1.24rem;letter-spacing:-.02em;font-weight:600}
 .brand-accent{color:var(--jade)}
 .nav-links{display:flex;align-items:center;gap:30px}
