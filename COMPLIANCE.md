@@ -71,6 +71,17 @@ name anywhere in this repository.** They belong only in a gated member area (see
 - Transparent pricing and a clear refund policy.
 - States-served disclosure (placeholder line — replace with the confirmed list).
 
+### Refund policy (authoritative — matches live velacorehealth.com)
+
+If the independent physician does not approve the program (in full or in part), the **program
+payment is refunded in full within 15 days**. The **physician review fee is non-refundable**.
+**Medications are non-returnable and non-refundable once dispensed** (federal/state pharmacy law).
+The **shipping fee is refunded only if no prescription is fulfilled.**
+
+> ⚠️ This **contradicts the original launch brief**, which stated the refund includes the physician
+> review fee. The above (fee NOT refunded) is the current, owner-confirmed policy. Ensure the
+> **JotForm terms, Terms/Refund Policy page, and payment processor** all state this same policy.
+
 ## Still required before submission (from your brief — not code)
 
 - [ ] Confirm the real **states-served list**; replace the placeholder line.
