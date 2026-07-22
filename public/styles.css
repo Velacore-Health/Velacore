@@ -208,6 +208,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ---------- Provider ---------- */
 .provider-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center}
 .provider-role{color:var(--jade-deep);font-weight:600;margin-bottom:16px}
+.provider-name{display:flex;align-items:center;flex-wrap:wrap;gap:12px;font-family:var(--display);font-size:1.3rem;font-weight:600;color:var(--on-cream);margin:14px 0 18px}
+.provider-npi{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.05em;color:var(--jade-deep);background:rgba(12,143,114,.12);border:1px solid rgba(12,143,114,.28);padding:5px 11px;border-radius:999px}
 .provider-copy>p{color:var(--muted-cream);margin-bottom:14px}
 .provider-note{background:#fff;border:1px solid var(--line-cream);border-left:3px solid var(--jade-deep);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:15px 17px;font-size:.92rem;color:var(--on-cream)!important}
 .provider-list{display:grid;gap:11px;margin-top:22px}
