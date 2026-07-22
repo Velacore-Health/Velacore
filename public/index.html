@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Velacore Health — Physician-Directed Telehealth</title>
-  <meta name="description" content="Velacore Health is a telehealth platform that coordinates access to independent, licensed physicians and 503A compounding pharmacies. Prescription treatments including GLP-1, NAD+, glutathione, and sermorelin — prescribed only when clinically appropriate." />
-  <meta name="keywords" content="telehealth, online doctor, GLP-1, semaglutide, tirzepatide, NAD+, prescription telehealth, 503A compounding pharmacy" />
-  <meta name="theme-color" content="#0b1f2a" />
+  <title>Velacore Health — Physician-Directed Peptide Telehealth</title>
+  <meta name="description" content="Velacore Health is a telehealth platform that coordinates access to independent, licensed physicians and 503A compounding pharmacies. Prescription peptide and GLP-1 therapy — reviewed by a physician, delivered to your door." />
+  <meta name="keywords" content="peptide telehealth, GLP-1, semaglutide, tirzepatide, NAD+, glutathione, sermorelin, 503A compounding pharmacy, online prescription" />
+  <meta name="theme-color" content="#0B1110" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Velacore Health — Physician-Directed Telehealth" />
-  <meta property="og:description" content="Prescription telehealth coordinated with independent licensed physicians and 503A compounding pharmacies. Prescription required." />
+  <meta property="og:title" content="Velacore Health — Physician-Directed Peptide Telehealth" />
+  <meta property="og:description" content="Prescription peptide and GLP-1 therapy, reviewed by independent physicians and filled by 503A compounding pharmacies. Prescription required." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.velacorehealth.com" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 L27 9 V19 C27 25 16 30 16 30 C16 30 5 25 5 19 V9 Z' fill='%230b1f2a'/%3E%3Cpath d='M11 13 l5 8 5 -8' fill='none' stroke='%234fd1c5' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B1110'/%3E%3Ccircle cx='11' cy='12' r='3' fill='%2357D9B6'/%3E%3Ccircle cx='21' cy='11' r='2.4' fill='%2357D9B6'/%3E%3Ccircle cx='17' cy='21' r='2.4' fill='%2357D9B6'/%3E%3Cpath d='M11 12 L21 11 L17 21 Z' fill='none' stroke='%2357D9B6' stroke-width='1.1' opacity='.7'/%3E%3C/svg%3E" />
 </head>
 <body>
   <!-- Announcement bar -->
   <div class="topbar">
-    <span>Physician-directed telehealth · Available to residents of select US states · Prescription required</span>
+    <span>Physician-directed peptide telehealth · Available in <b>select US states</b> · Prescription required</span>
   </div>
 
   <!-- Header -->
@@ -31,19 +30,21 @@
     <div class="container nav">
       <a href="#top" class="brand" aria-label="Velacore Health home">
         <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M16 3 L27 9 V19 C27 25 16 30 16 30 C16 30 5 25 5 19 V9 Z" fill="currentColor"/>
-          <path d="M11 13 l5 8 5 -8" fill="none" stroke="#4fd1c5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="11" cy="12" r="3" fill="#57D9B6"/>
+          <circle cx="22" cy="11" r="2.4" fill="currentColor"/>
+          <circle cx="17" cy="22" r="2.4" fill="currentColor"/>
+          <path d="M11 12 L22 11 L17 22 Z" fill="none" stroke="#57D9B6" stroke-width="1.2" opacity=".65"/>
         </svg>
-        <span class="brand-name">Velacore<span class="brand-accent">Health</span></span>
+        <span class="brand-name">Velacore<span class="brand-accent">.</span></span>
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <a href="#how">How it works</a>
         <a href="#treatments">Treatments</a>
+        <a href="#how">How it works</a>
+        <a href="#why">Why Velacore</a>
         <a href="#provider">Providers</a>
-        <a href="#guarantee">Guarantee</a>
         <a href="#faq">FAQ</a>
-        <a href="#start" class="btn btn-primary btn-sm">Start online visit</a>
+        <a href="#intake" class="btn btn-primary btn-sm">Start online visit</a>
       </nav>
 
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -55,264 +56,240 @@
   <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Physician-directed telehealth</p>
-          <h1>Prescription telehealth, <span class="grad">reviewed by independent physicians.</span></h1>
-          <p class="lede">
-            Velacore Health is a telehealth platform that coordinates access to independent,
-            licensed physicians and 503A compounding pharmacies. Complete an online visit; an
-            independent physician reviews it and prescribes only when clinically appropriate.
-          </p>
-          <div class="hero-cta">
-            <a href="#start" class="btn btn-primary">Start online visit</a>
-            <a href="#how" class="btn btn-ghost">See how it works</a>
-          </div>
-          <ul class="hero-trust">
-            <li><span class="dot"></span> Independent, licensed physicians</li>
-            <li><span class="dot"></span> 503A compounding pharmacies</li>
-            <li><span class="dot"></span> Prescription required</li>
-          </ul>
+      <canvas id="molecule" aria-hidden="true"></canvas>
+      <div class="container hero-inner">
+        <p class="eyebrow">Physician-directed peptide telehealth</p>
+        <h1>Precision peptide therapy, <span class="grad">reviewed by real physicians.</span></h1>
+        <p class="hero-lede">
+          Velacore is a telehealth platform that connects you with independent, licensed physicians
+          and 503A compounding pharmacies. Start an online visit — a physician reviews it and
+          prescribes only when it's clinically appropriate.
+        </p>
+        <div class="hero-cta">
+          <a href="#treatments" class="btn btn-primary btn-arrow">Explore treatments</a>
+          <a href="#how" class="btn btn-ghost">How it works</a>
+        </div>
+        <ul class="hero-chips">
+          <li class="chip"><span class="dot"></span> Independent, licensed physicians</li>
+          <li class="chip"><span class="dot"></span> 503A compounding pharmacies</li>
+          <li class="chip"><span class="dot"></span> Prescription required</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Independent physician review</span><span>503A compounding pharmacies</span><span>Prescription required</span><span>Delivered to your door</span><span>Refund if not prescribed</span>
+        <span>Independent physician review</span><span>503A compounding pharmacies</span><span>Prescription required</span><span>Delivered to your door</span><span>Refund if not prescribed</span>
+      </div>
+    </section>
+
+    <!-- Treatments (product-led centerpiece) -->
+    <section class="section on-cream" id="treatments">
+      <div class="container">
+        <div class="section-head center">
+          <p class="eyebrow">Treatments</p>
+          <h2>Choose your therapy. A physician decides the rest.</h2>
+          <p class="section-sub">Every treatment is prescription only and reviewed by an independent, licensed physician. Pick where you want to start — your online visit takes it from there.</p>
         </div>
 
-        <!-- ▓▓ IMAGE SLOT: hero visual. Replace this block with an <img>. Suggested ~560×620. ▓▓ -->
-        <div class="hero-card">
-          <div class="card-glow" aria-hidden="true"></div>
-          <div class="img-slot img-slot-hero" role="img" aria-label="Hero image placeholder">
-            <div class="img-slot-inner">
-              <span class="img-slot-tag">IMAGE</span>
-              <p>Hero visual</p>
-              <small>Swap for lifestyle / product photo · ~560×620</small>
+        <div class="filters" role="tablist" aria-label="Filter treatments">
+          <button class="filter is-active" data-filter="all">All</button>
+          <button class="filter" data-filter="weight">Weight</button>
+          <button class="filter" data-filter="vitality">Vitality</button>
+          <button class="filter" data-filter="hormone">Hormone support</button>
+        </div>
+
+        <div class="tgrid" id="tgrid">
+          <!-- Tirzepatide -->
+          <article class="tcard" data-cat="weight">
+            <div class="tcard-media">
+              <span class="tcard-cat">Weight</span>
+              <!-- ▓ IMAGE SLOT: replace this .node-glyph with a product photo <img> (16:11) ▓ -->
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="18" cy="22" r="5" fill="#57D9B6"/><circle cx="44" cy="18" r="4" fill="#7FE7CC"/><circle cx="38" cy="44" r="4.5" fill="#57D9B6"/><circle cx="20" cy="46" r="3.5" fill="#2f6f5f"/><path d="M18 22 44 18 38 44 20 46Z M18 22 38 44" stroke="#57D9B6" stroke-width="1.2" opacity=".6"/></svg>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="tcard-body">
+              <h3>Tirzepatide</h3>
+              <p class="tcard-mech">Dual GIP / GLP-1 receptor agonist. 2 protocol options · monthly supply.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">$75–$115 <small>/mo</small></span>
+                <span class="tcard-rx">Rx only</span>
+              </div>
+              <a href="#intake" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+            </div>
+          </article>
 
-    <!-- Trust strip -->
-    <section class="strip">
-      <div class="container strip-inner">
-        <span>How Velacore works with its partners</span>
-        <div class="strip-items">
-          <span>Independent physician review</span>
-          <span>·</span>
-          <span>503A pharmacy fulfillment</span>
-          <span>·</span>
-          <span>LegitScript-certified telemedicine partner</span>
-          <span>·</span>
-          <span>Select US states</span>
-        </div>
-      </div>
-    </section>
+          <!-- Semaglutide -->
+          <article class="tcard" data-cat="weight">
+            <div class="tcard-media">
+              <span class="tcard-cat">Weight</span>
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="5" fill="#57D9B6"/><circle cx="46" cy="26" r="4" fill="#7FE7CC"/><circle cx="30" cy="44" r="4.5" fill="#57D9B6"/><path d="M20 20 46 26 30 44Z" stroke="#57D9B6" stroke-width="1.2" opacity=".6"/></svg>
+            </div>
+            <div class="tcard-body">
+              <h3>Semaglutide</h3>
+              <p class="tcard-mech">GLP-1 receptor agonist. 2 protocol options · monthly supply.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">$40–$55 <small>/mo</small></span>
+                <span class="tcard-rx">Rx only</span>
+              </div>
+              <a href="#intake" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+            </div>
+          </article>
 
-    <!-- Stats bar -->
-    <section class="section stats-section">
-      <div class="container stats stats-4">
-        <div class="stat">
-          <p class="stat-num">Online</p>
-          <p class="stat-label">Doctor visit from home</p>
+          <!-- NAD+ -->
+          <article class="tcard" data-cat="vitality">
+            <div class="tcard-media">
+              <span class="tcard-cat">Vitality</span>
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="16" cy="28" r="4.5" fill="#57D9B6"/><circle cx="32" cy="16" r="4" fill="#7FE7CC"/><circle cx="48" cy="28" r="4.5" fill="#57D9B6"/><circle cx="32" cy="46" r="4" fill="#2f6f5f"/><path d="M16 28 32 16 48 28 32 46Z" stroke="#57D9B6" stroke-width="1.2" opacity=".6"/></svg>
+            </div>
+            <div class="tcard-body">
+              <h3>NAD+</h3>
+              <p class="tcard-mech">NAD+ injectable. 2 protocol options · monthly supply.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">$80 <small>/mo</small></span>
+                <span class="tcard-rx">Rx only</span>
+              </div>
+              <a href="#intake" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+            </div>
+          </article>
+
+          <!-- Glutathione -->
+          <article class="tcard" data-cat="vitality">
+            <div class="tcard-media">
+              <span class="tcard-cat">Vitality</span>
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="22" cy="24" r="5" fill="#57D9B6"/><circle cx="44" cy="22" r="4" fill="#7FE7CC"/><circle cx="34" cy="44" r="4.5" fill="#57D9B6"/><circle cx="18" cy="40" r="3.2" fill="#2f6f5f"/><path d="M22 24 44 22 34 44 18 40Z" stroke="#57D9B6" stroke-width="1.2" opacity=".6"/></svg>
+            </div>
+            <div class="tcard-body">
+              <h3>Glutathione</h3>
+              <p class="tcard-mech">Glutathione injectable. 2 protocol options · monthly supply.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">$80 <small>/mo</small></span>
+                <span class="tcard-rx">Rx only</span>
+              </div>
+              <a href="#intake" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+            </div>
+          </article>
+
+          <!-- Sermorelin -->
+          <article class="tcard" data-cat="hormone">
+            <div class="tcard-media">
+              <span class="tcard-cat">Hormone support</span>
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="18" cy="20" r="4.5" fill="#57D9B6"/><circle cx="40" cy="16" r="4" fill="#7FE7CC"/><circle cx="48" cy="38" r="4.5" fill="#57D9B6"/><circle cx="26" cy="44" r="3.6" fill="#2f6f5f"/><path d="M18 20 40 16 48 38 26 44Z" stroke="#57D9B6" stroke-width="1.2" opacity=".6"/></svg>
+            </div>
+            <div class="tcard-body">
+              <h3>Sermorelin</h3>
+              <p class="tcard-mech">Growth hormone–releasing hormone analog. 2 protocol options · monthly supply.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">$130 <small>/mo</small></span>
+                <span class="tcard-rx">Rx only</span>
+              </div>
+              <a href="#intake" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+            </div>
+          </article>
+
+          <!-- Not sure -->
+          <article class="tcard" data-cat="all">
+            <div class="tcard-media" style="background:linear-gradient(150deg,#0c8f72,#16211f)">
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="26" r="6" fill="#0B1110"/><path d="M32 34v8" stroke="#0B1110" stroke-width="3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="tcard-body">
+              <h3>Not sure where to start?</h3>
+              <p class="tcard-mech">Start the online visit and an independent physician will help determine what's appropriate for you.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">Free <small>to begin</small></span>
+                <span class="tcard-rx">No obligation</span>
+              </div>
+              <a href="#intake" class="btn btn-primary btn-block btn-sm btn-arrow">Start online visit</a>
+            </div>
+          </article>
         </div>
-        <div class="stat">
-          <p class="stat-num">503A</p>
-          <p class="stat-label">Compounding pharmacy fulfillment</p>
-        </div>
-        <div class="stat">
-          <p class="stat-num">100%</p>
-          <p class="stat-label">Prescribing decisions by the independent physician</p>
-        </div>
-        <div class="stat">
-          <p class="stat-num">15-day</p>
-          <p class="stat-label">Full refund if not prescribed</p>
-        </div>
+
+        <p class="treat-note">All medications are prescription only and dispensed by a licensed pharmacy following a physician's prescription. Prices reflect program cost; final options are determined by your physician. Individual results vary. This page is not medical advice.</p>
       </div>
     </section>
 
     <!-- How it works -->
-    <section class="section section-alt" id="how">
+    <section class="section" id="how">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">How it works</p>
-          <h2>From online visit to your door</h2>
+          <h2>Four steps from visit to doorstep</h2>
           <p class="section-sub">Velacore coordinates each step. An independent, licensed physician makes every prescribing decision.</p>
         </div>
-
-        <ol class="steps steps-5">
+        <ol class="steps">
           <li class="step">
-            <div class="step-num">01</div>
-            <h3>Start your online visit</h3>
-            <p>Complete a secure telehealth intake about your goals, history, and current medications — no cost to begin.</p>
+            <div class="step-num">STEP 01</div>
+            <h3>Start your visit</h3>
+            <p>Complete a secure online intake about your goals, history, and medications. Free to begin.</p>
           </li>
           <li class="step">
-            <div class="step-num">02</div>
-            <h3>Independent physician review</h3>
-            <p>An independent, licensed physician reviews your intake and decides whether to prescribe, adjust, or decline — based solely on clinical judgment.</p>
+            <div class="step-num">STEP 02</div>
+            <h3>Physician review</h3>
+            <p>An independent, licensed physician reviews it and decides whether to prescribe — on clinical judgment alone.</p>
           </li>
           <li class="step">
-            <div class="step-num">03</div>
-            <h3>503A pharmacy fulfillment</h3>
-            <p>If prescribed, your treatment is filled by a licensed 503A compounding pharmacy and shipped to you with instructions.</p>
+            <div class="step-num">STEP 03</div>
+            <h3>Pharmacy fulfillment</h3>
+            <p>If prescribed, a licensed 503A compounding pharmacy fills your treatment and ships it to you.</p>
           </li>
           <li class="step">
-            <div class="step-num">04</div>
-            <h3>Ongoing coordination</h3>
-            <p>Message the Velacore care team for coordination and support throughout your treatment.</p>
+            <div class="step-num">STEP 04</div>
+            <h3>Ongoing support</h3>
+            <p>Your care team helps you coordinate follow-ups and reorders throughout your treatment.</p>
           </li>
           <li class="step">
-            <div class="step-num">05</div>
-            <h3>Not prescribed? Full refund</h3>
-            <p>If the independent physician does not prescribe, you're refunded in full — including the physician review fee — within 15 days.</p>
+            <div class="step-num">GUARANTEE</div>
+            <h3>Refund if not prescribed</h3>
+            <p>If the physician doesn't prescribe, you're refunded in full — including the review fee — within 15 days.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- Why Velacore — 4 pillars -->
-    <section class="section" id="why">
+    <!-- Why Velacore -->
+    <section class="section" id="why" style="padding-top:0">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Why Velacore</p>
-          <h2>Four pillars of the platform</h2>
-          <p class="section-sub">A telehealth coordination layer built around independent clinical oversight and licensed pharmacy fulfillment.</p>
+          <h2>Built on independent clinical oversight</h2>
         </div>
-        <div class="cards cards-4">
+        <div class="pillars">
           <article class="pillar">
-            <div class="pillar-ic" data-ic="coordinate"></div>
+            <div class="pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
             <h3>Coordinated, not clinical</h3>
-            <p>Velacore coordinates access and logistics. All prescribing decisions are made solely by the independent physician.</p>
+            <p>Velacore handles access and logistics. Every prescribing decision is made solely by the independent physician.</p>
           </article>
           <article class="pillar">
-            <div class="pillar-ic" data-ic="independent"></div>
+            <div class="pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
             <h3>Independent physicians</h3>
-            <p>You're connected with independent, licensed physicians whose credentials are disclosed to you before care.</p>
+            <p>You're connected with independent, licensed physicians whose credentials are disclosed before care.</p>
           </article>
           <article class="pillar">
-            <div class="pillar-ic" data-ic="pharmacy"></div>
+            <div class="pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.5 12 3l7.5 5.5V20a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1z"/><path d="M12 10v6M9 13h6"/></svg></div>
             <h3>503A pharmacy network</h3>
             <p>Prescribed treatments are filled through licensed 503A compounding pharmacies.</p>
           </article>
           <article class="pillar">
-            <div class="pillar-ic" data-ic="support"></div>
+            <div class="pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
             <h3>Support &amp; coordination</h3>
-            <p>A care team helps you coordinate your visit, fulfillment, and follow-up.</p>
+            <p>A dedicated care team helps you coordinate your visit, fulfillment, and follow-up.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Treatments (public: the 5 permitted) -->
-    <section class="section section-alt" id="treatments">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Treatments</p>
-          <h2>Prescription treatments we coordinate</h2>
-          <p class="section-sub">All treatments require an online visit and a prescription from an independent, licensed physician. Prescriptions are issued only when clinically appropriate. Prices reflect program cost; final options are set by your physician.</p>
-        </div>
-
-        <div class="cards cards-3">
-          <!-- 1 · Tirzepatide -->
-          <article class="prog">
-            <div class="img-slot img-slot-prog" role="img" aria-label="Treatment image placeholder">
-              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Product photo · 4:3</small></div>
-            </div>
-            <div class="prog-body">
-              <span class="prog-cat">Weight management</span>
-              <h3>Tirzepatide</h3>
-              <p>Dual GIP / GLP-1 receptor agonist. Prescription only. 2 protocol options · monthly supply.</p>
-              <div class="prog-meta">
-                <span class="prog-price">$75–$115<span>/mo</span></span>
-                <span class="prog-badge">Refund if not prescribed</span>
-              </div>
-              <a href="#start" class="btn btn-ghost btn-block btn-sm">Start online visit</a>
-            </div>
-          </article>
-
-          <!-- 2 · Semaglutide -->
-          <article class="prog">
-            <div class="img-slot img-slot-prog" role="img" aria-label="Treatment image placeholder">
-              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Product photo · 4:3</small></div>
-            </div>
-            <div class="prog-body">
-              <span class="prog-cat">Weight management</span>
-              <h3>Semaglutide</h3>
-              <p>GLP-1 receptor agonist. Prescription only. 2 protocol options · monthly supply.</p>
-              <div class="prog-meta">
-                <span class="prog-price">$40–$55<span>/mo</span></span>
-                <span class="prog-badge">Refund if not prescribed</span>
-              </div>
-              <a href="#start" class="btn btn-ghost btn-block btn-sm">Start online visit</a>
-            </div>
-          </article>
-
-          <!-- 3 · NAD+ -->
-          <article class="prog">
-            <div class="img-slot img-slot-prog" role="img" aria-label="Treatment image placeholder">
-              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Product photo · 4:3</small></div>
-            </div>
-            <div class="prog-body">
-              <span class="prog-cat">Vitality</span>
-              <h3>NAD+</h3>
-              <p>NAD+ injectable. Prescription only. 2 protocol options · monthly supply.</p>
-              <div class="prog-meta">
-                <span class="prog-price">$80<span>/mo</span></span>
-                <span class="prog-badge">Refund if not prescribed</span>
-              </div>
-              <a href="#start" class="btn btn-ghost btn-block btn-sm">Start online visit</a>
-            </div>
-          </article>
-
-          <!-- 4 · Glutathione -->
-          <article class="prog">
-            <div class="img-slot img-slot-prog" role="img" aria-label="Treatment image placeholder">
-              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Product photo · 4:3</small></div>
-            </div>
-            <div class="prog-body">
-              <span class="prog-cat">Vitality</span>
-              <h3>Glutathione</h3>
-              <p>Glutathione injectable. Prescription only. 2 protocol options · monthly supply.</p>
-              <div class="prog-meta">
-                <span class="prog-price">$80<span>/mo</span></span>
-                <span class="prog-badge">Refund if not prescribed</span>
-              </div>
-              <a href="#start" class="btn btn-ghost btn-block btn-sm">Start online visit</a>
-            </div>
-          </article>
-
-          <!-- 5 · Sermorelin -->
-          <article class="prog">
-            <div class="img-slot img-slot-prog" role="img" aria-label="Treatment image placeholder">
-              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Product photo · 4:3</small></div>
-            </div>
-            <div class="prog-body">
-              <span class="prog-cat">Hormone support</span>
-              <h3>Sermorelin</h3>
-              <p>Growth hormone–releasing hormone analog. Prescription only. 2 protocol options · monthly supply.</p>
-              <div class="prog-meta">
-                <span class="prog-price">$130<span>/mo</span></span>
-                <span class="prog-badge">Refund if not prescribed</span>
-              </div>
-              <a href="#start" class="btn btn-ghost btn-block btn-sm">Start online visit</a>
-            </div>
-          </article>
-
-        </div>
-
-        <p class="rx-note">All medications are prescription only and dispensed by a licensed pharmacy following a physician's prescription. Individual results vary. This page does not constitute medical advice.</p>
-      </div>
-    </section>
-
-    <!-- Meet a Prescribing Provider -->
-    <section class="section" id="provider">
+    <!-- Provider -->
+    <section class="section on-cream" id="provider">
       <div class="container provider-grid">
-        <!-- ▓▓ IMAGE SLOT: provider headshot. Replace with an <img>. Suggested ~420×520. ▓▓ -->
-        <div class="img-slot img-slot-provider" role="img" aria-label="Provider photo placeholder">
-          <div class="img-slot-inner">
-            <span class="img-slot-tag">IMAGE</span>
-            <p>Provider headshot</p>
-            <small>~420×520</small>
+        <!-- ▓▓ IMAGE SLOT: provider headshot (replace this card's media with an <img>, ~420×520) ▓▓ -->
+        <div class="tcard" style="box-shadow:var(--shadow-cream)">
+          <div class="tcard-media" style="aspect-ratio:42/52">
+            <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="24" r="10" stroke="#57D9B6" stroke-width="2"/><path d="M14 52c2-10 10-14 18-14s16 4 18 14" stroke="#57D9B6" stroke-width="2" fill="none"/></svg>
           </div>
         </div>
         <div class="provider-copy">
-          <p class="eyebrow">Meet a prescribing provider</p>
+          <p class="eyebrow">Meet a prescribing physician</p>
           <h2>Dr. Crystal Ray Broussard</h2>
           <p class="provider-role">Independent, licensed prescribing physician</p>
           <p>
@@ -334,29 +311,28 @@
     </section>
 
     <!-- Guarantee -->
-    <section class="section section-alt" id="guarantee">
-      <div class="container guarantee">
+    <section class="section guarantee" id="guarantee">
+      <div class="container">
         <div class="guarantee-inner">
-          <p class="eyebrow">The guarantee</p>
-          <h2>Prescribed by the physician — or your money back</h2>
+          <p class="eyebrow" style="justify-content:center">The guarantee</p>
+          <h2>Prescribed by the physician — or your money back.</h2>
           <p class="guarantee-lede">
-            If the independent physician does not prescribe, you will be refunded in full —
-            including your program payment <strong>and</strong> the physician review fee — within
-            15 days. Medications are non-returnable once dispensed.
+            If the independent physician doesn't prescribe, you're refunded in full — your program
+            payment <strong>and</strong> the physician review fee — within 15 days. Medications are
+            non-returnable once dispensed.
           </p>
-          <a href="#start" class="btn btn-primary">Start your online visit</a>
+          <a href="#intake" class="btn btn-primary btn-arrow">Start your online visit</a>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq">
+    <section class="section on-cream" id="faq">
       <div class="container faq-wrap">
-        <div class="section-head">
-          <p class="eyebrow">FAQ</p>
+        <div class="section-head center">
+          <p class="eyebrow" style="justify-content:center">FAQ</p>
           <h2>Questions, answered</h2>
         </div>
-
         <div class="faq" id="faqList">
           <details class="faq-item">
             <summary>What is Velacore Health?</summary>
@@ -372,7 +348,7 @@
           </details>
           <details class="faq-item">
             <summary>What is your refund policy?</summary>
-            <div class="faq-body"><p>If the independent physician does not prescribe, you will be refunded in full — including your program payment and the physician review fee — within 15 days. Medications are non-returnable once dispensed.</p></div>
+            <div class="faq-body"><p>If the independent physician does not prescribe, you're refunded in full — including your program payment and the physician review fee — within 15 days. Medications are non-returnable once dispensed.</p></div>
           </details>
           <details class="faq-item">
             <summary>Which states do you serve?</summary>
@@ -386,22 +362,23 @@
       </div>
     </section>
 
-    <!-- Get started / CTA + form -->
-    <section class="section cta" id="start">
+    <!-- Intake -->
+    <section class="section" id="intake">
       <div class="container cta-grid">
         <div class="cta-copy">
-          <p class="eyebrow eyebrow-light">Get started</p>
-          <h2>Start your online visit</h2>
+          <p class="eyebrow">Start online visit</p>
+          <h2>Your visit starts here.</h2>
           <p>It's free to begin. An independent, licensed physician reviews your intake and decides whether treatment is appropriate — no obligation.</p>
           <ul class="cta-points">
             <li><span class="dot"></span> Free to begin, no obligation</li>
             <li><span class="dot"></span> Independent physician makes the prescribing decision</li>
             <li><span class="dot"></span> Full refund if not prescribed</li>
+            <li><span class="dot"></span> Filled by a licensed 503A pharmacy</li>
           </ul>
         </div>
 
-        <!-- Live JotForm telehealth intake (embedded). Form ID: 261070496021449 -->
-        <div class="cta-form cta-form-embed">
+        <div class="intake-card">
+          <!-- Live JotForm telehealth intake · Form ID 261070496021449 -->
           <iframe
             id="JotFormIFrame-261070496021449"
             title="Velacore Health telehealth intake"
@@ -410,20 +387,20 @@
             frameborder="0"
             scrolling="no"
             loading="lazy"></iframe>
-          <p class="form-fine">Prescription required. Submitting begins a telehealth intake; it is not a guarantee of treatment.</p>
+          <p class="intake-fine">Prescription required. Submitting begins a telehealth intake; it is not a guarantee of treatment.</p>
         </div>
       </div>
     </section>
 
-    <!-- CRITICAL COMPLIANCE DISCLAIMER (approved model — review before altering) -->
+    <!-- Please note -->
     <section class="please-note">
       <div class="container">
         <p>
-          <strong>Please note:</strong> Velacore Health is a telehealth platform. We do not provide,
-          guarantee, or facilitate any medical services, prescriptions, or treatments. Our platform
-          coordinates access to independent, licensed physicians and 503A compounding pharmacies. All
-          medical decisions are made solely by the independent physician. All medications are
-          prescription only and require a valid prescription.
+          <b>Please note:</b> Velacore Health is a telehealth platform. We do not provide, guarantee,
+          or facilitate any medical services, prescriptions, or treatments. Our platform coordinates
+          access to independent, licensed physicians and 503A compounding pharmacies. All medical
+          decisions are made solely by the independent physician. All medications are prescription
+          only and require a valid prescription.
         </p>
       </div>
     </section>
@@ -435,45 +412,48 @@
       <div class="footer-brand">
         <a href="#top" class="brand">
           <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M16 3 L27 9 V19 C27 25 16 30 16 30 C16 30 5 25 5 19 V9 Z" fill="currentColor"/>
-            <path d="M11 13 l5 8 5 -8" fill="none" stroke="#4fd1c5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="11" cy="12" r="3" fill="#57D9B6"/>
+            <circle cx="22" cy="11" r="2.4" fill="currentColor"/>
+            <circle cx="17" cy="22" r="2.4" fill="currentColor"/>
+            <path d="M11 12 L22 11 L17 22 Z" fill="none" stroke="#57D9B6" stroke-width="1.2" opacity=".65"/>
           </svg>
-          <span class="brand-name">Velacore<span class="brand-accent">Health</span></span>
+          <span class="brand-name">Velacore<span class="brand-accent">.</span></span>
         </a>
-        <p>Velacore Health is a telehealth platform that coordinates access to independent, licensed physicians and 503A compounding pharmacies.</p>
+        <p>A telehealth platform coordinating access to independent, licensed physicians and 503A compounding pharmacies.</p>
       </div>
-      <nav class="footer-col" aria-label="Platform">
-        <h4>Platform</h4>
-        <a href="#how">How it works</a>
+      <nav class="footer-col" aria-label="Explore">
+        <h4>Explore</h4>
         <a href="#treatments">Treatments</a>
+        <a href="#how">How it works</a>
+        <a href="#why">Why Velacore</a>
         <a href="#provider">Providers</a>
-        <a href="#guarantee">Guarantee</a>
       </nav>
       <nav class="footer-col" aria-label="More">
         <h4>More</h4>
         <a href="#faq">FAQ</a>
-        <a href="#start">Start online visit</a>
+        <a href="#guarantee">Guarantee</a>
+        <a href="#intake">Start online visit</a>
         <a href="mailto:hello@velacorehealth.com">Contact</a>
       </nav>
       <div class="footer-col">
         <h4>Get in touch</h4>
         <a href="mailto:hello@velacorehealth.com">hello@velacorehealth.com</a>
-        <a href="#start">Start online visit</a>
+        <a href="#intake">Start online visit</a>
       </div>
     </div>
 
     <div class="container footer-legal">
       <p class="states-served">
-        Velacore Health telehealth services are currently available to residents of select US
-        states. Contact our care team to confirm availability in your state. Prescription required.
+        Velacore Health telehealth services are currently available to residents of select US states.
+        Contact our care team to confirm availability in your state. Prescription required.
       </p>
       <p class="disclaimer">
-        <strong>Important:</strong> Velacore Health does not provide, guarantee, or facilitate any
-        medical services, prescriptions, or treatments. The platform coordinates access to
-        independent, licensed physicians and 503A compounding pharmacies; all medical decisions are
-        made solely by the independent physician. All medications are prescription only. Content on
-        this site is for general informational purposes only and is not medical advice. Always
-        consult a qualified healthcare provider.
+        <b>Important:</b> Velacore Health does not provide, guarantee, or facilitate any medical
+        services, prescriptions, or treatments. The platform coordinates access to independent,
+        licensed physicians and 503A compounding pharmacies; all medical decisions are made solely by
+        the independent physician. All medications are prescription only. Content on this site is for
+        general informational purposes only and is not medical advice. Always consult a qualified
+        healthcare provider.
       </p>
       <div class="footer-bottom">
         <p>© <span id="year"></span> Velacore Health · First Venture Group LLC. All rights reserved.</p>
@@ -487,15 +467,12 @@
   </footer>
 
   <script src="script.js"></script>
-  <!-- JotForm auto-resize: keeps the embedded intake at its natural height -->
+  <!-- JotForm auto-resize -->
   <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
   <script>
     window.addEventListener('load', function () {
       if (window.jotformEmbedHandler) {
-        window.jotformEmbedHandler(
-          "iframe[id='JotFormIFrame-261070496021449']",
-          "https://form.jotform.com"
-        );
+        window.jotformEmbedHandler("iframe[id='JotFormIFrame-261070496021449']", "https://form.jotform.com");
       }
     });
   </script>

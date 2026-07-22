@@ -1,557 +1,307 @@
-<title>Velacore Health — Physician-Directed Telehealth</title>
+<title>Velacore Health — Physician-Directed Peptide Telehealth</title>
 <style>
 /* ============================================================
-   Velacore Health — styles
-   Palette: deep navy/teal + fresh mint accent
+   Velacore Health — "Clinical, elevated, alive"
+   Dark-first premium identity · jade accent · grotesk type
    ============================================================ */
 :root{
-  --ink:#0b1f2a;          /* deep navy-teal */
-  --ink-2:#123141;
-  --teal:#0e7c86;
-  --mint:#4fd1c5;
-  --mint-2:#7ee6da;
-  --paper:#f7faf9;
-  --paper-2:#eef4f3;
-  --white:#ffffff;
-  --gray:#5c6b72;
-  --gray-2:#8a979d;
-  --line:#e3eae9;
-  --radius:18px;
-  --radius-sm:12px;
-  --shadow:0 20px 50px -24px rgba(11,31,42,.35);
-  --shadow-sm:0 8px 24px -14px rgba(11,31,42,.4);
-  --maxw:1140px;
+  /* ground + surfaces */
+  --ink:#0B1110;            /* near-black, green-teal bias */
+  --ink-2:#0F1716;          /* elevated dark surface */
+  --ink-3:#16211F;          /* card on dark */
+  --ink-4:#1E2C29;          /* hover / border-strong on dark */
+  --cream:#F4F1EA;          /* warm platinum light section */
+  --cream-2:#EBE7DC;
+
+  /* text */
+  --on-dark:#E9EFEC;
+  --muted-dark:#9BB0A9;
+  --on-cream:#131E1B;
+  --muted-cream:#586B65;
+
+  /* accent */
+  --jade:#57D9B6;
+  --jade-2:#7FE7CC;
+  --jade-deep:#0C8F72;      /* accent text on cream */
+  --jade-glow:rgba(87,217,182,.32);
+
+  /* lines */
+  --line-dark:rgba(255,255,255,.10);
+  --line-dark-2:rgba(255,255,255,.16);
+  --line-cream:rgba(11,17,16,.12);
+
+  --radius:20px;
+  --radius-sm:13px;
+  --radius-xs:9px;
+  --maxw:1200px;
+  --shadow-dark:0 30px 70px -30px rgba(0,0,0,.8);
+  --shadow-cream:0 24px 60px -30px rgba(11,17,16,.35);
   --ease:cubic-bezier(.22,.61,.36,1);
-  --display:ui-serif,'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
-  --body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+
+  --display:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
 body{
-  margin:0;
-  font-family:var(--body);
-  color:var(--ink);
-  background:var(--paper);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+  margin:0;background:var(--ink);color:var(--on-dark);
+  font-family:var(--body);line-height:1.62;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,h4{font-family:var(--display);font-weight:500;line-height:1.12;margin:0;letter-spacing:-.01em}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.02em}
 p{margin:0}
 ul,ol{margin:0;padding:0;list-style:none}
+::selection{background:var(--jade);color:var(--ink)}
 
 .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;text-transform:uppercase;
+  letter-spacing:.2em;font-size:.72rem;font-weight:600;color:var(--jade);margin-bottom:20px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--jade);opacity:.7}
+.on-cream .eyebrow{color:var(--jade-deep)}
+.on-cream .eyebrow::before{background:var(--jade-deep)}
 
 /* ---------- Buttons ---------- */
 .btn{
-  --pad:14px 24px;
-  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  padding:var(--pad);border-radius:999px;font-weight:600;font-size:.98rem;
-  cursor:pointer;border:1px solid transparent;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s var(--ease),color .2s var(--ease);
+  --pad:15px 26px;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:var(--pad);border-radius:999px;font-family:var(--body);font-weight:600;font-size:.98rem;
+  cursor:pointer;border:1px solid transparent;position:relative;
+  transition:transform .22s var(--ease),background .22s var(--ease),color .22s var(--ease),border-color .22s var(--ease),box-shadow .22s var(--ease);
   white-space:nowrap;
 }
 .btn:hover{transform:translateY(-2px)}
-.btn-sm{--pad:10px 18px;font-size:.9rem}
+.btn:focus-visible{outline:2px solid var(--jade);outline-offset:3px}
+.btn-sm{--pad:11px 18px;font-size:.9rem}
 .btn-block{display:flex;width:100%}
-.btn-primary{background:var(--mint);color:var(--ink);box-shadow:0 10px 24px -10px rgba(79,209,197,.7)}
-.btn-primary:hover{background:var(--mint-2)}
-.btn-ghost{background:transparent;border-color:rgba(11,31,42,.18);color:var(--ink)}
-.btn-ghost:hover{border-color:var(--ink);background:rgba(11,31,42,.03)}
+.btn-primary{background:var(--jade);color:#04100C;box-shadow:0 12px 30px -12px var(--jade-glow)}
+.btn-primary:hover{background:var(--jade-2);box-shadow:0 16px 40px -12px var(--jade-glow)}
+.btn-ghost{background:transparent;border-color:var(--line-dark-2);color:var(--on-dark)}
+.btn-ghost:hover{border-color:var(--jade);color:var(--jade)}
+.on-cream .btn-ghost{border-color:var(--line-cream);color:var(--on-cream)}
+.on-cream .btn-ghost:hover{border-color:var(--jade-deep);color:var(--jade-deep)}
+.btn-arrow::after{content:"→";transition:transform .22s var(--ease)}
+.btn-arrow:hover::after{transform:translateX(3px)}
 
 /* ---------- Top bar ---------- */
 .topbar{
-  background:var(--ink);color:var(--paper-2);text-align:center;
-  font-size:.82rem;padding:8px 16px;letter-spacing:.01em;
+  background:#070C0B;color:var(--muted-dark);text-align:center;
+  font-size:.8rem;padding:9px 16px;letter-spacing:.02em;border-bottom:1px solid var(--line-dark);
 }
-.topbar span{opacity:.9}
+.topbar b{color:var(--jade);font-weight:600}
 
 /* ---------- Header ---------- */
 .site-header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(247,250,249,.82);backdrop-filter:saturate(160%) blur(12px);
-  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:60;
+  background:rgba(11,17,16,.72);backdrop-filter:saturate(160%) blur(14px);
+  border-bottom:1px solid var(--line-dark);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:700}
-.brand-mark{width:30px;height:30px;color:var(--ink)}
-.brand-name{font-family:var(--display);font-size:1.28rem;letter-spacing:-.02em}
-.brand-accent{color:var(--teal);margin-left:1px}
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{font-size:.95rem;font-weight:500;color:var(--ink-2)}
-.nav-links a:not(.btn):hover{color:var(--teal)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:inline-flex;align-items:center;gap:10px;color:var(--on-dark);font-weight:700}
+.brand-mark{width:30px;height:30px;color:var(--on-dark)}
+.brand-name{font-family:var(--display);font-size:1.24rem;letter-spacing:-.02em;font-weight:600}
+.brand-accent{color:var(--jade)}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-size:.94rem;font-weight:500;color:var(--muted-dark);transition:color .2s}
+.nav-links a:not(.btn):hover{color:var(--on-dark)}
 .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
-.nav-toggle span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s var(--ease)}
-
-/* ---------- Hero ---------- */
-.hero{
-  position:relative;overflow:hidden;
-  background:
-    radial-gradient(900px 500px at 88% -10%, rgba(79,209,197,.18), transparent 60%),
-    radial-gradient(700px 500px at -5% 10%, rgba(14,124,134,.12), transparent 55%),
-    var(--paper);
-  padding:76px 0 88px;
-}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.eyebrow{
-  text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;font-weight:700;
-  color:var(--teal);margin-bottom:18px;
-}
-.eyebrow-light{color:var(--mint-2)}
-.hero h1{font-size:clamp(2.4rem,5vw,3.6rem);margin-bottom:20px}
-.grad{
-  background:linear-gradient(100deg,var(--teal),var(--mint));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.lede{font-size:1.14rem;color:var(--gray);max-width:34rem;margin-bottom:30px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
-.hero-trust{display:flex;flex-wrap:wrap;gap:18px;font-size:.9rem;color:var(--ink-2);font-weight:500}
-.hero-trust li{display:inline-flex;align-items:center;gap:8px}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(79,209,197,.18)}
-
-/* Hero card */
-.hero-card{position:relative}
-.card-glow{
-  position:absolute;inset:-30px;border-radius:40px;
-  background:radial-gradient(circle at 30% 20%,rgba(79,209,197,.35),transparent 60%);
-  filter:blur(20px);z-index:0;
-}
-.card{
-  position:relative;z-index:1;background:var(--white);border:1px solid var(--line);
-  border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;
-}
-.card-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.avatar{
-  width:42px;height:42px;border-radius:12px;flex:none;
-  background:linear-gradient(135deg,var(--teal),var(--ink));color:#fff;
-  display:grid;place-items:center;font-family:var(--display);font-size:1.2rem;
-}
-.card-title{font-weight:700;font-size:.98rem}
-.card-sub{font-size:.82rem;color:var(--gray-2)}
-.pill{
-  font-size:.72rem;font-weight:600;padding:5px 10px;border-radius:999px;
-  background:var(--paper-2);color:var(--ink-2);
-}
-.pill-live{margin-left:auto;background:rgba(79,209,197,.18);color:var(--teal)}
-.card-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:11px 0;border-top:1px solid var(--line);font-size:.9rem;color:var(--gray);
-}
-.card-row strong{color:var(--ink);font-weight:600}
-.card-progress{margin:14px 0;padding-top:14px;border-top:1px solid var(--line)}
-.bar{height:8px;border-radius:999px;background:var(--paper-2);overflow:hidden}
-.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--mint));border-radius:999px}
-.card-progress p{font-size:.8rem;color:var(--gray-2);margin-top:8px}
-.card-foot{display:flex;gap:8px;flex-wrap:wrap}
-
-/* ---------- Strip ---------- */
-.strip{background:var(--ink);color:var(--paper-2)}
-.strip-inner{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
-  padding:20px 24px;font-size:.85rem;
-}
-.strip-inner>span{opacity:.6;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:600}
-.strip-items{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-weight:500;opacity:.9}
+.nav-toggle span{width:24px;height:2px;background:var(--on-dark);border-radius:2px;transition:.25s var(--ease)}
 
 /* ---------- Sections ---------- */
-.section{padding:88px 0}
-.section-alt{background:var(--paper-2)}
-.section-head{max-width:42rem;margin:0 auto 52px;text-align:center}
-.section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:14px}
-.section-sub{color:var(--gray);font-size:1.06rem}
+.section{padding:104px 0;position:relative}
+.on-cream{background:var(--cream);color:var(--on-cream)}
+.on-cream h1,.on-cream h2,.on-cream h3,.on-cream h4{color:var(--on-cream)}
+.section-head{max-width:44rem;margin:0 auto 60px}
+.section-head.center{text-align:center}
+.section-head h2{font-size:clamp(2rem,3.8vw,3rem);text-wrap:balance;margin-bottom:16px}
+.section-sub{color:var(--muted-dark);font-size:1.08rem}
+.on-cream .section-sub{color:var(--muted-cream)}
 
-/* ---------- Steps ---------- */
-.steps{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:step;
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;padding:96px 0 100px;background:var(--ink)}
+#molecule{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.9}
+.hero::after{ /* vignette + glow */
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 78% -10%, var(--jade-glow), transparent 55%),
+    radial-gradient(100% 60% at 0% 110%, rgba(12,143,114,.18), transparent 60%),
+    linear-gradient(180deg, rgba(11,17,16,.2), rgba(11,17,16,.75));
 }
-.step{
-  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  padding:26px 22px;box-shadow:var(--shadow-sm);position:relative;
-  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+.hero-inner{position:relative;z-index:2;max-width:60rem}
+.hero h1{font-size:clamp(2.7rem,6.2vw,4.6rem);letter-spacing:-.03em;text-wrap:balance;margin-bottom:22px}
+.hero h1 .grad{
+  background:linear-gradient(96deg,var(--jade),var(--jade-2) 60%,#cfeee4);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-.step:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.step-num{
-  font-family:var(--display);font-size:1.05rem;font-weight:600;color:var(--teal);
-  width:44px;height:44px;border-radius:12px;background:rgba(14,124,134,.1);
-  display:grid;place-items:center;margin-bottom:16px;
+.hero-lede{font-size:1.2rem;color:var(--muted-dark);max-width:40rem;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:999px;
+  border:1px solid var(--line-dark-2);background:rgba(255,255,255,.03);
+  font-size:.84rem;color:var(--on-dark);font-weight:500;
 }
-.step h3{font-size:1.14rem;margin-bottom:8px}
-.step p{color:var(--gray);font-size:.94rem}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--jade);box-shadow:0 0 0 4px var(--jade-glow)}
 
-/* ---------- Programs ---------- */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.prog{
-  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  padding:28px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;
-  transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s;
-}
-.prog:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--mint)}
-.prog-ic{
-  width:52px;height:52px;border-radius:14px;margin-bottom:18px;
-  background:linear-gradient(135deg,rgba(14,124,134,.14),rgba(79,209,197,.22));
-  position:relative;
-}
-.prog-ic::after{
-  content:"";position:absolute;inset:0;margin:auto;width:24px;height:24px;
-  background:var(--teal);
-  -webkit-mask-position:center;mask-position:center;
-  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-  -webkit-mask-size:contain;mask-size:contain;
-}
-.prog-ic[data-ic="metabolic"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12h4l2 6 4-14 2 8h6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12h4l2 6 4-14 2 8h6'/%3E%3C/svg%3E")}
-.prog-ic[data-ic="recovery"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z'/%3E%3C/svg%3E")}
-.prog-ic[data-ic="longevity"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2a7 7 0 0 0-4 12.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3A7 7 0 0 0 12 2z'/%3E%3Cpath d='M9 22h6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2a7 7 0 0 0-4 12.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3A7 7 0 0 0 12 2z'/%3E%3Cpath d='M9 22h6'/%3E%3C/svg%3E")}
-.prog-ic[data-ic="hormone"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='6'/%3E%3Cpath d='M12 16v6M9 19h6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='6'/%3E%3Cpath d='M12 16v6M9 19h6'/%3E%3C/svg%3E")}
-.prog-ic[data-ic="sleep"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/%3E%3C/svg%3E")}
-.prog h3{font-size:1.22rem;margin-bottom:10px}
-.prog p{color:var(--gray);font-size:.95rem}
-.prog-tag{
-  display:inline-block;margin-top:14px;font-size:.72rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.1em;color:var(--teal);
-  background:rgba(14,124,134,.1);padding:5px 10px;border-radius:999px;
-}
-.prog-cta{
-  background:linear-gradient(150deg,var(--ink),var(--ink-2));color:var(--paper-2);
-  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
-}
-.prog-cta:hover{border-color:transparent}
-.prog-cta h3{color:#fff}
-.prog-cta p{color:rgba(247,250,249,.72);margin-bottom:18px}
+/* ---------- Marquee strip ---------- */
+.marquee{background:#070C0B;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);overflow:hidden}
+.marquee-track{display:flex;gap:56px;padding:16px 0;white-space:nowrap;animation:scrollx 32s linear infinite;width:max-content}
+.marquee-track span{display:inline-flex;align-items:center;gap:56px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dark)}
+.marquee-track span::after{content:"◆";color:var(--jade);font-size:.6rem}
+@keyframes scrollx{to{transform:translateX(-50%)}}
 
-/* ---------- Why ---------- */
-.why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.why-copy .section-sub{margin-bottom:26px}
-.why-list{display:grid;gap:18px}
-.why-list li{display:flex;gap:14px;align-items:flex-start}
-.why-list strong{color:var(--ink)}
-.why-list div{color:var(--gray);font-size:.98rem}
-.check{
-  flex:none;width:26px;height:26px;border-radius:50%;background:var(--mint);
-  color:var(--ink);display:grid;place-items:center;font-weight:700;font-size:.85rem;margin-top:2px;
-}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.stat{
-  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  padding:26px 22px;box-shadow:var(--shadow-sm);text-align:center;
-}
-.stat-num{font-family:var(--display);font-size:2.1rem;color:var(--teal);line-height:1}
-.stat-label{color:var(--gray);font-size:.86rem;margin-top:8px}
+/* ---------- How it works ---------- */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line-dark)}
+.on-cream .steps{border-color:var(--line-cream)}
+.step{padding:30px 22px 30px 0;border-right:1px solid var(--line-dark);position:relative}
+.on-cream .step{border-color:var(--line-cream)}
+.step:last-child{border-right:0}
+.step-num{font-family:var(--display);font-size:.9rem;font-weight:600;color:var(--jade);letter-spacing:.1em;margin-bottom:22px}
+.on-cream .step-num{color:var(--jade-deep)}
+.step h3{font-size:1.16rem;margin-bottom:9px;padding-right:14px}
+.step p{color:var(--muted-dark);font-size:.92rem;padding-right:14px}
+.on-cream .step p{color:var(--muted-cream)}
+@media (max-width:1000px){.steps{grid-template-columns:1fr 1fr}.step{border-right:0;border-bottom:1px solid var(--line-dark);padding:26px 0}.on-cream .step{border-bottom-color:var(--line-cream)}}
 
-/* ---------- Pricing ---------- */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
-.plan{
-  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  padding:30px 26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;position:relative;
+/* ---------- Treatments (product-led centerpiece) ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px}
+.filter{
+  padding:9px 18px;border-radius:999px;border:1px solid var(--line-cream);background:transparent;
+  font:inherit;font-size:.86rem;font-weight:600;color:var(--muted-cream);cursor:pointer;transition:.2s var(--ease);
 }
-.plan h3{font-size:1.3rem;margin-bottom:10px}
-.plan-price{font-family:var(--display);font-size:2.4rem;color:var(--ink);line-height:1;margin-bottom:6px}
-.plan-per{font-size:1rem;color:var(--gray-2)}
-.plan-desc{color:var(--gray);font-size:.92rem;margin-bottom:20px}
-.plan-list{display:grid;gap:11px;margin-bottom:24px;flex:1}
-.plan-list li{position:relative;padding-left:26px;color:var(--ink-2);font-size:.94rem}
-.plan-list li::before{
-  content:"✓";position:absolute;left:0;top:0;color:var(--teal);font-weight:700;
-}
-.plan-featured{
-  border:1.5px solid var(--mint);box-shadow:var(--shadow);
-  background:linear-gradient(180deg,#fff, #f6fdfc);
-}
-.plan-badge{
-  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
-  background:var(--mint);color:var(--ink);font-size:.72rem;font-weight:700;
-  padding:5px 14px;border-radius:999px;text-transform:uppercase;letter-spacing:.08em;
-}
-.plan-note{font-size:.78rem;color:var(--gray-2);margin-top:12px;text-align:center}
-.pricing-disclaimer{text-align:center;color:var(--gray-2);font-size:.82rem;margin-top:22px;font-style:italic}
+.filter:hover{color:var(--on-cream);border-color:var(--jade-deep)}
+.filter.is-active{background:var(--on-cream);color:var(--cream);border-color:var(--on-cream)}
 
-/* ---------- Safety ---------- */
-.safety-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
-.safety-copy{max-width:46rem;margin:0 auto;text-align:center}
-.safety-copy .section-sub{margin-bottom:0}
-.safety-card{
-  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  padding:24px;text-align:left;box-shadow:var(--shadow-sm);
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tcard{
+  display:flex;flex-direction:column;background:#fff;border:1px solid var(--line-cream);
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-cream);
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease),border-color .28s;
 }
-.safety-card h3{font-size:1.12rem;margin-bottom:8px;color:var(--teal)}
-.safety-card p{color:var(--gray);font-size:.94rem}
+.tcard:hover{transform:translateY(-6px);box-shadow:0 34px 70px -30px rgba(11,17,16,.42);border-color:var(--jade-deep)}
+.tcard-media{position:relative;aspect-ratio:16/11;background:
+  radial-gradient(120% 120% at 30% 20%, rgba(12,143,114,.14), transparent 55%),
+  linear-gradient(150deg,#101a18,#1c2b28);
+  display:grid;place-items:center;overflow:hidden}
+.tcard-media .node-glyph{width:70px;height:70px;opacity:.9}
+.tcard-cat{position:absolute;top:14px;left:14px;font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--jade);background:rgba(7,12,11,.62);border:1px solid var(--line-dark-2);padding:5px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+.tcard-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.tcard-body h3{font-size:1.35rem;margin-bottom:5px}
+.tcard-mech{color:var(--muted-cream);font-size:.9rem;margin-bottom:16px;min-height:2.6em}
+.tcard-meta{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-top:16px;border-top:1px solid var(--line-cream);margin-top:auto}
+.tcard-price{font-family:var(--display);font-size:1.35rem;font-weight:600;color:var(--on-cream)}
+.tcard-price small{font-size:.72rem;color:var(--muted-cream);font-weight:500;font-family:var(--body)}
+.tcard-rx{font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--jade-deep)}
+.tcard .btn{margin-top:18px}
+.treat-note{text-align:center;color:var(--muted-cream);font-size:.84rem;margin-top:30px;font-style:italic;max-width:54rem;margin-left:auto;margin-right:auto}
+
+/* ---------- Pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:var(--radius);overflow:hidden}
+.pillar{background:var(--ink-2);padding:32px 26px;transition:background .25s}
+.pillar:hover{background:var(--ink-3)}
+.pillar-ic{width:46px;height:46px;border-radius:12px;background:rgba(87,217,182,.12);display:grid;place-items:center;margin-bottom:20px;color:var(--jade)}
+.pillar-ic svg{width:22px;height:22px}
+.pillar h3{font-size:1.16rem;margin-bottom:9px}
+.pillar p{color:var(--muted-dark);font-size:.93rem}
+
+/* ---------- Provider ---------- */
+.provider-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center}
+.provider-role{color:var(--jade-deep);font-weight:600;margin-bottom:16px}
+.provider-copy>p{color:var(--muted-cream);margin-bottom:14px}
+.provider-note{background:#fff;border:1px solid var(--line-cream);border-left:3px solid var(--jade-deep);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:15px 17px;font-size:.92rem;color:var(--on-cream)!important}
+.provider-list{display:grid;gap:11px;margin-top:22px}
+.provider-list li{display:flex;align-items:center;gap:11px;color:var(--on-cream);font-size:.95rem}
+.check{flex:none;width:24px;height:24px;border-radius:50%;background:var(--jade-deep);color:#fff;display:grid;place-items:center;font-size:.75rem;font-weight:700}
+
+/* ---------- Guarantee (big statement) ---------- */
+.guarantee{text-align:center;position:relative;overflow:hidden}
+.guarantee::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 100% at 50% 0%,var(--jade-glow),transparent 60%);opacity:.5;pointer-events:none}
+.guarantee-inner{max-width:50rem;margin:0 auto;position:relative}
+.guarantee h2{font-size:clamp(2rem,4vw,3.1rem);margin-bottom:20px;text-wrap:balance}
+.guarantee-lede{color:var(--muted-dark);font-size:1.14rem;margin:0 auto 28px;max-width:40rem}
+.guarantee-lede strong{color:var(--on-dark)}
 
 /* ---------- FAQ ---------- */
-.faq-wrap{max-width:820px;margin:0 auto}
+.faq-wrap{max-width:840px;margin:0 auto}
 .faq{display:grid;gap:12px}
-.faq-item{
-  background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);
-  padding:4px 22px;box-shadow:var(--shadow-sm);
-}
-.faq-item summary{
-  cursor:pointer;list-style:none;padding:18px 0;font-weight:600;font-size:1.04rem;
-  display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--ink);
-}
+.faq-item{background:#fff;border:1px solid var(--line-cream);border-radius:var(--radius-sm);padding:2px 24px;transition:border-color .2s}
+.faq-item[open]{border-color:var(--jade-deep)}
+.faq-item summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:600;font-size:1.05rem;display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--on-cream);font-family:var(--display)}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{
-  content:"+";font-size:1.5rem;color:var(--teal);font-weight:400;transition:transform .25s var(--ease);flex:none;
-}
+.faq-item summary::after{content:"+";font-size:1.5rem;color:var(--jade-deep);font-weight:400;transition:transform .25s var(--ease);flex:none}
 .faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-body{padding:0 0 18px;color:var(--gray);font-size:.96rem}
+.faq-body{padding:0 0 20px;color:var(--muted-cream);font-size:.97rem}
 
-/* ---------- CTA ---------- */
-.cta{
-  background:
-    radial-gradient(700px 400px at 85% 0%, rgba(79,209,197,.22), transparent 60%),
-    linear-gradient(160deg,var(--ink),var(--ink-2));
-  color:var(--paper-2);
-}
-.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
-.cta-copy h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:14px}
-.cta-copy>p{color:rgba(247,250,249,.78);font-size:1.06rem;margin-bottom:22px;max-width:30rem}
-.cta-points{display:grid;gap:12px}
-.cta-points li{display:flex;align-items:center;gap:10px;color:var(--paper-2);font-size:.96rem}
-.cta-form{
-  background:var(--white);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow);color:var(--ink);
-}
-.field{margin-bottom:16px}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:7px;color:var(--ink-2)}
-.field input,.field select{
-  width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius-sm);
-  font:inherit;font-size:.95rem;color:var(--ink);background:var(--paper);transition:border-color .2s,box-shadow .2s;
-}
-.field input:focus,.field select:focus{
-  outline:none;border-color:var(--mint);box-shadow:0 0 0 3px rgba(79,209,197,.25);background:#fff;
-}
-.cta-form .btn{margin-top:6px}
-.cta-form-embed{padding:16px}
-.cta-form-embed iframe{
-  width:1px;min-width:100%;border:0;border-radius:var(--radius-sm);
-  min-height:640px;display:block;background:#fff;
-}
-.cta-form-embed .form-fine{margin-top:10px}
-.form-fine{font-size:.76rem;color:var(--gray-2);margin-top:12px}
-.form-success{
-  margin-top:14px;padding:12px 14px;border-radius:var(--radius-sm);
-  background:rgba(79,209,197,.16);color:var(--teal);font-weight:600;font-size:.9rem;
-}
+/* ---------- Intake CTA ---------- */
+.cta-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:start}
+.cta-copy h2{font-size:clamp(2rem,3.8vw,2.9rem);margin-bottom:16px;text-wrap:balance}
+.cta-copy>p{color:var(--muted-dark);font-size:1.1rem;margin-bottom:26px;max-width:30rem}
+.cta-points{display:grid;gap:14px}
+.cta-points li{display:flex;align-items:center;gap:12px;color:var(--on-dark);font-size:.98rem}
+.cta-points .dot{width:8px;height:8px;border-radius:50%;background:var(--jade);box-shadow:0 0 0 4px var(--jade-glow);flex:none}
+.intake-card{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-dark)}
+.intake-card iframe{width:1px;min-width:100%;border:0;border-radius:var(--radius-sm);min-height:660px;display:block;background:#fff}
+.intake-fine{color:var(--muted-dark);font-size:.78rem;padding:12px 8px 4px}
+
+/* ---------- Please note ---------- */
+.please-note{background:#070C0B;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+.please-note .container{padding:28px 24px}
+.please-note p{font-size:.9rem;color:var(--muted-dark);max-width:66rem;margin:0 auto;text-align:center;line-height:1.75}
+.please-note b{color:var(--on-dark)}
 
 /* ---------- Footer ---------- */
-.site-footer{background:var(--ink);color:var(--paper-2);padding:64px 0 32px}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
-.footer-brand .brand{color:#fff;margin-bottom:14px}
-.footer-brand .brand-mark{color:#fff}
-.footer-brand .brand-accent{color:var(--mint)}
-.footer-brand p{color:rgba(247,250,249,.6);font-size:.92rem;max-width:22rem}
-.footer-col h4{font-family:var(--body);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mint-2);margin-bottom:16px;font-weight:700}
-.footer-col a{display:block;color:rgba(247,250,249,.72);font-size:.94rem;margin-bottom:10px;transition:color .2s}
-.footer-col a:hover{color:#fff}
-.footer-legal{padding-top:28px}
-.disclaimer{font-size:.8rem;color:rgba(247,250,249,.5);line-height:1.7;max-width:60rem;margin-bottom:22px}
-.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;font-size:.85rem;color:rgba(247,250,249,.6)}
-.footer-bottom nav{display:flex;gap:18px}
-.footer-bottom a:hover{color:#fff}
+.site-footer{background:var(--ink);padding:76px 0 34px;border-top:1px solid var(--line-dark)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px;padding-bottom:44px;border-bottom:1px solid var(--line-dark)}
+.footer-brand .brand{margin-bottom:16px}
+.footer-brand p{color:var(--muted-dark);font-size:.92rem;max-width:23rem}
+.footer-col h4{font-family:var(--body);font-size:.74rem;text-transform:uppercase;letter-spacing:.16em;color:var(--jade);margin-bottom:18px;font-weight:700}
+.footer-col a{display:block;color:var(--muted-dark);font-size:.93rem;margin-bottom:11px;transition:color .2s}
+.footer-col a:hover{color:var(--on-dark)}
+.footer-legal{padding-top:30px}
+.states-served{font-size:.85rem;color:var(--muted-dark);margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line-dark)}
+.disclaimer{font-size:.78rem;color:#6E827B;line-height:1.75;max-width:62rem;margin-bottom:24px}
+.disclaimer b{color:var(--muted-dark)}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;font-size:.84rem;color:var(--muted-dark)}
+.footer-bottom nav{display:flex;gap:20px}
+.footer-bottom a:hover{color:var(--on-dark)}
+
+/* ---------- Reveal (safe: visible by default) ---------- */
+.reveal.is-visible{animation:revealUp .7s var(--ease) both}
+@keyframes revealUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 
 /* ---------- Responsive ---------- */
-@media (max-width:960px){
-  .hero-grid,.why-grid,.cta-grid,.safety-grid{grid-template-columns:1fr;gap:40px}
-  .hero-card{max-width:440px}
-  .steps{grid-template-columns:1fr 1fr}
-  .cards,.plans{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
+@media (max-width:940px){
+  .provider-grid,.cta-grid{grid-template-columns:1fr;gap:38px}
+  .pillars{grid-template-columns:1fr 1fr}
+  .tgrid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:680px){
-  .nav-links{
-    position:fixed;inset:68px 0 auto 0;flex-direction:column;align-items:stretch;
-    background:var(--paper);border-bottom:1px solid var(--line);padding:18px 24px;gap:6px;
-    transform:translateY(-140%);transition:transform .3s var(--ease);box-shadow:var(--shadow);
-  }
-  .nav-links a{padding:12px 4px}
+  .nav-links{position:fixed;inset:70px 0 auto 0;flex-direction:column;align-items:stretch;background:var(--ink-2);border-bottom:1px solid var(--line-dark);padding:18px 24px;gap:4px;transform:translateY(-160%);transition:transform .3s var(--ease)}
+  .nav-links a{padding:13px 4px}
   .nav-links.open{transform:translateY(0)}
   .nav-toggle{display:flex}
   .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .nav-toggle.open span:nth-child(2){opacity:0}
   .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .section{padding:64px 0}
-  .steps,.cards,.plans,.stats,.safety-cards,.field-row{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr;gap:28px}
-  .strip-inner{justify-content:center;text-align:center}
+  .section{padding:72px 0}
+  .pillars,.tgrid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
 }
-
-/* ============================================================
-   Additional components (compliant redesign)
-   ============================================================ */
-
-/* ---------- Image slots (swap these for real <img>) ---------- */
-.img-slot{
-  position:relative;z-index:1;border-radius:var(--radius);overflow:hidden;
-  background:
-    linear-gradient(135deg,rgba(14,124,134,.10),rgba(79,209,197,.16)),
-    repeating-linear-gradient(45deg,transparent 0 14px,rgba(11,31,42,.03) 14px 28px);
-  border:1.5px dashed rgba(14,124,134,.35);
-  display:grid;place-items:center;color:var(--teal);text-align:center;min-height:220px;
-}
-.img-slot-inner{padding:20px}
-.img-slot-inner p{font-family:var(--display);font-size:1.1rem;color:var(--ink);margin-top:6px}
-.img-slot-inner small{display:block;color:var(--gray-2);font-size:.78rem;margin-top:4px}
-.img-slot-tag{
-  display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;
-  background:var(--teal);color:#fff;padding:4px 10px;border-radius:999px;
-}
-.img-slot-hero{aspect-ratio:56/62;min-height:360px;box-shadow:var(--shadow)}
-.img-slot-prog{min-height:0;aspect-ratio:4/3;border-radius:var(--radius-sm)}
-.img-slot-provider{aspect-ratio:42/52;min-height:340px;box-shadow:var(--shadow-sm)}
-.img-slot-founder{aspect-ratio:1;min-height:320px;box-shadow:var(--shadow-sm)}
-
-/* ---------- Stats section ---------- */
-.stats-section{padding:56px 0}
-.stats-4{grid-template-columns:repeat(4,1fr)}
-
-/* ---------- Steps ---------- */
-.steps-6{grid-template-columns:repeat(3,1fr)}
-.steps-5{grid-template-columns:repeat(5,1fr)}
-@media (max-width:1080px){.steps-5{grid-template-columns:repeat(3,1fr)}}
-
-/* ---------- Nav login link ---------- */
-.nav-login{font-size:.95rem;font-weight:600;color:var(--teal)!important}
-.nav-login:hover{color:var(--ink)!important}
-
-/* ---------- Treatment category label ---------- */
-.prog-cat{
-  display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
-  color:var(--gray-2);margin-bottom:8px;
-}
-
-/* ---------- Prescription note ---------- */
-.rx-note{
-  margin-top:28px;text-align:center;color:var(--gray-2);font-size:.84rem;
-  max-width:56rem;margin-left:auto;margin-right:auto;font-style:italic;
-}
-
-/* ---------- Pillars ---------- */
-.cards-4{grid-template-columns:repeat(4,1fr)}
-.cards-3{grid-template-columns:repeat(3,1fr)}
-.pillar{
-  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  padding:26px;box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease);
-}
-.pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.pillar-ic{
-  width:48px;height:48px;border-radius:13px;margin-bottom:16px;
-  background:linear-gradient(135deg,rgba(14,124,134,.14),rgba(79,209,197,.22));position:relative;
-}
-.pillar-ic::after{
-  content:"";position:absolute;inset:0;margin:auto;width:22px;height:22px;background:var(--teal);
-  -webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-  -webkit-mask-size:contain;mask-size:contain;
-}
-.pillar-ic[data-ic="coordinate"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 2v4M12 18v4M2 12h4M18 12h4'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 2v4M12 18v4M2 12h4M18 12h4'/%3E%3C/svg%3E")}
-.pillar-ic[data-ic="independent"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E")}
-.pillar-ic[data-ic="pharmacy"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 8.5 12 3l7.5 5.5V20a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1z'/%3E%3Cpath d='M12 10v6M9 13h6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 8.5 12 3l7.5 5.5V20a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1z'/%3E%3Cpath d='M12 10v6M9 13h6'/%3E%3C/svg%3E")}
-.pillar-ic[data-ic="support"]::after{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E")}
-.pillar h3{font-size:1.14rem;margin-bottom:8px}
-.pillar p{color:var(--gray);font-size:.94rem}
-
-/* ---------- Program cards (image + body) ---------- */
-.prog{
-  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;
-  transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s;
-}
-.prog:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--mint)}
-.prog .img-slot-prog{border-radius:0;border-left:0;border-right:0;border-top:0}
-.prog-body{padding:22px;display:flex;flex-direction:column;flex:1}
-.prog-body h3{font-size:1.2rem;margin-bottom:8px}
-.prog-body>p{color:var(--gray);font-size:.94rem;flex:1}
-.prog-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0}
-.prog-price{font-family:var(--display);font-size:1.5rem;color:var(--ink)}
-.prog-price span{font-size:.85rem;color:var(--gray-2)}
-.prog-badge{
-  font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);
-  background:rgba(14,124,134,.1);padding:5px 9px;border-radius:999px;text-align:center;
-}
-.programs-more{
-  margin-top:32px;text-align:center;padding:26px;border:1.5px dashed var(--line);border-radius:var(--radius);
-  background:var(--white);
-}
-.programs-more p{color:var(--gray);margin-bottom:16px}
-
-/* ---------- Provider ---------- */
-.provider-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center}
-.provider-role{color:var(--teal);font-weight:600;margin-bottom:14px}
-.provider-copy>p{color:var(--gray);margin-bottom:14px}
-.provider-note{
-  background:var(--paper-2);border-left:3px solid var(--mint);border-radius:0 var(--radius-sm) var(--radius-sm) 0;
-  padding:14px 16px;font-size:.92rem;color:var(--ink-2)!important;
-}
-.provider-list{display:grid;gap:10px;margin-top:20px}
-.provider-list li{display:flex;align-items:center;gap:10px;color:var(--ink-2);font-size:.95rem}
-
-/* ---------- Guarantee ---------- */
-.guarantee-inner{
-  max-width:52rem;margin:0 auto;text-align:center;background:var(--white);
-  border:1px solid var(--line);border-radius:var(--radius);padding:48px 40px;box-shadow:var(--shadow-sm);
-}
-.guarantee-inner h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:16px}
-.guarantee-lede{color:var(--gray);font-size:1.08rem;max-width:40rem;margin:0 auto 24px}
-
-/* ---------- Access + resources ---------- */
-.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
-.access-copy>p{color:var(--gray);margin-top:12px}
-.resources{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
-.resources h3{font-size:1.2rem;margin-bottom:6px}
-.resources-sub{color:var(--gray);font-size:.9rem;margin-bottom:18px}
-.resource-list{display:grid;gap:12px}
-.resource-list li{display:flex;align-items:center;gap:12px;color:var(--ink-2);font-size:.96rem;background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px}
-.res-ic{width:20px;height:20px;flex:none;border-radius:6px;background:linear-gradient(135deg,var(--teal),var(--mint))}
-
-/* ---------- Founder ---------- */
-.section-founder{background:linear-gradient(160deg,var(--ink),var(--ink-2));color:var(--paper-2)}
-.founder-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:center}
-.founder-copy h2{color:#fff;font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:14px}
-.founder-copy>p{color:rgba(247,250,249,.8);margin-bottom:12px}
-.founder-fine{font-size:.82rem;color:rgba(247,250,249,.5)!important}
-.section-founder .img-slot{border-color:rgba(79,209,197,.5);background:linear-gradient(135deg,rgba(79,209,197,.14),rgba(255,255,255,.04))}
-.section-founder .img-slot-inner p{color:#fff}
-.section-founder .img-slot-inner small{color:rgba(247,250,249,.6)}
-
-/* ---------- Please note (critical disclaimer) ---------- */
-.please-note{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.please-note .container{padding-top:26px;padding-bottom:26px}
-.please-note p{font-size:.92rem;color:var(--ink-2);max-width:64rem;margin:0 auto;text-align:center;line-height:1.7}
-
-/* ---------- Footer additions ---------- */
-.states-served{font-size:.86rem;color:rgba(247,250,249,.72);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08)}
-
-/* ---------- Responsive additions ---------- */
-@media (max-width:960px){
-  .stats-4{grid-template-columns:1fr 1fr}
-  .steps-6{grid-template-columns:1fr 1fr}
-  .cards-4{grid-template-columns:1fr 1fr}
-  .cards-3{grid-template-columns:1fr 1fr}
-  .provider-grid,.access-grid,.founder-grid{grid-template-columns:1fr;gap:36px}
-  .img-slot-provider,.img-slot-founder{max-width:420px}
-}
-@media (max-width:680px){
-  .stats-4,.steps-6,.cards-4,.cards-3{grid-template-columns:1fr}
-  .guarantee-inner{padding:34px 22px}
-}
-
-/* ---------- Scroll reveal (safe: visible by default) ---------- */
-/* Elements stay fully visible; the entrance animation only plays once the
-   observer adds .is-visible. If JS or the observer never runs, nothing hides. */
-.reveal.is-visible{animation:revealUp .6s var(--ease) both}
-@keyframes revealUp{
-  from{opacity:0;transform:translateY(16px)}
-  to{opacity:1;transform:none}
-}
+@media (max-width:480px){.footer-grid{grid-template-columns:1fr}}
 
 @media (prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
-  .reveal.is-visible{animation:none!important}
+  .marquee-track{animation:none!important}
 }
 
 </style>
 
   <!-- Announcement bar -->
   <div class="topbar">
-    <span>Physician-directed telehealth · Available to residents of select US states · Prescription required</span>
+    <span>Physician-directed peptide telehealth · Available in <b>select US states</b> · Prescription required</span>
   </div>
 
   <!-- Header -->
@@ -559,19 +309,21 @@ ul,ol{margin:0;padding:0;list-style:none}
     <div class="container nav">
       <a href="#top" class="brand" aria-label="Velacore Health home">
         <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M16 3 L27 9 V19 C27 25 16 30 16 30 C16 30 5 25 5 19 V9 Z" fill="currentColor"/>
-          <path d="M11 13 l5 8 5 -8" fill="none" stroke="#4fd1c5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="11" cy="12" r="3" fill="#57D9B6"/>
+          <circle cx="22" cy="11" r="2.4" fill="currentColor"/>
+          <circle cx="17" cy="22" r="2.4" fill="currentColor"/>
+          <path d="M11 12 L22 11 L17 22 Z" fill="none" stroke="#57D9B6" stroke-width="1.2" opacity=".65"/>
         </svg>
-        <span class="brand-name">Velacore<span class="brand-accent">Health</span></span>
+        <span class="brand-name">Velacore<span class="brand-accent">.</span></span>
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <a href="#how">How it works</a>
         <a href="#treatments">Treatments</a>
+        <a href="#how">How it works</a>
+        <a href="#why">Why Velacore</a>
         <a href="#provider">Providers</a>
-        <a href="#guarantee">Guarantee</a>
         <a href="#faq">FAQ</a>
-        <a href="#start" class="btn btn-primary btn-sm">Start online visit</a>
+        <a href="#intake" class="btn btn-primary btn-sm">Start online visit</a>
       </nav>
 
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -583,264 +335,240 @@ ul,ol{margin:0;padding:0;list-style:none}
   <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Physician-directed telehealth</p>
-          <h1>Prescription telehealth, <span class="grad">reviewed by independent physicians.</span></h1>
-          <p class="lede">
-            Velacore Health is a telehealth platform that coordinates access to independent,
-            licensed physicians and 503A compounding pharmacies. Complete an online visit; an
-            independent physician reviews it and prescribes only when clinically appropriate.
-          </p>
-          <div class="hero-cta">
-            <a href="#start" class="btn btn-primary">Start online visit</a>
-            <a href="#how" class="btn btn-ghost">See how it works</a>
-          </div>
-          <ul class="hero-trust">
-            <li><span class="dot"></span> Independent, licensed physicians</li>
-            <li><span class="dot"></span> 503A compounding pharmacies</li>
-            <li><span class="dot"></span> Prescription required</li>
-          </ul>
+      <canvas id="molecule" aria-hidden="true"></canvas>
+      <div class="container hero-inner">
+        <p class="eyebrow">Physician-directed peptide telehealth</p>
+        <h1>Precision peptide therapy, <span class="grad">reviewed by real physicians.</span></h1>
+        <p class="hero-lede">
+          Velacore is a telehealth platform that connects you with independent, licensed physicians
+          and 503A compounding pharmacies. Start an online visit — a physician reviews it and
+          prescribes only when it's clinically appropriate.
+        </p>
+        <div class="hero-cta">
+          <a href="#treatments" class="btn btn-primary btn-arrow">Explore treatments</a>
+          <a href="#how" class="btn btn-ghost">How it works</a>
+        </div>
+        <ul class="hero-chips">
+          <li class="chip"><span class="dot"></span> Independent, licensed physicians</li>
+          <li class="chip"><span class="dot"></span> 503A compounding pharmacies</li>
+          <li class="chip"><span class="dot"></span> Prescription required</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Independent physician review</span><span>503A compounding pharmacies</span><span>Prescription required</span><span>Delivered to your door</span><span>Refund if not prescribed</span>
+        <span>Independent physician review</span><span>503A compounding pharmacies</span><span>Prescription required</span><span>Delivered to your door</span><span>Refund if not prescribed</span>
+      </div>
+    </section>
+
+    <!-- Treatments (product-led centerpiece) -->
+    <section class="section on-cream" id="treatments">
+      <div class="container">
+        <div class="section-head center">
+          <p class="eyebrow">Treatments</p>
+          <h2>Choose your therapy. A physician decides the rest.</h2>
+          <p class="section-sub">Every treatment is prescription only and reviewed by an independent, licensed physician. Pick where you want to start — your online visit takes it from there.</p>
         </div>
 
-        <!-- ▓▓ IMAGE SLOT: hero visual. Replace this block with an <img>. Suggested ~560×620. ▓▓ -->
-        <div class="hero-card">
-          <div class="card-glow" aria-hidden="true"></div>
-          <div class="img-slot img-slot-hero" role="img" aria-label="Hero image placeholder">
-            <div class="img-slot-inner">
-              <span class="img-slot-tag">IMAGE</span>
-              <p>Hero visual</p>
-              <small>Swap for lifestyle / product photo · ~560×620</small>
+        <div class="filters" role="tablist" aria-label="Filter treatments">
+          <button class="filter is-active" data-filter="all">All</button>
+          <button class="filter" data-filter="weight">Weight</button>
+          <button class="filter" data-filter="vitality">Vitality</button>
+          <button class="filter" data-filter="hormone">Hormone support</button>
+        </div>
+
+        <div class="tgrid" id="tgrid">
+          <!-- Tirzepatide -->
+          <article class="tcard" data-cat="weight">
+            <div class="tcard-media">
+              <span class="tcard-cat">Weight</span>
+              <!-- ▓ IMAGE SLOT: replace this .node-glyph with a product photo <img> (16:11) ▓ -->
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="18" cy="22" r="5" fill="#57D9B6"/><circle cx="44" cy="18" r="4" fill="#7FE7CC"/><circle cx="38" cy="44" r="4.5" fill="#57D9B6"/><circle cx="20" cy="46" r="3.5" fill="#2f6f5f"/><path d="M18 22 44 18 38 44 20 46Z M18 22 38 44" stroke="#57D9B6" stroke-width="1.2" opacity=".6"/></svg>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="tcard-body">
+              <h3>Tirzepatide</h3>
+              <p class="tcard-mech">Dual GIP / GLP-1 receptor agonist. 2 protocol options · monthly supply.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">$75–$115 <small>/mo</small></span>
+                <span class="tcard-rx">Rx only</span>
+              </div>
+              <a href="#intake" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+            </div>
+          </article>
 
-    <!-- Trust strip -->
-    <section class="strip">
-      <div class="container strip-inner">
-        <span>How Velacore works with its partners</span>
-        <div class="strip-items">
-          <span>Independent physician review</span>
-          <span>·</span>
-          <span>503A pharmacy fulfillment</span>
-          <span>·</span>
-          <span>LegitScript-certified telemedicine partner</span>
-          <span>·</span>
-          <span>Select US states</span>
-        </div>
-      </div>
-    </section>
+          <!-- Semaglutide -->
+          <article class="tcard" data-cat="weight">
+            <div class="tcard-media">
+              <span class="tcard-cat">Weight</span>
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="5" fill="#57D9B6"/><circle cx="46" cy="26" r="4" fill="#7FE7CC"/><circle cx="30" cy="44" r="4.5" fill="#57D9B6"/><path d="M20 20 46 26 30 44Z" stroke="#57D9B6" stroke-width="1.2" opacity=".6"/></svg>
+            </div>
+            <div class="tcard-body">
+              <h3>Semaglutide</h3>
+              <p class="tcard-mech">GLP-1 receptor agonist. 2 protocol options · monthly supply.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">$40–$55 <small>/mo</small></span>
+                <span class="tcard-rx">Rx only</span>
+              </div>
+              <a href="#intake" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+            </div>
+          </article>
 
-    <!-- Stats bar -->
-    <section class="section stats-section">
-      <div class="container stats stats-4">
-        <div class="stat">
-          <p class="stat-num">Online</p>
-          <p class="stat-label">Doctor visit from home</p>
+          <!-- NAD+ -->
+          <article class="tcard" data-cat="vitality">
+            <div class="tcard-media">
+              <span class="tcard-cat">Vitality</span>
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="16" cy="28" r="4.5" fill="#57D9B6"/><circle cx="32" cy="16" r="4" fill="#7FE7CC"/><circle cx="48" cy="28" r="4.5" fill="#57D9B6"/><circle cx="32" cy="46" r="4" fill="#2f6f5f"/><path d="M16 28 32 16 48 28 32 46Z" stroke="#57D9B6" stroke-width="1.2" opacity=".6"/></svg>
+            </div>
+            <div class="tcard-body">
+              <h3>NAD+</h3>
+              <p class="tcard-mech">NAD+ injectable. 2 protocol options · monthly supply.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">$80 <small>/mo</small></span>
+                <span class="tcard-rx">Rx only</span>
+              </div>
+              <a href="#intake" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+            </div>
+          </article>
+
+          <!-- Glutathione -->
+          <article class="tcard" data-cat="vitality">
+            <div class="tcard-media">
+              <span class="tcard-cat">Vitality</span>
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="22" cy="24" r="5" fill="#57D9B6"/><circle cx="44" cy="22" r="4" fill="#7FE7CC"/><circle cx="34" cy="44" r="4.5" fill="#57D9B6"/><circle cx="18" cy="40" r="3.2" fill="#2f6f5f"/><path d="M22 24 44 22 34 44 18 40Z" stroke="#57D9B6" stroke-width="1.2" opacity=".6"/></svg>
+            </div>
+            <div class="tcard-body">
+              <h3>Glutathione</h3>
+              <p class="tcard-mech">Glutathione injectable. 2 protocol options · monthly supply.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">$80 <small>/mo</small></span>
+                <span class="tcard-rx">Rx only</span>
+              </div>
+              <a href="#intake" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+            </div>
+          </article>
+
+          <!-- Sermorelin -->
+          <article class="tcard" data-cat="hormone">
+            <div class="tcard-media">
+              <span class="tcard-cat">Hormone support</span>
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="18" cy="20" r="4.5" fill="#57D9B6"/><circle cx="40" cy="16" r="4" fill="#7FE7CC"/><circle cx="48" cy="38" r="4.5" fill="#57D9B6"/><circle cx="26" cy="44" r="3.6" fill="#2f6f5f"/><path d="M18 20 40 16 48 38 26 44Z" stroke="#57D9B6" stroke-width="1.2" opacity=".6"/></svg>
+            </div>
+            <div class="tcard-body">
+              <h3>Sermorelin</h3>
+              <p class="tcard-mech">Growth hormone–releasing hormone analog. 2 protocol options · monthly supply.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">$130 <small>/mo</small></span>
+                <span class="tcard-rx">Rx only</span>
+              </div>
+              <a href="#intake" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+            </div>
+          </article>
+
+          <!-- Not sure -->
+          <article class="tcard" data-cat="all">
+            <div class="tcard-media" style="background:linear-gradient(150deg,#0c8f72,#16211f)">
+              <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="26" r="6" fill="#0B1110"/><path d="M32 34v8" stroke="#0B1110" stroke-width="3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="tcard-body">
+              <h3>Not sure where to start?</h3>
+              <p class="tcard-mech">Start the online visit and an independent physician will help determine what's appropriate for you.</p>
+              <div class="tcard-meta">
+                <span class="tcard-price">Free <small>to begin</small></span>
+                <span class="tcard-rx">No obligation</span>
+              </div>
+              <a href="#intake" class="btn btn-primary btn-block btn-sm btn-arrow">Start online visit</a>
+            </div>
+          </article>
         </div>
-        <div class="stat">
-          <p class="stat-num">503A</p>
-          <p class="stat-label">Compounding pharmacy fulfillment</p>
-        </div>
-        <div class="stat">
-          <p class="stat-num">100%</p>
-          <p class="stat-label">Prescribing decisions by the independent physician</p>
-        </div>
-        <div class="stat">
-          <p class="stat-num">15-day</p>
-          <p class="stat-label">Full refund if not prescribed</p>
-        </div>
+
+        <p class="treat-note">All medications are prescription only and dispensed by a licensed pharmacy following a physician's prescription. Prices reflect program cost; final options are determined by your physician. Individual results vary. This page is not medical advice.</p>
       </div>
     </section>
 
     <!-- How it works -->
-    <section class="section section-alt" id="how">
+    <section class="section" id="how">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">How it works</p>
-          <h2>From online visit to your door</h2>
+          <h2>Four steps from visit to doorstep</h2>
           <p class="section-sub">Velacore coordinates each step. An independent, licensed physician makes every prescribing decision.</p>
         </div>
-
-        <ol class="steps steps-5">
+        <ol class="steps">
           <li class="step">
-            <div class="step-num">01</div>
-            <h3>Start your online visit</h3>
-            <p>Complete a secure telehealth intake about your goals, history, and current medications — no cost to begin.</p>
+            <div class="step-num">STEP 01</div>
+            <h3>Start your visit</h3>
+            <p>Complete a secure online intake about your goals, history, and medications. Free to begin.</p>
           </li>
           <li class="step">
-            <div class="step-num">02</div>
-            <h3>Independent physician review</h3>
-            <p>An independent, licensed physician reviews your intake and decides whether to prescribe, adjust, or decline — based solely on clinical judgment.</p>
+            <div class="step-num">STEP 02</div>
+            <h3>Physician review</h3>
+            <p>An independent, licensed physician reviews it and decides whether to prescribe — on clinical judgment alone.</p>
           </li>
           <li class="step">
-            <div class="step-num">03</div>
-            <h3>503A pharmacy fulfillment</h3>
-            <p>If prescribed, your treatment is filled by a licensed 503A compounding pharmacy and shipped to you with instructions.</p>
+            <div class="step-num">STEP 03</div>
+            <h3>Pharmacy fulfillment</h3>
+            <p>If prescribed, a licensed 503A compounding pharmacy fills your treatment and ships it to you.</p>
           </li>
           <li class="step">
-            <div class="step-num">04</div>
-            <h3>Ongoing coordination</h3>
-            <p>Message the Velacore care team for coordination and support throughout your treatment.</p>
+            <div class="step-num">STEP 04</div>
+            <h3>Ongoing support</h3>
+            <p>Your care team helps you coordinate follow-ups and reorders throughout your treatment.</p>
           </li>
           <li class="step">
-            <div class="step-num">05</div>
-            <h3>Not prescribed? Full refund</h3>
-            <p>If the independent physician does not prescribe, you're refunded in full — including the physician review fee — within 15 days.</p>
+            <div class="step-num">GUARANTEE</div>
+            <h3>Refund if not prescribed</h3>
+            <p>If the physician doesn't prescribe, you're refunded in full — including the review fee — within 15 days.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- Why Velacore — 4 pillars -->
-    <section class="section" id="why">
+    <!-- Why Velacore -->
+    <section class="section" id="why" style="padding-top:0">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Why Velacore</p>
-          <h2>Four pillars of the platform</h2>
-          <p class="section-sub">A telehealth coordination layer built around independent clinical oversight and licensed pharmacy fulfillment.</p>
+          <h2>Built on independent clinical oversight</h2>
         </div>
-        <div class="cards cards-4">
+        <div class="pillars">
           <article class="pillar">
-            <div class="pillar-ic" data-ic="coordinate"></div>
+            <div class="pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
             <h3>Coordinated, not clinical</h3>
-            <p>Velacore coordinates access and logistics. All prescribing decisions are made solely by the independent physician.</p>
+            <p>Velacore handles access and logistics. Every prescribing decision is made solely by the independent physician.</p>
           </article>
           <article class="pillar">
-            <div class="pillar-ic" data-ic="independent"></div>
+            <div class="pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
             <h3>Independent physicians</h3>
-            <p>You're connected with independent, licensed physicians whose credentials are disclosed to you before care.</p>
+            <p>You're connected with independent, licensed physicians whose credentials are disclosed before care.</p>
           </article>
           <article class="pillar">
-            <div class="pillar-ic" data-ic="pharmacy"></div>
+            <div class="pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.5 12 3l7.5 5.5V20a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1z"/><path d="M12 10v6M9 13h6"/></svg></div>
             <h3>503A pharmacy network</h3>
             <p>Prescribed treatments are filled through licensed 503A compounding pharmacies.</p>
           </article>
           <article class="pillar">
-            <div class="pillar-ic" data-ic="support"></div>
+            <div class="pillar-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
             <h3>Support &amp; coordination</h3>
-            <p>A care team helps you coordinate your visit, fulfillment, and follow-up.</p>
+            <p>A dedicated care team helps you coordinate your visit, fulfillment, and follow-up.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Treatments (public: the 5 permitted) -->
-    <section class="section section-alt" id="treatments">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Treatments</p>
-          <h2>Prescription treatments we coordinate</h2>
-          <p class="section-sub">All treatments require an online visit and a prescription from an independent, licensed physician. Prescriptions are issued only when clinically appropriate. Prices reflect program cost; final options are set by your physician.</p>
-        </div>
-
-        <div class="cards cards-3">
-          <!-- 1 · Tirzepatide -->
-          <article class="prog">
-            <div class="img-slot img-slot-prog" role="img" aria-label="Treatment image placeholder">
-              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Product photo · 4:3</small></div>
-            </div>
-            <div class="prog-body">
-              <span class="prog-cat">Weight management</span>
-              <h3>Tirzepatide</h3>
-              <p>Dual GIP / GLP-1 receptor agonist. Prescription only. 2 protocol options · monthly supply.</p>
-              <div class="prog-meta">
-                <span class="prog-price">$75–$115<span>/mo</span></span>
-                <span class="prog-badge">Refund if not prescribed</span>
-              </div>
-              <a href="#start" class="btn btn-ghost btn-block btn-sm">Start online visit</a>
-            </div>
-          </article>
-
-          <!-- 2 · Semaglutide -->
-          <article class="prog">
-            <div class="img-slot img-slot-prog" role="img" aria-label="Treatment image placeholder">
-              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Product photo · 4:3</small></div>
-            </div>
-            <div class="prog-body">
-              <span class="prog-cat">Weight management</span>
-              <h3>Semaglutide</h3>
-              <p>GLP-1 receptor agonist. Prescription only. 2 protocol options · monthly supply.</p>
-              <div class="prog-meta">
-                <span class="prog-price">$40–$55<span>/mo</span></span>
-                <span class="prog-badge">Refund if not prescribed</span>
-              </div>
-              <a href="#start" class="btn btn-ghost btn-block btn-sm">Start online visit</a>
-            </div>
-          </article>
-
-          <!-- 3 · NAD+ -->
-          <article class="prog">
-            <div class="img-slot img-slot-prog" role="img" aria-label="Treatment image placeholder">
-              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Product photo · 4:3</small></div>
-            </div>
-            <div class="prog-body">
-              <span class="prog-cat">Vitality</span>
-              <h3>NAD+</h3>
-              <p>NAD+ injectable. Prescription only. 2 protocol options · monthly supply.</p>
-              <div class="prog-meta">
-                <span class="prog-price">$80<span>/mo</span></span>
-                <span class="prog-badge">Refund if not prescribed</span>
-              </div>
-              <a href="#start" class="btn btn-ghost btn-block btn-sm">Start online visit</a>
-            </div>
-          </article>
-
-          <!-- 4 · Glutathione -->
-          <article class="prog">
-            <div class="img-slot img-slot-prog" role="img" aria-label="Treatment image placeholder">
-              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Product photo · 4:3</small></div>
-            </div>
-            <div class="prog-body">
-              <span class="prog-cat">Vitality</span>
-              <h3>Glutathione</h3>
-              <p>Glutathione injectable. Prescription only. 2 protocol options · monthly supply.</p>
-              <div class="prog-meta">
-                <span class="prog-price">$80<span>/mo</span></span>
-                <span class="prog-badge">Refund if not prescribed</span>
-              </div>
-              <a href="#start" class="btn btn-ghost btn-block btn-sm">Start online visit</a>
-            </div>
-          </article>
-
-          <!-- 5 · Sermorelin -->
-          <article class="prog">
-            <div class="img-slot img-slot-prog" role="img" aria-label="Treatment image placeholder">
-              <div class="img-slot-inner"><span class="img-slot-tag">IMAGE</span><small>Product photo · 4:3</small></div>
-            </div>
-            <div class="prog-body">
-              <span class="prog-cat">Hormone support</span>
-              <h3>Sermorelin</h3>
-              <p>Growth hormone–releasing hormone analog. Prescription only. 2 protocol options · monthly supply.</p>
-              <div class="prog-meta">
-                <span class="prog-price">$130<span>/mo</span></span>
-                <span class="prog-badge">Refund if not prescribed</span>
-              </div>
-              <a href="#start" class="btn btn-ghost btn-block btn-sm">Start online visit</a>
-            </div>
-          </article>
-
-        </div>
-
-        <p class="rx-note">All medications are prescription only and dispensed by a licensed pharmacy following a physician's prescription. Individual results vary. This page does not constitute medical advice.</p>
-      </div>
-    </section>
-
-    <!-- Meet a Prescribing Provider -->
-    <section class="section" id="provider">
+    <!-- Provider -->
+    <section class="section on-cream" id="provider">
       <div class="container provider-grid">
-        <!-- ▓▓ IMAGE SLOT: provider headshot. Replace with an <img>. Suggested ~420×520. ▓▓ -->
-        <div class="img-slot img-slot-provider" role="img" aria-label="Provider photo placeholder">
-          <div class="img-slot-inner">
-            <span class="img-slot-tag">IMAGE</span>
-            <p>Provider headshot</p>
-            <small>~420×520</small>
+        <!-- ▓▓ IMAGE SLOT: provider headshot (replace this card's media with an <img>, ~420×520) ▓▓ -->
+        <div class="tcard" style="box-shadow:var(--shadow-cream)">
+          <div class="tcard-media" style="aspect-ratio:42/52">
+            <svg class="node-glyph" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="24" r="10" stroke="#57D9B6" stroke-width="2"/><path d="M14 52c2-10 10-14 18-14s16 4 18 14" stroke="#57D9B6" stroke-width="2" fill="none"/></svg>
           </div>
         </div>
         <div class="provider-copy">
-          <p class="eyebrow">Meet a prescribing provider</p>
+          <p class="eyebrow">Meet a prescribing physician</p>
           <h2>Dr. Crystal Ray Broussard</h2>
           <p class="provider-role">Independent, licensed prescribing physician</p>
           <p>
@@ -862,29 +590,28 @@ ul,ol{margin:0;padding:0;list-style:none}
     </section>
 
     <!-- Guarantee -->
-    <section class="section section-alt" id="guarantee">
-      <div class="container guarantee">
+    <section class="section guarantee" id="guarantee">
+      <div class="container">
         <div class="guarantee-inner">
-          <p class="eyebrow">The guarantee</p>
-          <h2>Prescribed by the physician — or your money back</h2>
+          <p class="eyebrow" style="justify-content:center">The guarantee</p>
+          <h2>Prescribed by the physician — or your money back.</h2>
           <p class="guarantee-lede">
-            If the independent physician does not prescribe, you will be refunded in full —
-            including your program payment <strong>and</strong> the physician review fee — within
-            15 days. Medications are non-returnable once dispensed.
+            If the independent physician doesn't prescribe, you're refunded in full — your program
+            payment <strong>and</strong> the physician review fee — within 15 days. Medications are
+            non-returnable once dispensed.
           </p>
-          <a href="#start" class="btn btn-primary">Start your online visit</a>
+          <a href="#intake" class="btn btn-primary btn-arrow">Start your online visit</a>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq">
+    <section class="section on-cream" id="faq">
       <div class="container faq-wrap">
-        <div class="section-head">
-          <p class="eyebrow">FAQ</p>
+        <div class="section-head center">
+          <p class="eyebrow" style="justify-content:center">FAQ</p>
           <h2>Questions, answered</h2>
         </div>
-
         <div class="faq" id="faqList">
           <details class="faq-item">
             <summary>What is Velacore Health?</summary>
@@ -900,7 +627,7 @@ ul,ol{margin:0;padding:0;list-style:none}
           </details>
           <details class="faq-item">
             <summary>What is your refund policy?</summary>
-            <div class="faq-body"><p>If the independent physician does not prescribe, you will be refunded in full — including your program payment and the physician review fee — within 15 days. Medications are non-returnable once dispensed.</p></div>
+            <div class="faq-body"><p>If the independent physician does not prescribe, you're refunded in full — including your program payment and the physician review fee — within 15 days. Medications are non-returnable once dispensed.</p></div>
           </details>
           <details class="faq-item">
             <summary>Which states do you serve?</summary>
@@ -914,37 +641,38 @@ ul,ol{margin:0;padding:0;list-style:none}
       </div>
     </section>
 
-    <!-- Get started / CTA + form -->
-    <section class="section cta" id="start">
+    <!-- Intake -->
+    <section class="section" id="intake">
       <div class="container cta-grid">
         <div class="cta-copy">
-          <p class="eyebrow eyebrow-light">Get started</p>
-          <h2>Start your online visit</h2>
+          <p class="eyebrow">Start online visit</p>
+          <h2>Your visit starts here.</h2>
           <p>It's free to begin. An independent, licensed physician reviews your intake and decides whether treatment is appropriate — no obligation.</p>
           <ul class="cta-points">
             <li><span class="dot"></span> Free to begin, no obligation</li>
             <li><span class="dot"></span> Independent physician makes the prescribing decision</li>
             <li><span class="dot"></span> Full refund if not prescribed</li>
+            <li><span class="dot"></span> Filled by a licensed 503A pharmacy</li>
           </ul>
         </div>
 
-        <!-- Live JotForm telehealth intake (embedded). Form ID: 261070496021449 -->
-        <div class="cta-form cta-form-embed">
-          <div class="img-slot" style="min-height:560px;border-radius:12px"><div class="img-slot-inner"><span class="img-slot-tag">JOTFORM</span><p>Telehealth intake</p><small>Embedded live on the deployed site (form.jotform.com/261070496021449).<br>External forms don’t render inside this preview.</small></div></div>
-          <p class="form-fine">Prescription required. Submitting begins a telehealth intake; it is not a guarantee of treatment.</p>
+        <div class="intake-card">
+          <!-- Live JotForm telehealth intake · Form ID 261070496021449 -->
+          <div style="min-height:640px;border-radius:13px;background:linear-gradient(150deg,#101a18,#1c2b28);border:1px dashed rgba(87,217,182,.4);display:grid;place-items:center;text-align:center;color:#9BB0A9"><div style="padding:24px"><div style="font-size:.7rem;letter-spacing:.14em;color:#57D9B6;font-weight:700">JOTFORM</div><div style="font-family:var(--display);color:#E9EFEC;font-size:1.15rem;margin-top:6px">Telehealth intake</div><div style="font-size:.82rem;margin-top:6px">Embedded live on the deployed site.<br>External forms don’t render in this preview.</div></div></div>
+          <p class="intake-fine">Prescription required. Submitting begins a telehealth intake; it is not a guarantee of treatment.</p>
         </div>
       </div>
     </section>
 
-    <!-- CRITICAL COMPLIANCE DISCLAIMER (approved model — review before altering) -->
+    <!-- Please note -->
     <section class="please-note">
       <div class="container">
         <p>
-          <strong>Please note:</strong> Velacore Health is a telehealth platform. We do not provide,
-          guarantee, or facilitate any medical services, prescriptions, or treatments. Our platform
-          coordinates access to independent, licensed physicians and 503A compounding pharmacies. All
-          medical decisions are made solely by the independent physician. All medications are
-          prescription only and require a valid prescription.
+          <b>Please note:</b> Velacore Health is a telehealth platform. We do not provide, guarantee,
+          or facilitate any medical services, prescriptions, or treatments. Our platform coordinates
+          access to independent, licensed physicians and 503A compounding pharmacies. All medical
+          decisions are made solely by the independent physician. All medications are prescription
+          only and require a valid prescription.
         </p>
       </div>
     </section>
@@ -956,45 +684,48 @@ ul,ol{margin:0;padding:0;list-style:none}
       <div class="footer-brand">
         <a href="#top" class="brand">
           <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M16 3 L27 9 V19 C27 25 16 30 16 30 C16 30 5 25 5 19 V9 Z" fill="currentColor"/>
-            <path d="M11 13 l5 8 5 -8" fill="none" stroke="#4fd1c5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="11" cy="12" r="3" fill="#57D9B6"/>
+            <circle cx="22" cy="11" r="2.4" fill="currentColor"/>
+            <circle cx="17" cy="22" r="2.4" fill="currentColor"/>
+            <path d="M11 12 L22 11 L17 22 Z" fill="none" stroke="#57D9B6" stroke-width="1.2" opacity=".65"/>
           </svg>
-          <span class="brand-name">Velacore<span class="brand-accent">Health</span></span>
+          <span class="brand-name">Velacore<span class="brand-accent">.</span></span>
         </a>
-        <p>Velacore Health is a telehealth platform that coordinates access to independent, licensed physicians and 503A compounding pharmacies.</p>
+        <p>A telehealth platform coordinating access to independent, licensed physicians and 503A compounding pharmacies.</p>
       </div>
-      <nav class="footer-col" aria-label="Platform">
-        <h4>Platform</h4>
-        <a href="#how">How it works</a>
+      <nav class="footer-col" aria-label="Explore">
+        <h4>Explore</h4>
         <a href="#treatments">Treatments</a>
+        <a href="#how">How it works</a>
+        <a href="#why">Why Velacore</a>
         <a href="#provider">Providers</a>
-        <a href="#guarantee">Guarantee</a>
       </nav>
       <nav class="footer-col" aria-label="More">
         <h4>More</h4>
         <a href="#faq">FAQ</a>
-        <a href="#start">Start online visit</a>
+        <a href="#guarantee">Guarantee</a>
+        <a href="#intake">Start online visit</a>
         <a href="mailto:hello@velacorehealth.com">Contact</a>
       </nav>
       <div class="footer-col">
         <h4>Get in touch</h4>
         <a href="mailto:hello@velacorehealth.com">hello@velacorehealth.com</a>
-        <a href="#start">Start online visit</a>
+        <a href="#intake">Start online visit</a>
       </div>
     </div>
 
     <div class="container footer-legal">
       <p class="states-served">
-        Velacore Health telehealth services are currently available to residents of select US
-        states. Contact our care team to confirm availability in your state. Prescription required.
+        Velacore Health telehealth services are currently available to residents of select US states.
+        Contact our care team to confirm availability in your state. Prescription required.
       </p>
       <p class="disclaimer">
-        <strong>Important:</strong> Velacore Health does not provide, guarantee, or facilitate any
-        medical services, prescriptions, or treatments. The platform coordinates access to
-        independent, licensed physicians and 503A compounding pharmacies; all medical decisions are
-        made solely by the independent physician. All medications are prescription only. Content on
-        this site is for general informational purposes only and is not medical advice. Always
-        consult a qualified healthcare provider.
+        <b>Important:</b> Velacore Health does not provide, guarantee, or facilitate any medical
+        services, prescriptions, or treatments. The platform coordinates access to independent,
+        licensed physicians and 503A compounding pharmacies; all medical decisions are made solely by
+        the independent physician. All medications are prescription only. Content on this site is for
+        general informational purposes only and is not medical advice. Always consult a qualified
+        healthcare provider.
       </p>
       <div class="footer-bottom">
         <p>© <span id="year"></span> Velacore Health · First Venture Group LLC. All rights reserved.</p>
@@ -1011,11 +742,13 @@ ul,ol{margin:0;padding:0;list-style:none}
   
 
 <script>
-/* Velacore Health — light interactivity */
+/* Velacore Health — interactivity */
 (function () {
   'use strict';
 
-  // Current year in footer
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Year in footer
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -1028,7 +761,6 @@ ul,ol{margin:0;padding:0;list-style:none}
       toggle.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', String(open));
     });
-    // Close menu after choosing a link
     links.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
         links.classList.remove('open');
@@ -1038,40 +770,113 @@ ul,ol{margin:0;padding:0;list-style:none}
     });
   }
 
-  // FAQ: keep only one item open at a time
+  // FAQ: one open at a time
   var faq = document.getElementById('faqList');
   if (faq) {
     var items = faq.querySelectorAll('details');
     items.forEach(function (item) {
       item.addEventListener('toggle', function () {
-        if (item.open) {
-          items.forEach(function (other) {
-            if (other !== item) other.open = false;
-          });
-        }
+        if (item.open) items.forEach(function (o) { if (o !== item) o.open = false; });
       });
     });
   }
 
-  // The telehealth intake is the embedded JotForm in #start (see index.html).
+  // Treatment filter
+  var filterBtns = document.querySelectorAll('.filter');
+  var cards = document.querySelectorAll('#tgrid .tcard');
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      filterBtns.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      cards.forEach(function (card) {
+        var cat = card.getAttribute('data-cat');
+        var show = f === 'all' || cat === f || cat === 'all';
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
 
-  // Subtle reveal on scroll. Handled purely in CSS via the `.reveal` class so
-  // content is ALWAYS visible by default — the class only adds an entrance
-  // animation when it scrolls into view, and can never leave a section blank.
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var revealEls = document.querySelectorAll('.step, .prog, .pillar, .stat');
+  // Scroll reveal (safe: content visible by default; CSS animates on .is-visible)
+  if ('IntersectionObserver' in window && !reduce) {
+    var revealEls = document.querySelectorAll('.tcard, .pillar, .step');
     revealEls.forEach(function (el) { el.classList.add('reveal'); });
-
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
-
     revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  // Hero molecular node field (Canvas — innovative ambient motion)
+  var canvas = document.getElementById('molecule');
+  if (canvas && canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var nodes = [];
+    var W = 0, H = 0, raf = null;
+
+    function size() {
+      var rect = canvas.getBoundingClientRect();
+      W = rect.width; H = rect.height;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function build() {
+      var count = Math.max(22, Math.min(56, Math.round(W / 26)));
+      nodes = [];
+      for (var i = 0; i < count; i++) {
+        nodes.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.32,
+          vy: (Math.random() - 0.5) * 0.32,
+          r: Math.random() * 1.8 + 1.1
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < nodes.length; i++) {
+        var a = nodes[i];
+        a.x += a.vx; a.y += a.vy;
+        if (a.x < 0 || a.x > W) a.vx *= -1;
+        if (a.y < 0 || a.y > H) a.vy *= -1;
+        for (var j = i + 1; j < nodes.length; j++) {
+          var b = nodes[j];
+          var dx = a.x - b.x, dy = a.y - b.y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 130) {
+            ctx.globalAlpha = (1 - d / 130) * 0.22;
+            ctx.strokeStyle = '#57D9B6';
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+      }
+      ctx.globalAlpha = 0.85;
+      for (var k = 0; k < nodes.length; k++) {
+        var n = nodes[k];
+        ctx.fillStyle = '#57D9B6';
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(draw);
+    }
+
+    function start() { size(); build(); if (!reduce) { if (raf) cancelAnimationFrame(raf); draw(); } else { draw(); cancelAnimationFrame(raf); } }
+    start();
+    var t;
+    window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(start, 200); });
+    // Pause when hero is offscreen (perf)
+    if ('IntersectionObserver' in window && !reduce) {
+      new IntersectionObserver(function (e) {
+        if (e[0].isIntersecting) { if (!raf) draw(); }
+        else { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+      }, { threshold: 0 }).observe(canvas);
+    }
   }
 })();
 
