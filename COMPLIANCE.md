@@ -71,16 +71,21 @@ name anywhere in this repository.** They belong only in a gated member area (see
 - Transparent pricing and a clear refund policy.
 - States-served disclosure (placeholder line — replace with the confirmed list).
 
-### Refund policy (authoritative — matches live velacorehealth.com)
+### Fees & refund policy (authoritative — owner-confirmed)
 
-If the independent physician does not approve the program (in full or in part), the **program
-payment is refunded in full within 15 days**. The **physician review fee is non-refundable**.
+**What the customer pays:** the medication/program price **+ a one-time $20 physician fee** at
+intake (collected on behalf of the independent medical group). **Shipping is included** — the
+customer pays no separate shipping fee. (Velacore absorbs the remaining provider cost — $10 single /
+$30 multi of the $30/$50 doctor cost — plus the flat $35 shipping.)
+
+**Refunds:** if the independent physician does not approve the program (in full or in part), the
+**program payment is refunded in full within 15 days**. The **$20 physician fee is non-refundable**.
 **Medications are non-returnable and non-refundable once dispensed** (federal/state pharmacy law).
-The **shipping fee is refunded only if no prescription is fulfilled.**
 
-> ⚠️ This **contradicts the original launch brief**, which stated the refund includes the physician
-> review fee. The above (fee NOT refunded) is the current, owner-confirmed policy. Ensure the
-> **JotForm terms, Terms/Refund Policy page, and payment processor** all state this same policy.
+> ⚠️ Two things to reconcile so every surface matches: (1) the original launch brief said the
+> physician fee *was* refunded — it is **not**; (2) the old live-site FAQ listed a $35/$50 review
+> fee + separate $35 shipping — that's superseded by the **$20 fee + included shipping** model above.
+> Make sure the **JotForm intake terms and the payment processor** state this same policy.
 
 ## Still required before submission (from your brief — not code)
 
