@@ -88,9 +88,10 @@ The **shipping fee is refunded only if no prescription is fulfilled.**
 - [ ] Confirm **pharmacy routing** (out-of-state fulfillment constraints).
 - [ ] Signed **Medical Director Agreement** + attorney review of provider language.
 - [ ] 5 written SOPs; BAAs with every vendor touching patient data.
-- [ ] Legal pages: Privacy, Terms, Telehealth consent (footer links are stubs).
+- [x] Legal pages drafted: `privacy.html`, `terms.html`, `telehealth-consent.html`, `refund-policy.html`, linked in the footer. **⚠️ Attorney review required before launch** — especially governing-law/venue/arbitration (currently Texas placeholder), HIPAA specifics, and auto-renewal terms. Confirm the JotForm terms and payment processor match these pages.
+- [x] Intake wired to JotForm (form 261070496021449).
 - [ ] Build the **server-authenticated** member area for restricted products.
-- [ ] Wire the intake form/CTA to your JotForm telehealth intake.
+- [ ] Confirm the JotForm intake terms + payment processor mirror the Refund Policy (fee non-refundable).
 - [ ] Site fully public (no password) before the LegitScript scan of the public surface.
 
 ## Image slots to fill (search the HTML for `img-slot`)
