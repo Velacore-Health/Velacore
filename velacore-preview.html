@@ -165,6 +165,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .step h3{font-size:1.16rem;margin-bottom:9px;padding-right:14px}
 .step p{color:var(--muted-dark);font-size:.92rem;padding-right:14px}
 .on-cream .step p{color:var(--muted-cream)}
+.step-link{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:.8rem;font-weight:600;color:var(--jade);letter-spacing:.01em}
+.step-link::after{content:"→";transition:transform .2s var(--ease)}
+.step-link:hover{color:var(--jade-2)}
+.step-link:hover::after{transform:translateX(3px)}
 @media (max-width:1000px){.steps{grid-template-columns:1fr 1fr}.step{border-right:0;border-bottom:1px solid var(--line-dark);padding:26px 0}.on-cream .step{border-bottom-color:var(--line-cream)}}
 
 /* ---------- Treatments (product-led centerpiece) ---------- */
@@ -524,26 +528,31 @@ ul,ol{margin:0;padding:0;list-style:none}
             <div class="step-num">STEP 01</div>
             <h3>Start your visit</h3>
             <p>Complete a secure online intake about your goals, history, and medications. Free to begin.</p>
+            <a class="step-link" href="#intake">Start your visit</a>
           </li>
           <li class="step">
             <div class="step-num">STEP 02</div>
             <h3>Physician review</h3>
             <p>An independent, licensed physician reviews it and decides whether to prescribe — on clinical judgment alone.</p>
+            <a class="step-link" href="#provider">Meet the provider</a>
           </li>
           <li class="step">
             <div class="step-num">STEP 03</div>
             <h3>Pharmacy fulfillment</h3>
             <p>If prescribed, a licensed 503A compounding pharmacy fills your treatment and ships it to you.</p>
+            <a class="step-link" href="#learn">How it’s made</a>
           </li>
           <li class="step">
             <div class="step-num">STEP 04</div>
             <h3>Ongoing support</h3>
             <p>Your care team helps you coordinate follow-ups and reorders throughout your treatment.</p>
+            <a class="step-link" href="#faq">Support &amp; FAQ</a>
           </li>
           <li class="step">
             <div class="step-num">OUR PROMISE</div>
             <h3>Refund if not prescribed</h3>
             <p>If the physician doesn't prescribe, your program payment is refunded within 15 days. The one-time $20 physician fee is non-refundable.</p>
+            <a class="step-link" href="refund-policy.html">Refund policy</a>
           </li>
         </ol>
       </div>

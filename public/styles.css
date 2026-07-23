@@ -163,6 +163,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .step h3{font-size:1.16rem;margin-bottom:9px;padding-right:14px}
 .step p{color:var(--muted-dark);font-size:.92rem;padding-right:14px}
 .on-cream .step p{color:var(--muted-cream)}
+.step-link{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:.8rem;font-weight:600;color:var(--jade);letter-spacing:.01em}
+.step-link::after{content:"→";transition:transform .2s var(--ease)}
+.step-link:hover{color:var(--jade-2)}
+.step-link:hover::after{transform:translateX(3px)}
 @media (max-width:1000px){.steps{grid-template-columns:1fr 1fr}.step{border-right:0;border-bottom:1px solid var(--line-dark);padding:26px 0}.on-cream .step{border-bottom-color:var(--line-cream)}}
 
 /* ---------- Treatments (product-led centerpiece) ---------- */
