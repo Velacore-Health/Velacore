@@ -89,8 +89,15 @@ $30 multi of the $30/$50 doctor cost — plus the flat $35 shipping.)
 
 ## Still required before submission (from your brief — not code)
 
-- [x] States served: **all 50 US states** (owner-confirmed 07/23/2026). ⚠️ Obtain **written AsherMed confirmation** of 50-state physician licensure AND nationwide pharmacy routing (not TX-only Greenville) for the LegitScript file.
-- [ ] Confirm **pharmacy routing** (out-of-state fulfillment constraints).
+- [x] States served: **all 50 US states** — ✅ written AsherMed confirmation received (Paulina,
+  Asher Health Partner Support email: "affiliated physicians are licensed to prescribe in all 50
+  states… you can confidently disclose"). Save that email to the compliance file.
+- [x] Pharmacy license copy — received from AsherMed (attached to same email).
+- [x] Partnership agreement — template received from AsherMed; ⚠️ execute (sign + return) so both
+  parties hold a fully executed copy.
+- [ ] **AsherMed BAA — STILL OUTSTANDING.** Ignored in AsherMed's reply; follow-up email sent
+  requesting it. This is the blocking item for SOP-01 / HIPAA / LegitScript.
+- [ ] Confirm **pharmacy routing** in writing: which pharmacy fulfills Velacore orders + nationwide shipping licensure (one partner pharmacy is TX-only). Requested in follow-up email.
 - [ ] Signed **Medical Director Agreement** + attorney review of provider language.
 - [ ] 5 written SOPs; BAAs with every vendor touching patient data.
 - [x] Legal pages drafted: `privacy.html`, `terms.html`, `telehealth-consent.html`, `refund-policy.html`, linked in the footer. **⚠️ Attorney review required before launch** — especially governing-law/venue/arbitration (currently Texas placeholder), HIPAA specifics, and auto-renewal terms. Confirm the JotForm terms and payment processor match these pages.
