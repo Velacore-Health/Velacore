@@ -64,6 +64,15 @@
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
+  // Sticky mobile CTA: hide while the intake section is on screen
+  var mobileCta = document.getElementById('mobileCta');
+  var intakeSec = document.getElementById('intake');
+  if (mobileCta && intakeSec && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      mobileCta.classList.toggle('is-hidden', entries[0].isIntersecting);
+    }, { threshold: 0.05 }).observe(intakeSec);
+  }
+
   // Hero molecular node field (Canvas — innovative ambient motion)
   var canvas = document.getElementById('molecule');
   if (canvas && canvas.getContext) {

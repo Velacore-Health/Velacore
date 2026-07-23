@@ -316,6 +316,20 @@ ul,ol{margin:0;padding:0;list-style:none}
 .legal-toc a{font-size:.85rem;color:var(--muted-dark);border:1px solid var(--line-dark-2);padding:7px 13px;border-radius:999px;text-decoration:none}
 .legal-toc a:hover{color:var(--jade);border-color:var(--jade)}
 
+/* ---------- Sticky mobile CTA ---------- */
+.mobile-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(11,17,16,.88);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line-dark);
+}
+.mobile-cta .btn{box-shadow:0 8px 22px -8px var(--jade-glow)}
+@media (max-width:680px){
+  .mobile-cta{display:block}
+  .mobile-cta.is-hidden{display:none}
+  body{padding-bottom:76px}
+}
+
 /* ---------- Reveal (safe: visible by default) ---------- */
 .reveal.is-visible{animation:revealUp .7s var(--ease) both}
 @keyframes revealUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
