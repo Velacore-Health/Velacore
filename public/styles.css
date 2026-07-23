@@ -267,6 +267,23 @@ ul,ol{margin:0;padding:0;list-style:none}
 .footer-bottom nav{display:flex;gap:20px}
 .footer-bottom a:hover{color:var(--on-dark)}
 
+/* ---------- Peptide education ---------- */
+.edu-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;margin-bottom:46px}
+.edu-intro-copy h3{font-size:1.6rem;margin-bottom:14px}
+.edu-intro-copy p{color:var(--muted-cream);font-size:1.06rem;margin-bottom:14px}
+.edu-intro-copy strong{color:var(--on-cream)}
+.edu-viz{background:#fff;border:1px solid var(--line-cream);border-radius:var(--radius);padding:26px 30px;box-shadow:var(--shadow-cream)}
+.edu-viz svg{width:100%;height:auto;display:block}
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.edu-card{background:#fff;border:1px solid var(--line-cream);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-cream)}
+.edu-card h3{font-size:1.22rem;margin-bottom:10px}
+.edu-card p{color:var(--muted-cream);font-size:.96rem}
+.edu-ic{width:46px;height:46px;border-radius:12px;background:rgba(12,143,114,.1);display:grid;place-items:center;margin-bottom:18px;color:var(--jade-deep)}
+.edu-ic svg{width:23px;height:23px}
+.edu-note{text-align:center;color:var(--muted-cream);font-size:.85rem;margin-top:36px;font-style:italic;max-width:54rem;margin-left:auto;margin-right:auto}
+.edu-cta{text-align:center;margin-top:26px}
+@media(max-width:940px){.edu-intro{grid-template-columns:1fr;gap:32px}.edu-grid{grid-template-columns:1fr}}
+
 /* ---------- Legal pages ---------- */
 .legal-hero{padding:56px 0 26px;border-bottom:1px solid var(--line-dark)}
 .legal-hero .eyebrow{margin-bottom:14px}
