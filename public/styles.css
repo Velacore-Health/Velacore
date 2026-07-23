@@ -103,8 +103,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 .brand-name{font-family:var(--display);font-size:1.24rem;letter-spacing:-.02em;font-weight:600}
 .brand-accent{color:var(--jade)}
 .nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a{font-size:.94rem;font-weight:500;color:var(--muted-dark);transition:color .2s}
+.nav-links a:not(.btn){font-size:.94rem;font-weight:500;color:var(--muted-dark);transition:color .2s}
 .nav-links a:not(.btn):hover{color:var(--on-dark)}
+.nav-links a.btn-primary{color:#051512;font-weight:700}
 .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
 .nav-toggle span{width:24px;height:2px;background:var(--on-dark);border-radius:2px;transition:.25s var(--ease)}
 
