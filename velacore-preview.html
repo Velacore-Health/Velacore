@@ -277,11 +277,16 @@ ul,ol{margin:0;padding:0;list-style:none}
 .edu-viz{background:#fff;border:1px solid var(--line-cream);border-radius:var(--radius);padding:26px 30px;box-shadow:var(--shadow-cream)}
 .edu-viz svg{width:100%;height:auto;display:block}
 .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.edu-card{background:#fff;border:1px solid var(--line-cream);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-cream)}
-.edu-card h3{font-size:1.22rem;margin-bottom:10px}
-.edu-card p{color:var(--muted-cream);font-size:.96rem}
-.edu-ic{width:46px;height:46px;border-radius:12px;background:rgba(12,143,114,.1);display:grid;place-items:center;margin-bottom:18px;color:var(--jade-deep)}
-.edu-ic svg{width:23px;height:23px}
+.edu-card{background:#fff;border:1px solid var(--line-cream);border-radius:var(--radius);box-shadow:var(--shadow-cream);overflow:hidden;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.edu-card:hover{transform:translateY(-5px);box-shadow:0 28px 60px -30px rgba(11,17,16,.42)}
+.edu-illus{height:128px;display:grid;place-items:center;border-bottom:1px solid var(--line-cream);overflow:hidden;background:radial-gradient(120% 130% at 28% 18%,rgba(87,217,182,.22),transparent 62%),linear-gradient(135deg,#edf7f3,#e1efea)}
+.edu-illus svg{width:auto;height:78px;transition:transform .35s var(--ease)}
+.edu-card:hover .edu-illus svg{transform:scale(1.07)}
+.edu-body{padding:24px 26px 28px}
+.edu-body h3{font-size:1.2rem;margin-bottom:10px}
+.edu-body p{color:var(--muted-cream);font-size:.95rem}
+.edu-viz svg{animation:eduFloat 5s ease-in-out infinite alternate}
+@keyframes eduFloat{from{transform:translateY(0)}to{transform:translateY(-7px)}}
 .edu-note{text-align:center;color:var(--muted-cream);font-size:.85rem;margin-top:36px;font-style:italic;max-width:54rem;margin-left:auto;margin-right:auto}
 .edu-cta{text-align:center;margin-top:26px}
 @media(max-width:940px){.edu-intro{grid-template-columns:1fr;gap:32px}.edu-grid{grid-template-columns:1fr}}
@@ -577,34 +582,46 @@ ul,ol{margin:0;padding:0;list-style:none}
 
         <div class="edu-grid">
           <article class="edu-card">
-            <div class="edu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-            <h3>Are they safe?</h3>
-            <p>Safety depends on the person, the peptide, and the dose — which is exactly why every treatment here is <strong>prescription-only</strong>. An independent, licensed physician reviews your health history and decides whether a peptide is appropriate for you, and it's compounded by a licensed 503A pharmacy. Like any medication, peptides can have side effects and aren't right for everyone — that's a conversation to have with your physician.</p>
+            <div class="edu-illus"><svg viewBox="0 0 120 80" fill="none" stroke="#0C8F72" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 14 L80 21 V38 C80 51 71 60 60 65 C49 60 40 51 40 38 V21 Z"/><path d="M51 37 l6 6 13-13" stroke-width="2.8"/><circle cx="28" cy="24" r="2.4" fill="#57D9B6" stroke="none"/><circle cx="94" cy="48" r="2.8" fill="#57D9B6" stroke="none"/><circle cx="26" cy="54" r="1.8" fill="#7FE7CC" stroke="none"/></svg></div>
+            <div class="edu-body">
+              <h3>Are they safe?</h3>
+              <p>Safety depends on the person, the peptide, and the dose — which is exactly why every treatment here is <strong>prescription-only</strong>. An independent, licensed physician reviews your health history and decides whether a peptide is appropriate for you, and it's compounded by a licensed 503A pharmacy. Like any medication, peptides can have side effects and aren't right for everyone — that's a conversation to have with your physician.</p>
+            </div>
           </article>
           <article class="edu-card">
-            <div class="edu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg></div>
-            <h3>What if I stop taking them?</h3>
-            <p>Everyone responds differently, and it depends on the treatment and your daily habits. Some changes people work toward are supported by ongoing routines — sleep, nutrition, and movement — while other effects may gradually fade after stopping. There's no one-size-fits-all answer, so whether to continue, adjust, or stop is a decision to make with your physician.</p>
+            <div class="edu-illus"><svg viewBox="0 0 120 80" fill="none" stroke="#0C8F72" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M75 40 A16 16 0 1 1 70 28"/><path d="M70 16 v12 h-12"/><circle cx="36" cy="56" r="3.2" fill="#0C8F72" stroke="none"/><circle cx="27" cy="58" r="2.3" fill="#57D9B6" stroke="none" opacity=".7"/><circle cx="19" cy="60" r="1.6" fill="#7FE7CC" stroke="none" opacity=".5"/></svg></div>
+            <div class="edu-body">
+              <h3>What if I stop taking them?</h3>
+              <p>Everyone responds differently, and it depends on the treatment and your daily habits. Some changes people work toward are supported by ongoing routines — sleep, nutrition, and movement — while other effects may gradually fade after stopping. There's no one-size-fits-all answer, so whether to continue, adjust, or stop is a decision to make with your physician.</p>
+            </div>
           </article>
           <article class="edu-card">
-            <div class="edu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-            <h3>How do I know if they're right for me?</h3>
-            <p>The only way to know is a clinical evaluation. Start a free online visit — an independent physician reviews your goals and health history and tells you whether treatment is appropriate. If it isn't, they'll tell you that too.</p>
+            <div class="edu-illus"><svg viewBox="0 0 120 80" fill="none" stroke="#0C8F72" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="36" y="14" width="30" height="42" rx="3"/><path d="M43 25 h16 M43 33 h16 M43 41 h10"/><circle cx="74" cy="46" r="10"/><path d="M81 53 l8 8"/></svg></div>
+            <div class="edu-body">
+              <h3>How do I know if they're right for me?</h3>
+              <p>The only way to know is a clinical evaluation. Start a free online visit — an independent physician reviews your goals and health history and tells you whether treatment is appropriate. If it isn't, they'll tell you that too.</p>
+            </div>
           </article>
           <article class="edu-card">
-            <div class="edu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
-            <h3>How is it taken?</h3>
-            <p>It depends on what's prescribed. Many peptide and GLP-1 treatments are given as a small <strong>subcutaneous self-injection</strong> — a tiny needle just under the skin, similar to insulin — usually on a weekly or daily schedule. Others may come in different forms. Your prescription ships with step-by-step instructions, and the care team can walk you through your first dose.</p>
+            <div class="edu-illus"><svg viewBox="0 0 120 80" fill="none" stroke="#0C8F72" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="24" width="18" height="40" rx="4"/><path d="M26 24 v-5 h14 v5"/><path d="M24 38 h18"/><rect x="60" y="34" width="26" height="12" rx="2"/><path d="M60 40 h-9"/><path d="M51 35 v10"/><path d="M86 40 h12"/><path d="M67 34 v12 M73 34 v12 M79 34 v12"/><circle cx="99" cy="40" r="1.8" fill="#57D9B6" stroke="none"/></svg></div>
+            <div class="edu-body">
+              <h3>How is it taken?</h3>
+              <p>It depends on what's prescribed. Many peptide and GLP-1 treatments are given as a small <strong>subcutaneous self-injection</strong> — a tiny needle just under the skin, similar to insulin — usually on a weekly or daily schedule. Others may come in different forms. Your prescription ships with step-by-step instructions, and the care team can walk you through your first dose.</p>
+            </div>
           </article>
           <article class="edu-card">
-            <div class="edu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v5.5L5.2 17A2 2 0 0 0 7 20h10a2 2 0 0 0 1.8-3L14 8.5V3"/></svg></div>
-            <h3>How are they made?</h3>
-            <p>Prescribed treatments are prepared — or <strong>compounded</strong> — by licensed <strong>503A compounding pharmacies</strong> in the U.S. that follow strict quality, sterility, and testing standards. Compounding lets a pharmacy prepare a medication to a physician's specific prescription.</p>
+            <div class="edu-illus"><svg viewBox="0 0 120 80" fill="none" stroke="#0C8F72" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M54 14 h14 M58 14 v13 L47 48 A4 4 0 0 0 51 54 h20 A4 4 0 0 0 75 48 L64 27 V14"/><path d="M50 44 h22"/><circle cx="57" cy="49" r="1.8" fill="#57D9B6" stroke="none"/><circle cx="65" cy="46" r="1.3" fill="#7FE7CC" stroke="none"/><circle cx="30" cy="24" r="3"/><circle cx="40" cy="18" r="2.4"/><path d="M32.5 22.5 37.5 19.5"/></svg></div>
+            <div class="edu-body">
+              <h3>How are they made?</h3>
+              <p>Prescribed treatments are prepared — or <strong>compounded</strong> — by licensed <strong>503A compounding pharmacies</strong> in the U.S. that follow strict quality, sterility, and testing standards. Compounding lets a pharmacy prepare a medication to a physician’s specific prescription.</p>
+            </div>
           </article>
           <article class="edu-card">
-            <div class="edu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="12" r="3.2"/><circle cx="17" cy="12" r="3.2"/><path d="M10.2 12h3.6"/></svg></div>
-            <h3>Peptides vs. GLP-1s — what's the difference?</h3>
-            <p>GLP-1s (like semaglutide and tirzepatide) are actually a type of peptide. "Peptide" is the broad category — short chains of amino acids that signal the body — and GLP-1 receptor agonists are one specific, well-known group within it. Whether any of them is appropriate for you is a clinical decision made by the physician.</p>
+            <div class="edu-illus"><svg viewBox="0 0 120 80" fill="none" stroke="#0C8F72" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="30" r="4"/><circle cx="44" cy="24" r="3.4"/><circle cx="40" cy="44" r="3.4"/><path d="M30 30 L44 24 M44 24 L40 44 M40 44 L30 30"/><path d="M48 34 h26" stroke-dasharray="2 5"/><circle cx="84" cy="32" r="4.2" fill="#0C8F72" stroke="none"/><circle cx="96" cy="46" r="3.6" fill="#0C8F72" stroke="none"/><circle cx="90" cy="26" r="3" fill="#57D9B6" stroke="none"/></svg></div>
+            <div class="edu-body">
+              <h3>Peptides vs. GLP-1s — what's the difference?</h3>
+              <p>GLP-1s (like semaglutide and tirzepatide) are actually a type of peptide. "Peptide" is the broad category — short chains of amino acids that signal the body — and GLP-1 receptor agonists are one specific, well-known group within it. Whether any of them is appropriate for you is a clinical decision made by the physician.</p>
+            </div>
           </article>
         </div>
 
