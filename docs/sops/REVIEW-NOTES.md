@@ -4,9 +4,9 @@ Drafts SOP-03/04/05 were generated to match the SOP-01/02 format and the correct
 site policies. All five need attorney review before LegitScript submission.
 
 ## Fixes needed in SOP-01 (HIPAA)
-1. §4.4 says customers are "across all 50 states" — contradicts the site's
-   "select US states" and the unresolved physician-licensing/states list.
-   Change to "states where services are available."
+1. §4.4 "across all 50 states" — CONFIRMED by owner (site now matches).
+   Get AsherMed's written confirmation of 50-state physician licensure AND
+   nationwide pharmacy routing (not TX-only Greenville) into the compliance file.
 2. AsherMed BAA is marked PENDING — this is the load-bearing agreement; execute it.
    Tidio + Airtable subcontractor BAAs also pending.
 3. Typo "Joanthan Douglass" in the approval line.
@@ -30,4 +30,4 @@ site policies. All five need attorney review before LegitScript submission.
   $20 physician fee non-refundable; meds non-returnable once dispensed;
   shipping included (no separate fee).
 - Provider: independent AsherMed physician; no Velacore medical director.
-- States: "select US states" pending the confirmed list from AsherMed.
+- States: all 50 US states (owner-confirmed; obtain written AsherMed confirmation).

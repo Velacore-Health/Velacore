@@ -89,7 +89,7 @@ $30 multi of the $30/$50 doctor cost — plus the flat $35 shipping.)
 
 ## Still required before submission (from your brief — not code)
 
-- [ ] Confirm the real **states-served list**; replace the placeholder line.
+- [x] States served: **all 50 US states** (owner-confirmed 07/23/2026). ⚠️ Obtain **written AsherMed confirmation** of 50-state physician licensure AND nationwide pharmacy routing (not TX-only Greenville) for the LegitScript file.
 - [ ] Confirm **pharmacy routing** (out-of-state fulfillment constraints).
 - [ ] Signed **Medical Director Agreement** + attorney review of provider language.
 - [ ] 5 written SOPs; BAAs with every vendor touching patient data.
