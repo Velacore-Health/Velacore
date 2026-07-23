@@ -93,16 +93,22 @@ $30 multi of the $30/$50 doctor cost — plus the flat $35 shipping.)
   Asher Health Partner Support email: "affiliated physicians are licensed to prescribe in all 50
   states… you can confidently disclose"). Save that email to the compliance file.
 - [x] Pharmacy license copy — received from AsherMed (attached to same email).
-- [x] Partnership agreement — template received from AsherMed; ⚠️ execute (sign + return) so both
-  parties hold a fully executed copy.
+- [x] Partnership agreement — ✅ **fully executed.** Sign-Up Agreement signed by both parties
+  (Trevor Briggs, Asher Med CEO + Bryan Dourado, CEO), dated **03-02-2026**, signature page 16 of
+  18 (support@joinasher.com email, screenshot on file). Affiliate name on the contract reads
+  "First Venture Group LLC dba VelaCore Health" (note: capital-C "VelaCore" — brand is styled
+  "Velacore"; cosmetic only, does not affect validity — flag on the next document, do not re-execute).
 - [~] **AsherMed BAA:** AsherMed states BAA provisions are **embedded in the main agreement**
   (support email). Legitimate under HIPAA IF the required 45 CFR 164.504(e) provisions are present.
-  ⚠️ Verify: get section numbers in writing + read the agreement for permitted uses, safeguards,
-  breach notification, and return/destruction terms. Update SOP-01 §7/§8 wording once confirmed
-  (reference the agreement sections instead of a standalone BAA).
+  ⚠️ **Open item — Asher escalated to leadership** (email 07/23/2026): they will provide either the
+  specific section references OR an updated copy of the agreement with the language spelled out.
+  Waiting on their reply. On receipt, verify permitted uses, safeguards, breach notification, and
+  return/destruction terms, then update SOP-01 §7/§8 wording (reference the agreement sections
+  instead of a standalone BAA).
 - [x] Pharmacy routing — ✅ written confirmation received: **White Label Pharmacy and PerfectRx are
-  licensed to dispense and ship to all 50 states** (AsherMed support email). Save email to the
-  compliance file. Follow-up asked to confirm Velacore orders route exclusively through these two.
+  licensed to dispense and ship to all 50 states** (AsherMed support email). **Exclusivity also
+  confirmed in writing** (email 07/23/2026): "Velacore orders are fulfilled exclusively through
+  White Label Pharmacy and Perfect Rx." Save emails to the compliance file.
 - [ ] Signed **Medical Director Agreement** + attorney review of provider language.
 - [ ] 5 written SOPs; BAAs with every vendor touching patient data.
 - [x] Legal pages drafted: `privacy.html`, `terms.html`, `telehealth-consent.html`, `refund-policy.html`, linked in the footer. **⚠️ Attorney review required before launch** — especially governing-law/venue/arbitration (currently Texas placeholder), HIPAA specifics, and auto-renewal terms. Confirm the JotForm terms and payment processor match these pages.
