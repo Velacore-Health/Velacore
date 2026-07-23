@@ -95,9 +95,14 @@ $30 multi of the $30/$50 doctor cost — plus the flat $35 shipping.)
 - [x] Pharmacy license copy — received from AsherMed (attached to same email).
 - [x] Partnership agreement — template received from AsherMed; ⚠️ execute (sign + return) so both
   parties hold a fully executed copy.
-- [ ] **AsherMed BAA — STILL OUTSTANDING.** Ignored in AsherMed's reply; follow-up email sent
-  requesting it. This is the blocking item for SOP-01 / HIPAA / LegitScript.
-- [ ] Confirm **pharmacy routing** in writing: which pharmacy fulfills Velacore orders + nationwide shipping licensure (one partner pharmacy is TX-only). Requested in follow-up email.
+- [~] **AsherMed BAA:** AsherMed states BAA provisions are **embedded in the main agreement**
+  (support email). Legitimate under HIPAA IF the required 45 CFR 164.504(e) provisions are present.
+  ⚠️ Verify: get section numbers in writing + read the agreement for permitted uses, safeguards,
+  breach notification, and return/destruction terms. Update SOP-01 §7/§8 wording once confirmed
+  (reference the agreement sections instead of a standalone BAA).
+- [x] Pharmacy routing — ✅ written confirmation received: **White Label Pharmacy and PerfectRx are
+  licensed to dispense and ship to all 50 states** (AsherMed support email). Save email to the
+  compliance file. Follow-up asked to confirm Velacore orders route exclusively through these two.
 - [ ] Signed **Medical Director Agreement** + attorney review of provider language.
 - [ ] 5 written SOPs; BAAs with every vendor touching patient data.
 - [x] Legal pages drafted: `privacy.html`, `terms.html`, `telehealth-consent.html`, `refund-policy.html`, linked in the footer. **⚠️ Attorney review required before launch** — especially governing-law/venue/arbitration (currently Texas placeholder), HIPAA specifics, and auto-renewal terms. Confirm the JotForm terms and payment processor match these pages.
