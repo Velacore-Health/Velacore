@@ -42,27 +42,62 @@
     </div>
 
     <div class="product-info">
-      <div class="product-cat">{{ cat }} <span class="rx">Prescription required</span></div>
-      <h1>{{ product.title }}</h1>
-
       {%- liquid
-        assign sub = product.metafields.custom.mechanism
-        if sub == blank
-          case key
-            when 'tirzepatide'
-              assign sub = 'Dual GIP / GLP-1 receptor agonist · physician-directed program'
-            when 'semaglutide'
-              assign sub = 'GLP-1 receptor agonist · physician-directed program'
-            when 'nad'
-              assign sub = 'NAD+ injectable · physician-directed program'
-            when 'glutathione'
-              assign sub = 'Glutathione injectable · physician-directed program'
-            when 'sermorelin'
-              assign sub = 'Growth hormone–releasing hormone analog · physician-directed program'
-          endcase
-        endif
+        assign eyebrow = product.metafields.custom.eyebrow
+        assign headline = product.metafields.custom.headline
+        assign sub = product.metafields.custom.subtitle | default: product.metafields.custom.mechanism
+        case key
+          when 'tirzepatide'
+            assign eyebrow = eyebrow | default: 'Weight management · GLP-1 + GIP'
+            assign headline = headline | default: 'Compounded Tirzepatide, Prescribed Online'
+            assign sub = sub | default: 'Compounded tirzepatide, prescribed and monitored by independent U.S.-licensed physicians — a once-weekly injection with physician-set dosing across the full titration ladder from the starting dose through maintenance.'
+          when 'semaglutide'
+            assign eyebrow = eyebrow | default: 'Weight management · GLP-1'
+            assign headline = headline | default: 'Compounded Semaglutide, Prescribed Online'
+            assign sub = sub | default: 'Compounded semaglutide, prescribed and monitored by independent U.S.-licensed physicians — a once-weekly injection with physician-set dosing across the titration range from the starting dose through maintenance.'
+          when 'nad'
+            assign eyebrow = eyebrow | default: 'Vitality · Cellular energy'
+            assign headline = headline | default: 'NAD+ Injections, Prescribed Online'
+            assign sub = sub | default: 'Injectable NAD+, prescribed and monitored by independent U.S.-licensed physicians — a coenzyme central to cellular energy metabolism, delivered by injection to bypass digestive breakdown.'
+          when 'glutathione'
+            assign eyebrow = eyebrow | default: 'Vitality · Antioxidant support'
+            assign headline = headline | default: 'Glutathione Injections, Prescribed Online'
+            assign sub = sub | default: 'Injectable glutathione, prescribed and monitored by independent U.S.-licensed physicians — the body’s primary intracellular antioxidant, delivered by injection to bypass the poor absorption of oral forms.'
+          when 'sermorelin'
+            assign eyebrow = eyebrow | default: 'Hormone support · Growth hormone axis'
+            assign headline = headline | default: 'Sermorelin, Prescribed Online'
+            assign sub = sub | default: 'Sermorelin, prescribed and monitored by independent U.S.-licensed physicians — a growth hormone–releasing hormone analog that signals your own pituitary rather than replacing hormone from outside.'
+        endcase
+        assign eyebrow = eyebrow | default: cat
+        assign headline = headline | default: product.title
       -%}
+      <p class="product-eyebrow">{{ eyebrow }}</p>
+      <h1>{{ headline }}</h1>
       {%- if sub != blank -%}<p class="product-sub">{{ sub }}</p>{%- endif -%}
+
+      <ul class="product-features">
+        {%- assign chk = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' -%}
+        <li>{{ chk }} Fast, free shipping (discreet packaging)</li>
+        {%- case key -%}
+          {%- when 'tirzepatide' or 'semaglutide' -%}
+            <li>{{ chk }} Once-weekly subcutaneous injection (supplies included)</li>
+            <li>{{ chk }} Physician-set titration (starting dose → maintenance)</li>
+          {%- when 'nad' -%}
+            <li>{{ chk }} Subcutaneous injection (supplies included)</li>
+            <li>{{ chk }} Delivered by injection to bypass digestive breakdown</li>
+          {%- when 'glutathione' -%}
+            <li>{{ chk }} Subcutaneous injection (supplies included)</li>
+            <li>{{ chk }} Delivered by injection to bypass poor oral absorption</li>
+          {%- when 'sermorelin' -%}
+            <li>{{ chk }} Subcutaneous injection, typically nightly (supplies included)</li>
+            <li>{{ chk }} Signals your own pituitary (GHRH analog)</li>
+          {%- else -%}
+            <li>{{ chk }} Injection supplies included</li>
+            <li>{{ chk }} Compounded by a licensed 503A pharmacy</li>
+        {%- endcase -%}
+        <li>{{ chk }} Every intake reviewed by an independent U.S.-licensed physician</li>
+        <li>{{ chk }} Program payment refunded if not prescribed</li>
+      </ul>
 
       {%- if current_variant.price > 0 -%}
         <div class="product-price">
@@ -73,24 +108,18 @@
 
       <a href="{{ intake_url }}" class="btn btn-primary btn-block btn-arrow product-cta" {% if intake contains 'jotform' or intake contains 'http' %}target="_blank" rel="noopener"{% endif %}>Start visit</a>
 
-      <div class="product-trust">
-        <span class="chip"><span class="dot"></span> Independent physician review</span>
-        <span class="chip"><span class="dot"></span> 503A compounding pharmacy</span>
-        <span class="chip"><span class="dot"></span> Refund if not prescribed</span>
-      </div>
+      <p class="product-fda-note">
+        Prescription products require an online consultation with an independent, licensed physician who determines whether a prescription is appropriate. Eligibility depends on your health history, individual evaluation, and clinical appropriateness. Compounded medications are not FDA-approved and are not reviewed by the FDA for safety or efficacy. Individual results vary. Not appropriate for everyone.<br><br>
+        Starting a visit is not a guarantee of treatment. If the physician does not approve your program, your program payment is refunded within 15 days; the one-time $20 physician fee is non-refundable. Medications are non-returnable once dispensed.
+      </p>
 
-      <div class="included">
-        <h4>What's included</h4>
-        <ul>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Independent physician consultation &amp; review</li>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> HIPAA-secure medical intake</li>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prescription medication if approved</li>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Free priority shipping</li>
-        </ul>
-      </div>
-
-      <div class="product-rx-note">
-        <b>Prescription required.</b> Starting a visit begins a telehealth intake reviewed by an independent, licensed physician — it is not a guarantee of treatment. If the physician does not approve your program, your program payment is refunded within 15 days. The one-time $20 physician fee is non-refundable. Medications are non-returnable once dispensed.
+      <div class="trust-bar">
+        {%- if settings.legitscript_certified -%}
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5z"/><path d="M9 12l2 2 4-4"/></svg> LegitScript Certified</span>
+        {%- endif -%}
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> HIPAA-secure intake</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Independent U.S.-licensed physicians</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Available in all 50 states</span>
       </div>
     </div>
   </div>

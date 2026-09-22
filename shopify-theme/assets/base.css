@@ -279,6 +279,23 @@ ul,ol{margin:0;padding:0;list-style:none}
 .product-trust .chip{font-size:.78rem}
 .product-startline{color:var(--muted-dark);font-size:.82rem;margin-top:10px;text-align:center}
 
+/* Product — arsynl-style buy box */
+.product-eyebrow{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700;color:var(--jade);margin-bottom:14px}
+.product-features{display:grid;grid-template-columns:1fr 1fr;gap:13px 22px;margin:22px 0}
+.product-features li{display:flex;gap:10px;align-items:flex-start;color:var(--on-dark);font-size:.9rem;line-height:1.4}
+.product-features .ic{flex:none;width:18px;height:18px;color:var(--jade);margin-top:1px}
+.product-fda-note{color:#7E938C;font-size:.8rem;line-height:1.7;margin-top:20px}
+.trust-bar{display:flex;flex-wrap:wrap;gap:11px 18px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line-dark)}
+.trust-bar span{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;color:var(--muted-dark)}
+.trust-bar svg{width:15px;height:15px;color:var(--jade);flex:none}
+@media(max-width:520px){.product-features{grid-template-columns:1fr}}
+
+/* Site-wide trust strip (below footer content, arsynl-style) */
+.trust-strip{background:#070C0B;border-top:1px solid var(--line-dark)}
+.trust-strip .container{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 40px;padding:22px 24px}
+.trust-strip .ts-item{display:inline-flex;align-items:center;gap:9px;color:var(--muted-dark);font-size:.82rem;font-weight:600}
+.trust-strip svg{width:18px;height:18px;color:var(--jade);flex:none}
+
 /* Product — rich long-form content (arsynl-style) */
 .product-rich{background:var(--ink);padding:8px 0 40px}
 .rich-wrap{max-width:880px;margin:0 auto}
