@@ -1,15 +1,38 @@
 {%- liquid
-  assign product = product
   assign current_variant = product.selected_or_first_available_variant
+
+  assign hkey = product.handle | append: ' ' | append: product.title | downcase
+  assign key = 'peptide'
   assign cat = 'Treatment'
-  if product.tags contains 'weight'
+  if hkey contains 'tirzepatide'
+    assign key = 'tirzepatide'
     assign cat = 'Weight'
-  elsif product.tags contains 'vitality'
+  elsif hkey contains 'semaglutide'
+    assign key = 'semaglutide'
+    assign cat = 'Weight'
+  elsif hkey contains 'nad'
+    assign key = 'nad'
     assign cat = 'Vitality'
-  elsif product.tags contains 'hormone'
+  elsif hkey contains 'glutathione'
+    assign key = 'glutathione'
+    assign cat = 'Vitality'
+  elsif hkey contains 'sermorelin'
+    assign key = 'sermorelin'
     assign cat = 'Hormone support'
   endif
+
+  assign intake = product.metafields.custom.intake_url | default: settings.intake_form_url
+  assign pname = product.title | url_param_escape
+  if intake contains '?'
+    assign intake_url = intake | append: '&product=' | append: pname
+  else
+    assign intake_url = intake | append: '?product=' | append: pname
+  endif
+  if intake == blank
+    assign intake_url = routes.root_url
+  endif
 -%}
+
 <section class="product">
   <div class="container product-grid">
     <div class="product-media">
@@ -21,72 +44,148 @@
     <div class="product-info">
       <div class="product-cat">{{ cat }} <span class="rx">Prescription required</span></div>
       <h1>{{ product.title }}</h1>
-      {%- if product.metafields.custom.mechanism != blank -%}
-        <p class="product-sub">{{ product.metafields.custom.mechanism }}</p>
+
+      {%- liquid
+        assign sub = product.metafields.custom.mechanism
+        if sub == blank
+          case key
+            when 'tirzepatide'
+              assign sub = 'Dual GIP / GLP-1 receptor agonist · physician-directed program'
+            when 'semaglutide'
+              assign sub = 'GLP-1 receptor agonist · physician-directed program'
+            when 'nad'
+              assign sub = 'NAD+ injectable · physician-directed program'
+            when 'glutathione'
+              assign sub = 'Glutathione injectable · physician-directed program'
+            when 'sermorelin'
+              assign sub = 'Growth hormone–releasing hormone analog · physician-directed program'
+          endcase
+        endif
+      -%}
+      {%- if sub != blank -%}<p class="product-sub">{{ sub }}</p>{%- endif -%}
+
+      {%- if current_variant.price > 0 -%}
+        <div class="product-price">
+          <span class="amt">{% if product.price_varies %}From {% endif %}{{ product.price_min | money_without_trailing_zeros }}</span>
+          <span class="per">program cost · one-time $20 physician fee · shipping included</span>
+        </div>
       {%- endif -%}
 
-      <div class="product-price">
-        <span class="amt" id="priceAmt">{{ current_variant.price | money_without_trailing_zeros }}</span>
-        <span class="per">{% if product.selling_plan_groups.size > 0 %}per month · cancel anytime{% else %}per program{% endif %}</span>
+      <a href="{{ intake_url }}" class="btn btn-primary btn-block btn-arrow product-cta" {% if intake contains 'jotform' or intake contains 'http' %}target="_blank" rel="noopener"{% endif %}>Start visit</a>
+
+      <div class="product-trust">
+        <span class="chip"><span class="dot"></span> Independent physician review</span>
+        <span class="chip"><span class="dot"></span> 503A compounding pharmacy</span>
+        <span class="chip"><span class="dot"></span> Refund if not prescribed</span>
       </div>
 
-      {% form 'product', product, class: 'product-form', id: 'product-form' %}
-        <input type="hidden" name="id" value="{{ current_variant.id }}">
-
-        {%- if product.variants.size > 1 -%}
-          <div class="product-variants">
-            {%- for variant in product.variants -%}
-              <button type="button" class="variant-pill{% if variant.id == current_variant.id %} is-active{% endif %}"
-                data-variant-id="{{ variant.id }}"
-                data-price="{{ variant.price | money_without_trailing_zeros }}"
-                {% unless variant.available %}disabled{% endunless %}>
-                {{ variant.title }}{% unless variant.available %} — sold out{% endunless %}
-              </button>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-
-        {%- if product.selling_plan_groups.size > 0 -%}
-          <div class="selling-plan">
-            {%- for group in product.selling_plan_groups -%}
-              {%- for plan in group.selling_plans -%}
-                <label class="plan-opt{% if forloop.first %} is-active{% endif %}">
-                  <input type="radio" name="selling_plan" value="{{ plan.id }}"{% if forloop.first %} checked{% endif %}>
-                  <span>
-                    <span class="pl-name">{{ plan.name }}</span><br>
-                    <span class="pl-desc">Subscription · adjust or cancel anytime</span>
-                  </span>
-                </label>
-              {%- endfor -%}
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-
-        <div class="included">
-          <h4>What's included</h4>
-          <ul>
-            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prescription medication (if approved)</li>
-            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Independent physician consultation &amp; review</li>
-            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> HIPAA-secure medical intake</li>
-            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Free priority shipping</li>
-          </ul>
-        </div>
-
-        {%- if current_variant.available -%}
-          <button type="submit" name="add" class="btn btn-primary btn-block btn-arrow">Start my visit — {{ current_variant.price | money_without_trailing_zeros }}</button>
-        {%- else -%}
-          <button type="button" class="btn btn-primary btn-block" disabled>Currently unavailable</button>
-        {%- endif -%}
-      {% endform %}
+      <div class="included">
+        <h4>What's included</h4>
+        <ul>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Independent physician consultation &amp; review</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> HIPAA-secure medical intake</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prescription medication if approved</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Free priority shipping</li>
+        </ul>
+      </div>
 
       <div class="product-rx-note">
-        <b>Prescription required.</b> Checking out begins a telehealth intake reviewed by an independent, licensed physician — it is not a guarantee of treatment. If the physician does not approve your program, your program payment is refunded within 15 days. The one-time $20 physician fee is non-refundable. Medications are non-returnable once dispensed.
+        <b>Prescription required.</b> Starting a visit begins a telehealth intake reviewed by an independent, licensed physician — it is not a guarantee of treatment. If the physician does not approve your program, your program payment is refunded within 15 days. The one-time $20 physician fee is non-refundable. Medications are non-returnable once dispensed.
       </div>
-
-      {%- if product.description != blank -%}
-        <div class="product-desc rte">{{ product.description }}</div>
-      {%- endif -%}
     </div>
+  </div>
+</section>
+
+<section class="product-rich">
+  <div class="container rich-wrap">
+
+    <div class="rich-block">
+      <span class="k">What it is</span>
+      {%- case key -%}
+        {%- when 'tirzepatide' -%}
+          <h2>Tirzepatide</h2>
+          <p>Tirzepatide is a <strong>dual GIP and GLP-1 receptor agonist</strong> — a peptide that acts on two receptors involved in blood-sugar regulation and appetite signaling. It is prescribed and prepared on an individual basis by a licensed 503A compounding pharmacy when a physician determines it is appropriate.</p>
+          <p>GLP-1 and GIP are naturally occurring hormones your body already produces. Tirzepatide is designed to engage both pathways. Whether it is suitable for you is a clinical decision made solely by an independent, licensed physician.</p>
+        {%- when 'semaglutide' -%}
+          <h2>Semaglutide</h2>
+          <p>Semaglutide is a <strong>GLP-1 receptor agonist</strong> — a peptide that acts on the GLP-1 receptor, part of a pathway involved in blood-sugar regulation and appetite signaling. It is prescribed and prepared on an individual basis by a licensed 503A compounding pharmacy when a physician determines it is appropriate.</p>
+          <p>GLP-1 is a hormone your body produces naturally. Whether semaglutide is suitable for you is a clinical decision made solely by an independent, licensed physician.</p>
+        {%- when 'nad' -%}
+          <h2>NAD+</h2>
+          <p>NAD+ (<strong>nicotinamide adenine dinucleotide</strong>) is a coenzyme found in every living cell, involved in cellular energy metabolism. It is offered here as an injectable prepared by a licensed 503A compounding pharmacy when a physician determines it is appropriate.</p>
+          <p>Your body makes and uses NAD+ continuously. Whether an NAD+ program is suitable for you is a clinical decision made solely by an independent, licensed physician.</p>
+        {%- when 'glutathione' -%}
+          <h2>Glutathione</h2>
+          <p>Glutathione is an <strong>antioxidant</strong> made of three amino acids (cysteine, glutamate, and glycine) that the body produces naturally. It is offered here as an injectable prepared by a licensed 503A compounding pharmacy when a physician determines it is appropriate.</p>
+          <p>Whether a glutathione program is suitable for you is a clinical decision made solely by an independent, licensed physician.</p>
+        {%- when 'sermorelin' -%}
+          <h2>Sermorelin</h2>
+          <p>Sermorelin is a <strong>growth hormone–releasing hormone (GHRH) analog</strong> — a peptide that signals the pituitary gland. It is prescribed and prepared on an individual basis by a licensed 503A compounding pharmacy when a physician determines it is appropriate.</p>
+          <p>Whether sermorelin is suitable for you is a clinical decision made solely by an independent, licensed physician.</p>
+        {%- else -%}
+          <h2>{{ product.title }}</h2>
+          {%- if product.description != blank -%}{{ product.description }}{%- endif -%}
+      {%- endcase -%}
+    </div>
+
+    <div class="rich-block">
+      <span class="k">How the program works</span>
+      <h2>From visit to doorstep</h2>
+      <div class="rich-steps">
+        <div class="rich-step"><span class="n">1</span><div><h4>Start your visit</h4><p>Click “Start visit” and complete the secure intake. This lets an independent physician review your goals, history, and medications.</p></div></div>
+        <div class="rich-step"><span class="n">2</span><div><h4>Complete your HIPAA-secure medical intake</h4><p>We follow up with a secure, HIPAA-compliant medical intake for the independent physician to review.</p></div></div>
+        <div class="rich-step"><span class="n">3</span><div><h4>Physician review</h4><p>An independent, licensed physician reviews your intake and prescribes only when clinically appropriate — on clinical judgment alone.</p></div></div>
+        <div class="rich-step"><span class="n">4</span><div><h4>Pharmacy fulfillment</h4><p>If prescribed, a licensed 503A compounding pharmacy fills your treatment and ships it to you — shipping included.</p></div></div>
+      </div>
+    </div>
+
+    <div class="rich-block">
+      <span class="k">How it's taken</span>
+      <h2>Administration</h2>
+      {%- case key -%}
+        {%- when 'tirzepatide' -%}
+          <p>Tirzepatide is typically given as a <strong>once-weekly subcutaneous injection</strong> — a very small needle just under the skin, similar to insulin. Your physician sets your starting dose and any step-up schedule, and adjusts it over time based on how you respond.</p>
+        {%- when 'semaglutide' -%}
+          <p>Semaglutide is typically given as a <strong>once-weekly subcutaneous injection</strong> — a very small needle just under the skin, similar to insulin. Your physician sets your starting dose and any step-up schedule, and adjusts it over time based on how you respond.</p>
+        {%- when 'nad' -%}
+          <p>NAD+ is typically given as a <strong>subcutaneous injection</strong> on a schedule set by your physician. Your prescription ships with step-by-step instructions, and the care team can walk you through your first dose.</p>
+        {%- when 'glutathione' -%}
+          <p>Glutathione is typically given as a <strong>subcutaneous injection</strong> on a schedule set by your physician. Your prescription ships with step-by-step instructions, and the care team can walk you through your first dose.</p>
+        {%- when 'sermorelin' -%}
+          <p>Sermorelin is typically given as a <strong>subcutaneous injection</strong>, often in the evening, on a schedule set by your physician. Your prescription ships with step-by-step instructions, and the care team can walk you through your first dose.</p>
+        {%- else -%}
+          <p>Administration depends on what is prescribed. Your prescription ships with step-by-step instructions, and the care team can walk you through your first dose.</p>
+      {%- endcase -%}
+      <p>All dosing is determined solely by the independent, licensed physician based on your individual evaluation.</p>
+    </div>
+
+    <div class="rich-block">
+      <span class="k">What to expect</span>
+      <h2>The process, start to finish</h2>
+      <p>After you start your visit, an independent physician reviews your intake. If treatment is appropriate, the physician determines your starting plan and any adjustment schedule. Ongoing check-ins let the physician review your progress and adjust as needed. If treatment isn't appropriate for you, the physician will tell you — and your program payment is refunded.</p>
+      <p><strong>Individual suitability and results vary.</strong> This program is ongoing and physician-directed; your physician sets expectations specific to you. This page is general information, not medical advice.</p>
+    </div>
+
+    <div class="rich-block">
+      <span class="k">FAQ</span>
+      <h2>Common questions</h2>
+      <div class="rich-faq" id="faqList">
+        <details class="faq-item"><summary>Is a prescription required?</summary><div class="faq-body"><p>Yes. This is a prescription-only treatment. An independent, licensed physician reviews your intake and prescribes only when clinically appropriate.</p></div></details>
+        <details class="faq-item"><summary>What happens after I start my visit?</summary><div class="faq-body"><p>You'll complete a secure intake and a HIPAA-compliant medical intake. An independent physician reviews it and decides whether to prescribe. If approved, a licensed 503A pharmacy fills and ships your treatment.</p></div></details>
+        <details class="faq-item"><summary>What if I'm not approved?</summary><div class="faq-body"><p>If the physician does not approve your program, your program payment is refunded within 15 days. The one-time $20 physician fee is non-refundable, and medications are non-returnable once dispensed.</p></div></details>
+        <details class="faq-item"><summary>Which states is this available in?</summary><div class="faq-body"><p>Velacore Health telehealth services are available in all 50 US states. Every prescription requires review by an independent physician licensed for your state.</p></div></details>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="product-cta-band">
+  <div class="container">
+    <h2>Ready to start?</h2>
+    <p>Begin your visit — an independent, licensed physician reviews your intake and decides whether treatment is appropriate. No obligation.</p>
+    <a href="{{ intake_url }}" class="btn btn-primary btn-arrow" {% if intake contains 'jotform' or intake contains 'http' %}target="_blank" rel="noopener"{% endif %}>Start visit</a>
+    <p class="product-startline">Prescription required · not a guarantee of treatment</p>
   </div>
 </section>
 

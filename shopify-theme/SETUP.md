@@ -9,6 +9,24 @@ Work top to bottom. Nothing here requires a developer.
 
 ---
 
+## 0. How the buy flow works right now (MVP)
+
+The product pages are built in a **lead-intake** mode: each product page's **"Start visit"** button
+sends the customer to your **JotForm**, so you get a submission notification, then you manually send
+the Asher patient link to start the order. No EasyPay/checkout is required to launch this way.
+
+**Set your form URL once:** Online Store → **Customize** → **Theme settings → Intake form → Intake /
+JotForm URL** → paste your reworked JotForm link. Every "Start visit" button uses it, and the product
+name is appended to the URL (`?product=Tirzepatide…`) so your notification shows which treatment.
+
+> To capture the treatment name inside the JotForm submission, add a **hidden field** in JotForm with
+> the unique name `product`. JotForm will auto-fill it from the URL.
+
+When you're ready to sell with real checkout later, sections 3–5 below (subscriptions, EasyPay, the
+$20 fee) switch you from JotForm intake to full on-site checkout.
+
+---
+
 ## 1. Upload the theme
 
 1. Zip the **contents** of the `shopify-theme/` folder (the `assets`, `config`, `layout`,

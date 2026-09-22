@@ -273,6 +273,36 @@ ul,ol{margin:0;padding:0;list-style:none}
 .product-rx-note{margin-top:24px;background:var(--ink-2);border:1px solid var(--line-dark);border-left:3px solid var(--jade);border-radius:0 12px 12px 0;padding:15px 17px;font-size:.88rem;color:var(--muted-dark)}
 .product-rx-note b{color:var(--on-dark)}
 
+/* Product — buy box CTA + trust row */
+.product-cta{margin-top:8px}
+.product-trust{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 4px}
+.product-trust .chip{font-size:.78rem}
+.product-startline{color:var(--muted-dark);font-size:.82rem;margin-top:10px;text-align:center}
+
+/* Product — rich long-form content (arsynl-style) */
+.product-rich{background:var(--ink);padding:8px 0 40px}
+.rich-wrap{max-width:880px;margin:0 auto}
+.rich-block{padding:38px 0;border-top:1px solid var(--line-dark)}
+.rich-block:first-child{border-top:0}
+.rich-block .k{display:inline-flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;font-weight:600;color:var(--jade);margin-bottom:16px}
+.rich-block .k::before{content:"";width:22px;height:1px;background:var(--jade);opacity:.7}
+.rich-block h2{font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:14px;text-wrap:balance}
+.rich-block p{color:var(--muted-dark);font-size:1.05rem;line-height:1.8;margin-bottom:14px}
+.rich-block p strong{color:var(--on-dark)}
+.rich-steps{display:grid;gap:16px;margin-top:8px}
+.rich-step{display:flex;gap:15px;align-items:flex-start}
+.rich-step .n{flex:none;width:30px;height:30px;border-radius:50%;background:rgba(87,217,182,.14);color:var(--jade);font-weight:700;font-size:.9rem;display:grid;place-items:center;font-family:var(--display)}
+.rich-step h4{font-size:1.05rem;color:var(--on-dark);margin-bottom:3px}
+.rich-step p{font-size:.95rem;margin-bottom:0}
+.rich-faq{display:grid;gap:12px;margin-top:8px}
+.rich-faq .faq-item{background:var(--ink-2);border-color:var(--line-dark)}
+.rich-faq .faq-item summary{color:var(--on-dark)}
+.rich-faq .faq-item summary::after{color:var(--jade)}
+.rich-faq .faq-body{color:var(--muted-dark)}
+.product-cta-band{text-align:center;padding:56px 24px;background:radial-gradient(60% 100% at 50% 0%,var(--jade-glow),transparent 60%)}
+.product-cta-band h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:18px;text-wrap:balance}
+.product-cta-band p{color:var(--muted-dark);max-width:34rem;margin:0 auto 24px}
+
 /* Cart */
 .cart-page{padding:56px 0 96px;min-height:60vh}
 .cart-page h1{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:30px}

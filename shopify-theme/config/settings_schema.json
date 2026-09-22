@@ -62,6 +62,17 @@
     ]
   },
   {
+    "name": "Intake form",
+    "settings": [
+      {
+        "type": "url",
+        "id": "intake_form_url",
+        "label": "Intake / JotForm URL",
+        "info": "Where every product-page 'Start visit' button sends the customer. Paste your reworked JotForm link. The product name is appended so your submission notification shows which treatment."
+      }
+    ]
+  },
+  {
     "name": "Analytics",
     "settings": [
       {
