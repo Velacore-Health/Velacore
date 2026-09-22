@@ -1,0 +1,44 @@
+{%- liquid
+  assign home = routes.root_url
+  assign cta_url = settings.primary_cta_url | default: routes.all_products_collection_url
+-%}
+<div class="topbar"><span>{{ settings.announcement_text }}</span></div>
+
+<header class="site-header" id="top">
+  <div class="container nav">
+    <a href="{{ home }}" class="brand" aria-label="{{ shop.name }} home">
+      {%- if settings.logo != blank -%}
+        <img class="brand-mark" src="{{ settings.logo | image_url: width: 120 }}" alt="{{ shop.name }}" width="120" height="34">
+      {%- else -%}
+        <img class="brand-mark" src="{{ 'logo-mark.png' | asset_url }}" alt="{{ shop.name }}" width="120" height="34">
+      {%- endif -%}
+      <span class="brand-name">{{ settings.brand_name }} <span class="brand-accent">{{ settings.brand_accent_word }}</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="{{ home }}#treatments">Treatments</a>
+      <a href="{{ home }}#how">How it works</a>
+      <a href="{{ home }}#learn">Learn</a>
+      <a href="{{ home }}#provider">Providers</a>
+      <a href="{{ home }}#faq">FAQ</a>
+      <span class="nav-actions">
+        <a href="{{ routes.cart_url }}" class="cart-link" aria-label="Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" id="cartCount"{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+        </a>
+        <a href="{{ cta_url }}" class="btn btn-primary btn-sm">{{ settings.primary_cta_label }}</a>
+      </span>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}

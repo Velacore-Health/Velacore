@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "hero": { "type": "hero" },
+    "marquee": { "type": "marquee" },
+    "treatments": { "type": "treatments" },
+    "how": { "type": "how-it-works" },
+    "education": { "type": "education" },
+    "why": { "type": "why-velacore" },
+    "provider": { "type": "provider" },
+    "guarantee": { "type": "guarantee" },
+    "faq": { "type": "faq" },
+    "intake": { "type": "intake-cta" },
+    "please-note": { "type": "please-note" }
+  },
+  "order": [
+    "hero",
+    "marquee",
+    "treatments",
+    "how",
+    "education",
+    "why",
+    "provider",
+    "guarantee",
+    "faq",
+    "intake",
+    "please-note"
+  ]
+}

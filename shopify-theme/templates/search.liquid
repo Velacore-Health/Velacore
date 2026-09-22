@@ -1,0 +1,22 @@
+<section class="section">
+  <div class="container" style="max-width:840px">
+    <div class="section-head"><p class="eyebrow">Search</p><h2>Search results</h2></div>
+    <form action="{{ routes.search_url }}" method="get" role="search" style="margin-bottom:30px">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search…" style="width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line-dark-2);background:var(--ink-2);color:var(--on-dark);font:inherit">
+    </form>
+    {%- if search.performed -%}
+      {%- if search.results.size == 0 -%}
+        <p class="section-sub">No results for “{{ search.terms | escape }}”.</p>
+      {%- else -%}
+        <div class="tgrid">
+          {%- for item in search.results -%}
+            <article class="tcard"><div class="tcard-body">
+              <h3>{{ item.title }}</h3>
+              <a href="{{ item.url }}" class="btn btn-ghost btn-block btn-sm btn-arrow">View</a>
+            </div></article>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>

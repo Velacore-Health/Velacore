@@ -1,0 +1,57 @@
+{%- assign home = routes.root_url -%}
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="{{ home }}" class="brand">
+        {%- if settings.logo != blank -%}
+          <img class="brand-mark" src="{{ settings.logo | image_url: width: 120 }}" alt="{{ shop.name }}" width="120" height="34">
+        {%- else -%}
+          <img class="brand-mark" src="{{ 'logo-mark.png' | asset_url }}" alt="{{ shop.name }}" width="120" height="34">
+        {%- endif -%}
+        <span class="brand-name">{{ settings.brand_name }} <span class="brand-accent">{{ settings.brand_accent_word }}</span></span>
+      </a>
+      <p>A telehealth platform coordinating access to independent, licensed physicians and 503A compounding pharmacies.</p>
+    </div>
+    <nav class="footer-col" aria-label="Explore">
+      <h4>Explore</h4>
+      <a href="{{ home }}#treatments">Treatments</a>
+      <a href="{{ home }}#how">How it works</a>
+      <a href="{{ home }}#learn">Learn</a>
+      <a href="{{ home }}#why">Why Velacore</a>
+      <a href="{{ home }}#provider">Providers</a>
+    </nav>
+    <nav class="footer-col" aria-label="More">
+      <h4>More</h4>
+      <a href="{{ home }}#faq">FAQ</a>
+      <a href="{{ home }}#guarantee">Our promise</a>
+      <a href="{{ settings.primary_cta_url | default: routes.all_products_collection_url }}">{{ settings.primary_cta_label }}</a>
+      <a href="mailto:{{ settings.contact_email }}">Contact</a>
+    </nav>
+    <div class="footer-col">
+      <h4>Get in touch</h4>
+      <a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a>
+      <a href="{{ settings.primary_cta_url | default: routes.all_products_collection_url }}">{{ settings.primary_cta_label }}</a>
+    </div>
+  </div>
+
+  <div class="container footer-legal">
+    <p class="states-served">Velacore Health telehealth services are available in all 50 US states. Every prescription requires review by an independent physician licensed for your state. Prescription required.</p>
+    <p class="disclaimer"><b>Important:</b> Velacore Health does not provide, guarantee, or facilitate any medical services, prescriptions, or treatments. The platform coordinates access to independent, licensed physicians and 503A compounding pharmacies; all medical decisions are made solely by the independent physician. All medications are prescription only. Content on this site is for general informational purposes only and is not medical advice. Always consult a qualified healthcare provider.</p>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Velacore Health · First Venture Group LLC. All rights reserved.</p>
+      <nav aria-label="Legal">
+        <a href="{{ pages.privacy-policy.url | default: '/policies/privacy-policy' }}">Privacy</a>
+        <a href="{{ pages.terms-of-service.url | default: '/policies/terms-of-service' }}">Terms</a>
+        <a href="{{ pages.telehealth-consent.url | default: '/pages/telehealth-consent' }}">Telehealth consent</a>
+        <a href="{{ pages.refund-policy.url | default: '/policies/refund-policy' }}">Refund policy</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,16 @@
+<section class="section" style="min-height:60vh">
+  <div class="container legal-wrap" style="max-width:460px">
+    <div class="section-head"><p class="eyebrow">Account</p><h2>Log in</h2></div>
+    {%- form 'customer_login' -%}
+      {{ form.errors | default_errors }}
+      <label style="display:block;margin-bottom:6px;color:var(--muted-dark);font-size:.9rem">Email</label>
+      <input type="email" name="customer[email]" required style="width:100%;padding:13px 15px;margin-bottom:16px;border-radius:12px;border:1px solid var(--line-dark-2);background:var(--ink-2);color:var(--on-dark);font:inherit">
+      {%- if form.password_needed -%}
+        <label style="display:block;margin-bottom:6px;color:var(--muted-dark);font-size:.9rem">Password</label>
+        <input type="password" name="customer[password]" style="width:100%;padding:13px 15px;margin-bottom:16px;border-radius:12px;border:1px solid var(--line-dark-2);background:var(--ink-2);color:var(--on-dark);font:inherit">
+      {%- endif -%}
+      <button type="submit" class="btn btn-primary btn-block">Log in</button>
+    {%- endform -%}
+    <p class="section-sub" style="margin-top:18px;font-size:.9rem"><a href="{{ routes.account_register_url }}" style="color:var(--jade)">Create account</a></p>
+  </div>
+</section>

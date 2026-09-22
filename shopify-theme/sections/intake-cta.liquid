@@ -1,0 +1,35 @@
+{%- assign cta_url = settings.primary_cta_url | default: routes.all_products_collection_url -%}
+<section class="section" id="intake">
+  <div class="container cta-grid">
+    <div class="cta-copy">
+      <p class="eyebrow">Start online visit</p>
+      <h2>Your visit starts here.</h2>
+      <p>Choose your program and check out. A medical consultation is included — an independent, licensed physician reviews your intake and decides whether treatment is appropriate.</p>
+      <ul class="cta-points">
+        <li><span class="dot"></span> Medical consultation included</li>
+        <li><span class="dot"></span> Independent physician makes the prescribing decision</li>
+        <li><span class="dot"></span> Program payment refunded if not approved</li>
+        <li><span class="dot"></span> Filled by a licensed 503A pharmacy</li>
+      </ul>
+    </div>
+
+    <div class="intake-card">
+      <div class="intake-steps">
+        <div class="intake-step"><span class="n">1</span><div><h4>Choose your program &amp; check out</h4><p>Pick your treatment and complete secure checkout. This starts your physician review.</p></div></div>
+        <div class="intake-step"><span class="n">2</span><div><h4>Complete your HIPAA-secure intake</h4><p>Right after checkout, we email you a secure medical intake to complete for the independent physician.</p></div></div>
+        <div class="intake-step"><span class="n">3</span><div><h4>Physician review</h4><p>An independent, licensed physician reviews your intake and prescribes only when clinically appropriate.</p></div></div>
+        <div class="intake-step"><span class="n">4</span><div><h4>Delivered to your door</h4><p>If approved, a licensed 503A pharmacy fills and ships your treatment — shipping included.</p></div></div>
+      </div>
+      <a href="{{ cta_url }}" class="btn btn-primary btn-block btn-arrow">Browse treatments</a>
+      <p class="intake-fine">Prescription required. Checking out begins a telehealth intake; it is not a guarantee of treatment. If the physician does not approve your program, your program payment is refunded within 15 days (the one-time $20 physician fee is non-refundable).</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Start online visit",
+  "settings": [],
+  "presets": [{ "name": "Start online visit" }]
+}
+{% endschema %}

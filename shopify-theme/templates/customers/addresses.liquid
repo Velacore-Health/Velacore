@@ -1,0 +1,16 @@
+<section class="section" style="min-height:60vh">
+  <div class="container legal-wrap">
+    <div class="section-head"><p class="eyebrow">Account</p><h2>Your addresses</h2></div>
+    <p class="section-sub" style="margin-bottom:20px"><a href="{{ routes.account_url }}" style="color:var(--jade)">← Back to account</a></p>
+    {%- for address in customer.addresses -%}
+      <div class="cart-row" style="grid-template-columns:1fr">
+        <div>
+          <div class="ci-title">{{ address.first_name }} {{ address.last_name }}</div>
+          <div class="ci-meta">{{ address.street }}, {{ address.city }} {{ address.province_code }} {{ address.zip }}</div>
+        </div>
+      </div>
+    {%- else -%}
+      <p class="section-sub">No saved addresses.</p>
+    {%- endfor -%}
+  </div>
+</section>

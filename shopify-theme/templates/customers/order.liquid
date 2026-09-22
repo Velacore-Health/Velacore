@@ -1,0 +1,13 @@
+<section class="section" style="min-height:60vh">
+  <div class="container legal-wrap">
+    <div class="section-head"><p class="eyebrow">Account</p><h2>Order {{ order.name }}</h2></div>
+    <p class="section-sub" style="margin-bottom:20px">Placed {{ order.created_at | date: "%B %d, %Y" }} · {{ order.financial_status }} · {{ order.fulfillment_status }}</p>
+    {%- for line in order.line_items -%}
+      <div class="cart-row" style="grid-template-columns:1fr auto">
+        <div><div class="ci-title">{{ line.title }}</div><div class="ci-meta">Qty {{ line.quantity }}</div></div>
+        <div class="ci-price">{{ line.final_line_price | money }}</div>
+      </div>
+    {%- endfor -%}
+    <div class="cart-foot"><div class="cart-total">Total: {{ order.total_price | money }}</div></div>
+  </div>
+</section>

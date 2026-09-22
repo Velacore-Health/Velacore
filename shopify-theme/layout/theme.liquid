@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#0B1110">
+  <link rel="canonical" href="{{ canonical_url }}">
+  {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64 }}">
+  {%- else -%}
+    <link rel="icon" href="{{ 'logo-mark.png' | asset_url }}">
+  {%- endif -%}
+
+  {%- if settings.ga4_id != blank -%}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.ga4_id }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ settings.ga4_id }}');
+    </script>
+  {%- endif -%}
+
+  <title>{{ page_title }}{% unless page_title contains shop.name %} · {{ shop.name }}{% endunless %}</title>
+  {%- if page_description -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+
+  {{ content_for_header }}
+</head>
+<body class="template-{{ template.name }}">
+  {% section 'header' %}
+
+  <main id="MainContent" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  <div class="mobile-cta" id="mobileCta" aria-hidden="false">
+    <a href="{{ settings.primary_cta_url | default: '/collections/all' }}" class="btn btn-primary btn-block">{{ settings.primary_cta_label | default: 'Start online visit' }}</a>
+  </div>
+
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+</body>
+</html>

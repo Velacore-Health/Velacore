@@ -1,0 +1,9 @@
+<section class="section" style="text-align:center;min-height:60vh;display:grid;place-items:center">
+  <div class="container" style="max-width:34rem">
+    <p class="eyebrow" style="justify-content:center">Gift card</p>
+    <h1 style="font-size:2rem;margin-bottom:10px">{{ gift_card.balance | money }}</h1>
+    <p class="section-sub" style="margin-bottom:20px">Gift card code</p>
+    <p style="font-family:var(--display);font-size:1.4rem;letter-spacing:.08em;background:var(--ink-2);border:1px solid var(--line-dark-2);border-radius:12px;padding:16px">{{ gift_card.code | format_code }}</p>
+    <p class="section-sub" style="margin-top:20px">Use this code at checkout.</p>
+  </div>
+</section>

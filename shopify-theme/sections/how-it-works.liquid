@@ -1,0 +1,50 @@
+{%- assign cta_url = settings.primary_cta_url | default: routes.all_products_collection_url -%}
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2>Four steps from visit to doorstep</h2>
+      <p class="section-sub">Velacore coordinates each step. An independent, licensed physician makes every prescribing decision.</p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num">STEP 01</div>
+        <h3>Choose your program</h3>
+        <p>Pick the treatment you're interested in and check out. Your payment starts your physician review — a medical consultation is included.</p>
+        <a class="step-link" href="{{ cta_url }}">Browse treatments</a>
+      </li>
+      <li class="step">
+        <div class="step-num">STEP 02</div>
+        <h3>Complete your medical intake</h3>
+        <p>After checkout, we send you a secure, HIPAA-compliant medical intake to complete for the independent physician.</p>
+        <a class="step-link" href="{{ routes.root_url }}#intake">What happens next</a>
+      </li>
+      <li class="step">
+        <div class="step-num">STEP 03</div>
+        <h3>Physician review</h3>
+        <p>An independent, licensed physician reviews your intake and decides whether to prescribe — on clinical judgment alone.</p>
+        <a class="step-link" href="{{ routes.root_url }}#provider">Meet the provider</a>
+      </li>
+      <li class="step">
+        <div class="step-num">STEP 04</div>
+        <h3>Pharmacy fulfillment</h3>
+        <p>If prescribed, a licensed 503A compounding pharmacy fills your treatment and ships it to you.</p>
+        <a class="step-link" href="{{ routes.root_url }}#learn">How it's made</a>
+      </li>
+      <li class="step">
+        <div class="step-num">OUR PROMISE</div>
+        <h3>Refund if not prescribed</h3>
+        <p>If the physician doesn't prescribe, your program payment is refunded within 15 days. The one-time $20 physician fee is non-refundable.</p>
+        <a class="step-link" href="{{ pages.refund-policy.url | default: '/policies/refund-policy' }}">Refund policy</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How it works",
+  "settings": [],
+  "presets": [{ "name": "How it works" }]
+}
+{% endschema %}

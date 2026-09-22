@@ -1,0 +1,19 @@
+<section class="section" style="min-height:60vh">
+  <div class="container legal-wrap">
+    <div class="section-head"><p class="eyebrow">Account</p><h2>Hi{% if customer.first_name %}, {{ customer.first_name }}{% endif %}</h2></div>
+    <p class="section-sub" style="margin-bottom:24px"><a href="{{ routes.account_logout_url }}" style="color:var(--jade)">Log out</a> · <a href="{{ routes.account_addresses_url }}" style="color:var(--jade)">Manage addresses</a></p>
+    <h3 style="margin-bottom:14px">Order history</h3>
+    {%- paginate customer.orders by 20 -%}
+      {%- if customer.orders.size > 0 -%}
+        {%- for order in customer.orders -%}
+          <div class="cart-row" style="grid-template-columns:1fr auto">
+            <div><div class="ci-title">{{ order.name }}</div><div class="ci-meta">{{ order.created_at | date: "%B %d, %Y" }} · {{ order.financial_status }}</div></div>
+            <div class="ci-price">{{ order.total_price | money }}</div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        <p class="section-sub">You have no orders yet.</p>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>

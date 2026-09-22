@@ -1,0 +1,99 @@
+{%- liquid
+  assign product = product
+  assign current_variant = product.selected_or_first_available_variant
+  assign cat = 'Treatment'
+  if product.tags contains 'weight'
+    assign cat = 'Weight'
+  elsif product.tags contains 'vitality'
+    assign cat = 'Vitality'
+  elsif product.tags contains 'hormone'
+    assign cat = 'Hormone support'
+  endif
+-%}
+<section class="product">
+  <div class="container product-grid">
+    <div class="product-media">
+      {%- if product.featured_image -%}
+        <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.title | escape }}" width="900" height="900">
+      {%- endif -%}
+    </div>
+
+    <div class="product-info">
+      <div class="product-cat">{{ cat }} <span class="rx">Prescription required</span></div>
+      <h1>{{ product.title }}</h1>
+      {%- if product.metafields.custom.mechanism != blank -%}
+        <p class="product-sub">{{ product.metafields.custom.mechanism }}</p>
+      {%- endif -%}
+
+      <div class="product-price">
+        <span class="amt" id="priceAmt">{{ current_variant.price | money_without_trailing_zeros }}</span>
+        <span class="per">{% if product.selling_plan_groups.size > 0 %}per month · cancel anytime{% else %}per program{% endif %}</span>
+      </div>
+
+      {% form 'product', product, class: 'product-form', id: 'product-form' %}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+
+        {%- if product.variants.size > 1 -%}
+          <div class="product-variants">
+            {%- for variant in product.variants -%}
+              <button type="button" class="variant-pill{% if variant.id == current_variant.id %} is-active{% endif %}"
+                data-variant-id="{{ variant.id }}"
+                data-price="{{ variant.price | money_without_trailing_zeros }}"
+                {% unless variant.available %}disabled{% endunless %}>
+                {{ variant.title }}{% unless variant.available %} — sold out{% endunless %}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if product.selling_plan_groups.size > 0 -%}
+          <div class="selling-plan">
+            {%- for group in product.selling_plan_groups -%}
+              {%- for plan in group.selling_plans -%}
+                <label class="plan-opt{% if forloop.first %} is-active{% endif %}">
+                  <input type="radio" name="selling_plan" value="{{ plan.id }}"{% if forloop.first %} checked{% endif %}>
+                  <span>
+                    <span class="pl-name">{{ plan.name }}</span><br>
+                    <span class="pl-desc">Subscription · adjust or cancel anytime</span>
+                  </span>
+                </label>
+              {%- endfor -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="included">
+          <h4>What's included</h4>
+          <ul>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prescription medication (if approved)</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Independent physician consultation &amp; review</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> HIPAA-secure medical intake</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Free priority shipping</li>
+          </ul>
+        </div>
+
+        {%- if current_variant.available -%}
+          <button type="submit" name="add" class="btn btn-primary btn-block btn-arrow">Start my visit — {{ current_variant.price | money_without_trailing_zeros }}</button>
+        {%- else -%}
+          <button type="button" class="btn btn-primary btn-block" disabled>Currently unavailable</button>
+        {%- endif -%}
+      {% endform %}
+
+      <div class="product-rx-note">
+        <b>Prescription required.</b> Checking out begins a telehealth intake reviewed by an independent, licensed physician — it is not a guarantee of treatment. If the physician does not approve your program, your program payment is refunded within 15 days. The one-time $20 physician fee is non-refundable. Medications are non-returnable once dispensed.
+      </div>
+
+      {%- if product.description != blank -%}
+        <div class="product-desc rte">{{ product.description }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [],
+  "presets": [{ "name": "Product" }]
+}
+{% endschema %}

@@ -1,0 +1,20 @@
+<section class="section on-cream">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Collections</p>
+      <h2>Browse collections</h2>
+    </div>
+    <div class="tgrid">
+      {%- for collection in collections -%}
+        <article class="tcard">
+          <div class="tcard-media">{%- if collection.featured_image -%}<img class="tcard-photo" src="{{ collection.featured_image | image_url: width: 640 }}" alt="{{ collection.title | escape }}" loading="lazy">{%- endif -%}</div>
+          <div class="tcard-body">
+            <h3>{{ collection.title }}</h3>
+            <div class="tcard-meta"><span class="tcard-rx">{{ collection.products_count }} items</span></div>
+            <a href="{{ collection.url }}" class="btn btn-ghost btn-block btn-sm btn-arrow">View</a>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>

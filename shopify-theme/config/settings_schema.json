@@ -1,0 +1,87 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Velacore Health",
+    "theme_version": "1.0.0",
+    "theme_author": "Velacore Health",
+    "theme_documentation_url": "https://www.velacorehealth.com",
+    "theme_support_url": "mailto:hello@velacorehealth.com"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo mark (defaults to bundled Velacore mark)"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      },
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand name (first word)",
+        "default": "Velacore"
+      },
+      {
+        "type": "text",
+        "id": "brand_accent_word",
+        "label": "Brand name (accent word)",
+        "default": "Health"
+      }
+    ]
+  },
+  {
+    "name": "Announcement bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Announcement text",
+        "default": "Physician-directed peptide telehealth · Available in all 50 states · Prescription required"
+      }
+    ]
+  },
+  {
+    "name": "Calls to action",
+    "settings": [
+      {
+        "type": "text",
+        "id": "primary_cta_label",
+        "label": "Primary CTA label",
+        "default": "Start online visit"
+      },
+      {
+        "type": "url",
+        "id": "primary_cta_url",
+        "label": "Primary CTA link (e.g. your Treatments collection)"
+      }
+    ]
+  },
+  {
+    "name": "Analytics",
+    "settings": [
+      {
+        "type": "text",
+        "id": "ga4_id",
+        "label": "Google Analytics 4 Measurement ID",
+        "info": "e.g. G-B2PQL4DLF8",
+        "default": "G-B2PQL4DLF8"
+      }
+    ]
+  },
+  {
+    "name": "Contact",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Contact email",
+        "default": "hello@velacorehealth.com"
+      }
+    ]
+  }
+]

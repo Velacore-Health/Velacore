@@ -1,0 +1,18 @@
+<section class="section guarantee" id="guarantee">
+  <div class="container">
+    <div class="guarantee-inner">
+      <p class="eyebrow" style="justify-content:center">Our promise</p>
+      <h2>Not approved? Your program payment comes back.</h2>
+      <p class="guarantee-lede">Our promise is tied to the physician approval process. If the independent physician doesn't approve your program, your <strong>program payment is refunded in full within 15 days.</strong> The one-time $20 physician fee is non-refundable. Medications are non-returnable once dispensed, as required by pharmacy law.</p>
+      <a href="{{ settings.primary_cta_url | default: routes.all_products_collection_url }}" class="btn btn-primary btn-arrow">{{ settings.primary_cta_label }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Guarantee",
+  "settings": [],
+  "presets": [{ "name": "Guarantee" }]
+}
+{% endschema %}

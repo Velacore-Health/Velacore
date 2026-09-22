@@ -1,0 +1,47 @@
+<section class="section on-cream">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Treatments</p>
+      <h2>{{ collection.title | default: 'Treatments' }}</h2>
+      {%- if collection.description != blank -%}<p class="section-sub">{{ collection.description | strip_html }}</p>{%- endif -%}
+    </div>
+    <div class="tgrid" id="tgrid">
+      {%- for product in collection.products -%}
+        {%- liquid
+          assign cat = 'all'
+          if product.tags contains 'weight'
+            assign cat = 'weight'
+          elsif product.tags contains 'vitality'
+            assign cat = 'vitality'
+          elsif product.tags contains 'hormone'
+            assign cat = 'hormone'
+          endif
+        -%}
+        <article class="tcard" data-cat="{{ cat }}">
+          <div class="tcard-media">
+            {%- if product.featured_image -%}<img class="tcard-photo" src="{{ product.featured_image | image_url: width: 640 }}" alt="{{ product.title | escape }}" loading="lazy">{%- endif -%}
+          </div>
+          <div class="tcard-body">
+            <h3>{{ product.title }}</h3>
+            <p class="tcard-mech">{{ product.metafields.custom.mechanism | default: product.description | strip_html | truncatewords: 16 }}</p>
+            <div class="tcard-meta">
+              <span class="tcard-price">{% if product.price_varies %}From {% endif %}{{ product.price_min | money_without_trailing_zeros }} <small>/mo</small></span>
+              <span class="tcard-rx">Rx only</span>
+            </div>
+            <a href="{{ product.url }}" class="btn btn-ghost btn-block btn-sm btn-arrow">Start visit</a>
+          </div>
+        </article>
+      {%- else -%}
+        <p class="section-sub">No treatments have been added yet.</p>
+      {%- endfor -%}
+    </div>
+    <p class="treat-note">Prices reflect program cost. A one-time $20 physician fee applies; shipping is included. All medications are prescription only and dispensed by a licensed pharmacy following a physician's prescription.</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection",
+  "settings": []
+}
+{% endschema %}

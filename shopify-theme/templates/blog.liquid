@@ -1,0 +1,14 @@
+<section class="section">
+  <div class="container" style="max-width:840px">
+    <div class="section-head"><p class="eyebrow">Blog</p><h2>{{ blog.title }}</h2></div>
+    {%- for article in blog.articles -%}
+      <article style="padding:24px 0;border-bottom:1px solid var(--line-dark)">
+        <h3 style="font-size:1.4rem;margin-bottom:8px"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+        <p class="section-sub" style="font-size:.95rem">{{ article.excerpt_or_content | strip_html | truncatewords: 40 }}</p>
+        <a href="{{ article.url }}" class="step-link" style="margin-top:12px">Read more</a>
+      </article>
+    {%- else -%}
+      <p class="section-sub">No posts yet.</p>
+    {%- endfor -%}
+  </div>
+</section>
