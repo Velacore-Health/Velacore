@@ -105,6 +105,11 @@ Shopify Payments will **not** approve peptides/Rx — you must use EasyPay's hig
 
 ## 5. The $20 physician fee
 
+> ⚠️ **HOLD — do not add a $20 fee at Shopify checkout yet.** Asher's partner support says that with
+> CPOM on, the $20 Provider Fee is **paid directly by the patient** (inside Asher's intake). Adding it
+> at checkout too would charge patients twice. Wait for Asher's written answer (support ticket sent)
+> on whether CPOM is on and where the $20 is collected, then follow whichever option below matches.
+
 The customer pays the program price **+ a one-time $20 physician fee**, shipping included. Two ways
 to add the fee (pick one):
 
