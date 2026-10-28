@@ -87,11 +87,36 @@ $30 multi of the $30/$50 doctor cost — plus the flat $35 shipping.)
 > fee + separate $35 shipping — that's superseded by the **$20 fee + included shipping** model above.
 > Make sure the **JotForm intake terms and the payment processor** state this same policy.
 
+### Asher partner-support written reply (Oct 2026) — what it settles
+
+- **CPOM is ON for our portal.** The patient pays the **$20 Provider Fee directly inside Asher's
+  intake** (they add a payment method there). **Velacore must NOT also charge the $20 at its own
+  checkout.** Invoice split to Velacore: single-vial $10 non-medical fee; multi-vial $30; shipping $35.
+- **$20 Provider Fee is non-refundable even if Dr. B declines.** Medication is invoiced only after
+  approval; a declined order creates no medication invoice. Matches our Refund Policy.
+- **API V1** (backend only): medication catalog, intake/renewal questions, create/reuse patients,
+  upload ID/signature/documents, create orders or drafts, create renewals, review/approve/cancel
+  orders, list orders + status. **No** checkout/payment endpoints, **no** webhook registration, **no**
+  intake-link delivery. Status = polling `GET /partner/orders/{id}`. Sandbox + rate limits TBD.
+- **Hosted intake links** (portal-generated) are reusable across patients with medications
+  preselected. No API to generate patient-specific links or prefill name/email.
+- **PHI:** a direct-API order needs full PHI (demographics, address, height/weight/BMI, medical
+  questionnaire, ID, signature/consent). Using the API means our backend handles PHI (backend calls
+  only; keys never in browsers; no PHI in logs or URLs; minimize storage). Asher itself names the
+  **hosted intake flow** as the option that minimizes PHI on our side. Decision: use hosted links.
+- **LegitScript:** Asher gives no LegitScript guidance but will provide partnership confirmation
+  letters/emails on request, and recommends **Bloom Consulting Agency** (used by many partners and by
+  Asher itself). Partner call recording + summary live in Asher's Skool community.
+
 ## Still required before submission (from your brief — not code)
 
 - [x] States served: **all 50 US states** — ✅ written AsherMed confirmation received (Paulina,
   Asher Health Partner Support email: "affiliated physicians are licensed to prescribe in all 50
   states… you can confidently disclose"). Save that email to the compliance file.
+  **Re-confirmed in writing, Oct 2026** (Asher Partner Support reply to our follow-up ticket): "Asher
+  supports all 50 U.S. states." They apologized for their website chat assistant wrongly saying AK,
+  MS and NJ were excluded (Oct 14 chat). Keep a copy of this reply — the chat transcript itself
+  contradicts the written confirmation.
 - [x] Pharmacy license copy — received from AsherMed (attached to same email).
 - [x] Partnership agreement — ✅ **fully executed.** Sign-Up Agreement signed by both parties
   (Trevor Briggs, Asher Med CEO + Bryan Dourado, CEO), dated **03-02-2026**, signature page 16 of
@@ -105,6 +130,13 @@ $30 multi of the $30/$50 doctor cost — plus the flat $35 shipping.)
   Waiting on their reply. On receipt, verify permitted uses, safeguards, breach notification, and
   return/destruction terms, then update SOP-01 §7/§8 wording (reference the agreement sections
   instead of a standalone BAA).
+  ⚠️ **Oct 2026 — Asher's position has softened.** Their latest written reply says only: "The current
+  documentation does not confirm whether a separate BAA/DPA is required. Legal/Compliance should
+  review the existing agreements before implementation," and that they must "confirm the status of
+  this request with the appropriate team." That is weaker than the earlier statement that the BAA
+  language is embedded in the main agreement. Treat the BAA as UNRESOLVED. Ask again in writing for
+  the section numbers (or a standalone BAA), and have the LegitScript consultant / a healthcare
+  attorney review it. Not legal advice.
 - [x] Pharmacy routing — ✅ written confirmation received: **White Label Pharmacy and PerfectRx are
   licensed to dispense and ship to all 50 states** (AsherMed support email). **Exclusivity also
   confirmed in writing** (email 07/23/2026): "Velacore orders are fulfilled exclusively through

@@ -105,23 +105,22 @@ Shopify Payments will **not** approve peptides/Rx — you must use EasyPay's hig
 
 ## 5. The $20 physician fee
 
-> ⚠️ **HOLD — do not add a $20 fee at Shopify checkout yet.** Asher's partner support says that with
-> CPOM on, the $20 Provider Fee is **paid directly by the patient** (inside Asher's intake). Adding it
-> at checkout too would charge patients twice. Wait for Asher's written answer (support ticket sent)
-> on whether CPOM is on and where the $20 is collected, then follow whichever option below matches.
+**Settled (Asher confirmed in writing, Oct 2026): do NOT charge the $20 in Shopify.** CPOM is ON for
+your portal, so the patient pays the $20 Provider Fee directly inside Asher's intake (they add a
+payment method there). Your Shopify checkout collects only the **program price**. Don't install a fee
+app and don't bake the $20 into the price — either would double-charge the patient.
 
-The customer pays the program price **+ a one-time $20 physician fee**, shipping included. Two ways
-to add the fee (pick one):
+What Shopify charges vs. what Asher collects:
 
-- **(Recommended) Cart/checkout add-on:** use a small app or Shopify Function that adds a mandatory
-  "$20 physician consultation fee" line at checkout. Search the Shopify App Store for "mandatory fee"
-  / "surcharge," or have EasyPay/your dev add a Checkout Function.
-- **(Simplest) Bake it in:** build the $20 into the program price and state clearly that pricing
-  includes the physician fee. (The legal/refund pages already treat the $20 as separately
-  identifiable and non-refundable, so the add-on approach maps more cleanly to the refund policy.)
+| Who | What |
+|---|---|
+| Shopify checkout (you) | Program price (shipping included in the price) |
+| Asher intake (patient pays Asher) | $20 Provider Fee, non-refundable |
+| Asher invoices you | $10 (single vial) or $30 (multi vial) non-medical fee + $35 shipping + medication cost, only after the physician approves |
 
-Either way, make sure the **refund rule matches**: program payment refundable if not approved, the
-**$20 physician fee is non-refundable**, medications non-returnable once dispensed.
+Refund rule (matches the legal pages): if the physician declines, refund the **program price** from
+Shopify within 15 days. The $20 is non-refundable (Asher keeps it, even on a decline), and no
+medication invoice is created for declined orders.
 
 ---
 
@@ -148,10 +147,19 @@ Using **Settings → Checkout & Policies** is easiest because Shopify links them
 - **Navigation:** the header/footer links point at homepage sections and your Treatments collection —
   they work out of the box. Set the header CTA target under **Theme settings → Calls to action →
   Primary CTA link** (point it at `/collections/treatments`).
-- **The Asher HIPAA medical intake** is the clinical gate. Set it up as an **order-confirmation
-  automation**: Settings → Notifications (or a flow app / Shopify Flow) so that right after checkout
-  the customer is emailed the **Asher member-portal intake link**. You can also add the link to the
-  order-status/"thank you" page. This keeps PHI in Asher's HIPAA system, not in Shopify.
+- **The Asher HIPAA medical intake** is the clinical gate. Asher's **hosted intake links** (create
+  them in the partner portal, one per medication with that medication preselected) are the
+  recommended route: they keep PHI in Asher's HIPAA system, not in Shopify or your servers. After
+  checkout, send the customer to the matching link via the order-status ("thank you") page and the
+  order-confirmation email (Settings → Notifications). Notes from Asher:
+  - The links are **reusable across patients** and **can't be pre-filled** with name/email, so the
+    patient re-enters their details. Don't publish the links anywhere public (only after payment).
+  - **Direct API order creation is not recommended for now:** it would make your backend handle full
+    PHI (ID, medical questionnaire, signature). Revisit only with a HIPAA/BAA review.
+  - Asher has **no webhooks and no link-generation API**; order status is polling-only.
+  - Matching a Shopify order to the Asher order is manual for now (same patient email). Open
+    question for Asher: does your final-approval step apply to hosted-link orders, so you can confirm
+    the Shopify payment before approving?
 
 ---
 
