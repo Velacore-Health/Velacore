@@ -62,8 +62,12 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
    - Products: tirzepatide, semaglutide (+ microdosing), NAD+, sermorelin, B12 mix. **Glutathione NOT
      available yet** ("coming"). Labs not available yet. The restricted peptide catalog is NOT offered
      (they advise waiting on an FDA decision and not selling them anywhere tied to the brand).
-   - The $250 friend pricing is OpenLoop's "Agile" affiliate model: cheap, but no pricing control, one
-     set of intake forms, communications under Agile's brand, little analytics.
+   - The friend's deal (about $250 start, no monthly fee, $2,500 LegitScript) is OpenLoop's "Agile"
+     affiliate model: no pricing control, one set of intake forms, communications likely under Agile's
+     brand, little analytics. OpenLoop reps said they'd look at replicating what the friend got for
+     Bryan. **Leverage point:** ask for branded comms + pricing control on Agile terms, the $2,500
+     LegitScript price, the monthly cost, per-patient commission, and the upgrade path. Also ask the
+     friend what he actually gets.
    - **Transcript caveat:** the transcript came from an AI note-taker (Pocket) and mis-hears names and
      numbers (it rendered "Velacore" as "Bellatore/Bellacore", "Meta" as "Medela", and garbled the
      medication price between $90 and $190). Treat every figure above as unconfirmed until it appears
