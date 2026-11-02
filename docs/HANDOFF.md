@@ -56,8 +56,8 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
      They say LegitScript is needed only to advertise, not to take payments.
    - Fees quoted: **$6,000 integration** ($3k at signing, $3k at first patient OR 90 days, whichever
      first, so owed regardless of volume), **$3,000/mo subscription waived once 10 active patients**,
-     fixed all-in medication cost (rep said about $90 for GLP-1s, but the transcript is garbled between
-     $90 and $190, so confirm in writing). LegitScript package **$3,000 flat**, "2–4 weeks", self-serve.
+     fixed all-in medication cost per product (the rep's "$90 for GLP-1s" was only an EXAMPLE, not a quoted
+     price; Bryan hasn't seen the real price sheet yet, so per-patient cost vs Asher is unknown). LegitScript package **$3,000 flat**, "2–4 weeks", self-serve.
    - Contract: standard 1 year, "non-binding" with 60-day notice (confirm in the agreement).
    - Products: tirzepatide, semaglutide (+ microdosing), NAD+, sermorelin, B12 mix. **Glutathione NOT
      available yet** ("coming"). Labs not available yet. The restricted peptide catalog is NOT offered
