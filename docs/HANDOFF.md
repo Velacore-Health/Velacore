@@ -47,8 +47,28 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Open items
 
-1. **OpenLoop call: Nov 2, 2:45 PM CST.** Bryan will record it and upload the transcript. Score it
-   with the capture sheet and decision rule in the call guide, then recommend switch/stay/negotiate.
+1. **OpenLoop call held Nov 2; follow-up demo Wed Nov 4, 12:30 PM CST** (partner Jonathan Moss joins;
+   OpenLoop to send a proposal + full medication menu first). Findings from the transcript:
+   - Two paths. **Launchpad:** 2–4 week launch, white-label branded intake, 3–4 programs, limited API,
+     no Meta/Google pixel yet (basic UTM only), limited data export. **Traditional:** 4–8 weeks, only
+     1–2 programs, heavy dev lift, needed for real analytics/TRT.
+   - **OpenLoop is merchant of record (Stripe)** and says compliance/breach risk is theirs (verbal only).
+     They say LegitScript is needed only to advertise, not to take payments.
+   - Fees quoted: **$6,000 integration** ($3k at signing, $3k at first patient OR 90 days, whichever
+     first, so owed regardless of volume), **$3,000/mo subscription waived once 10 active patients**,
+     fixed all-in medication cost (rep said about $90 for GLP-1s, but the transcript is garbled between
+     $90 and $190, so confirm in writing). LegitScript package **$3,000 flat**, "2–4 weeks", self-serve.
+   - Contract: standard 1 year, "non-binding" with 60-day notice (confirm in the agreement).
+   - Products: tirzepatide, semaglutide (+ microdosing), NAD+, sermorelin, B12 mix. **Glutathione NOT
+     available yet** ("coming"). Labs not available yet. The restricted peptide catalog is NOT offered
+     (they advise waiting on an FDA decision and not selling them anywhere tied to the brand).
+   - The $250 friend pricing is OpenLoop's "Agile" affiliate model: cheap, but no pricing control, one
+     set of intake forms, communications under Agile's brand, little analytics.
+   - **Open question for Bryan:** he introduced the brand to OpenLoop as "Bellatore/Bellacore Health"
+     (bellatorehealth.com), not Velacore. Confirm which brand and legal entity any OpenLoop contract
+     and LegitScript application would use.
+   - Bryan screen-shared Asher's dashboard (including his cost prices) on the call. Check the Asher
+     agreement for confidentiality terms and don't repeat it on Nov 4.
 2. **BAA with Asher is UNRESOLVED.** Asher softened from "embedded in the agreement" to "documentation
    doesn't confirm." Get section numbers or a standalone BAA in writing; have it reviewed.
 3. Read the Asher Sign-Up Agreement (signed 03-02-2026) for termination, exclusivity and non-compete
