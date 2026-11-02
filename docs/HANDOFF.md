@@ -64,9 +64,10 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
      (they advise waiting on an FDA decision and not selling them anywhere tied to the brand).
    - The $250 friend pricing is OpenLoop's "Agile" affiliate model: cheap, but no pricing control, one
      set of intake forms, communications under Agile's brand, little analytics.
-   - **Open question for Bryan:** he introduced the brand to OpenLoop as "Bellatore/Bellacore Health"
-     (bellatorehealth.com), not Velacore. Confirm which brand and legal entity any OpenLoop contract
-     and LegitScript application would use.
+   - **Transcript caveat:** the transcript came from an AI note-taker (Pocket) and mis-hears names and
+     numbers (it rendered "Velacore" as "Bellatore/Bellacore", "Meta" as "Medela", and garbled the
+     medication price between $90 and $190). Treat every figure above as unconfirmed until it appears
+     in OpenLoop's written proposal; the call audio is in Bryan's export if a number needs checking.
    - Bryan screen-shared Asher's dashboard (including his cost prices) on the call. Check the Asher
      agreement for confidentiality terms and don't repeat it on Nov 4.
 2. **BAA with Asher is UNRESOLVED.** Asher softened from "embedded in the agreement" to "documentation
