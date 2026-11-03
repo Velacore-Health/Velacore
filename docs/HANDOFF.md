@@ -72,6 +72,27 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
      numbers (it rendered "Velacore" as "Bellatore/Bellacore", "Meta" as "Medela", and garbled the
      medication price between $90 and $190). Treat every figure above as unconfirmed until it appears
      in OpenLoop's written proposal; the call audio is in Bryan's export if a number needs checking.
+   - **Written proposal received (dated 11/02/26, expires in 30 days; PDF kept out of the repo).**
+     $6,000 implementation ($3k at signing, $3k at first patient live or day 90, whichever is
+     sooner); $3,000/mo until 10 patients (clock starts at go-live); 12-month term, 60-day notice
+     for any reason. OpenLoop is merchant of record and pays meds, labs, pharmacy, 24/7 support;
+     it remits Velacore's "membership services fee" weekly (Wednesdays). Example prices
+     (patient pays → Velacore receives, per 4 weeks): semaglutide injection $209 → $114–119;
+     tirzepatide $249 → $107–129; NAD+ and sermorelin $229 → $130; microdosing GLP-1 $179 → $90;
+     B12 MIC $145 → $70. OpenLoop keeps about $90–95 (semaglutide), $120–142 (tirzepatide), $99
+     (NAD+/sermorelin). Proposal marks all prices "an example, subject to change"; availability
+     can change "at any time, with no notice."
+   - Other terms: LegitScript via OpenLoop $3,000 flat, expedited (alone: $975 + $2,150, or $5,625
+     with expediting; renewal via OpenLoop $2,000). **Glutathione is NOT included.** Patient
+     refund policy is more generous than ours (any reason, except a month already ordered) and
+     there is no separate $20 physician fee, so our legal pages and provider section would need
+     rewriting. Optional +$10/patient/mo "care coaching" (keep off; we removed coaching language).
+     Sync-video states for first prescription: AR, DC, DE, KS, MS, NM, RI, WV. Providers 7am–7pm CST.
+   - **Unresolved in the proposal:** it says Velacore provides the patient interface, credit-card
+     entry and API connection (a Traditional-style build, with PHI/PCI burden on us), while the
+     call described white-label hosted forms (Launchpad); BAA, indemnity and breach liability are
+     not in it (MSA unseen); whether Velacore can set its own retail price above the example and
+     whether OpenLoop's cut stays fixed; what counts toward the "10 patients."
    - Bryan screen-shared Asher's dashboard (including his cost prices) on the call. Check the Asher
      agreement for confidentiality terms and don't repeat it on Nov 4.
 2. **BAA with Asher is UNRESOLVED.** Asher softened from "embedded in the agreement" to "documentation
