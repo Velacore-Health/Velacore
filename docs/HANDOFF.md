@@ -93,6 +93,31 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
      call described white-label hosted forms (Launchpad); BAA, indemnity and breach liability are
      not in it (MSA unseen); whether Velacore can set its own retail price above the example and
      whether OpenLoop's cut stays fixed; what counts toward the "10 patients."
+   - **Nov 4 demo (Launchpad vs Agile) findings** (from the call transcript):
+     - **Launchpad** = hosted, Velacore-branded intake/refill forms and patient portal on masked
+       Velacore URLs. Velacore only places per-product "Start Visit" links and a portal link on
+       its own site (our Shopify theme already supports a per-product intake URL); it does NOT
+       build the card interface. OpenLoop runs 24/7 customer service. Retail price is Velacore's
+       to set within min/max guardrails, with live coupons, price history and A/B funnel tests.
+       No per-program profit view. OpenLoop's prices are all-inclusive (no separate $20 fee).
+     - OpenLoop is merchant of record on Stripe, paying out net-7 weekly. Disputes/chargebacks are
+       theirs (verbal only; not yet in writing).
+     - **Agile** = $1,000 TOTAL (or 4 x $250), no monthly fee. Co-branded: intake, cart, portal
+       and card statement all say Agile. Retail price fixed, no UTM/Google/Meta pixels, redirect
+       only. **No migration from Agile to Launchpad** (separate EHR; patients must re-sign up).
+       The friend's "$250" is the first of four payments. OpenLoop offered Agile, not a hybrid.
+     - Monthly-fee deferral refused. The $3,000/mo starts at the first patient and drops to zero
+       at 10 (threshold was recently lowered 30 -> 20 -> 10). "10 patients" is still undefined.
+     - LegitScript via OpenLoop: $3,000 flat incl. expedite, 2-4 weeks. Not needed to go live,
+       needed to advertise. Certification stays with Velacore if it leaves (update profile with
+       new NPI/backend); $2,000/yr renewal. They give feedback but won't rewrite the site;
+       Launchpad includes pre-vetted product descriptions and FAQs.
+     - Glutathione showed up in the demo instance (a dissolvable tablet), contradicting both the
+       earlier call and the proposal. Confirm availability and form.
+     - Bryan screen-shared Asher's partner pricing/markup tool with OpenLoop. Check the Asher
+       agreement's confidentiality terms and don't share more.
+     - Contract 12 months; notice is 60 days per the proposal (transcript says "sixteen-day",
+       likely a mis-hearing). OpenLoop will email to reconnect end of week or early next Monday.
    - Bryan screen-shared Asher's dashboard (including his cost prices) on the call. Check the Asher
      agreement for confidentiality terms and don't repeat it on Nov 4.
 2. **BAA with Asher is UNRESOLVED.** Asher softened from "embedded in the agreement" to "documentation
