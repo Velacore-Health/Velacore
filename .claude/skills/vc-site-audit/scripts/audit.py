@@ -198,9 +198,10 @@ def site_prices():
     out = {}
     for c in parse_cards((PUBLIC / "index.html").read_text(encoding="utf-8")):
         p = norm_product(c["name"])
-        m = re.search(r"\$(\d+)", " ".join(c["price"]))
-        if p and m:
-            out[p] = int(m.group(1))
+        # the last dollar figure is the recurring price; the first may be an intro month
+        found = re.findall(r"\$(\d+)", " ".join(c["price"]))
+        if p and found:
+            out[p] = int(found[-1])
     return out
 
 
@@ -331,9 +332,14 @@ def audit_prices(live):
     for p in CFG["approved_products"]:
         vals = [surfaces[s].get(p) for s in surfaces]
         rows.append(f"| {p} | " + " | ".join(f"${v}" if v else "-" for v in vals) + " |")
-        current = {v for s, d in surfaces.items() if s != "planned" for v in [d.get(p)] if v}
+        stopgap = set(CFG.get("stopgap_surfaces", []))
+        live_s = {s: d for s, d in surfaces.items() if s != "planned" and s not in stopgap}
+        current = {v for d in live_s.values() for v in [d.get(p)] if v}
         if len(current) > 1:
-            add("FAIL", f"{p}: surfaces disagree on price: " + ", ".join(f"{s} ${d.get(p)}" for s, d in surfaces.items() if s != "planned" and d.get(p)))
+            add("FAIL", f"{p}: live surfaces disagree on price: " + ", ".join(f"{s} ${d.get(p)}" for s, d in live_s.items() if d.get(p)))
+        stop_vals = {s: d.get(p) for s, d in surfaces.items() if s in stopgap and d.get(p)}
+        if stop_vals and current and set(stop_vals.values()) != current:
+            add("REVIEW", f"{p}: stopgap surfaces show " + ", ".join(f"{s} ${v}" for s, v in stop_vals.items()) + f"; public/ shows ${'/$'.join(map(str, sorted(current)))}. Expected until the store is retired")
         plan = CFG["planned_prices"].get(p)
         if plan and current and current != {plan}:
             add("REVIEW", f"{p}: shows ${'/$'.join(map(str, sorted(current)))}, planned month-to-month is ${plan} once the platform is signed")

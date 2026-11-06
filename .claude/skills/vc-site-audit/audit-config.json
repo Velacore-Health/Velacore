@@ -7,30 +7,33 @@
   "approved_products": [
     "tirzepatide",
     "semaglutide",
+    "microdosing",
     "nad+",
-    "glutathione",
     "sermorelin"
   ],
   "intake_links": {
     "tirzepatide": "",
     "semaglutide": "",
+    "microdosing": "",
     "nad+": "",
-    "glutathione": "",
     "sermorelin": ""
   },
   "intake_host_hint": "openloop",
   "planned_prices": {
     "tirzepatide": 279,
     "semaglutide": 229,
+    "microdosing": 179,
     "nad+": 199,
-    "sermorelin": 199,
-    "glutathione": null
+    "sermorelin": 199
   },
   "legacy_model_terms": [
-    "physician fee",
+    "$20 physician fee",
+    "physician fee is non-refundable",
+    "one-time physician fee",
     "Asher",
     "JotForm",
-    "form.jotform.com"
+    "form.jotform.com",
+    "Broussard"
   ],
   "placeholder_terms": [
     "hello@velacorehealth.com",
@@ -45,5 +48,12 @@
       390,
       844
     ]
-  }
+  },
+  "removed_products": [
+    "glutathione"
+  ],
+  "stopgap_surfaces": [
+    "theme fallback",
+    "product CSV"
+  ]
 }

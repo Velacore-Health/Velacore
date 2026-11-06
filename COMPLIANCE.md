@@ -19,16 +19,20 @@ prescribed).
 
 ## Public treatments — the ONLY products named on the scannable site
 
-Per the owner's guidance (confirmed with the arsynl.com operator), the public, LegitScript-scannable
-site names **only these five**:
+Decided by Dourado on Nov 6 2026 for the OpenLoop platform. The public, LegitScript-scannable
+site names **only these**:
 
-| Treatment | Public descriptor (factual, no efficacy claims) | Program cost |
+| Treatment | Public descriptor (factual, no efficacy claims) | Launch price, month to month, planned |
 |-----------|--------------------------------------------------|--------------|
-| Tirzepatide | Dual GIP / GLP-1 receptor agonist | $75–$115/mo |
-| Semaglutide | GLP-1 receptor agonist | $40–$55/mo |
-| NAD+ | NAD+ injectable | $80/mo |
-| Glutathione | Glutathione injectable | $80/mo |
-| Sermorelin | Growth hormone–releasing hormone analog | $130/mo |
+| Tirzepatide | Dual GIP / GLP-1 receptor agonist, injection | $279, $199 first month |
+| Semaglutide | GLP-1 receptor agonist, injection | $229, $149 first month |
+| Microdosing GLP-1 | Low-dose GLP-1 combined with vitamins or amino acids, oral or injection | $179 |
+| NAD+ | NAD+ injectable, nasal or oral dropper | $199 |
+| Sermorelin | Growth hormone–releasing hormone analog, injection | $199 |
+
+Glutathione was on the site until Nov 6 2026. It is not in OpenLoop's proposal, so it is off the
+site until OpenLoop confirms it in writing. Prices come from `docs/pricing-research.md` section 5
+and are plans until the OpenLoop agreement is signed and the price ceiling is confirmed.
 
 Descriptors are deliberately **mechanistic/factual**, not benefit claims (e.g. "GLP-1 receptor
 agonist," not "melts fat"). Keep it that way.

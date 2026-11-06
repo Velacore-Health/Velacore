@@ -249,6 +249,13 @@ ul,ol{margin:0;padding:0;list-style:none}
 .intake-card{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-dark)}
 .intake-card iframe{width:1px;min-width:100%;border:0;border-radius:var(--radius-sm);min-height:660px;display:block;background:#fff}
 .intake-fine{color:var(--muted-dark);font-size:.78rem;padding:12px 8px 4px}
+.intake-list{display:flex;flex-direction:column;gap:10px;padding:18px}
+.intake-list .btn{justify-content:space-between}
+.intake-list .intake-fine{padding-top:6px}
+a[aria-disabled="true"]{opacity:.55;cursor:not-allowed;pointer-events:auto}
+a[aria-disabled="true"]::after{content:" · link coming soon";font-weight:400;font-size:.8em;opacity:.8}
+.tcard-plan{color:var(--muted-cream);font-size:.8rem;margin:8px 0 14px}
+.tcard-price small{display:block;font-size:.72rem;font-weight:500;line-height:1.3;margin-top:2px}
 
 /* ---------- Please note ---------- */
 .please-note{background:#070C0B;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}

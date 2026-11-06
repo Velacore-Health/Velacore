@@ -52,6 +52,19 @@
     });
   });
 
+  // Intake links: placeholders stay put until the hosted intake URLs are set; real links fire a GA4 event
+  document.querySelectorAll('a[data-intake]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (a.getAttribute('aria-disabled') === 'true' || a.getAttribute('href') === '#') {
+        e.preventDefault();
+        return;
+      }
+      if (typeof gtag === 'function') {
+        gtag('event', 'start_visit_click', { product: a.getAttribute('data-intake'), link_url: a.href });
+      }
+    });
+  });
+
   // Scroll reveal (safe: content visible by default; CSS animates on .is-visible)
   if ('IntersectionObserver' in window && !reduce) {
     var revealEls = document.querySelectorAll('.tcard, .pillar, .step');

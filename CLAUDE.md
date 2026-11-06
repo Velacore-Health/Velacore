@@ -17,7 +17,7 @@ A direct-to-consumer telehealth brand for physician-prescribed peptides and GLP-
 
 ## Hard rules, never break these
 
-- Only five treatments are named on the public site or in any public file: Tirzepatide, Semaglutide, NAD+, Glutathione, Sermorelin. Restricted catalog items are never written anywhere in this repo.
+- Only these treatments are named on the public site or in any public file: Tirzepatide, Semaglutide, NAD+, Sermorelin, and the microdosing GLP-1 program. Glutathione is off the site since Nov 6 2026 until OpenLoop confirms it in writing. Restricted catalog items are never written anywhere in this repo.
 - No efficacy or outcome claims. Copy is factual and mechanistic. No coaching language. Keep the FDA compounded-medication disclaimer on product pages.
 - The LegitScript badge stays off until certification is issued in Velacore's name.
 - Nothing confidential goes in the repo: no API keys, no Asher or OpenLoop cost sheets, no DEA or NPI documents, no patient data. Secrets live in a `.env` file that is gitignored.

@@ -116,10 +116,24 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   interface, while the demo said Launchpad hosts them; the site plan assumes the hosted version.
 - **Team built, Nov 6.** Project agents in `.claude/agents/`: `vc-ads` with its `vc-ads` skill
   for Meta and Google, `vc-copy`, `vc-reviewer`. See the Team section in CLAUDE.md.
-- **Decisions still open with Dourado, Nov 6:** which products the rebuilt site sells now that
-  glutathione is absent from the proposal and microdosing, oral GLP-1s, B12 MIC, HRT and sexual
-  health are in it; whether Dr. Broussard's section becomes OpenLoop network copy; the Velacore
-  inbox connection; connecting the Vercel connector.
+- **Decided Nov 6 by Dourado:** the site sells four plus microdosing: tirzepatide, semaglutide,
+  microdosing GLP-1, NAD+, sermorelin. Glutathione is off until OpenLoop confirms it in writing.
+  Dr. Broussard's section is replaced by OpenLoop network copy with no named clinician. Still
+  open: the Velacore inbox connection and the Vercel connector.
+- **Site overhaul for OpenLoop, Nov 6, in `public/` only.** `index.html`: five program cards
+  with the planned launch prices ($199 then $279 tirzepatide, $149 then $229 semaglutide, $179
+  microdosing, $199 NAD+ and sermorelin, 12-week plan line on each), OpenLoop's four-step journey,
+  clinician network block, cancel-any-time promise, FAQ rewritten for the OpenLoop terms (fees,
+  payment methods, eligibility, labs, 24/7 support, video-visit states), JotForm removed, intake
+  section is now one button per program plus a patient portal link, all `href="#"` with
+  `data-intake` and `aria-disabled` until OpenLoop sends the hosted URLs; `script.js` blocks the
+  placeholders and fires a GA4 `start_visit_click` event on real links; `styles.css` has the new
+  plan line, button stack and placeholder styles. `refund-policy.html` rewritten in full.
+  `terms.html` sections 3, 4, 7 and 10 and `telehealth-consent.html` updated. "Physician" became
+  "clinician" where OpenLoop's NPs apply. Wording avoids naming OpenLoop on the site: it is "our
+  telehealth services partner" until Dourado decides whether to name them. Audit after: 0 fails
+  except the placeholder links, which are meant to fail until the URLs exist. Shopify theme and
+  CSV untouched; they are the stopgap and still show the old prices. Nothing deployed.
 
 ## Open items
 
