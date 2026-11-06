@@ -75,7 +75,15 @@ name anywhere in this repository.** They belong only in a gated member area (see
 - Transparent pricing and a clear refund policy.
 - States-served disclosure (placeholder line — replace with the confirmed list).
 
-### Fees & refund policy (authoritative — owner-confirmed)
+### Fees & refund policy — SUPERSEDED Nov 6, 2026
+
+Everything from here to the "Still required before submission" heading describes the Asher
+model and is kept for history only. Asher is canceled. The live terms are OpenLoop's: no
+separate physician fee, cancel any time, refund any month not yet ordered, OpenLoop is merchant
+of record, intake is hosted by OpenLoop, JotForm is retired. See `docs/openloop-proposal-notes.md`.
+Do not copy anything below onto the site.
+
+### Fees & refund policy (Asher model, historical)
 
 **What the customer pays:** the medication/program price **+ a one-time $20 physician fee** at
 intake (collected on behalf of the independent medical group). **Shipping is included** — the

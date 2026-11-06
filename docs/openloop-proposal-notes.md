@@ -10,6 +10,8 @@ Every price below is marked by OpenLoop as an example, subject to change, and av
 - Velacore: patient education, non-clinical patient support, the technology platform, meaning the website.
 - Providers: MD, DO and NP, licensed in all 50 states, available 7am to 7pm CST, no holiday coverage. Malpractice coverage included.
 - States that require a live video visit for the first prescription: AR, DC, DE, KS, MS, NM, RI, WV. Everywhere else the first review is async, with video available on request.
+- Clinician credentialing, Schedule B of the proposal: primary source background check, education and training review, work history, board certification review, state board and licensing review, DEA review and licensing, NPI verification, liability coverage, malpractice history, Medicaid sanctions review, NPDB review, OIG sanction and exclusion review, signed attestations. These are the facts behind the "credentialed before care" copy on the site.
+- The microdosing program, Schedule D: unlimited clinician consults, async on a 12 week cycle with video any time, and 24/7/365 live support "with full staff of CMAs and RNs for escalations". The RN line is stated for microdosing only, so the site does not promise nurses for every program.
 
 ## Terms that rewrite the legal pages
 
