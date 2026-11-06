@@ -118,7 +118,7 @@ def parse_cards(page):
 def audit_local():
     section("2. Local static site, public/")
     index = (PUBLIC / "index.html").read_text(encoding="utf-8")
-    pages = {p.name: p.read_text(encoding="utf-8") for p in PUBLIC.glob("*.html")}
+    pages = {p.relative_to(PUBLIC).as_posix(): p.read_text(encoding="utf-8") for p in PUBLIC.rglob("*.html")}
 
     # treatment cards: approved names, intake links, prices
     seen = set()
@@ -150,8 +150,18 @@ def audit_local():
             if href.startswith(("http", "mailto:", "tel:", "//")):
                 continue
             path, _, frag = href.partition("#")
-            target = n if not path else path
-            if path and not (PUBLIC / path).exists():
+            base = (PUBLIC / n).parent
+            if path.startswith("/"):
+                full = PUBLIC / path.lstrip("/")
+                if full.is_dir() or path == "/":
+                    full = full / "index.html"
+            else:
+                full = base / path
+            if path and full.exists():
+                target = full.resolve().relative_to(PUBLIC.resolve()).as_posix()
+            else:
+                target = n if not path else path
+            if path and not full.exists():
                 broken.append(f"{n} -> {href}")
             elif frag and target in ids and frag not in ids[target] and frag != "top":
                 broken.append(f"{n} -> {href} (missing anchor)")
@@ -162,7 +172,11 @@ def audit_local():
     # sitemap
     sm = (PUBLIC / "sitemap.xml").read_text(encoding="utf-8") if (PUBLIC / "sitemap.xml").exists() else ""
     locs = re.findall(r"<loc>([^<]+)</loc>", sm)
-    missing = [u for u in locs if not (PUBLIC / (urllib.parse.urlparse(u).path.strip("/") or "index.html")).exists()]
+    def sitemap_file_exists(u):
+        rel = urllib.parse.urlparse(u).path.strip("/") or "index.html"
+        # Vercel cleanUrls: /programs/nad serves programs/nad.html
+        return any((PUBLIC / c).exists() for c in (rel, rel + ".html", rel + "/index.html"))
+    missing = [u for u in locs if not sitemap_file_exists(u)]
     add("FAIL" if missing else "PASS", f"sitemap lists {len(locs)} URLs" + (f"; no file for: {', '.join(missing)}" if missing else ", all map to files"))
     for legal in ("privacy.html", "terms.html", "refund-policy.html", "telehealth-consent.html"):
         if legal not in pages:

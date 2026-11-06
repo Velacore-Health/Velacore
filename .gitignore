@@ -14,3 +14,6 @@ _audit/
 
 # python cache
 __pycache__/
+
+# image drop folder for Gemini output, converted by tools/prepare_images.py
+assets-in/

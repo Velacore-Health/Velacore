@@ -26,6 +26,25 @@
     });
   }
 
+  // Treatments dropdown: tap to open on phones, keyboard friendly everywhere
+  document.querySelectorAll('.has-mega > a').forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      var narrow = window.matchMedia('(max-width: 680px)').matches;
+      var item = trigger.parentNode;
+      if (narrow || !item.classList.contains('open') && e.detail === 0) {
+        e.preventDefault();
+        e.stopPropagation();
+        var open = item.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', String(open));
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.has-mega.open').forEach(function (item) {
+      if (!item.contains(e.target)) { item.classList.remove('open'); item.querySelector('a').setAttribute('aria-expanded', 'false'); }
+    });
+  });
+
   // FAQ: one open at a time
   var faq = document.getElementById('faqList');
   if (faq) {
@@ -64,6 +83,22 @@
       }
     });
   });
+
+  // Program pages: plan selector updates the price box
+  var planInputs = document.querySelectorAll('.plan-option input');
+  if (planInputs.length) {
+    var priceEl = document.getElementById('planPrice');
+    var unitEl = document.getElementById('planUnit');
+    var noteEl = document.getElementById('planNote');
+    planInputs.forEach(function (inp) {
+      inp.addEventListener('change', function () {
+        if (!inp.checked) return;
+        priceEl.childNodes[0].nodeValue = inp.getAttribute('data-price');
+        unitEl.textContent = inp.getAttribute('data-unit');
+        noteEl.textContent = inp.getAttribute('data-note');
+      });
+    });
+  }
 
   // Scroll reveal (safe: content visible by default; CSS animates on .is-visible)
   if ('IntersectionObserver' in window && !reduce) {

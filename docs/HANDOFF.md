@@ -123,6 +123,30 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   microdosing GLP-1, NAD+, sermorelin. Glutathione is off until OpenLoop confirms it in writing.
   Dr. Broussard's section is replaced by OpenLoop network copy with no named clinician. Still
   open: the Velacore inbox connection and the Vercel connector.
+- **Restyle, Nov 6, at Dourado's direction: light, not AI-looking.** `styles.css` rewritten:
+  white and mint-white sections, pine ink, jade for actions, Fraunces for headlines, the real
+  vial as the hero, each program's vial-cap color as its stripe, one dark band for the promise.
+  Removed: the floating-dot canvas, glow gradients, glass chips, button arrows, all-caps labels,
+  numbered-step chrome, fade-ins and hover lifts. Product images now read from
+  `public/images/products/<slug>.webp`; Dourado will generate branded vial and bottle images in
+  Gemini from `docs/image-brief.md`, drop them in `assets-in/products/`, and
+  `tools/prepare_images.py` converts them. The hero frame is the image slot for a lifestyle
+  photo later. Dourado also asked what design skills the agent lacks; the Anthropic Design plugin
+  and the design-skills plugin were suggested for critique and visual elevation.
+- **Program pages built, Nov 6.** `public/programs/` has one page per program, generated from
+  `tools/build_programs.py`: hero with price box and plan selector for month to month and the
+  12-week plan, disclaimer under the price, trust bar, what the medication is, eligibility, the
+  four-step journey per OpenLoop's notes, FAQ, start section. Home page cards now link to them and
+  show the first-month price on every program; the header has a Treatments dropdown with
+  thumbnails grouped Weight, Vitality, Hormone support, on every page. Sitemap lists the five
+  clean URLs. Start buttons are still placeholders. Dourado's read of arsynl.com: he likes the
+  dropdown, the rolling strip, the category grid, the form comparison table and the lifestyle
+  imagery, which he will make with an image tool; and he wants our prices studied against theirs,
+  see the price table in `docs/reference-arsynl.md`. Not built yet from that list: category grid,
+  form comparison table, hero image slots, FAQ and Contact pages, About, blog.
+- **Reference site reviewed, Nov 6:** arsynl.com, see `docs/reference-arsynl.md`. Same shape as
+  our plan: marketing site, hosted intake on a branded subdomain. Proposed next build: one page
+  per program, trust bar, portal icon, FAQ and Contact pages, symptom section, About, blog.
 - **Site overhaul for OpenLoop, Nov 6, in `public/` only.** `index.html`: five program cards
   with the planned launch prices ($199 then $279 tirzepatide, $149 then $229 semaglutide, $179
   microdosing, $199 NAD+ and sermorelin, 12-week plan line on each), OpenLoop's four-step journey,

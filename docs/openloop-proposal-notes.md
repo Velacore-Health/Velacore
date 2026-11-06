@@ -44,6 +44,8 @@ Every price below is marked by OpenLoop as an example, subject to change, and av
 | Female HRT, estradiol or non-hormonal | $79/mo, billed $237 per 12 weeks | | | |
 | Sexual health, vials and troches | $99 to $156 per pack, $112 for daily tadalafil 28 pack | | | |
 
+NAD+ and sermorelin, proposal page 16: NAD+ 50 to 200 mg per dose, as a 200 mg/ml 5 ml vial for injection or 50, 100 or 150 mg per dose for droppers; sermorelin 500 to 600 mcg per dose, 2 mg/ml in a 5 ml vial. Proposal page 15: both start with a 4-week prescription, then a refill intake review at 3 to 4 weeks with 12-week refills, and the patient may request a video consult at no additional cost at every step.
+
 Dose levels: semaglutide injection 0.8 to 8.96 mg per 4 weeks across 5 levels; tirzepatide injection 8.5 to 44.5 mg per cycle across 5 levels; oral semaglutide 5 or 10 mg per day; oral tirzepatide 3 or 6 mg per day.
 
 Microdosing options are combinations of a GLP-1 with NAD, B12, L-carnitine, inositol, magnesium, L-theanine, methionine or choline, in oral or injection form, aimed at energy, muscle, sleep, prediabetes support and side-effect mitigation. Unlimited clinician consults, async on a 12 week rhythm, video any time at no extra cost.
