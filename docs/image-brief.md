@@ -4,7 +4,7 @@ Written Nov 6 2026. One prompt per program, all in the same motif as the site so
 
 ## The motif, in one paragraph
 
-White pharmacy label on clear glass, one colored cap per program, soft studio light, a pale mint backdrop. No people, no hands, no marble, no plants, no text other than the label. The label reads exactly: VELACORE HEALTH on the first line, the program name on the second, and under it in small type: FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, Rx ONLY. Nothing else on the label. No "FDA approved", no benefit words, no stars, no badges.
+White pharmacy label on clear glass, one colored cap per program, soft studio light, a pale mint backdrop. No people, no hands, no marble, no plants, no text other than the label. The label carries the jade helix mark small at the top, then reads exactly: VELACORE HEALTH on the first line, the program name on the second, and under it in small type: FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, Rx ONLY. Nothing else on the label. No "FDA approved", no benefit words, no stars, no badges.
 
 Cap colors, the same ones the site uses for each program's stripe:
 - Tirzepatide: royal blue, hex 3E5FC0
@@ -16,7 +16,8 @@ Cap colors, the same ones the site uses for each program's stripe:
 ## How to run it
 
 1. Open Gemini, choose image generation, square format, highest quality.
-2. Paste the shared style block first, then the product line for the image you want.
+2. Upload two files with the prompt so Gemini sees the real brand: `brand\velacore-brand-card.png` and `public\logo-mark.png`. Add the line: "Use the uploaded logo mark on the label above the brand name. Match the colors on the uploaded brand card."
+3. Paste the shared style block first, then the product line for the image you want.
 3. Generate 3 or 4 variations. Pick the one where the label text is correct and readable. Gemini often misspells label text; if every variation is wrong, add "label text must read exactly:" and repeat the lines.
 4. Save as PNG, as large as it offers, 2000 by 2000 or bigger.
 5. Name the file exactly as listed and drop it in `assets-in\products\`. Then tell Vale "convert the product images". The converter resizes, trims, saves to `public\images\products\` and the site picks them up with no other change.

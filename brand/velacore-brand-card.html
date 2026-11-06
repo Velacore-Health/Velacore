@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Velacore Health brand card</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body{margin:0;background:#fff;color:#15302A;font-family:'Hanken Grotesk',sans-serif;width:1400px}
+  .card{padding:56px 64px;display:grid;grid-template-columns:1fr 1fr;gap:48px 64px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:44px;margin:0 0 6px;font-variation-settings:"opsz" 96,"SOFT" 40}
+  h2{font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:600;color:#4C625B;margin:0 0 14px}
+  .logos{display:flex;gap:40px;align-items:center}
+  .logos .box{background:#EEF5F1;border-radius:14px;padding:24px;display:grid;place-items:center}
+  .logos .dark{background:#15302A}
+  .sw{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .s{border-radius:10px;border:1px solid #D5E0DB;overflow:hidden;font-size:13px}
+  .s i{display:block;height:64px}
+  .s b{display:block;padding:8px 10px 2px;font-weight:600}
+  .s span{display:block;padding:0 10px 10px;color:#4C625B}
+  .type p{margin:0 0 8px}
+  .type .d{font-family:'Fraunces',serif;font-size:40px;font-weight:500;line-height:1.1;font-variation-settings:"opsz" 96,"SOFT" 40}
+  .type .b{font-size:18px;color:#4C625B;max-width:34rem}
+  .label{background:#EEF5F1;border-radius:14px;padding:28px;display:grid;place-items:center}
+  .vial{background:#fff;border:1px solid #D5E0DB;border-radius:10px;padding:18px 22px;text-align:center;width:260px}
+  .vial .mark{width:36px;margin:0 auto 6px}
+  .vial .wm{letter-spacing:.22em;font-weight:600;font-size:13px}
+  .vial .pn{font-weight:700;font-size:20px;margin:6px 0 8px}
+  .vial small{display:block;font-size:9.5px;line-height:1.5;letter-spacing:.04em;color:#4C625B}
+  .caps{display:flex;gap:10px;margin-top:14px;justify-content:center}
+  .caps i{width:34px;height:14px;border-radius:4px}
+  .rules{font-size:15px;color:#4C625B;line-height:1.6;grid-column:1/3;border-top:1px solid #D5E0DB;padding-top:22px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <h1>Velacore Health</h1>
+    <h2>Logo, two approved versions</h2>
+    <div class="logos">
+      <div class="box"><img src="../public/logo-full.png" width="240" alt="Full logo" /></div>
+      <div class="box dark"><img src="../public/logo-mark.png" width="96" alt="Mark" /></div>
+    </div>
+  </div>
+  <div>
+    <h2>Colors</h2>
+    <div class="sw">
+      <div class="s"><i style="background:#15302A"></i><b>Pine</b><span>#15302A text, footer</span></div>
+      <div class="s"><i style="background:#0C8F72"></i><b>Jade</b><span>#0C8F72 buttons, mark</span></div>
+      <div class="s"><i style="background:#EEF5F1"></i><b>Mint</b><span>#EEF5F1 sections, backdrops</span></div>
+      <div class="s"><i style="background:#FFFFFF"></i><b>Paper</b><span>#FFFFFF page</span></div>
+      <div class="s"><i style="background:#3E5FC0"></i><b>Helix blue</b><span>#3E5FC0 tirzepatide</span></div>
+      <div class="s"><i style="background:#8A6BC9"></i><b>Helix violet</b><span>#8A6BC9 semaglutide, NAD+, sermorelin</span></div>
+      <div class="s"><i style="background:#C9EEDF"></i><b>Jade tint</b><span>#C9EEDF highlights</span></div>
+      <div class="s"><i style="background:#D5E0DB"></i><b>Line</b><span>#D5E0DB borders</span></div>
+    </div>
+  </div>
+  <div class="type">
+    <h2>Type</h2>
+    <p class="d">Fraunces for headlines, sentence case.</p>
+    <p class="b">Hanken Grotesk for everything else: body text, buttons, labels and navigation. Pine on white or mint. Nothing in all caps except the wordmark and the product label.</p>
+  </div>
+  <div>
+    <h2>The product label and cap colors</h2>
+    <div class="label">
+      <div class="vial">
+        <img class="mark" src="../public/logo-mark.png" alt="" />
+        <div class="wm">VELACORE HEALTH</div>
+        <div class="pn">TIRZEPATIDE</div>
+        <small>FOR PRESCRIPTION USE ONLY<br>PRESCRIPTION COMPOUNDED<br>503A COMPOUNDING PHARMACY<br>Rx ONLY</small>
+        <div class="caps"><i style="background:#3E5FC0"></i><i style="background:#8A6BC9"></i><i style="background:#0C8F72"></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="rules">Product photos: the product alone on mint, soft studio light, white label, one colored cap per program, clear glass, silver crimp. No people, props, marble, plants, glow or extra text. No seals, stars, FDA wording or benefit words on any label.</div>
+</div>
+</body>
+</html>

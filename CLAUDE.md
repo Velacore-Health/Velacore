@@ -50,6 +50,7 @@ Git identity is not set globally. Set it for this repo: user.name Bryan Dourado,
 - `shopify-products-import.csv` imports the five products.
 - `docs/` handoff, pricing research, OpenLoop call guide, `openloop-proposal-notes.md` with the patient-facing terms and prices from the proposal, `installs.md`, SOPs. Nothing in `docs/` is served.
 - `COMPLIANCE.md` compliance decisions and the LegitScript checklist.
+- `docs/BRAND.md` the brand bible: approved logos, colors, type, voice, image motif, the product label. `brand/` holds the brand card to upload with any image prompt. Read BRAND.md before making anything visual.
 - `01-raw-clips/`, `02-selects/`, `03-edits/`, `04-scheduled/` the local video workflow. Gitignored; never commit media.
 
 ## Team

@@ -123,6 +123,15 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   microdosing GLP-1, NAD+, sermorelin. Glutathione is off until OpenLoop confirms it in writing.
   Dr. Broussard's section is replaced by OpenLoop network copy with no named clinician. Still
   open: the Velacore inbox connection and the Vercel connector.
+- **Brand bible started, Nov 6:** `docs/BRAND.md` and `brand/velacore-brand-card.png`. The logo
+  is a helix-and-leaves mark in a ring, violet to blue on the full logo, jade on the mark; the
+  program cap colors come from it. Only two small PNG logo files exist, 317 and 119 pixels;
+  Dourado to find the designer's source file for `brand/logo/`. Gemini's first two vials from
+  the brief came out on-brand. Dourado also asked for agent access to the
+  firstventuregroupllc@gmail.com Drive, Photos and Gmail plus a local synced drive; the
+  connectors hold one Google login, so the route is sharing the Velacore Drive folder to the
+  connected account, Gmail delegation or forwarding, and Google Drive for desktop syncing a
+  Velacore folder into this project. Steps given to Dourado; none done yet.
 - **Restyle, Nov 6, at Dourado's direction: light, not AI-looking.** `styles.css` rewritten:
   white and mint-white sections, pine ink, jade for actions, Fraunces for headlines, the real
   vial as the hero, each program's vial-cap color as its stripe, one dark band for the promise.
