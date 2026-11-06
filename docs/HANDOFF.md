@@ -75,12 +75,51 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 - **Local agent set up, Nov 6.** The repo now lives directly in `C:\Users\Dourado\Documents\Velacore Health`,
   no Velacore subfolder. The four video folders 01-raw-clips to 04-scheduled sit in the root and are
   gitignored. Repo git identity is set. `.env` exists and is gitignored. `.claude/settings.json` deny
-  rules carry both the `C:/` and the `//c/` path forms; still untested whether they block. First
+  rules carry both the `C:/` and the `//c/` path forms; verified Nov 6 that they block, by reading
+  a made-up filename under Salvage Health and getting a permission refusal. First
   project skill `vc-compliance-check` is built. First run: 0 fail, badge off, disclaimer present, the
   CSV has only the five products. Memory is seeded: agent name, report format, one step at a time,
   install rule. Not done yet: `vc-site-audit`, the optional `vale.md` agent file, and the GitHub CLI,
   pandoc and Shopify CLI installs. Local commits aren't pushed; a push to this branch deploys
   `public/` to GitHub Pages.
+- **Platform decided, Nov 6 (Dourado, in session).** Asher is canceled and the partnership is over.
+  OpenLoop is the platform. JotForm is retired. The plan is the same shape as salvagehealth.com:
+  the static site in `public/`, which Vercel already serves at https://velacore.vercel.app, is
+  the foundation to build on; the velacorehealth.com domain moves to Vercel; and every treatment's
+  Start visit button links out to that treatment's OpenLoop hosted intake page. Dourado also has
+  a Netlify account from Salvage Health, but Vercel is already set up, so it stays. The current
+  live site is a copy-and-paste Shopify store running the Velacore theme; it is a stopgap until
+  Vercel serves the domain. Open items 1 to 4 and 7 above are now moot or rewritten by this.
+- **`vc-site-audit` built, Nov 6.** First run against the live store found: page title "My
+  Store"; the footer links to telehealth consent, refund policy and terms all 404; none of the
+  five live product pages carries the FDA compounded-medication disclaimer, so the live product
+  bodies are not the CSV bodies; all surfaces show the old prices ($349/$299/$279/$199/$329)
+  against the planned $279/$229/$199/-/$199; `public/telehealth-consent.html` has no state
+  complaint directory at all, so the "about 25 states verified" note in open item 6 is stale;
+  `public/index.html` still has the JotForm embed, the $20 physician fee wording and the
+  hello@ placeholder email. Reports and screenshots land in `_audit/`, gitignored.
+- **Setup facts from Kevin, Nov 6.** GitHub is plain git over HTTPS with the Windows credential
+  manager; no GitHub CLI. The Velacore-Health GitHub org has a 2FA deadline of Nov 24, 2026;
+  Dourado does that himself. Google connectors take one account at a time and it is
+  bryandourado@gmail.com, so the Velacore inbox firstventuregroupllc@gmail.com is not readable by
+  the agent; Dourado can forward it into the main Gmail or reconnect the connector to the Velacore
+  account. Vercel is not connected yet; the official Vercel connector is the way in. Deploy
+  practice to copy from salvagehealth.com once Vercel deploys from git: working checkout's push
+  URL disabled, deploy from a clean worktree, one push only after Dourado says "push it".
+  The OpenLoop proposal PDF is in Dourado's Downloads; pypdf 7.0.0 is installed and it has been
+  read. Patient-facing terms and prices are in `docs/openloop-proposal-notes.md`; the column of
+  what Velacore receives stays out of the repo. Three facts from it change the site: no separate
+  physician fee and refund for any reason except a month already ordered; providers are OpenLoop's
+  MD, DO and NP network, 7am to 7pm CST, with live video required for the first prescription in
+  AR, DC, DE, KS, MS, NM, RI, WV; payment is Visa, Mastercard, FSA/HSA, Apple Pay, Google Pay, no
+  Amex. Unresolved in writing: the proposal says intake and card entry happen on Velacore's
+  interface, while the demo said Launchpad hosts them; the site plan assumes the hosted version.
+- **Team built, Nov 6.** Project agents in `.claude/agents/`: `vc-ads` with its `vc-ads` skill
+  for Meta and Google, `vc-copy`, `vc-reviewer`. See the Team section in CLAUDE.md.
+- **Decisions still open with Dourado, Nov 6:** which products the rebuilt site sells now that
+  glutathione is absent from the proposal and microdosing, oral GLP-1s, B12 MIC, HRT and sexual
+  health are in it; whether Dr. Broussard's section becomes OpenLoop network copy; the Velacore
+  inbox connection; connecting the Vercel connector.
 
 ## Open items
 

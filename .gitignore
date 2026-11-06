@@ -8,3 +8,9 @@
 02-selects/
 03-edits/
 04-scheduled/
+
+# site audit reports and screenshots
+_audit/
+
+# python cache
+__pycache__/

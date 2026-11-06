@@ -48,10 +48,20 @@ Git identity is not set globally. Set it for this repo: user.name Bryan Dourado,
 - `public/` the original static marketing site, served by Vercel. Still live.
 - `shopify-theme/` the Shopify theme, same design. `SETUP.md` is the admin guide. Rebuild `velacore-shopify-theme.zip` after theme edits.
 - `shopify-products-import.csv` imports the five products.
-- `docs/` handoff, pricing research, OpenLoop call guide, SOPs. Nothing in `docs/` is served.
+- `docs/` handoff, pricing research, OpenLoop call guide, `openloop-proposal-notes.md` with the patient-facing terms and prices from the proposal, `installs.md`, SOPs. Nothing in `docs/` is served.
 - `COMPLIANCE.md` compliance decisions and the LegitScript checklist.
 - `01-raw-clips/`, `02-selects/`, `03-edits/`, `04-scheduled/` the local video workflow. Gitignored; never commit media.
 
+## Team
+
+Project agents live in `.claude/agents/`. Call them through the Agent tool by name. Each reads CLAUDE.md and COMPLIANCE.md first and signs its work.
+
+- `vc-ads` paid media for Meta and Google: campaign plans, ad copy, tracking, policy checks. Nothing runs before LegitScript.
+- `vc-copy` site, legal page, email and ad copy in the Velacore voice.
+- `vc-reviewer` compliance and QA before anything ships. Read-only; returns PASS or BLOCKED.
+
+Vale builds the site and coordinates. Hand copy to vc-copy, ads to vc-ads, and everything public through vc-reviewer before it goes to Dourado.
+
 ## Skills and memory
 
-Project-only skills go in `.claude/skills/` with a `vc-` prefix. Memory lives in the app's per-project memory folder, one fact per file with a MEMORY.md index, same layout as the other agents on this machine. Store decisions and corrections there; do not store what the repo already says.
+Project-only skills go in `.claude/skills/` with a `vc-` prefix. Built so far: `vc-compliance-check`, `vc-site-audit`, `vc-ads`. Memory lives in the app's per-project memory folder, one fact per file with a MEMORY.md index, same layout as the other agents on this machine. Store decisions and corrections there; do not store what the repo already says.
