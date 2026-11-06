@@ -155,7 +155,7 @@ $30 multi of the $30/$50 doctor cost — plus the flat $35 shipping.)
   White Label Pharmacy and Perfect Rx." Save emails to the compliance file.
 - [ ] Signed **Medical Director Agreement** + attorney review of provider language.
 - [ ] 5 written SOPs; BAAs with every vendor touching patient data.
-- [x] Legal pages drafted: `privacy.html`, `terms.html`, `telehealth-consent.html`, `refund-policy.html`, linked in the footer. **⚠️ Attorney review required before launch** — especially governing-law/venue/arbitration (currently Texas placeholder), HIPAA specifics, and auto-renewal terms. Confirm the JotForm terms and payment processor match these pages.
+- [x] Legal pages drafted: `privacy.html`, `terms.html`, `telehealth-consent.html`, `refund-policy.html`, linked in the footer. **⚠️ Attorney review required before launch** — especially governing-law/venue/arbitration (Tennessee, confirmed by Dourado Nov 6 2026; no arbitration clause yet), HIPAA specifics, and auto-renewal terms. Confirm the JotForm terms and payment processor match these pages.
 - [x] Intake wired to JotForm (form 261070496021449).
 - [ ] Build the **server-authenticated** member area for restricted products.
 - [ ] Confirm the JotForm intake terms + payment processor mirror the Refund Policy (fee non-refundable).
