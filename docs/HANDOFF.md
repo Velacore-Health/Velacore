@@ -45,6 +45,34 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 - **LegitScript:** "scrappy" route. Asher recommends Bloom Consulting Agency. Ask Asher for a partnership
   confirmation letter.
 
+## Status as of Nov 6, 2026 (read this before the older sections)
+
+- **Decision direction: move to OpenLoop Launchpad**, conditional on written answers from OpenLoop
+  (ad pixel / post-payment redirect, the 10-patient fee rule, shipping included, glutathione, the
+  MSA + BAA + SOC 2 with liability and LegitScript ownership written in). A confirmation email is
+  drafted (see the conversation summary in `docs/openloop-call-guide.md` and the comparison doc);
+  Bryan is sending it from firstventuregroupllc@gmail.com. Fee negotiation (start the 10-patient
+  clock at LegitScript approval, or cap at two months) is deliberately held until the agreement
+  arrives.
+- **Shareable comparison for partner Jonathan Moss:** Claude Docs page "Asher vs OpenLoop
+  Comparison" at https://claude.ai/artifact/SUTyr2Rwr6srVEEa6jUsVX (two tabs: Comparison, Asher
+  support exchange). Private until Bryan shares it.
+- **Pricing strategy: volume over price.** Launch prices in `docs/pricing-research.md`: first month
+  $149 (sema) / $199 (tirz); month-to-month $229 / $279; 12-week plan $199 / $249 per month as the
+  default; microdosing GLP-1 $179 as the cheap tier; NAD+/sermorelin $199. A/B test $199 vs $229
+  for 60 days in Launchpad before moving lower. The Shopify theme and product CSV still show the
+  OLD prices ($299/$349 etc.) and need updating once the platform is chosen.
+- **Asher cancellation email drafted** (not sent). Cautions: read the Sign-Up Agreement's notice
+  period first, and don't cancel before Launchpad is live or current patients lose continuity.
+- **Ads are the only pipeline.** LegitScript is required before any Meta/Google ads; on OpenLoop it
+  is $3,000 flat, 2–4 weeks, in Velacore's name, portable. Agile (the $1,000 tier) is rejected: no
+  pixel, fixed price, Agile branding on card statements, no migration to Launchpad.
+- **Build mode next:** once the platform is signed, the site needs: new prices, product-page
+  "Start visit" links pointed at OpenLoop's hosted intake (per product), a patient-portal link,
+  refund/terms/provider pages rewritten for OpenLoop's model (no $20 fee; OpenLoop providers),
+  the FDA/compounded disclaimer kept, then ad creative and landing pages for the $149 first-month
+  offer.
+
 ## Open items
 
 1. **OpenLoop call held Nov 2; follow-up demo Wed Nov 4, 12:30 PM CST** (partner Jonathan Moss joins;
