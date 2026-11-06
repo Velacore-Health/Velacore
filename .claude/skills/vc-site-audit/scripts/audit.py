@@ -382,6 +382,45 @@ def audit_theme_zip():
 
 
 # ---------------------------------------------------------------- render
+RENDER_JS = r"""() => {
+  const vis = el => { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el);
+    return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+  const parse = c => { const m = c.match(/[\d.]+/g) || []; return m.length >= 3 ? [+m[0], +m[1], +m[2], m.length > 3 ? +m[3] : 1] : null; };
+  const lum = ([r,g,b]) => { const f = v => { v /= 255; return v <= .03928 ? v/12.92 : Math.pow((v+.055)/1.055, 2.4); }; return .2126*f(r)+.7152*f(g)+.0722*f(b); };
+  const bgOf = el => { let n = el; while (n && n !== document.documentElement) { const c = parse(getComputedStyle(n).backgroundColor);
+      if (c && c[3] > .9) return c; if (getComputedStyle(n).backgroundImage !== 'none') return null; n = n.parentElement; } return [255,255,255,1]; };
+  const contrast = [];
+  for (const el of document.querySelectorAll('body *')) {
+    if (!vis(el)) continue;
+    const text = [...el.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent.trim()).join('');
+    if (text.length < 3) continue;
+    const cs = getComputedStyle(el); let fg = parse(cs.color); const bg = bgOf(el);
+    if (!fg || !bg) continue;
+    let op = fg[3]; for (let n = el; n && n !== document.documentElement; n = n.parentElement) op *= parseFloat(getComputedStyle(n).opacity);
+    if (op < 1) fg = [0,1,2].map(i => fg[i]*op + bg[i]*(1-op));
+    const L1 = lum(fg), L2 = lum(bg); const ratio = (Math.max(L1,L2)+.05)/(Math.min(L1,L2)+.05);
+    const px = parseFloat(cs.fontSize); const bold = parseInt(cs.fontWeight) >= 700;
+    const need = (px >= 24 || (px >= 18.66 && bold)) ? 3 : 4.5;
+    if (ratio < need) contrast.push(`${el.tagName.toLowerCase()}${el.className ? '.' + String(el.className).split(' ')[0] : ''} "${text.slice(0,28)}" ${ratio.toFixed(2)}:1`);
+    if (contrast.length > 40) break;
+  }
+  const taps = [];
+  for (const el of document.querySelectorAll('a[href], button, summary, input, label.plan-option')) {
+    if (!vis(el)) continue;
+    const cs = getComputedStyle(el); const inline = cs.display === 'inline' && el.closest('p, li, dd, figcaption');
+    if (inline || (el.tagName === 'INPUT' && el.closest('label'))) continue;
+    const r = el.getBoundingClientRect();
+    if (r.height < 44 || r.width < 44) taps.push(`${el.tagName.toLowerCase()}${el.className ? '.' + String(el.className).split(' ')[0] : ''} "${(el.innerText||el.getAttribute('aria-label')||'').trim().slice(0,22)}" ${Math.round(r.width)}x${Math.round(r.height)}`);
+  }
+  return {
+    overflow: document.documentElement.scrollWidth - window.innerWidth,
+    broken: [...document.images].filter(i => i.complete && i.naturalWidth === 0 && i.src).map(i => i.src.split('/').pop().slice(0,60)),
+    h1: (document.querySelector('h1')||{}).innerText || '',
+    contrast, taps
+  };
+}"""
+
+
 def audit_render(outdir, live, use_live):
     section("6. Rendered pages, desktop and phone")
     try:
@@ -389,7 +428,8 @@ def audit_render(outdir, live, use_live):
     except ImportError:
         add("REVIEW", "Playwright for Python is not installed; render checks skipped")
         return
-    targets = [("local-home", (PUBLIC / "index.html").as_uri())]
+    targets = [("local-home", (PUBLIC / "index.html").as_uri()),
+               ("local-program", (PUBLIC / "programs" / "tirzepatide.html").as_uri())]
     if use_live:
         targets.append(("live-home", CFG["live_base"] + "/"))
         if live.get("first_product"):
@@ -410,11 +450,7 @@ def audit_render(outdir, live, use_live):
                     add("REVIEW", f"{name} {vp}: page did not settle: {str(e)[:100]}")
                 page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                 page.wait_for_timeout(800)
-                info = page.evaluate("""() => ({
-                    overflow: document.documentElement.scrollWidth - window.innerWidth,
-                    broken: [...document.images].filter(i => i.complete && i.naturalWidth === 0 && i.src).map(i => i.src.split('/').pop().slice(0,60)),
-                    h1: (document.querySelector('h1')||{}).innerText || ''
-                })""")
+                info = page.evaluate(RENDER_JS)
                 shot = outdir / f"{name}-{vp}.png"
                 page.screenshot(path=str(shot), full_page=True)
                 problems = []
@@ -422,6 +458,10 @@ def audit_render(outdir, live, use_live):
                     problems.append(f"sideways scroll of {info['overflow']}px")
                 if info["broken"]:
                     problems.append("broken images: " + ", ".join(info["broken"][:5]))
+                if info["contrast"]:
+                    problems.append(f"low contrast text ({len(info['contrast'])}): " + "; ".join(info["contrast"][:4]))
+                if vp == "phone" and info["taps"]:
+                    problems.append(f"tap targets under 44px ({len(info['taps'])}): " + "; ".join(info["taps"][:5]))
                 errs = [e for e in errors if "favicon" not in e][:3]
                 if errs:
                     problems.append("console errors: " + " | ".join(x[:90] for x in errs))

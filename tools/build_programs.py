@@ -172,7 +172,7 @@ PROGRAMS = [
 MENU = [
     ("Weight", [("tirzepatide", "Tirzepatide", "images/products/tirzepatide.webp", "Dual GIP / GLP-1 injection"),
                 ("semaglutide", "Semaglutide", "images/products/semaglutide.webp", "GLP-1 injection"),
-                ("microdosing", "Microdosing GLP-1", "images/products/microdosing.webp", "Low dose, oral or injection")]),
+                ("microdosing", "Microdosing GLP\u20111", "images/products/microdosing.webp", "Low dose, oral or injection")]),
     ("Vitality", [("nad", "NAD+", "images/products/nad.webp", "Injection, nasal or oral")]),
     ("Hormone support", [("sermorelin", "Sermorelin", "images/products/sermorelin.webp", "GHRH analog injection")]),
 ]
@@ -184,7 +184,7 @@ def mega_menu(prefix):
     for cat, items in MENU:
         rows = []
         for slug, name, img, sub in items:
-            thumb = f'<img src="{prefix}{img}" alt="" loading="lazy" />' if img and (ROOT / "public" / img).exists() else '<span class="mega-glyph" aria-hidden="true"></span>'
+            thumb = f'<img src="{prefix}{img}" alt="" width="54" height="54" loading="lazy" />' if img and (ROOT / "public" / img).exists() else f'<img class="mega-tile" src="{prefix}logo-mark.png" alt="" width="119" height="128" loading="lazy" />'
             rows.append(f'<a class="mega-item" href="{prefix}programs/{slug}.html">{thumb}<span><b>{name}</b><small>{sub}</small></span></a>')
         cols.append(f'<div class="mega-col"><h4>{cat}</h4>{"".join(rows)}</div>')
     return (f'<div class="nav-item has-mega"><a href="{prefix}index.html#treatments" aria-haspopup="true" aria-expanded="false">Treatments</a>'
@@ -220,7 +220,7 @@ def start_button(p, cls="btn btn-primary"):
 
 
 def page(p):
-    media = f'<img class="tcard-photo" src="../images/{p["image"]}" alt="Velacore Health {p["name"]}" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else GLYPH
+    media = f'<img class="tcard-photo" src="../images/{p["image"]}" width="760" height="950" alt="Velacore Health {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.png" alt="" width="119" height="128" />'
     plans = "\n".join(
         f'''          <label class="plan-option">
             <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{" checked" if i == 0 else ""} />
@@ -321,8 +321,7 @@ def page(p):
     <section class="section on-cream">
       <div class="container prog-two">
         <div>
-          <p class="eyebrow">The medication</p>
-          <h2>{p["what_h"]}</h2>
+                    <h2>{p["what_h"]}</h2>
           <div class="prog-text">{what}</div>
         </div>
         <div class="prog-note">
@@ -337,8 +336,7 @@ def page(p):
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">How the program runs</p>
-          <h2>A review before every change, not just a refill</h2>
+                    <h2>A review before every change, not just a refill</h2>
           <p class="section-sub">Velacore coordinates each step. A licensed clinician makes every prescribing decision.</p>
         </div>
         <ol class="steps steps-4">
@@ -350,8 +348,7 @@ def page(p):
     <section class="section on-cream" id="faq">
       <div class="container faq-wrap">
         <div class="section-head center">
-          <p class="eyebrow" style="justify-content:center">FAQ</p>
-          <h2>{p["name"]} questions, answered</h2>
+                    <h2>{p["name"]} questions, answered</h2>
         </div>
         <div class="faq" id="faqList">
 {faq}
@@ -363,8 +360,7 @@ def page(p):
     <section class="section" id="start">
       <div class="container cta-grid">
         <div class="cta-copy">
-          <p class="eyebrow">Start online visit</p>
-          <h2>Start your {p["name"]} visit.</h2>
+                    <h2>Start your {p["name"]} visit.</h2>
           <p>You complete a secure intake on our telehealth partner's pages, a licensed clinician reviews it, and if treatment is appropriate your medication ships to your door.</p>
           <ul class="cta-points">
             <li><span class="dot"></span> A licensed clinician makes the prescribing decision</li>

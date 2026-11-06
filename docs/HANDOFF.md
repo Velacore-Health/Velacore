@@ -132,6 +132,29 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   connectors hold one Google login, so the route is sharing the Velacore Drive folder to the
   connected account, Gmail delegation or forwarding, and Google Drive for desktop syncing a
   Velacore folder into this project. Steps given to Dourado; none done yet.
+- **Kevin's home page review applied, Nov 6.** Kevin, the Salvage Health agent, reviewed the
+  home page against `docs/how-dourado-judges-design.md` and scored it 7 of 10 with 14 items.
+  Applied: sticky phone CTA only after the hero scrolls off and never over the start section;
+  hero frame sized at phone width so the trust strip clears it; contrast fixed with jade ink
+  #0A7A61 for buttons and links and #5F716A fine print, now in BRAND.md and on the brand card;
+  steps one column under 600px; non-breaking hyphens in Microdosing GLP-1 and nowrap on the
+  coming-soon suffix and footer links; every eyebrow label removed from the home page and the
+  decorative ones from program pages; hero chips removed; the crumpled-paper tile and the shield
+  replaced by the logo mark; width and height on every image; 44px tap targets. The audit now
+  measures text contrast and tap targets on the home and one program page at 375 and 1280; both
+  pass. Not done: generating the home cards from the program data so prices cannot drift. Kevin
+  rechecked and scored 8.5 of 10 with five misses, all fixed the same hour: coming-soon label on
+  its own line in the visit panel, logo tile on the microdosing card, sizes on all 12 home images,
+  44px tap targets everywhere with the audit threshold raised to match, and a stray copy of the
+  Treatments dropdown removed from the footer. Kevin also brought deploy questions from Dourado;
+  answered from the repo only. Unconfirmed, for Dourado to read off the Vercel dashboard: whether
+  the Vercel project auto-deploys from GitHub, which plan it is on (Pro is needed for a commercial
+  site), and that only velacore.vercel.app is attached. `docs/DEPLOY.md` is to be written once
+  those three are confirmed. Kevin also delivered a phone-only card carousel component, saved on
+  the Desktop as `velacore-carousel-component.html`; not added, waiting for Dourado to confirm he
+  wants it and whether flat or 3D. Separately,
+  Dourado judged Gemini's first vial "pretty basic"; next is a real label artwork file the
+  prompt can carry, plus his Gemini Deep Research findings when he pastes them.
 - **Restyle, Nov 6, at Dourado's direction: light, not AI-looking.** `styles.css` rewritten:
   white and mint-white sections, pine ink, jade for actions, Fraunces for headlines, the real
   vial as the hero, each program's vial-cap color as its stripe, one dark band for the promise.

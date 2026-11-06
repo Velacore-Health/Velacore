@@ -112,13 +112,20 @@
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
-  // Sticky mobile CTA: hide while the intake section is on screen
+  // Sticky mobile CTA: shown only after the hero scrolls away, hidden again on the start section
   var mobileCta = document.getElementById('mobileCta');
-  var intakeSec = document.getElementById('intake');
-  if (mobileCta && intakeSec && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      mobileCta.classList.toggle('is-hidden', entries[0].isIntersecting);
-    }, { threshold: 0.05 }).observe(intakeSec);
+  var heroSec = document.querySelector('.hero, .prog-hero');
+  var intakeSec = document.getElementById('intake') || document.getElementById('start');
+  if (mobileCta && 'IntersectionObserver' in window) {
+    var heroVisible = true, intakeVisible = false;
+    var update = function () {
+      var show = !heroVisible && !intakeVisible;
+      mobileCta.classList.toggle('is-shown', show);
+      mobileCta.classList.toggle('is-hidden', !show);
+    };
+    if (heroSec) new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; update(); }, { threshold: 0.1 }).observe(heroSec);
+    if (intakeSec) new IntersectionObserver(function (e) { intakeVisible = e[0].isIntersecting; update(); }, { threshold: 0.05 }).observe(intakeSec);
+    update();
   }
 
   // Hero molecular node field (Canvas — innovative ambient motion)

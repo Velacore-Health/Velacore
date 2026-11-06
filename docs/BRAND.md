@@ -2,6 +2,10 @@
 
 Started Nov 6 2026. This is the one place for approved logos, colors, type, voice and image rules. Anything made for Velacore, on the site, in an ad, in a Gemini prompt, on a label or in a deck, follows this file. When something here changes, change it here first.
 
+## 0. Who owns the brand
+
+Velacore Health is a brand of First Venture Group LLC, the parent company. The public-facing name is always Velacore Health. First Venture Group LLC appears only where the legal entity must: the footer copyright line, the Terms of Service, contracts, invoices and the business email address. It never appears on a logo, a label, an ad or a product image.
+
 ## 1. The mark
 
 A double helix with two leaves, set inside a thin ring. It says biology plus growth. Two versions exist:
@@ -29,7 +33,8 @@ Site palette, the approved values:
 | Mint deep | #DDF0E7 | Soft tint blocks |
 | Pine | #15302A | All text, the one dark band, the footer |
 | Pine soft | #4C625B | Secondary text |
-| Jade | #0C8F72 | Buttons, links, the mark on light grounds |
+| Jade | #0C8F72 | The mark on light grounds, the microdosing cap, stripes |
+| Jade ink | #0A7A61 | Buttons, links and any jade text. Darker so white text on it and jade text on white both pass 4.5 to 1. Added Nov 6 after Kevin's contrast check |
 | Jade tint | #C9EEDF | Highlights, icon backgrounds |
 | Line | #D5E0DB | Borders and rules |
 
@@ -45,7 +50,7 @@ Program colors, taken from the vial caps and the logo gradient. Each program own
 
 Logo gradient: helix violet #8A6BC9 at the lower left to helix blue #3E5FC0 at the upper right. These are the site's values; the exact gradient stops will be read from the source file when it arrives.
 
-Rules: pine is the only text color on light grounds. Jade is for things you can click or the mark. The program colors are stripes and caps, never text and never backgrounds. No gradients anywhere except inside the logo itself. No black, no pure grey.
+Rules: pine is the only body text color on light grounds. Jade ink is for things you can click; plain jade is for the mark and caps. Fine print is #5F716A at the lightest, never lighter. The program colors are stripes and caps, never text and never backgrounds. No gradients anywhere except inside the logo itself. No black, no pure grey.
 
 ## 3. Type
 
