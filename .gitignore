@@ -2,3 +2,9 @@
 # secrets
 .env
 .env.*
+
+# local video workflow, not in git
+01-raw-clips/
+02-selects/
+03-edits/
+04-scheduled/

@@ -4,10 +4,14 @@ Written Nov 6, 2026 from the agent-setup inventory Kevin produced. For the first
 
 ## Dourado does these, one at a time
 
-1. Open PowerShell and run:
-   `git clone -b claude/velacore-health-website-qnjdnh https://github.com/Velacore-Health/Velacore.git "C:\Users\Dourado\Documents\Velacore Health\Velacore"`
-   The four content folders already in Documents\Velacore Health stay where they are, beside the repo.
-2. In the Claude desktop app, Code tab, open the folder `C:\Users\Dourado\Documents\Velacore Health\Velacore` as a new project.
+1. Open PowerShell and run these one at a time. The repo lives directly in Documents\Velacore Health. A plain clone refuses a folder that already has files in it, so this fetches into the existing folder instead:
+   `cd "C:\Users\Dourado\Documents\Velacore Health"`
+   `git init`
+   `git remote add origin https://github.com/Velacore-Health/Velacore.git`
+   `git fetch origin`
+   `git checkout -b claude/velacore-health-website-qnjdnh origin/claude/velacore-health-website-qnjdnh`
+   The four content folders 01-raw-clips, 02-selects, 03-edits and 04-scheduled sit in the repo root and are gitignored, so video files never go to GitHub.
+2. In the Claude desktop app, Code tab, open the folder `C:\Users\Dourado\Documents\Velacore Health` as a new project.
 3. Start the session with: `Read CLAUDE.md, then docs/HANDOFF.md, then docs/local-setup.md. We are in full build mode.`
 
 ## The agent does these in its first session, each with Dourado's OK

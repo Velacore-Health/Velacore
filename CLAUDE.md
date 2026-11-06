@@ -50,6 +50,7 @@ Git identity is not set globally. Set it for this repo: user.name Bryan Dourado,
 - `shopify-products-import.csv` imports the five products.
 - `docs/` handoff, pricing research, OpenLoop call guide, SOPs. Nothing in `docs/` is served.
 - `COMPLIANCE.md` compliance decisions and the LegitScript checklist.
+- `01-raw-clips/`, `02-selects/`, `03-edits/`, `04-scheduled/` the local video workflow. Gitignored; never commit media.
 
 ## Skills and memory
 
