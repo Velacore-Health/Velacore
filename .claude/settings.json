@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(C:/Users/Dourado/Documents/Salvage Health/**)",
+      "Edit(C:/Users/Dourado/Documents/Salvage Health/**)",
+      "Read(C:/Users/Dourado/Documents/Trailmates/**)",
+      "Edit(C:/Users/Dourado/Documents/Trailmates/**)",
+      "Read(C:/Users/Dourado/Documents/Music City Shine/**)",
+      "Edit(C:/Users/Dourado/Documents/Music City Shine/**)"
+    ]
+  }
+}
