@@ -62,8 +62,11 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   default; microdosing GLP-1 $179 as the cheap tier; NAD+/sermorelin $199. A/B test $199 vs $229
   for 60 days in Launchpad before moving lower. The Shopify theme and product CSV still show the
   OLD prices ($299/$349 etc.) and need updating once the platform is chosen.
-- **Asher cancellation email drafted** (not sent). Cautions: read the Sign-Up Agreement's notice
-  period first, and don't cancel before Launchpad is live or current patients lose continuity.
+- **Asher cancellation submitted Nov 6, 2026** through Asher's Subscription Center. The billing
+  cycle runs through December 1, 2026, no balance is owed, and full portal access continues until
+  then. Current patients can continue GLP-1 care directly under Asher through Asher's text line.
+  Asher does no bulk export of patient records; non-PHI admin records must be saved by hand from
+  the portal before Dec 1. See open items 11 and 12.
 - **Ads are the only pipeline.** LegitScript is required before any Meta/Google ads; on OpenLoop it
   is $3,000 flat, 2–4 weeks, in Velacore's name, portable. Agile (the $1,000 tier) is rejected: no
   pixel, fixed price, Agile branding on card statements, no migration to Launchpad.
@@ -224,6 +227,12 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 8. Jonno's fixes to SOP-01/02 (see `docs/sops/REVIEW-NOTES.md`); attorney or consultant review.
 9. Gated member area for restricted products needs real server-side auth (not built).
 10. Confirm the Shopify theme uploads and renders; products imported; Treatments collection set.
+11. **Before Dec 1, 2026:** save the Asher order history and the patient contact list by hand from
+    the Asher portal. Asher offers no bulk export and access ends with the billing cycle. Keep
+    non-PHI admin records only, outside the repo.
+12. **Before Dec 1, 2026:** get the OpenLoop agreement signed early enough for Launchpad to be live
+    before Asher access ends, so current patients have somewhere to go. OpenLoop quoted 2 to 4
+    weeks to launch; the proposal expires about Dec 2.
 
 ## Accounts and tools
 
