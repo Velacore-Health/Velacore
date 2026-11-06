@@ -6,7 +6,13 @@
       "Read(C:/Users/Dourado/Documents/Trailmates/**)",
       "Edit(C:/Users/Dourado/Documents/Trailmates/**)",
       "Read(C:/Users/Dourado/Documents/Music City Shine/**)",
-      "Edit(C:/Users/Dourado/Documents/Music City Shine/**)"
+      "Edit(C:/Users/Dourado/Documents/Music City Shine/**)",
+      "Read(//c/Users/Dourado/Documents/Salvage Health/**)",
+      "Edit(//c/Users/Dourado/Documents/Salvage Health/**)",
+      "Read(//c/Users/Dourado/Documents/Trailmates/**)",
+      "Edit(//c/Users/Dourado/Documents/Trailmates/**)",
+      "Read(//c/Users/Dourado/Documents/Music City Shine/**)",
+      "Edit(//c/Users/Dourado/Documents/Music City Shine/**)"
     ]
   }
 }

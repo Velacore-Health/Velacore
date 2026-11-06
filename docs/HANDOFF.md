@@ -72,6 +72,15 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   refund/terms/provider pages rewritten for OpenLoop's model (no $20 fee; OpenLoop providers),
   the FDA/compounded disclaimer kept, then ad creative and landing pages for the $149 first-month
   offer.
+- **Local agent set up, Nov 6.** The repo now lives directly in `C:\Users\Dourado\Documents\Velacore Health`,
+  no Velacore subfolder. The four video folders 01-raw-clips to 04-scheduled sit in the root and are
+  gitignored. Repo git identity is set. `.env` exists and is gitignored. `.claude/settings.json` deny
+  rules carry both the `C:/` and the `//c/` path forms; still untested whether they block. First
+  project skill `vc-compliance-check` is built. First run: 0 fail, badge off, disclaimer present, the
+  CSV has only the five products. Memory is seeded: agent name, report format, one step at a time,
+  install rule. Not done yet: `vc-site-audit`, the optional `vale.md` agent file, and the GitHub CLI,
+  pandoc and Shopify CLI installs. Local commits aren't pushed; a push to this branch deploys
+  `public/` to GitHub Pages.
 
 ## Open items
 
