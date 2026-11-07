@@ -171,6 +171,13 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   commercial use, Netlify's policy has no pharmaceutical clause and only bars stored PHI without
   a BAA, which this site never holds. Kevin now stays on Salvage Health; anything from his side
   goes through Dourado.
+- **Four approvals done, Nov 6, night, on Dourado's "Yes to all four" in chat.** Connectors
+  off for this project: Gmail, Drive, Calendar, PostHog, Kit, Metricool; on: Canva, Claude Docs,
+  Netlify. CLAUDE.md gained Deploys cost money, Design checklist, Build and Audit. Weekly
+  read-only audit scheduled as app task `vc-weekly-audit`, Monday 8 AM, next run Nov 9. Commits
+  d32b650 and d35191e made locally; branch is 12 ahead of origin, nothing pushed. Kevin now
+  coordinates and reports to Dourado; Vale reports to Kevin. Open for Dourado: the host choice,
+  then the first push through one publisher.
 - **FVG Drive cleanup, pass one, Nov 6, evening.** Dourado said yes in chat to reading and
   cleaning the business Drive. Inventory taken read-only: 9 folders and 8 loose Asher-era files in
   the root, and the designer's logo package with .ai, .eps and .svg found at Logo / VelaCore
