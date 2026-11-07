@@ -175,7 +175,10 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   off for this project: Gmail, Drive, Calendar, PostHog, Kit, Metricool; on: Canva, Claude Docs,
   Netlify. CLAUDE.md gained Deploys cost money, Design checklist, Build and Audit. Weekly
   read-only audit scheduled as app task `vc-weekly-audit`, Monday 8 AM, next run Nov 9. Commits
-  d32b650 and d35191e made locally; branch is 12 ahead of origin, nothing pushed. Kevin now
+  d32b650 and d35191e made locally; branch is 12 ahead of origin, nothing pushed. The connector
+  switch proved account-wide and broke Kevin's session, so the six Salvage Health connectors are
+  instead denied by tool name in `.claude/settings.json`, commit 257bb2a, tested with a refused
+  Drive read; Dourado restored the shared switch himself, item closed. Kevin now
   coordinates and reports to Dourado; Vale reports to Kevin. Open for Dourado: the host choice,
   then the first push through one publisher.
 - **FVG Drive cleanup, pass one, Nov 6, evening.** Dourado said yes in chat to reading and

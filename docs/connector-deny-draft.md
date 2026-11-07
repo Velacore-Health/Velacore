@@ -1,6 +1,6 @@
 # Keeping Velacore off the Salvage Health connectors
 
-Drafted Nov 6 2026. Not applied. Vale changes `.claude/settings.json` only on Dourado's yes in chat.
+Drafted Nov 6 2026 and applied the same night on Dourado's "Yes, apply" in chat. Test passed: a Drive listing from inside this project was refused before any file was read, in the wildcard form below, without restarting the session.
 
 ## Why
 
