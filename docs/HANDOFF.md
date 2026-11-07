@@ -171,6 +171,12 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   commercial use, Netlify's policy has no pharmaceutical clause and only bars stored PHI without
   a BAA, which this site never holds. Kevin now stays on Salvage Health; anything from his side
   goes through Dourado.
+- **Host and domain, Nov 6, night.** Dourado chose Netlify. velacorehealth.com is registered at
+  Squarespace with DNS on Google Cloud DNS, web records on the Shopify stopgap, MX on Google
+  Workspace with three live mailboxes, jonathan@, bryan@ and hello@. Domain plan and Dourado's
+  clicks are in `docs/DEPLOY.md`. Kevin has stepped back to Salvage Health; Vale now guides
+  Dourado directly, one step per message. Dourado is asking Jonathan for contributor access to
+  the Squarespace domain. Netlify project creation is in progress with Dourado at the screen.
 - **Four approvals done, Nov 6, night, on Dourado's "Yes to all four" in chat.** Connectors
   off for this project: Gmail, Drive, Calendar, PostHog, Kit, Metricool; on: Canva, Claude Docs,
   Netlify. CLAUDE.md gained Deploys cost money, Design checklist, Build and Audit. Weekly

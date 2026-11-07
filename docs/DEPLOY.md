@@ -11,7 +11,7 @@ The three words:
 
 - Files: GitHub, repository Velacore under the Velacore-Health account, branch claude/velacore-health-website-qnjdnh. The site is the `public/` folder only. Nothing in `docs/`, `tools/`, `brand/` or `shopify-theme/` is served.
 - Live address today: https://velacore.vercel.app, served by Vercel from `public/` using `vercel.json` in the repo.
-- Real address: velacorehealth.com. It still points at the stopgap Shopify store. It moves to the static site once the OpenLoop agreement is signed and Dourado says so.
+- Real address: velacorehealth.com, registered at Squarespace, DNS on Google Cloud DNS through Squarespace, web records pointing at the stopgap Shopify store, mail records pointing at Google Workspace. It moves to the Netlify site once the OpenLoop agreement is signed and Dourado says so. See Domain under the cutover plan.
 - Second publisher: a GitHub Actions workflow in `.github/workflows/deploy-pages.yml` publishes `public/` to GitHub Pages on every push to the branch above. Two publishers for one folder is one too many. Decision pending, see Open decisions.
 - What the site connects to: Google Fonts, Google Analytics 4 tag G-B2PQL4DLF8, schema.org markup. No forms, no server code, no keys, no patient health information. Intake, card entry and the patient portal live on the telehealth partner's hosted pages.
 
@@ -84,10 +84,35 @@ Drafted Nov 6 2026 after Kevin read the Netlify account: one team on the Persona
 6. velacorehealth.com moves only after the OpenLoop agreement is signed and Dourado says so. That is a DNS change at the registrar, his hands, one step at a time.
 7. Credit rule, same as Salvage Health: a production deploy costs 15 credits, so changes are batched. Running out pauses every site in the team. If Velacore needs its own pool, a second Netlify team is the fix; decided by Dourado.
 
+### Domain
+
+Facts read Nov 6 2026 by DNS lookup, nothing changed:
+
+- velacorehealth.com is registered at Squarespace, per Dourado. Its name servers are Google Cloud DNS, ns-cloud-d1 to d4.googledomains.com, which is what Squarespace uses for domains that came over from Google Domains. So the DNS records are edited in the Squarespace domain panel.
+- Today the bare domain has an A record to 23.227.38.65 and www is a CNAME to shops.myshopify.com. Both are the Shopify stopgap store.
+- The domain carries email: five MX records pointing at Google, aspmx.l.google.com and the alt1 to alt4 hosts. That is Google Workspace mail for addresses ending in @velacorehealth.com. These records must not be touched; a mistake here breaks mail. Confirmed by Dourado Nov 6: three live mailboxes, jonathan@, bryan@ and hello@velacorehealth.com. The hello@ address on the site is real, not a placeholder.
+- One TXT record, google-site-verification, also stays.
+- No AAAA record.
+
+The domain stays registered at Squarespace; no transfer. Two ways to connect it to Netlify:
+
+- Option a, recommended: keep Squarespace DNS and add the records Netlify shows. Changes only the two web records and leaves mail alone. Per Netlify's external DNS guide, www becomes a CNAME to the site's own netlify.app address, and the bare domain becomes an ALIAS or flattened CNAME to apex-loadbalancer.netlify.com, or an A record to 75.2.60.5 if Squarespace DNS cannot do ALIAS. Read the exact values from Netlify's Domain management screen, under Pending DNS verification, on the day; do not type them from this file.
+- Option b: move the name servers to Netlify DNS. More capable, but it moves every record including mail, so it is only worth it if Netlify advises it for this site. Not recommended for a first move.
+
+Order, no step skipped:
+
+1. Netlify project created from the GitHub repository, Dourado's click.
+2. First push on push it; the site builds at its netlify.app address.
+3. Verify at the netlify.app address at phone width, run the audit against it, fix anything, repeat.
+4. Add velacorehealth.com in Netlify Domain management so it shows the records to set. Nothing changes yet.
+5. Only after the OpenLoop agreement is signed and Dourado says so: set the two web records at Squarespace, the Shopify stopgap goes dark on that name, HTTPS comes up on Netlify within the hour, verify the live name at phone width.
+6. Then decide the fate of the Vercel project and the Shopify store.
+
 Clicks only Dourado can do for the move:
 - In Netlify, Add new project, Import an existing project, choose GitHub, and grant Netlify access to the Velacore-Health organization or the Velacore repository when GitHub asks. Then pick the repository and the branch above, leave the build command empty, set the publish directory to public, and create the project.
 - Say push it for the first batch.
-- Later: the DNS change for velacorehealth.com at the registrar, and whether to delete the Vercel project and the Shopify stopgap.
+- Later, only on his word after OpenLoop: in Squarespace, open the domain, open DNS settings, change the www CNAME from shops.myshopify.com to the Netlify address, change the bare domain A record from 23.227.38.65 to the value Netlify shows, save, and change nothing else. One record per message, with Vale reading the lookup after each.
+- Later still: whether to delete the Vercel project and the Shopify stopgap.
 
 ## Known glitches
 
@@ -98,6 +123,6 @@ Clicks only Dourado can do for the move:
 
 ## Open decisions, Dourado's
 
-1. One live path: Vercel or GitHub Pages. Vale's recommendation: keep Vercel as the only publisher and delete the Pages workflow, or move to Netlify to match Salvage Health, which is already connected here and uses one dashboard. Either way, one.
+1. Closed Nov 6: Netlify, Dourado's decision given to Kevin in chat. The GitHub Pages workflow comes out in the first push batch and the Vercel project is retired once the Netlify copy is checked. Whether Velacore gets its own Netlify team for separate credits is still his call; the cutover plan above works either way.
 2. The Vercel plan, link and domain, the three UNCONFIRMED lines above.
 3. Whether the Google Analytics tag may stay on pages that name prescription programs. A question for compliance counsel, not an agent.
