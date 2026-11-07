@@ -130,10 +130,12 @@
           <button class="filter" data-filter="hormone">Hormone support</button>
         </div>
 
-        <div class="tgrid" id="tgrid">
+        <div class="pcar pcar--3d" data-pcar aria-roledescription="carousel" aria-label="Programs">
+        <div class="pcar-stage" tabindex="0">
+        <div class="tgrid pcar-track" id="tgrid">
           <!-- Tirzepatide -->
-          <article class="tcard" data-cat="weight">
-            <div class="tcard-media"><span class="tcard-cat">Weight</span><img class="tcard-photo" src="images/products/tirzepatide.webp" width="760" height="950" alt="Velacore Health Tirzepatide vial" loading="lazy" /></div>
+          <article class="tcard pcar-card" data-cat="weight" aria-roledescription="slide" aria-label="Tirzepatide, 1 of 6">
+            <div class="tcard-media"><span class="tcard-cat">Weight</span><img class="tcard-photo" src="images/products/tirzepatide.webp" width="760" height="950" alt="Velacore Health Tirzepatide vial" loading="eager" /></div>
             <div class="tcard-body">
               <h3>Tirzepatide</h3>
               <p class="tcard-mech">Dual GIP / GLP-1 receptor agonist. Injection, 5 dose levels. Ships every 4 weeks.</p>
@@ -148,8 +150,8 @@
           </article>
 
           <!-- Semaglutide -->
-          <article class="tcard" data-cat="weight">
-            <div class="tcard-media"><span class="tcard-cat">Weight</span><img class="tcard-photo" src="images/products/semaglutide.webp" width="760" height="950" alt="Velacore Health Semaglutide vial" loading="lazy" /></div>
+          <article class="tcard pcar-card" data-cat="weight" aria-roledescription="slide" aria-label="Semaglutide, 2 of 6">
+            <div class="tcard-media"><span class="tcard-cat">Weight</span><img class="tcard-photo" src="images/products/semaglutide.webp" width="760" height="950" alt="Velacore Health Semaglutide vial" loading="eager" /></div>
             <div class="tcard-body">
               <h3>Semaglutide</h3>
               <p class="tcard-mech">GLP-1 receptor agonist. Injection, 5 dose levels. Ships every 4 weeks.</p>
@@ -164,7 +166,7 @@
           </article>
 
           <!-- Microdosing GLP-1 -->
-          <article class="tcard" data-cat="weight">
+          <article class="tcard pcar-card" data-cat="weight" aria-roledescription="slide" aria-label="Microdosing GLP-1, 3 of 6">
             <div class="tcard-media"><span class="tcard-cat">Weight, entry tier</span>
               <img class="brand-tile" src="logo-mark.png" alt="" width="119" height="128" loading="lazy" />
             </div>
@@ -182,7 +184,7 @@
           </article>
 
           <!-- NAD+ -->
-          <article class="tcard" data-cat="vitality">
+          <article class="tcard pcar-card" data-cat="vitality" aria-roledescription="slide" aria-label="NAD+, 4 of 6">
             <div class="tcard-media"><span class="tcard-cat">Vitality</span><img class="tcard-photo" src="images/products/nad.webp" width="760" height="950" alt="Velacore Health NAD+ vial" loading="lazy" /></div>
             <div class="tcard-body">
               <h3>NAD+</h3>
@@ -198,7 +200,7 @@
           </article>
 
           <!-- Sermorelin -->
-          <article class="tcard" data-cat="hormone">
+          <article class="tcard pcar-card" data-cat="hormone" aria-roledescription="slide" aria-label="Sermorelin, 5 of 6">
             <div class="tcard-media"><span class="tcard-cat">Hormone support</span><img class="tcard-photo" src="images/products/sermorelin.webp" width="760" height="950" alt="Velacore Health Sermorelin vial" loading="lazy" /></div>
             <div class="tcard-body">
               <h3>Sermorelin</h3>
@@ -214,7 +216,7 @@
           </article>
 
           <!-- Not sure -->
-          <article class="tcard" data-cat="all">
+          <article class="tcard pcar-card" data-cat="all" aria-roledescription="slide" aria-label="Not sure where to start, 6 of 6">
             <div class="tcard-media"><img class="brand-tile" src="logo-mark.png" alt="" width="119" height="128" loading="lazy" /></div>
             <div class="tcard-body">
               <h3>Not sure where to start?</h3>
@@ -227,6 +229,15 @@
               <a href="#intake" class="btn btn-primary btn-block btn-sm">Start online visit</a>
             </div>
           </article>
+        </div>
+        </div>
+        <div class="pcar-ctl">
+          <button class="pcar-nav" type="button" data-prev aria-label="Previous program"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="pcar-dots" data-dots></div>
+          <span class="pcar-count" data-count aria-hidden="true"></span>
+          <button class="pcar-nav" type="button" data-next aria-label="Next program"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <p class="pcar-status" data-status aria-live="polite"></p>
         </div>
 
         <p class="treat-note">Prices are the full program cost. Shipping is included and there is no separate consultation or physician fee. Prepaid 12, 24 and 52 week plans are charged up front and ship every 4 weeks. All medications are prescription only, prepared by a licensed 503A compounding pharmacy to a clinician's prescription. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Your clinician decides which program, if any, is appropriate. Individual results vary. This page is not medical advice.</p>

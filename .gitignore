@@ -17,3 +17,6 @@ __pycache__/
 
 # image drop folder for Gemini output, converted by tools/prepare_images.py
 assets-in/
+
+# Private working notes with vendor file names, never committed
+_private/

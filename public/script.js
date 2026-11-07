@@ -68,8 +68,70 @@
         var show = f === 'all' || cat === f || cat === 'all';
         card.style.display = show ? '' : 'none';
       });
+      document.querySelectorAll('[data-pcar]').forEach(function (r) { r.dispatchEvent(new Event('pcar:refresh')); });
     });
   });
+
+  // Program carousel, phones only. Built by Kevin, adapted so it follows the filter above.
+  (function () {
+    var mq = window.matchMedia('(max-width:759px)');
+    document.querySelectorAll('[data-pcar]').forEach(function (root) {
+      var stage = root.querySelector('.pcar-stage'), track = root.querySelector('.pcar-track');
+      var all = [].slice.call(track.children), dotsBox = root.querySelector('[data-dots]'), status = root.querySelector('[data-status]'), count = root.querySelector('[data-count]');
+      var cards = all, n = all.length, idx = 0, dots = [];
+      function visible() { return all.filter(function (c) { return c.style.display !== 'none'; }); }
+      function wrap(i) { return (i % n + n) % n; }
+      function buildDots() {
+        dotsBox.innerHTML = ''; dots = [];
+        cards.forEach(function (c, i) {
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'pcar-dot';
+          b.setAttribute('aria-label', 'Show ' + (c.getAttribute('aria-label') || 'program ' + (i + 1)).replace(/,.*$/, ''));
+          b.innerHTML = '<span></span>'; b.addEventListener('click', function () { go(i); }); dotsBox.appendChild(b); dots.push(b);
+        });
+      }
+      function render() {
+        var half = Math.floor(n / 2);
+        cards.forEach(function (c, i) {
+          var d = ((i - idx + n + half) % n) - half;
+          c.setAttribute('data-d', d); c.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+          [].forEach.call(c.querySelectorAll('a,button'), function (a) { a.tabIndex = d === 0 ? 0 : -1; });
+        });
+        dots.forEach(function (b, i) { b.setAttribute('aria-current', i === idx ? 'true' : 'false'); });
+        if (status) status.textContent = cards[idx] ? (cards[idx].getAttribute('aria-label') || '') : '';
+        if (count) count.textContent = (idx + 1) + ' of ' + n;
+        root.setAttribute('data-many', n >= 5 && window.innerWidth < 420 ? 'true' : 'false');
+      }
+      function size() { var h = 0; cards.forEach(function (c) { h = Math.max(h, c.offsetHeight); }); track.style.setProperty('--pc-h', h + 'px'); }
+      function go(i) { idx = wrap(i); render(); }
+      function reset() { cards = visible(); n = cards.length; idx = 0; all.forEach(function (c) { if (cards.indexOf(c) < 0) { c.removeAttribute('data-d'); c.removeAttribute('aria-hidden'); } }); }
+      function enable() { root.classList.add('on'); reset(); buildDots(); render(); requestAnimationFrame(size); }
+      function disable() {
+        root.classList.remove('on'); track.style.removeProperty('--pc-h');
+        all.forEach(function (c) { c.removeAttribute('data-d'); c.removeAttribute('aria-hidden'); [].forEach.call(c.querySelectorAll('a,button'), function (a) { a.removeAttribute('tabindex'); }); });
+      }
+      function sync() { mq.matches ? enable() : disable(); }
+      root.querySelector('[data-prev]').addEventListener('click', function () { go(idx - 1); });
+      root.querySelector('[data-next]').addEventListener('click', function () { go(idx + 1); });
+      all.forEach(function (c) { c.addEventListener('click', function (e) { if (root.classList.contains('on') && c.getAttribute('data-d') !== '0') { e.preventDefault(); go(cards.indexOf(c)); } }); });
+      stage.addEventListener('keydown', function (e) {
+        if (!root.classList.contains('on')) return;
+        if (e.key === 'ArrowLeft') { go(idx - 1); e.preventDefault(); }
+        if (e.key === 'ArrowRight') { go(idx + 1); e.preventDefault(); }
+      });
+      var x0 = null, y0 = null;
+      stage.addEventListener('pointerdown', function (e) { x0 = e.clientX; y0 = e.clientY; });
+      stage.addEventListener('pointerup', function (e) {
+        if (x0 === null) return; var dx = e.clientX - x0, dy = e.clientY - y0; x0 = null;
+        if (root.classList.contains('on') && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) go(dx < 0 ? idx + 1 : idx - 1);
+      });
+      stage.addEventListener('pointercancel', function () { x0 = null; });
+      root.addEventListener('pcar:refresh', function () { if (root.classList.contains('on')) enable(); });
+      (mq.addEventListener ? mq.addEventListener('change', sync) : mq.addListener(sync));
+      window.addEventListener('resize', function () { if (root.classList.contains('on')) size(); });
+      window.addEventListener('load', function () { if (root.classList.contains('on')) size(); });
+      sync();
+    });
+  })();
 
   // Intake links: placeholders stay put until the hosted intake URLs are set; real links fire a GA4 event
   document.querySelectorAll('a[data-intake]').forEach(function (a) {
@@ -117,14 +179,16 @@
   var heroSec = document.querySelector('.hero, .prog-hero');
   var intakeSec = document.getElementById('intake') || document.getElementById('start');
   if (mobileCta && 'IntersectionObserver' in window) {
-    var heroVisible = true, intakeVisible = false;
+    var heroVisible = true, intakeVisible = false, carVisible = false;
+    var carSec = document.querySelector('[data-pcar]');
     var update = function () {
-      var show = !heroVisible && !intakeVisible;
+      var show = !heroVisible && !intakeVisible && !carVisible;
       mobileCta.classList.toggle('is-shown', show);
       mobileCta.classList.toggle('is-hidden', !show);
     };
     if (heroSec) new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; update(); }, { threshold: 0.1 }).observe(heroSec);
     if (intakeSec) new IntersectionObserver(function (e) { intakeVisible = e[0].isIntersecting; update(); }, { threshold: 0.05 }).observe(intakeSec);
+    if (carSec) new IntersectionObserver(function (e) { carVisible = e[0].isIntersecting; update(); }, { threshold: 0.05 }).observe(carSec);
     update();
   }
 

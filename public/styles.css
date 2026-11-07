@@ -164,7 +164,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .tcard-media{position:relative;aspect-ratio:4/4.2;background:var(--mint);display:grid;place-items:center;overflow:hidden}
 .tcard-media .node-glyph{width:70px;height:70px}
 .tcard-photo{width:100%;height:100%;object-fit:cover;display:block}
-.tcard-cat{position:absolute;top:18px;left:14px;font-size:.78rem;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+.tcard-cat{position:absolute;z-index:2;top:18px;left:14px;font-size:.78rem;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);padding:4px 10px;border-radius:999px}
 .tcard-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
 .tcard-body h3{font-size:1.5rem;margin-bottom:6px}
 .tcard-mech{color:var(--ink-soft);font-size:.95rem;margin-bottom:16px;min-height:2.6em}
@@ -380,3 +380,41 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 @media (prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+/* Program carousel, phones only. Built by Kevin Nov 6 2026, adapted to the Velacore tokens. Desktop keeps the grid. */
+.pcar{position:relative;--pc-cw:clamp(250px,74vw,320px)}
+.pcar-ctl{display:none}
+.pcar-status{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:759px){
+  .pcar.on{padding:4px 0}
+  .pcar.on .pcar-stage{position:relative;overflow:clip;padding:6px 0 14px;perspective:1100px;touch-action:pan-y;user-select:none;-webkit-user-select:none;outline:none}
+  .pcar.on .pcar-stage:focus-visible{outline:2px solid var(--jade);outline-offset:6px;border-radius:var(--r)}
+  .pcar.on .pcar-track{display:block;position:relative;height:var(--pc-h,560px);transform-style:preserve-3d}
+  .pcar.on .pcar-card{position:absolute;left:50%;top:0;width:var(--pc-cw);margin-left:calc(var(--pc-cw) / -2);transition:transform .5s var(--ease),opacity .4s var(--ease);will-change:transform;box-shadow:0 10px 30px rgba(21,48,42,.08)}
+  .pcar.on .pcar-card::after{content:"";position:absolute;inset:0;background:var(--mint);opacity:0;transition:opacity .4s var(--ease);pointer-events:none;z-index:2}
+  .pcar.on .pcar-card[data-d="0"]{transform:none;z-index:3}
+  .pcar.on .pcar-card[data-d="-1"]{transform:translateX(-106%) scale(.94);z-index:2;cursor:pointer}
+  .pcar.on .pcar-card[data-d="1"]{transform:translateX(106%) scale(.94);z-index:2;cursor:pointer}
+  .pcar.on .pcar-card[data-d="-1"]::after,.pcar.on .pcar-card[data-d="1"]::after{opacity:.78}
+  .pcar.on .pcar-card[data-d="-2"],.pcar.on .pcar-card[data-d="2"],.pcar.on .pcar-card[data-d="3"],.pcar.on .pcar-card[data-d="-3"]{transform:scale(.9);opacity:0;z-index:1;pointer-events:none}
+  .pcar--3d.on .pcar-card[data-d="-1"]{transform:translateX(-62%) translateZ(-140px) rotateY(32deg) scale(.88)}
+  .pcar--3d.on .pcar-card[data-d="1"]{transform:translateX(62%) translateZ(-140px) rotateY(-32deg) scale(.88)}
+  .pcar.on .pcar-card:not([data-d="0"]) a,.pcar.on .pcar-card:not([data-d="0"]) button{pointer-events:none}
+  .pcar.on .tcard-media{aspect-ratio:4/3}
+  .pcar.on .tcard-photo{position:absolute;inset:0;height:100%;object-fit:contain;padding:10px 0}
+  .pcar.on .tcard-body{padding:18px 18px 20px}
+  .pcar.on .tcard-mech{font-size:.92rem}
+  .pcar.on .pcar-ctl{display:flex;align-items:center;justify-content:center;gap:6px;margin:14px 0 0}
+  .pcar-count{display:none;min-width:64px;text-align:center;font-weight:600;color:var(--pine);font-variant-numeric:tabular-nums}
+  .pcar.on[data-many="true"] .pcar-dots{display:none}
+  .pcar.on[data-many="true"] .pcar-count{display:block}
+  .pcar-nav{flex:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-strong);background:#fff;color:var(--pine);display:grid;place-items:center;cursor:pointer;padding:0;transition:transform .15s}
+  .pcar-nav:active{transform:scale(.95)}
+  .pcar-nav svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .pcar-dots{display:flex}
+  .pcar-dot{width:44px;height:44px;background:none;border:0;display:grid;place-items:center;cursor:pointer;padding:0}
+  .pcar-dot span{width:10px;height:10px;border-radius:50%;background:var(--line-strong);transition:background .2s,transform .2s}
+  .pcar-dot[aria-current="true"] span{background:var(--jade);transform:scale(1.3)}
+  .pcar-nav:focus-visible,.pcar-dot:focus-visible{outline:2px solid var(--jade);outline-offset:3px}
+}
+@media (prefers-reduced-motion:reduce){.pcar-card,.pcar-card::after{transition:none!important}}

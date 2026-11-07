@@ -384,7 +384,8 @@ def audit_theme_zip():
 # ---------------------------------------------------------------- render
 RENDER_JS = r"""() => {
   const vis = el => { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el);
-    return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+    if (el.closest('[aria-hidden="true"]')) return false;
+    return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && parseFloat(cs.opacity) > 0; };
   const parse = c => { const m = c.match(/[\d.]+/g) || []; return m.length >= 3 ? [+m[0], +m[1], +m[2], m.length > 3 ? +m[3] : 1] : null; };
   const lum = ([r,g,b]) => { const f = v => { v /= 255; return v <= .03928 ? v/12.92 : Math.pow((v+.055)/1.055, 2.4); }; return .2126*f(r)+.7152*f(g)+.0722*f(b); };
   const bgOf = el => { let n = el; while (n && n !== document.documentElement) { const c = parse(getComputedStyle(n).backgroundColor);

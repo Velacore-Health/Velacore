@@ -8,10 +8,20 @@ Velacore Health is a brand of First Venture Group LLC, the parent company. The p
 
 ## 1. The mark
 
-A double helix with two leaves, set inside a thin ring. It says biology plus growth. Two versions exist:
+A double helix with two leaves, set inside a thin ring. It says biology plus growth.
 
-- Full logo: the helix in a violet-to-blue gradient, the ring in the same gradient, VELACORE below in a heavy geometric sans, HEALTH under that in wide-spaced capitals between two short rules. File: `public/logo-full.png`, 317 by 231 pixels.
-- Mark only: the helix and ring in jade on a transparent background. File: `public/logo-mark.png`, 119 by 128 pixels. This is the header and favicon mark on the site.
+The designer's package, downloaded Nov 6 2026 from the business Drive into `brand/logo/`, holds three versions of the full logo, each as .ai, .png and .jpg at 1507 by 1135, version 01 also as .eps, .pdf and .svg:
+
+- `VelaCore Health_01`: the mark in the gradient, the wordmark in white. For dark grounds. The .svg and .ai are the vector source for everything else.
+- `VelaCore Health_02`: mark and wordmark all white. For dark grounds and one-color print.
+- `VelaCore Health_03`: mark and wordmark all black. For light grounds and one-color print.
+
+The wordmark is outlined paths in the source, so the typeface name is not recorded anywhere in the package. Treat the lettering as artwork; never reset it in a web font.
+
+Site files, derived from the package before it was found:
+
+- `public/logo-full.png`, 317 by 231: the gradient mark with the wordmark in black on white. Not one of the three designer versions as delivered; it is a light-ground edit. Re-export it from the .ai at 2x once a light-ground version is agreed, see open item 2.
+- `public/logo-mark.png`, 119 by 128: the mark alone, recolored to jade. A derived asset, not from the designer; it is the header and favicon mark on the site and the mark on the product label. Keep it, but know it is ours, not the designer's.
 
 Rules:
 - Never redraw, recolor or stretch the mark. Never add a drop shadow or an outline.
@@ -20,7 +30,7 @@ Rules:
 - Minimum size on screen: 28 pixels tall for the mark, 110 pixels wide for the full logo.
 - The label on product vials uses the mark above the wordmark, both in pine, no gradient. See section 6.
 
-Missing: the original logo source. We have no vector file and no version larger than 317 pixels. Dourado to find the designer's file, SVG, AI, EPS or a PNG at 2000 pixels or more, and put it in `brand/logo/`. Until then, print and large-format uses are on hold.
+Source: `brand/logo/VelaCore Health_01/VelaCore Health-01.svg` and `VelaCore Health.ai`. Print and large-format uses are cleared.
 
 ## 2. Colors
 
@@ -48,7 +58,7 @@ Program colors, taken from the vial caps and the logo gradient. Each program own
 | NAD+ | Helix violet | #8A6BC9 |
 | Sermorelin | Helix violet | #8A6BC9 |
 
-Logo gradient: helix violet #8A6BC9 at the lower left to helix blue #3E5FC0 at the upper right. These are the site's values; the exact gradient stops will be read from the source file when it arrives.
+Logo gradient, read from the designer's SVG on Nov 6: three stops, mint green #78CBA9 at 0, blue #3A8EC6 at 0.36, magenta #DD25DA at 1, running from the upper right of the helix to the lower left. The site's program colors, helix blue #3E5FC0 and helix violet #8A6BC9, are mid-tones picked from that gradient for stripes and caps; they are not the stops themselves. Keep both: the stops for anything that reproduces the logo, the mid-tones for program colors.
 
 Rules: pine is the only body text color on light grounds. Jade ink is for things you can click; plain jade is for the mark and caps. Fine print is #5F716A at the lightest, never lighter. The program colors are stripes and caps, never text and never backgrounds. No gradients anywhere except inside the logo itself. No black, no pure grey.
 
@@ -91,13 +101,14 @@ Cap color by program per section 2. Silver crimp on vials. Amber glass for the m
 
 ## 7. Files and where they live
 
-- `public/logo-full.png`, `public/logo-mark.png`: the only approved logo files today.
+- `brand/logo/VelaCore Health_01`, `_02`, `_03`: the designer's package, source of truth. The .svg and .ai in `_01` are the vectors.
+- `public/logo-full.png`, `public/logo-mark.png`: the site's derived files, see section 1.
 - `brand/velacore-brand-card.html` and `brand/velacore-brand-card.png`: a one-page card with the logo, the palette and the type, to upload alongside any Gemini or Canva prompt so the tool sees the brand.
 - `docs/image-brief.md`: product image prompts.
 - `docs/BRAND.md`: this file.
 
 ## 8. Open items
 
-1. Find the original logo source file and save it in `brand/logo/`. Dourado.
-2. Confirm the gradient stops and the wordmark typeface from that file, then update section 2 and 3. Vale.
+1. Closed Nov 6: the designer's package is in `brand/logo/`, downloaded from the business Drive with Dourado's OK.
+2. Gradient stops recorded in section 2. The wordmark typeface cannot be read from the package, the letters are outlines; ask the designer if it is ever needed. Decide whether the site's light-ground logo, gradient mark with black wordmark, is the approved fourth version or whether the site should use version 03 all black on light grounds. Dourado.
 3. Decide whether the vial label keeps the helix mark or the mark goes only on the cap seal. Dourado, once the first Gemini labels come back.

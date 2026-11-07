@@ -155,6 +155,50 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   wants it and whether flat or 3D. Separately,
   Dourado judged Gemini's first vial "pretty basic"; next is a real label artwork file the
   prompt can carry, plus his Gemini Deep Research findings when he pastes them.
+- **Carousel and workflow, Nov 6, evening.** Dourado chose Kevin's 3D card carousel for the
+  home page; it is in, phones only under 760px, follows the category filter, desktop keeps the
+  grid. Kevin sent the full Salvage Health deploy loop; `docs/DEPLOY.md` draft v1 mirrors its
+  headings with three UNCONFIRMED lines for the Vercel dashboard. Dourado's new rules: Velacore
+  works exactly like Salvage Health with Kevin as the reviewer, same three words show me, push it,
+  undo; nothing on a free plan; connectors and skills for Google Ads and Meta ads to be planned
+  before LegitScript clears. Kevin recommends Netlify over Vercel for one dashboard; decision is
+  Dourado's. `docs/gemini-deep-research-prompt.md` holds the Deep Research prompt for the vial
+  label and photography research; Dourado is being walked through Gemini one step at a time.
+  Kevin's parity checklist, `C:\Users\Dourado\Desktop\vicky-parity-checklist.md`, was read and
+  answered: Velacore already has CLAUDE.md, DEPLOY.md, the audit, the compliance check, the brand
+  guide, memory and deny rules; missing are the business Google account on the connectors and a
+  host decision. Host terms were read and recorded in `docs/DEPLOY.md`: Vercel Hobby forbids
+  commercial use, Netlify's policy has no pharmaceutical clause and only bars stored PHI without
+  a BAA, which this site never holds. Kevin now stays on Salvage Health; anything from his side
+  goes through Dourado.
+- **FVG Drive cleanup, pass one, Nov 6, evening.** Dourado said yes in chat to reading and
+  cleaning the business Drive. Inventory taken read-only: 9 folders and 8 loose Asher-era files in
+  the root, and the designer's logo package with .ai, .eps and .svg found at Logo / VelaCore
+  Health_FF / Logo. Pass one applied through the Drive web interface: eight numbered folders
+  created per `docs/folder-map.md`, the 7 Asher files moved to 06-vendors/asher, the shared
+  Social Media Profiles doc moved to 04-marketing and still shared, nothing deleted, renamed or
+  opened. The inventory and the move manifest with the undo table live in `_private/`, which is
+  gitignored because vendor file names stay out of the public repo. Not done: the root map file
+  inside the Drive, moving the nine old folders under their numbers, renames.
+- **Logo source downloaded, Nov 6, on Dourado's OK.** 13 files, 2.4 MB, into `brand/logo/`,
+  .DS_Store left out, zip stays in Downloads. Three versions: 01 gradient mark with white
+  wordmark, 02 all white, 03 all black, rasters 1507 by 1135, vectors .svg .ai .eps in 01. Real
+  gradient stops are mint #78CBA9, blue #3A8EC6, magenta #DD25DA, not the violet-to-blue the
+  bible guessed; BRAND.md sections 1, 2, 7 and 8 updated. The site's logo-full.png and jade
+  logo-mark.png are derived files, now labeled as such. Open: whether the light-ground
+  gradient-plus-black version the site uses is approved, Dourado's call. Not committed.
+- **Business inbox route and Kevin's six fixes, Nov 6, late.** Dourado OK'd reaching
+  firstventuregroupllc@gmail.com through Claude in Chrome. Checked read-only: both connected
+  Chrome browsers show bryandourado@gmail.com as the first account; the business account is the
+  second account in the same Chrome, index 1. Verified read-only: Gmail, Drive and Calendar at
+  /u/1/ all open as firstventuregroupllc@gmail.com. The route works; no mail content read yet. Netlify has one team, Personal, owner
+  bryandourado; Velacore would share its credits with Salvage unless it gets its own team.
+  Kevin's optimization list: do not push until the host is chosen and the second publisher is off
+  (10 local commits are unpushed); trim connectors to what Velacore uses; Bash deny rules already
+  block the other business folders, verified by a denied cat of a made-up file; add Deploys cost,
+  Design checklist, Build and Audit sections to CLAUDE.md; propose a weekly read-only audit; vet
+  method for installs now in `docs/installs.md`. The CLAUDE.md change, the connector trim and the
+  weekly audit wait for Dourado's word.
 - **Restyle, Nov 6, at Dourado's direction: light, not AI-looking.** `styles.css` rewritten:
   white and mint-white sections, pine ink, jade for actions, Fraunces for headlines, the real
   vial as the hero, each program's vial-cap color as its stripe, one dark band for the promise.
