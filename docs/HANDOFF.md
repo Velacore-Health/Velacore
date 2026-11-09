@@ -171,6 +171,17 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   commercial use, Netlify's policy has no pharmaceutical clause and only bars stored PHI without
   a BAA, which this site never holds. Kevin now stays on Salvage Health; anything from his side
   goes through Dourado.
+- **First Netlify deploy, Nov 8.** Dourado granted the Netlify GitHub app access to the Velacore
+  repository, created project velacore-health in his team from branch
+  claude/velacore-health-website-qnjdnh with publish directory public and no build command, and
+  said push it. Vale pushed 17 commits, 71e89db to 2d13286, the GitHub Pages workflow was removed
+  in that batch, and Netlify rebuilt to ready. Test address velacore-health.netlify.app; the
+  project is Private on Netlify, so it asks for a Netlify login until Dourado clicks Make public.
+  Noted on the way: the Velacore GitHub repository is public, so docs/ is readable by anyone;
+  recommend making it private, Netlify works with private repositories. GitHub two-factor
+  deadline reads Nov 23 on GitHub's own banner. Next: Dourado checks the test address on his
+  phone, Make public when ready, audit against the live address, then the domain only after
+  OpenLoop and his word.
 - **Host and domain, Nov 6, night.** Dourado chose Netlify. velacorehealth.com is registered at
   Squarespace with DNS on Google Cloud DNS, web records on the Shopify stopgap, MX on Google
   Workspace with three live mailboxes, jonathan@, bryan@ and hello@. Domain plan and Dourado's

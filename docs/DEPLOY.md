@@ -49,7 +49,7 @@ Until LegitScript certification is issued in Velacore's name the badge stays off
 
 ## How to deploy
 
-Not yet exercised. Nothing has been pushed from this machine. The intended sequence, to be confirmed on the first real push with Dourado watching:
+First exercised Nov 8 2026: Dourado created the Netlify project velacore-health from the GitHub repository, branch claude/velacore-health-website-qnjdnh, build command empty, publish directory public; then said push it; one push of 17 commits; Netlify rebuilt to ready in under a minute. The project is marked Private on Netlify, which means velacore-health.netlify.app asks for a Netlify team login until Dourado clicks Make public, which must happen before the domain points at it. The sequence:
 
 1. `git status` clean except the batch being shipped; `git log --oneline -3` shows the expected commits.
 2. Run the two checks above once more on the committed tree.
