@@ -311,7 +311,7 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 
 /* ---------- Peptide education ---------- */
 .edu-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;margin-bottom:46px}
-.edu-intro-copy h3{font-size:1.8rem;margin-bottom:14px}
+.edu-intro-copy h2{font-size:1.8rem;margin-bottom:14px}
 .edu-intro-copy p{color:var(--ink-soft);font-size:1.08rem;margin-bottom:14px;max-width:36rem}
 .edu-intro-copy strong{color:var(--ink);font-weight:600}
 .edu-viz{border-radius:var(--r);overflow:hidden;background:#fff;border:1px solid var(--line)}
@@ -418,3 +418,17 @@ body.prog-microdosing{--cap:var(--cap-jade)}
   .pcar-nav:focus-visible,.pcar-dot:focus-visible{outline:2px solid var(--jade);outline-offset:3px}
 }
 @media (prefers-reduced-motion:reduce){.pcar-card,.pcar-card::after{transition:none!important}}
+
+/* Home page cut down for ad traffic, Nov 8 2026 */
+.page-top{padding-top:64px}
+.h2{font-size:clamp(2.1rem,4vw,3rem);line-height:1.1}
+.learn-teaser{padding:56px 0}
+.teaser{display:flex;gap:32px;align-items:center;justify-content:space-between}
+.teaser h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px}
+.teaser p{color:var(--ink-soft);max-width:44rem;font-size:1.02rem}
+.teaser .btn{flex:none}
+.why-provider{margin-top:64px}
+.why-cta{margin-top:44px;text-align:center}
+.faq-more{text-align:center;margin-top:26px}
+.faq-more a{display:inline-block;padding:11px 0;color:var(--jade);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:680px){.teaser{flex-direction:column;align-items:flex-start}.why-provider{margin-top:48px}}

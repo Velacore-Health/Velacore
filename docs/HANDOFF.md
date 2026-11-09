@@ -171,6 +171,18 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   commercial use, Netlify's policy has no pharmaceutical clause and only bars stored PHI without
   a BAA, which this site never holds. Kevin now stays on Salvage Health; anything from his side
   goes through Dourado.
+- **Home page cut down for ad traffic, Nov 8, at Dourado's direction.** The home page was one
+  continuous scroll, about 16,000 px on a phone. Now about 11,800: the peptide explainer moved
+  to `public/learn.html`, the full 15-question FAQ and its FAQPage schema moved to
+  `public/faq.html`, the home FAQ keeps six answers plus a link to the rest, the Why Velacore
+  pillars and the clinicians block are one section ending in a Start your visit button, a short
+  "New to peptides?" band links to the explainer, and the hero buttons are Start your visit and
+  See programs and prices. Every section now ends in a next step. Nav, footer, legal pages, the
+  program page generator and the sitemap point at the new pages; the sticky phone button shows
+  on pages without a hero. No copy rewritten beyond button labels. Compliance 0 fail, audit
+  clean at 375 and 1280, no broken anchors. vc-reviewer run before showing Dourado. Not pushed.
+  Follow-ups for vc-copy: a shorter hero lede, and a price line under the hero buttons drawn
+  from the program data rather than typed.
 - **First Netlify deploy, Nov 8.** Dourado granted the Netlify GitHub app access to the Velacore
   repository, created project velacore-health in his team from branch
   claude/velacore-health-website-qnjdnh with publish directory public and no build command, and

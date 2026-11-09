@@ -179,7 +179,7 @@
   var heroSec = document.querySelector('.hero, .prog-hero');
   var intakeSec = document.getElementById('intake') || document.getElementById('start');
   if (mobileCta && 'IntersectionObserver' in window) {
-    var heroVisible = true, intakeVisible = false, carVisible = false;
+    var heroVisible = !!heroSec, intakeVisible = false, carVisible = false; // pages without a hero show the bar at once
     var carSec = document.querySelector('[data-pcar]');
     var update = function () {
       var show = !heroVisible && !intakeVisible && !carVisible;

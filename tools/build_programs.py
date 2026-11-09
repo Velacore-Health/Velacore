@@ -276,9 +276,9 @@ def page(p):
       <nav class="nav-links" id="navLinks" aria-label="Primary">
         {mega_menu("../")}
         <a href="../index.html#how">How it works</a>
-        <a href="../index.html#learn">Learn</a>
+        <a href="../learn.html">Learn</a>
         <a href="../index.html#provider">Clinicians</a>
-        <a href="../index.html#faq">FAQ</a>
+        <a href="../faq.html">FAQ</a>
         <a href="#start" class="btn btn-primary btn-sm">Start online visit</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -353,7 +353,7 @@ def page(p):
         <div class="faq" id="faqList">
 {faq}
         </div>
-        <p class="edu-note">More answers on the <a href="../index.html#faq">main FAQ</a>, the <a href="../refund-policy.html">refund policy</a> and the <a href="../telehealth-consent.html">telehealth consent</a>.</p>
+        <p class="edu-note">More answers on the <a href="../faq.html">main FAQ</a>, the <a href="../refund-policy.html">refund policy</a> and the <a href="../telehealth-consent.html">telehealth consent</a>.</p>
       </div>
     </section>
 
@@ -393,7 +393,7 @@ def page(p):
       <nav class="footer-col" aria-label="Programs"><h4>Programs</h4>
         <a href="tirzepatide.html">Tirzepatide</a><a href="semaglutide.html">Semaglutide</a><a href="microdosing.html">Microdosing GLP-1</a><a href="nad.html">NAD+</a><a href="sermorelin.html">Sermorelin</a></nav>
       <nav class="footer-col" aria-label="More"><h4>More</h4>
-        <a href="../index.html#how">How it works</a><a href="../index.html#learn">Learn</a><a href="../index.html#faq">FAQ</a><a href="#" data-intake="portal" aria-disabled="true">Patient portal</a><a href="mailto:hello@velacorehealth.com">Contact</a></nav>
+        <a href="../index.html#how">How it works</a><a href="../learn.html">Learn</a><a href="../faq.html">FAQ</a><a href="#" data-intake="portal" aria-disabled="true">Patient portal</a><a href="mailto:hello@velacorehealth.com">Contact</a></nav>
       <nav class="footer-col" aria-label="Legal"><h4>Legal</h4>
         <a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../telehealth-consent.html">Telehealth Consent</a><a href="../refund-policy.html">Refund Policy</a></nav>
     </div>
