@@ -101,7 +101,7 @@ def audit_compliance():
 # ---------------------------------------------------------------- local site
 def parse_cards(page):
     cards = []
-    for m in re.finditer(r'<article class="tcard"[^>]*>(.*?)</article>', page, re.S):
+    for m in re.finditer(r'<article class="tcard[^"]*"[^>]*>(.*?)</article>', page, re.S):
         body = m.group(1)
         name = re.search(r"<h3>(.*?)</h3>", body, re.S)
         price = re.search(r'class="tcard-price">(.*?)</span>', body, re.S)
@@ -317,7 +317,7 @@ def audit_live(live):
                 add("PASS" if ok else "FAIL", f"live product page {p['title']}: " + ("answers 200 with the FDA disclaimer" if ok else f"status {ps}, disclaimer {'found' if pp and 'FDA' in pp else 'missing'}"))
                 live.setdefault("first_product", f"{CFG['live_base']}/products/{p['handle']}")
 
-    # the Vercel foundation site, which public/ deploys to
+    # the Netlify site, which public/ deploys to; the domain moves to it after OpenLoop
     fu = CFG.get("foundation_url")
     if fu:
         s, f, body = fetch(fu + "/")
@@ -327,7 +327,7 @@ def audit_live(live):
         add("PASS" if ok else "FAIL", f"foundation site {fu} answers {s}, title '{t}'")
         local_h1 = re.search(r"<h1[^>]*>(.*?)</h1>", (PUBLIC / "index.html").read_text(encoding="utf-8"), re.S)
         if local_h1 and body and re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", local_h1.group(1))).strip() not in re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", body)):
-            add("REVIEW", f"foundation site headline differs from public/index.html; Vercel may be behind the repo")
+            add("REVIEW", f"foundation site headline differs from public/index.html; Netlify may be behind the repo")
 
     # configured intake links answer
     for prod, url in CFG["intake_links"].items():
@@ -433,6 +433,8 @@ def audit_render(outdir, live, use_live):
                ("local-program", (PUBLIC / "programs" / "tirzepatide.html").as_uri())]
     if use_live:
         targets.append(("live-home", CFG["live_base"] + "/"))
+        if CFG.get("foundation_url"):
+            targets.append(("netlify-home", CFG["foundation_url"] + "/"))
         if live.get("first_product"):
             targets.append(("live-product", live["first_product"]))
     with sync_playwright() as pw:
