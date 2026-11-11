@@ -432,3 +432,6 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .faq-more{text-align:center;margin-top:26px}
 .faq-more a{display:inline-block;padding:11px 0;color:var(--jade);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 @media (max-width:680px){.teaser{flex-direction:column;align-items:flex-start}.why-provider{margin-top:48px}}
+.hero-photo.is-photo .frame{padding:0;aspect-ratio:3/4;background:var(--mint)}
+.hero-photo.is-photo img{object-fit:cover;object-position:50% 35%}
+@media (max-width:940px){.hero-photo.is-photo .frame{aspect-ratio:4/3;max-height:420px}}

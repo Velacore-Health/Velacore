@@ -6,7 +6,7 @@ Paste one block per generation into Gemini. Do not paste this whole file.
 
 ## How to run each one
 
-1. Open gemini.google.com, pick the image model, Nano Banana Pro if offered.
+1. Open gemini.google.com, switch on Images under the box, keep 3.1 Pro, and set Aspect ratio to the one the block names: 3:4 for tall, 4:3 or 16:9 for wide. Gemini offers 1:1, 9:16, 3:4, 4:3 and 16:9.
 2. For the vial blocks, attach the file named in the block first. For the people blocks, attach nothing.
 3. Paste the block. Ask for the largest size offered.
 4. Check the result against the reject list at the bottom. If it fails, reply in the same chat with what to fix, for example "same image, but the label must read exactly TIRZEPATIDE".
@@ -29,13 +29,13 @@ Bright, clean, cool daylight. White and pale mint, with one touch of green. Real
 
 ## 1. Hero, save as `hero.png`, folder `lifestyle`
 
-Photoreal candid photograph, vertical 4 by 5. A woman in her late forties in a bright, real home kitchen on a weekday morning, standing at the counter pouring water from a glass carafe into a glass, a bowl of fresh green apples and a cutting board with sliced cucumber beside her. She wears a soft oatmeal knit sweater, hair loosely tied back, small relaxed smile, looking down at what she is doing, not at the camera. Cool natural daylight from a large window on the left, white cabinets, pale mint tile, a small green plant on the windowsill. Shallow depth of field, 50 mm lens look, natural skin texture, true-to-life colors. No text, no logos, no scale, no measuring tape, no pills, no needles.
+Photoreal candid photograph, vertical 3 by 4. A woman in her late forties in a bright, real home kitchen on a weekday morning, standing at the counter pouring water from a glass carafe into a glass, a bowl of fresh green apples and a cutting board with sliced cucumber beside her. She wears a soft oatmeal knit sweater, hair loosely tied back, small relaxed smile, looking down at what she is doing, not at the camera. Cool natural daylight from a large window on the left, white cabinets, pale mint tile, a small green plant on the windowsill. Shallow depth of field, 50 mm lens look, natural skin texture, true-to-life colors. No text, no logos, no scale, no measuring tape, no pills, no needles.
 
 ## 2. Tirzepatide vial in water, save as `tirzepatide.png`, folder `products`
 
 Attach `public\images\products\tirzepatide.webp` from the Velacore Health folder.
 
-Edit the attached product photo. Keep the vial exactly as it is: same glass, same royal blue cap, same silver crimp, and the label unchanged, every word and line identical, sharp and fully readable. Place it standing upright in the center of a new scene, vertical 4 by 5: the vial stands in a shallow layer of perfectly clear water on a white surface, with a crisp crown-shaped splash of clear water rising around its base and a few clean droplets frozen in the air beside it. The label stays dry, with no droplets on it. Background a soft pale mint, color EEF5F1, fading to white at the top. Bright cool daylight from the upper left, high-speed photography, crystal clear water, gentle reflection on the wet surface. No other objects, no text other than the existing label, no bubbles inside the vial, no color in the water.
+Edit the attached product photo. Keep the vial exactly as it is: same glass, same royal blue cap, same silver crimp, and the label unchanged, every word and line identical, sharp and fully readable. Place it standing upright in the center of a new scene, vertical 3 by 4: the vial stands in a shallow layer of perfectly clear water on a white surface, with a crisp crown-shaped splash of clear water rising around its base and a few clean droplets frozen in the air beside it. The label stays dry, with no droplets on it. Background a soft pale mint, color EEF5F1, fading to white at the top. Bright cool daylight from the upper left, high-speed photography, crystal clear water, gentle reflection on the wet surface. No other objects, no text other than the existing label, no bubbles inside the vial, no color in the water.
 
 ## 3. Semaglutide vial in water, save as `semaglutide.png`, folder `products`
 
@@ -71,7 +71,7 @@ Photoreal photograph, horizontal 4 by 3. A plain white shipping box, about the s
 
 ## 10. Walk outdoors, save as `wellness.png`, folder `lifestyle`
 
-Photoreal candid photograph, horizontal 3 by 2. Two friends in their late forties and early fifties, a man and a woman, walking side by side on a tree-lined park path in soft early morning light, mid-conversation and laughing, wearing everyday clothes: jeans, light jacket, a sweater. Seen from a little distance, slightly from the side, green trees and a hint of mist behind them. Natural skin texture, true-to-life colors, 85 mm lens look, gentle background blur. Not a workout, no athletic wear, no fitness trackers in focus, no text, no logos.
+Photoreal candid photograph, horizontal 16 by 9. Two friends in their late forties and early fifties, a man and a woman, walking side by side on a tree-lined park path in soft early morning light, mid-conversation and laughing, wearing everyday clothes: jeans, light jacket, a sweater. Seen from a little distance, slightly from the side, green trees and a hint of mist behind them. Natural skin texture, true-to-life colors, 85 mm lens look, gentle background blur. Not a workout, no athletic wear, no fitness trackers in focus, no text, no logos.
 
 ---
 
