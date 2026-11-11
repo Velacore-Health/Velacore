@@ -1,28 +1,38 @@
-"""Converts product images dropped in assets-in/products/ into the site's format.
+"""Converts images dropped in assets-in/ into the site's format.
 
 Run from the repo root:  python -I tools/prepare_images.py
 
-For each PNG or JPG in assets-in/products/: resize to 1600 px on the long side,
-convert to WebP at quality 88, save as public/images/products/<name>.webp.
-Uses ffmpeg, which is installed on this machine. Nothing else is touched.
+assets-in/products/  -> public/images/products/<name>.webp   the five program vials
+assets-in/lifestyle/ -> public/images/lifestyle/<name>.webp  people and scenes
+Each PNG or JPG is resized to 1600 px on the long side and saved as WebP at quality 88.
+Prompts and file names are in docs/gemini-prompts.md. Uses ffmpeg. Nothing else is touched.
 """
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-IN = ROOT / "assets-in" / "products"
-OUT = ROOT / "public" / "images" / "products"
-EXPECTED = {"tirzepatide", "semaglutide", "microdosing", "nad", "sermorelin"}
+FOLDERS = {
+    "products": {"tirzepatide", "semaglutide", "microdosing", "nad", "sermorelin"},
+    "lifestyle": {"hero", "step-visit", "step-clinician", "step-delivery", "wellness"},
+}
 
 
 def main():
+    total = 0
+    for folder, expected in FOLDERS.items():
+        total += convert(ROOT / "assets-in" / folder, ROOT / "public" / "images" / folder, expected)
+    if not total:
+        print("No images in assets-in/products or assets-in/lifestyle. Names are in docs/gemini-prompts.md.")
+    else:
+        print("Now run: python -I tools/build_programs.py")
+    return 0
+
+
+def convert(IN, OUT, EXPECTED):
     IN.mkdir(parents=True, exist_ok=True)
     OUT.mkdir(parents=True, exist_ok=True)
     files = sorted(p for p in IN.iterdir() if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"})
-    if not files:
-        print(f"No images in {IN}. Drop PNGs there, named per docs/image-brief.md.")
-        return 0
     for src in files:
         name = src.stem.lower().replace(" ", "-")
         dst = OUT / f"{name}.webp"
@@ -33,10 +43,9 @@ def main():
         if r.returncode:
             print(f"FAILED {src.name}: {r.stderr.strip()[:200]}")
             continue
-        note = "" if name in EXPECTED else "  (name is not one of the five programs; the site will not use it unless a page references it)"
+        note = "" if name in EXPECTED else "  NOTE: not one of the expected names, so no page uses it yet"
         print(f"wrote {dst.relative_to(ROOT).as_posix()} from {src.name}{note}")
-    print("Now run: python -I tools/build_programs.py")
-    return 0
+    return len(files)
 
 
 if __name__ == "__main__":

@@ -1,52 +1,90 @@
-# Gemini prompts for Velacore product images
+# Gemini prompts for Velacore images, set 2
 
-Each block below is complete on its own. Paste one block per generation. Do not paste this whole file.
+Written Nov 11 2026 at Dourado's direction: more people, everyday healthy routines, and vials in clean splashing water, so the site reads as health and wellness. Set 1 from Nov 6 is retired; it produced plain vials on mint.
 
-## Before every prompt
+Paste one block per generation into Gemini. Do not paste this whole file.
 
-1. Attach two files to the prompt: `brand\velacore-brand-card.png` and `public\logo-mark.png` from the Velacore Health folder.
-2. Set image generation to square, highest quality.
-3. Generate 4 variations. Keep the one where the label text is spelled exactly right and the cap is the right color. If none are right, add this line and run again: "The label text must read exactly, with no extra words:" followed by the label lines.
-4. Save as PNG at the largest size offered. Name the file exactly as the block says. Put it in `assets-in\products\`.
+## How to run each one
 
-## Direction notes, read once
+1. Open gemini.google.com, pick the image model, Nano Banana Pro if offered.
+2. For the vial blocks, attach the file named in the block first. For the people blocks, attach nothing.
+3. Paste the block. Ask for the largest size offered.
+4. Check the result against the reject list at the bottom. If it fails, reply in the same chat with what to fix, for example "same image, but the label must read exactly TIRZEPATIDE".
+5. Download the PNG, name it exactly as the block says, and drop it in the Velacore Health folder under `assets-in`, in `products` for vials and `lifestyle` for people.
+6. Tell Vale "convert the images". The site picks them up from there.
 
-- Same set for every shot. Think of it as one photographer, one afternoon, one table. Same mint backdrop, same light from the upper left, same camera height, same distance. That is what makes five images read as one brand.
-- Camera at the product's midline, slightly above, so the cap shows a little of its top. Not from below, not from directly above.
-- The product takes about 70 percent of the frame height. Even air around it.
-- One soft shadow under the base, nothing dramatic. No reflections of windows, no rim light, no haze.
-- The label is matte white paper, slightly textured, wrapped flat. Text is pine green, almost black. The small jade helix mark sits at the top center of the label above the brand line.
-- Glass is clear, liquid is clear, nothing colored inside. The cap is the only color.
-- Reject anything with: people, hands, syringes, pills on the table, marble, plants, water drops, sparkles, glow, a second product that was not asked for, extra text, seals, stars, flags or "FDA".
+## The look, the same in every image
 
-## 1. Tirzepatide, save as `tirzepatide.png`
+Bright, clean, cool daylight. White and pale mint, with one touch of green. Real places, not studios, for people. Candid moments, nobody posing for the camera. Natural skin with texture, no glossy or airbrushed look. Colors true to life, slightly soft, like a good phone photo on an overcast morning. No text anywhere unless the block asks for it.
 
-Product photograph, square. A single clear glass 10 ml multi-dose injection vial, centered, standing on a seamless pale mint background, color EEF5F1, with no horizon line. Soft diffused studio light from the upper left, a gentle soft shadow under the base, shallow depth of field, photoreal, 85 mm lens look, camera slightly above the vial's midline. The vial has a royal blue plastic flip-off cap, color 3E5FC0, over a silver aluminum crimp. A matte white paper label wraps the vial. Use the uploaded logo mark small at the top center of the label, in jade green. Below it the label text reads exactly, in dark pine green: VELACORE HEALTH, then TIRZEPATIDE in bold, then in small type FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, Rx ONLY. Match the colors on the uploaded brand card. The product fills about 70 percent of the image height. No people, no hands, no props, no other objects, no extra text, no seals, no stars.
+## Rules for people, never break these
 
-## 2. Semaglutide, save as `semaglutide.png`
+- Adults about 35 to 60, varied backgrounds, ordinary everyday builds. Nobody model-thin, nobody with a fitness-model body.
+- Everyday activity only: cooking, walking, coffee, reading, a laptop at a kitchen table. No gym, no workout gear, no sweat.
+- Never show: scales, tape measures, mirrors, waistlines, bellies, loose clothing being held out, before and after, pills, needles, syringes, injections, medical gowns.
+- Never a caption, name or quote that makes the person look like a Velacore patient. They are scenes, not testimonials.
+- Faces are fine, but most looking away from the camera.
 
-Product photograph, square. A single clear glass 10 ml multi-dose injection vial, centered, standing on a seamless pale mint background, color EEF5F1, with no horizon line. Soft diffused studio light from the upper left, a gentle soft shadow under the base, shallow depth of field, photoreal, 85 mm lens look, camera slightly above the vial's midline. The vial has a violet plastic flip-off cap, color 8A6BC9, over a silver aluminum crimp. A matte white paper label wraps the vial. Use the uploaded logo mark small at the top center of the label, in jade green. Below it the label text reads exactly, in dark pine green: VELACORE HEALTH, then SEMAGLUTIDE in bold, then in small type FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, Rx ONLY. Match the colors on the uploaded brand card. The product fills about 70 percent of the image height. No people, no hands, no props, no other objects, no extra text, no seals, no stars.
+---
 
-## 3. Microdosing GLP-1, save as `microdosing.png`
+## 1. Hero, save as `hero.png`, folder `lifestyle`
 
-Product photograph, square. Two products together, centered as one group, standing on a seamless pale mint background, color EEF5F1, with no horizon line: in front, a small amber glass dropper bottle with a jade green cap, color 0C8F72; just behind it and to the right, a small clear glass 5 ml injection vial with the same jade green flip-off cap over a silver crimp. Soft diffused studio light from the upper left, gentle soft shadows under both, shallow depth of field, photoreal, 85 mm lens look, camera slightly above the midline. Both carry the same matte white paper label. Use the uploaded logo mark small at the top center of each label, in jade green. Below it the label text reads exactly, in dark pine green: VELACORE HEALTH, then MICRODOSING GLP-1 in bold, then in small type FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, Rx ONLY. Match the colors on the uploaded brand card. The group fills about 70 percent of the image height. No people, no hands, no props, no other objects, no extra text, no seals, no stars.
+Photoreal candid photograph, vertical 4 by 5. A woman in her late forties in a bright, real home kitchen on a weekday morning, standing at the counter pouring water from a glass carafe into a glass, a bowl of fresh green apples and a cutting board with sliced cucumber beside her. She wears a soft oatmeal knit sweater, hair loosely tied back, small relaxed smile, looking down at what she is doing, not at the camera. Cool natural daylight from a large window on the left, white cabinets, pale mint tile, a small green plant on the windowsill. Shallow depth of field, 50 mm lens look, natural skin texture, true-to-life colors. No text, no logos, no scale, no measuring tape, no pills, no needles.
 
-## 4. NAD+, save as `nad.png`
+## 2. Tirzepatide vial in water, save as `tirzepatide.png`, folder `products`
 
-Product photograph, square. A single clear glass 5 ml injection vial in front, centered, and a slim white nasal spray bottle standing just behind it to the right, slightly out of focus, both on a seamless pale mint background, color EEF5F1, with no horizon line. Soft diffused studio light from the upper left, gentle soft shadows under both, shallow depth of field, photoreal, 85 mm lens look, camera slightly above the midline. The vial has a violet plastic flip-off cap, color 8A6BC9, over a silver aluminum crimp; the spray bottle has a violet cap. A matte white paper label wraps the vial. Use the uploaded logo mark small at the top center of the label, in jade green. Below it the label text reads exactly, in dark pine green: VELACORE HEALTH, then NAD+ in bold, then in small type FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, Rx ONLY. The spray bottle carries a smaller plain version of the same label. Match the colors on the uploaded brand card. The group fills about 70 percent of the image height. No people, no hands, no props, no other objects, no extra text, no seals, no stars.
+Attach `public\images\products\tirzepatide.webp` from the Velacore Health folder.
 
-## 5. Sermorelin, save as `sermorelin.png`
+Edit the attached product photo. Keep the vial exactly as it is: same glass, same royal blue cap, same silver crimp, and the label unchanged, every word and line identical, sharp and fully readable. Place it standing upright in the center of a new scene, vertical 4 by 5: the vial stands in a shallow layer of perfectly clear water on a white surface, with a crisp crown-shaped splash of clear water rising around its base and a few clean droplets frozen in the air beside it. The label stays dry, with no droplets on it. Background a soft pale mint, color EEF5F1, fading to white at the top. Bright cool daylight from the upper left, high-speed photography, crystal clear water, gentle reflection on the wet surface. No other objects, no text other than the existing label, no bubbles inside the vial, no color in the water.
 
-Product photograph, square. A single clear glass 5 ml injection vial, centered, standing on a seamless pale mint background, color EEF5F1, with no horizon line. Soft diffused studio light from the upper left, a gentle soft shadow under the base, shallow depth of field, photoreal, 85 mm lens look, camera slightly above the vial's midline. The vial has a violet plastic flip-off cap, color 8A6BC9, over a silver aluminum crimp. A matte white paper label wraps the vial. Use the uploaded logo mark small at the top center of the label, in jade green. Below it the label text reads exactly, in dark pine green: VELACORE HEALTH, then SERMORELIN in bold, then in small type FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, Rx ONLY. Match the colors on the uploaded brand card. The product fills about 70 percent of the image height. No people, no hands, no props, no other objects, no extra text, no seals, no stars.
+## 3. Semaglutide vial in water, save as `semaglutide.png`, folder `products`
 
-## 6. Family shot, save as `family.png`, optional
+Attach `public\images\products\semaglutide.webp`.
 
-Product photograph, 3 by 2 landscape. Five Velacore Health products in a row on a seamless pale mint background, color EEF5F1, with no horizon line, evenly spaced, caps left to right: royal blue 3E5FC0 vial labeled TIRZEPATIDE, violet 8A6BC9 vial labeled SEMAGLUTIDE, jade 0C8F72 amber dropper bottle labeled MICRODOSING GLP-1, violet vial labeled NAD+, violet vial labeled SERMORELIN. Same matte white paper labels with the uploaded logo mark small at the top of each and VELACORE HEALTH above the product name, small prescription lines below. Soft diffused studio light from the upper left, gentle shadows, photoreal, 85 mm lens look, camera slightly above the midline. Match the colors on the uploaded brand card. No people, no hands, no props, no extra text, no seals, no stars.
+Same instructions as block 2, word for word, with one change: the cap stays the violet it already is. Paste block 2 and change only the first line to: Edit the attached product photo of the semaglutide vial.
 
-## 7. Hero lifestyle, save as `hero.png`, optional, for later
+## 4. NAD+ vial in water, save as `nad.png`, folder `products`
 
-Editorial photograph, 3 by 2 landscape. A kitchen counter in soft morning window light. A person in their forties, seen from the shoulders down or with the face turned away and soft, opens a small plain white shipping box; inside, a clear vial with a royal blue cap and a white label is visible. Natural colors, nothing staged, no logos on the box, no scale, no tape measure, no gym, no before and after, no text anywhere. Photoreal, 50 mm lens look, shallow depth of field.
+Attach `public\images\products\nad.webp`. Paste block 2 and change the first line to: Edit the attached product photo of the NAD+ vial.
 
-## After you save them
+## 5. Sermorelin vial in water, save as `sermorelin.png`, folder `products`
 
-Tell Vale: "convert the product images." The converter resizes them, the site rebuilds, and the new vials appear on the home cards, the dropdown, the program pages and the hero.
+Attach `public\images\products\sermorelin.webp`. Paste block 2 and change the first line to: Edit the attached product photo of the sermorelin vial.
+
+## 6. Microdosing vial in water, save as `microdosing.png`, folder `products`
+
+Attach the `tirzepatide.png` you made in block 2.
+
+Edit the attached product photo. Keep everything identical, the scene, the water, the light, the glass and the label layout, with exactly two changes: make the cap a soft jade green, color 0C8F72, and make the large program line on the label read exactly MICRODOSING GLP-1 in the same font, size and position as the word it replaces. Every other word on the label stays exactly as it is.
+
+## 7. Online visit, save as `step-visit.png`, folder `lifestyle`
+
+Photoreal candid photograph, horizontal 4 by 3. A man in his early fifties at a wooden kitchen table in the morning, typing on a laptop, a mug of coffee and a phone beside it, reading glasses on, calm and focused. Seen from a three-quarter angle behind his shoulder so the laptop screen is turned away and unreadable. Cool window light, white walls, a pale mint dish towel on a chair, a green plant. Natural skin texture, true-to-life colors, 35 mm lens look. No text, no logos, no pills, no medical items.
+
+## 8. Clinician video visit, save as `step-clinician.png`, folder `lifestyle`
+
+Photoreal candid photograph, horizontal 4 by 3. A woman in her early forties sitting on a sofa at home with a laptop on her knees, on a video call, nodding and listening, a notebook and pen beside her. The laptop screen faces away from the camera. Soft afternoon daylight, white and pale mint living room, a throw blanket, a mug of tea. Natural skin texture, candid, true-to-life colors. No text, no logos, no medical gowns, no pills, no needles.
+
+## 9. Delivery, save as `step-delivery.png`, folder `lifestyle`
+
+Photoreal photograph, horizontal 4 by 3. A plain white shipping box, about the size of a shoebox, sealed with pale mint tape, sitting on a clean front doorstep beside a pair of sneakers and a potted plant, morning light, a light wood door partly visible. Two hands reaching down to pick it up. No text, no logos, no labels, no brand marks on the box.
+
+## 10. Walk outdoors, save as `wellness.png`, folder `lifestyle`
+
+Photoreal candid photograph, horizontal 3 by 2. Two friends in their late forties and early fifties, a man and a woman, walking side by side on a tree-lined park path in soft early morning light, mid-conversation and laughing, wearing everyday clothes: jeans, light jacket, a sweater. Seen from a little distance, slightly from the side, green trees and a hint of mist behind them. Natural skin texture, true-to-life colors, 85 mm lens look, gentle background blur. Not a workout, no athletic wear, no fitness trackers in focus, no text, no logos.
+
+---
+
+## Reject the image if any of these show
+
+- Any word on a vial label misspelled, warped, doubled or changed from the original.
+- Extra or missing fingers, melted hands, faces that look plastic or airbrushed, teeth that blur together.
+- Water that is colored, foamy, or covering the label.
+- Anything on the people rules list above.
+- Any text, watermark of another brand, or logo that was not asked for.
+- The image looks like a stock ad: everyone grinning at the camera, perfect symmetry, glossy skin.
+
+## Notes
+
+- Gemini adds an invisible SynthID watermark to every image. Never try to strip it. On the site the images are scenes, not patient photos, so no label is needed; any Meta ad that uses them must carry Meta's AI label.
+- Keep each finished PNG in the business Drive under 01-brand as well, so the originals are safe.

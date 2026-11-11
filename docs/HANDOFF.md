@@ -171,6 +171,17 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   commercial use, Netlify's policy has no pharmaceutical clause and only bars stored PHI without
   a BAA, which this site never holds. Kevin now stays on Salvage Health; anything from his side
   goes through Dourado.
+- **Image direction changed, Nov 11, at Dourado's direction.** More people and healthy everyday
+  routines, vials in clear splashing water, so the site reads as health and wellness. BRAND.md
+  section 5 rewritten with the guardrails: adults 35 to 60, ordinary builds, everyday activity,
+  never scales, tape, mirrors, gyms, needles, pills or anything presenting a person as a patient.
+  `docs/gemini-prompts.md` is set 2: one hero, five splash vials made by editing the existing
+  vial photos so the labels stay exact, three how-it-works scenes and one outdoor walk, with a
+  reject list. `tools/prepare_images.py` now also converts `assets-in/lifestyle/`. Seven unused
+  public images were removed, among them glutathione.webp and dr-broussard.webp, which named an
+  off-site treatment and the former physician in a served folder. Slots get wired as each image
+  arrives: hero frame, product cards and program pages, a picture on how-it-works steps 1 to 3,
+  and a full-width walk band.
 - **Home page cut down for ad traffic, Nov 8, at Dourado's direction.** The home page was one
   continuous scroll, about 16,000 px on a phone. Now about 11,800: the peptide explainer moved
   to `public/learn.html`, the full 15-question FAQ and its FAQPage schema moved to

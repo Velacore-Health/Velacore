@@ -78,13 +78,17 @@ Plain, calm, specific. Velacore coordinates; the licensed clinician decides; the
 
 ## 5. Images
 
-The motif: the product itself, on mint, in soft studio light, nothing else. White label, one colored cap per program, clear glass. No people in product shots, no props, no marble, no plants, no sparkles, no glow.
+Changed Nov 11 2026 at Dourado's direction: the site must read as health and wellness, so it carries more people and the vials sit in clean water.
 
-Lifestyle photos, when used: natural light, real rooms, people in their forties and fifties, nobody posed at a gym, no before and after, no scales, no tape measures, faces soft or turned. One such photo per page at most.
+Product shots: the vial upright in a shallow sheet of perfectly clear water on white, a crisp splash around its base, a few droplets in the air, soft mint background fading to white, cool daylight from the upper left. The label stays dry, sharp and exactly as approved. White label, one colored cap per program, clear glass. No people in product shots, no props, no marble, no sparkles, no glow, no colored water.
+
+Lifestyle photos: candid everyday routines in real homes and neighborhoods, cool natural daylight, white and pale mint surroundings with one touch of green. Adults about 35 to 60, varied backgrounds, ordinary builds. Cooking, walking, coffee, a laptop at a kitchen table, a video call from the sofa, a parcel on a doorstep. Several per page are fine where each one illustrates a step or a section. Never: gyms or workout gear, model-thin or fitness-model bodies, scales, tape measures, mirrors, waistlines, before and after, pills, needles or injections, and no name, caption or quote that presents a person as a Velacore patient.
+
+Every image passes the reject list in `docs/gemini-prompts.md` before it goes on the site.
 
 Illustrations: thin pine or jade line icons on mint, as on the education cards. No 3D renders, no clip art, no stock-looking isometric scenes.
 
-Files: product images are `public/images/products/<program>.webp`, one fixed name each. Drop Gemini output in `assets-in/products/` and run `tools/prepare_images.py`. Prompts are in `docs/image-brief.md`.
+Files: product images are `public/images/products/<program>.webp` and people and scenes are `public/images/lifestyle/<name>.webp`, one fixed name each. Drop Gemini output in `assets-in/products/` or `assets-in/lifestyle/` and run `tools/prepare_images.py`. Prompts are in `docs/gemini-prompts.md`.
 
 ## 6. The product label
 
