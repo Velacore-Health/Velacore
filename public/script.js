@@ -29,7 +29,7 @@
   // Treatments dropdown: tap to open on phones, keyboard friendly everywhere
   document.querySelectorAll('.has-mega > a').forEach(function (trigger) {
     trigger.addEventListener('click', function (e) {
-      var narrow = window.matchMedia('(max-width: 680px)').matches;
+      var narrow = window.matchMedia('(max-width: 780px)').matches;
       var item = trigger.parentNode;
       if (narrow || !item.classList.contains('open') && e.detail === 0) {
         e.preventDefault();

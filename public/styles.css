@@ -77,7 +77,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .brand-accent{color:var(--jade)}
 .site-footer .brand-accent,.on-pine .brand-accent{color:var(--jade-tint)}
 .nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a:not(.btn){font-size:.98rem;font-weight:500;color:var(--ink-soft);transition:color .2s}
+@media (max-width:980px) and (min-width:781px){.nav-links{gap:16px}.nav-links a:not(.btn){font-size:.92rem}.brand-name{font-size:1.15rem;white-space:nowrap}}
+.nav-links a:not(.btn){font-size:.98rem;font-weight:500;color:var(--ink-soft);transition:color .2s;white-space:nowrap}
 .nav-links a:not(.btn):hover{color:var(--ink)}
 .nav-item{position:relative}
 .nav-item>a{display:inline-flex;align-items:center;gap:6px}
@@ -100,7 +101,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .mega-item small{display:block;font-size:.82rem;color:var(--ink-soft)}
 .mega-cta p{color:var(--ink-soft);font-size:.92rem;margin-bottom:14px}
 /* Tablet: two columns so the panel fits the screen. */
-@media (max-width:1100px) and (min-width:681px){.mega{grid-template-columns:repeat(2,minmax(0,1fr));width:min(560px,calc(100vw - 48px));left:0;transform:translateY(6px)}.has-mega:hover .mega,.has-mega:focus-within .mega,.has-mega.open .mega{transform:translateY(0)}}
+@media (max-width:1100px) and (min-width:781px){.mega{grid-template-columns:repeat(2,minmax(0,1fr));width:min(560px,calc(100vw - 48px));left:0;transform:translateY(6px)}.has-mega:hover .mega,.has-mega:focus-within .mega,.has-mega.open .mega{transform:translateY(0)}}
 .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:0;cursor:pointer;padding:0 10px;width:44px;height:44px}
 .nav-toggle span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s var(--ease)}
 
@@ -372,7 +373,7 @@ body.prog-microdosing{--cap:var(--cap-jade)}
   .facts{grid-template-columns:1fr}
   .steps-4{grid-template-columns:1fr 1fr}
 }
-@media (max-width:680px){
+@media (max-width:780px){
   .nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;background:#fff;border-bottom:1px solid var(--line);padding:18px 24px;gap:4px;transform:translateY(-160%);transition:transform .3s var(--ease)}
   .nav-links a{padding:13px 4px}
   .nav-links.open{transform:translateY(0)}
@@ -385,6 +386,8 @@ body.prog-microdosing{--cap:var(--cap-jade)}
   .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .nav-toggle.open span:nth-child(2){opacity:0}
   .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+@media (max-width:680px){
   .section{padding:64px 0}
   .pillars,.tgrid,.steps-4{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
