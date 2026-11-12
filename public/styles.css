@@ -380,6 +380,7 @@ body.prog-microdosing{--cap:var(--cap-jade)}
   .nav-item{display:block}
   .mega{position:static;transform:none;width:auto;grid-template-columns:1fr;gap:14px;padding:4px 0 10px 8px;background:transparent;border:0;box-shadow:none;display:none}
   .has-mega.open .mega{display:grid;opacity:1;visibility:visible}
+  .has-mega:hover .mega,.has-mega:focus-within .mega,.has-mega.open .mega{transform:none}
   .mega-item{padding:6px 4px}
   .mega-cta{display:none}
   .nav-toggle{display:flex}
