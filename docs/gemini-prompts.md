@@ -83,11 +83,15 @@ Photoreal candid photograph, horizontal 4 by 3. A woman in her early forties sit
 
 ## 9. Delivery, save as `step-delivery.png`, folder `lifestyle`
 
-Photoreal photograph, horizontal 4 by 3. A plain white shipping box, about the size of a shoebox, sealed with pale mint tape, sitting on a clean front doorstep beside a pair of sneakers and a potted plant, morning light, a light wood door partly visible. Two hands reaching down to pick it up. No text, no logos, no labels, no brand marks on the box.
+Rewritten Nov 11 2026 after three rounds with Dourado: the first result read as a stock photo, the second as a gift. Attach `public/logo-mark.png`, the helix mark. The brand shows only as a blind-embossed mark with no words, because the real shipment comes from the pharmacy and patients expect discreet packaging.
+
+```
+Photoreal photograph, horizontal 4 by 3, bright, airy, clean wellness brand look: cool natural morning daylight, white, light gray and soft mint tones, no warm orange or golden light. A flat white corrugated e-commerce mailer box with a tuck-in front flap, about 12 by 9 by 4 inches, fluted cardboard visible along its cut edges, sits on a smooth light gray stone front step just in front of a front door painted soft sage green, with a small white planter with fresh green leaves at the edge of the frame. The box is sealed with ordinary brown kraft packing tape, one neat strip across the front flap and over the top, plain with no printing. On the box top near the right front corner, the attached emblem is blind-debossed into the white board, about 2.5 inches across, pressed firmly with crisp edges, a soft shadow along its upper edges and a gentle highlight along its lower edges, white on white with no ink. A shipping label is on the far side of the box, out of view. Seen from a standing person's view looking down at the step, as if they just opened the door and found it. Soft shadows, gentle depth of field, true-to-life colors. No doormat, no words, letters, numbers or logos anywhere except the embossed emblem. No hands, no people, no ribbon, no gift wrap.
+```
 
 ## 10. Walk outdoors, save as `wellness.png`, folder `lifestyle`
 
-Photoreal candid photograph, horizontal 16 by 9. Two friends in their late forties and early fifties, a man and a woman, walking side by side on a tree-lined park path in soft early morning light, mid-conversation and laughing, wearing everyday clothes: jeans, light jacket, a sweater. Seen from a little distance, slightly from the side, green trees and a hint of mist behind them. Natural skin texture, true-to-life colors, 85 mm lens look, gentle background blur. Not a workout, no athletic wear, no fitness trackers in focus, no text, no logos.
+Photoreal candid photograph, horizontal 16 by 9. Two friends in their late forties and early fifties, a man and a woman, walking side by side on a tree-lined park path in soft early morning light, mid-conversation and laughing, wearing everyday clothes: jeans, light jacket, a sweater. Seen from a little distance, slightly from the side, green trees and a hint of mist behind them. Natural skin texture, true-to-life colors, 85 mm lens look, gentle background blur. Bright, airy, clean wellness brand look: cool natural daylight, fresh greens, pale and soft tones, no warm golden-hour or orange light. Not a workout, no athletic wear, no fitness trackers in focus, no text, no logos, no signs.
 
 ---
 
