@@ -186,11 +186,12 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   images need vc-ads to check Meta and Google AI-image rules first. Next: the four lifestyle
   photos, blocks 7 to 10. Nothing pushed.
 - **Other OpenLoop products, Nov 11.** Dourado reports OpenLoop said everything they offer is
-  fine. Not in writing yet, so unconfirmed. He asked about oral GLP-1, ED medication and
-  testosterone. Advice given: written list from OpenLoop first, then a sourced check of each
-  against LegitScript, Google and Meta rules before any goes public; testosterone is a
-  controlled substance and stays off the public site until counsel or OpenLoop compliance
-  confirms in writing. Nothing added.
+  fine. Not in writing yet, so unconfirmed. He asked about three more categories: an oral form
+  of an approved program, a men's health category, and a controlled-substance hormone therapy.
+  Advice given: written list from OpenLoop first, then a sourced check of each against
+  LegitScript, Google and Meta rules before any goes public; the controlled-substance category
+  stays off the public site until counsel or OpenLoop compliance confirms in writing. Nothing
+  added, and no product outside the approved five is named in this repo.
 - **Image direction changed, Nov 11, at Dourado's direction.** More people and healthy everyday
   routines, vials in clear splashing water, so the site reads as health and wellness. BRAND.md
   section 5 rewritten with the guardrails: adults 35 to 60, ordinary builds, everyday activity,
