@@ -145,7 +145,8 @@ def main():
         if any(x in SKIP_DIRS for x in parts):
             continue
         m = DRUGLIKE.search(p.name)
-        if m and m.group(0).lower() not in APPROVED:
+        # Same rule as the text scan: judge the last part of a hyphenated name, so label-tirzepatide passes.
+        if m and m.group(0).lower() not in APPROVED and m.group(0).lower().split("-")[-1] not in APPROVED:
             add("FAIL", f"file name has a drug-like word: {p.relative_to(ROOT).as_posix()}")
     add("REVIEW", "file names that don't match a public product: "
         + ", ".join(sorted({p.relative_to(ROOT).as_posix() for p in ROOT.glob("public/images/*")
