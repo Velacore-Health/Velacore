@@ -77,9 +77,13 @@ Photoreal product photograph, vertical 3 by 4. One clear glass 10 ml pharmaceuti
 
 Photoreal candid photograph, horizontal 4 by 3. A man in his early fifties at a wooden kitchen table in the morning, typing on a laptop, a mug of coffee and a phone beside it, reading glasses on, calm and focused. Seen from a three-quarter angle behind his shoulder so the laptop screen is turned away and unreadable. Cool window light, white walls, a pale mint dish towel on a chair, a green plant. Natural skin texture, true-to-life colors, 35 mm lens look. No text, no logos, no pills, no medical items.
 
-## 8. Clinician video visit, save as `step-clinician.png`, folder `lifestyle`
+## 8. Clinician review, save as `step-clinician.png`, folder `lifestyle`
 
-Photoreal candid photograph, horizontal 4 by 3. A woman in her early forties sitting on a sofa at home with a laptop on her knees, on a video call, nodding and listening, a notebook and pen beside her. The laptop screen faces away from the camera. Soft afternoon daylight, white and pale mint living room, a throw blanket, a mug of tea. Natural skin texture, candid, true-to-life colors. No text, no logos, no medical gowns, no pills, no needles.
+Replaced Nov 11 2026: the first version, a woman on a sofa on a call, did not read as a clinician. The face stays out of frame on purpose: an AI face shown as one of "your clinicians" would be a fake doctor.
+
+```
+Photoreal candid photograph, horizontal 4 by 3. A licensed clinician reviewing a patient intake at a clean, bright home-office desk. Framed from the shoulders down so the face is out of frame: deep pine green medical scrubs, a stethoscope around the neck, one hand on a laptop trackpad and the other holding a pen over a notepad, as if carefully reading. The laptop is angled away so its screen cannot be read. On the desk: a mug of tea, a small green plant, a closed folder. Cool natural window light, white walls and soft mint tones, shallow depth of field, true-to-life colors, natural skin texture on the hands, 35 mm lens look. No face, no name badge, no ID card, no logos, no words, letters or numbers anywhere, no pills, no needles, no syringes.
+```
 
 ## 9. Delivery, save as `step-delivery.png`, folder `lifestyle`
 
