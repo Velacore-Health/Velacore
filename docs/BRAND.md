@@ -94,10 +94,13 @@ Files: product images are `public/images/products/<program>.webp` and people and
 
 Every vial, bottle and spray carries the same label, so the shelf reads as one brand:
 
-Line 1: the jade helix mark, small, centered
-Line 2: VELACORE HEALTH, pine, wide spaced capitals
+Line 1: the designer's full logo, version 03, mark above the VELACORE HEALTH wordmark, shown in pine
+Line 2: a thin rule in the program color
 Line 3: the program name, pine, bold capitals
 Line 4 to 7, small: FOR PRESCRIPTION USE ONLY / PRESCRIPTION COMPOUNDED / 503A COMPOUNDING PHARMACY / Rx ONLY
+A stripe in the program color along the bottom edge.
+
+The approved artwork is `brand/label/label-<program>.png`, made by `brand/label/make_labels.py`. Image prompts attach it so the label text comes out exact. Never let an image tool write its own label: on Nov 11 2026 Gemini replaced a label with research-use wording, which is never acceptable on a Velacore vial.
 
 Nothing else. No seals, no stars, no "FDA", no benefit words, no dosage claims on the mock label.
 
@@ -108,11 +111,12 @@ Cap color by program per section 2. Silver crimp on vials. Amber glass for the m
 - `brand/logo/VelaCore Health_01`, `_02`, `_03`: the designer's package, source of truth. The .svg and .ai in `_01` are the vectors.
 - `public/logo-full.png`, `public/logo-mark.png`: the site's derived files, see section 1.
 - `brand/velacore-brand-card.html` and `brand/velacore-brand-card.png`: a one-page card with the logo, the palette and the type, to upload alongside any Gemini or Canva prompt so the tool sees the brand.
-- `docs/image-brief.md`: product image prompts.
+- `brand/label/`: the five approved vial labels and the script that makes them.
+- `docs/gemini-prompts.md`: the current image prompts. `docs/image-brief.md` holds the retired set 1.
 - `docs/BRAND.md`: this file.
 
 ## 8. Open items
 
 1. Closed Nov 6: the designer's package is in `brand/logo/`, downloaded from the business Drive with Dourado's OK.
 2. Gradient stops recorded in section 2. The wordmark typeface cannot be read from the package, the letters are outlines; ask the designer if it is ever needed. Decide whether the site's light-ground logo, gradient mark with black wordmark, is the approved fourth version or whether the site should use version 03 all black on light grounds. Dourado.
-3. Decide whether the vial label keeps the helix mark or the mark goes only on the cap seal. Dourado, once the first Gemini labels come back.
+3. Closed Nov 11: Dourado asked for Velacore branding on the vials, so the label carries the full logo. See section 6.
