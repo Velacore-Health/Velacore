@@ -99,6 +99,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .mega-item b{display:block;font-size:.98rem;color:var(--ink);font-weight:600}
 .mega-item small{display:block;font-size:.82rem;color:var(--ink-soft)}
 .mega-cta p{color:var(--ink-soft);font-size:.92rem;margin-bottom:14px}
+/* Tablet: two columns so the panel fits the screen. */
+@media (max-width:1100px) and (min-width:681px){.mega{grid-template-columns:repeat(2,minmax(0,1fr));width:min(560px,calc(100vw - 48px));left:0;transform:translateY(6px)}.has-mega:hover .mega,.has-mega:focus-within .mega,.has-mega.open .mega{transform:translateY(0)}}
 .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:0;cursor:pointer;padding:0 10px;width:44px;height:44px}
 .nav-toggle span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s var(--ease)}
 
@@ -146,6 +148,15 @@ ul,ol{margin:0;padding:0;list-style:none}
 .step-link{display:inline-block;margin-top:4px;padding:11px 0;font-size:.92rem;font-weight:600;color:var(--jade);text-decoration:underline;text-underline-offset:3px}
 .step-link::after{content:none}
 @media (max-width:1000px){.steps{grid-template-columns:1fr 1fr}}
+/* How it works with photos: three steps across, step 4 and the promise below, promise spans two. */
+.steps-photo{grid-template-columns:repeat(3,1fr);row-gap:40px}
+.steps-photo .step-promise{grid-column:span 2}
+.step-photo{margin:0 0 16px;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--mint)}
+.step-photo img{display:block;width:100%;height:100%;object-fit:cover}
+@media (max-width:1000px){.steps-photo{grid-template-columns:1fr 1fr}.steps-photo .step-promise{grid-column:auto}}
+/* Full-width lifestyle band, no text on it. */
+.photo-band{margin:0;height:clamp(240px,50vw,640px);overflow:hidden;background:var(--mint)}
+.photo-band img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 @media (max-width:600px){.steps,.steps-4{grid-template-columns:1fr;gap:22px}}
 
 /* ---------- Treatments ---------- */
