@@ -171,6 +171,15 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   commercial use, Netlify's policy has no pharmaceutical clause and only bars stored PHI without
   a BAA, which this site never holds. Kevin now stays on Salvage Health; anything from his side
   goes through Dourado.
+- **Vial labels and caps, Nov 11, Dourado's choices.** Gemini's first splash edit rewrote the
+  label as research-use wording, rejected. Velacore now owns exact label artwork:
+  `brand/label/label-<program>.png`, made by `brand/label/make_labels.py`, Style A pine band
+  picked by Dourado. Every vial cap is deep matte pine; the program color is only the label's
+  thin line and dash. Vial prompts in `docs/gemini-prompts.md` start a fresh chat, attach the
+  label, and ask for a camera slightly above so the label curves with the glass. The
+  tirzepatide vial passed review; Dourado is saving it to `assets-in/products/`. Semaglutide,
+  NAD+, sermorelin and microdosing still to make, then convert and check on the site. Nothing
+  pushed.
 - **Image direction changed, Nov 11, at Dourado's direction.** More people and healthy everyday
   routines, vials in clear splashing water, so the site reads as health and wellness. BRAND.md
   section 5 rewritten with the guardrails: adults 35 to 60, ordinary builds, everyday activity,

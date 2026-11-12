@@ -43,12 +43,12 @@ Site palette, the approved values:
 | Mint deep | #DDF0E7 | Soft tint blocks |
 | Pine | #15302A | All text, the one dark band, the footer |
 | Pine soft | #4C625B | Secondary text |
-| Jade | #0C8F72 | The mark on light grounds, the microdosing cap, stripes |
+| Jade | #0C8F72 | The mark on light grounds, stripes |
 | Jade ink | #0A7A61 | Buttons, links and any jade text. Darker so white text on it and jade text on white both pass 4.5 to 1. Added Nov 6 after Kevin's contrast check |
 | Jade tint | #C9EEDF | Highlights, icon backgrounds |
 | Line | #D5E0DB | Borders and rules |
 
-Program colors, taken from the vial caps and the logo gradient. Each program owns one, used as its card stripe, its page stripe and its cap in product images:
+Program colors, picked from the logo gradient. Each program owns one, used as its card stripe, its page stripe, and the thin line and dash on its vial label. Since Nov 11 2026 every vial cap is pine, by Dourado's choice, so the cap matches the label's pine band:
 
 | Program | Color | Hex |
 |---|---|---|
@@ -60,7 +60,7 @@ Program colors, taken from the vial caps and the logo gradient. Each program own
 
 Logo gradient, read from the designer's SVG on Nov 6: three stops, mint green #78CBA9 at 0, blue #3A8EC6 at 0.36, magenta #DD25DA at 1, running from the upper right of the helix to the lower left. The site's program colors, helix blue #3E5FC0 and helix violet #8A6BC9, are mid-tones picked from that gradient for stripes and caps; they are not the stops themselves. Keep both: the stops for anything that reproduces the logo, the mid-tones for program colors.
 
-Rules: pine is the only body text color on light grounds. Jade ink is for things you can click; plain jade is for the mark and caps. Fine print is #5F716A at the lightest, never lighter. The program colors are stripes and caps, never text and never backgrounds. No gradients anywhere except inside the logo itself. No black, no pure grey.
+Rules: pine is the only body text color on light grounds. Jade ink is for things you can click; plain jade is for the mark. Fine print is #5F716A at the lightest, never lighter. The program colors are stripes and label lines, never text and never backgrounds. No gradients anywhere except inside the logo itself. No black, no pure grey.
 
 ## 3. Type
 
@@ -80,7 +80,7 @@ Plain, calm, specific. Velacore coordinates; the licensed clinician decides; the
 
 Changed Nov 11 2026 at Dourado's direction: the site must read as health and wellness, so it carries more people and the vials sit in clean water.
 
-Product shots: the vial upright in a shallow sheet of perfectly clear water on white, a crisp splash around its base, a few droplets in the air, soft mint background fading to white, cool daylight from the upper left. The label stays dry, sharp and exactly as approved. White label, one colored cap per program, clear glass. No people in product shots, no props, no marble, no sparkles, no glow, no colored water.
+Product shots: the vial upright in a shallow sheet of perfectly clear water on white, a crisp splash around its base, a few droplets in the air, soft mint background fading to white, cool daylight from the upper left. The label stays dry, sharp and exactly as approved. The Style A label from section 6, a deep matte pine cap with a silver crimp on every vial, clear glass. The label wraps the curved glass edge to edge, seen from slightly above, so its edges and text curve with the vial. No people in product shots, no props, no marble, no sparkles, no glow, no colored water.
 
 Lifestyle photos: candid everyday routines in real homes and neighborhoods, cool natural daylight, white and pale mint surroundings with one touch of green. Adults about 35 to 60, varied backgrounds, ordinary builds. Cooking, walking, coffee, a laptop at a kitchen table, a video call from the sofa, a parcel on a doorstep. Several per page are fine where each one illustrates a step or a section. Never: gyms or workout gear, model-thin or fitness-model bodies, scales, tape measures, mirrors, waistlines, before and after, pills, needles or injections, and no name, caption or quote that presents a person as a Velacore patient.
 
@@ -107,7 +107,7 @@ The approved artwork is `brand/label/label-<program>.png`, made by `brand/label/
 
 Nothing else. No seals, no stars, no "FDA", no benefit words, no dosage claims on the mock label.
 
-Cap color by program per section 2. Silver crimp on vials. Amber glass for the microdosing dropper, white HDPE for any pill bottle, white for nasal sprays.
+Every vial cap is deep matte pine, #15302A, with a silver crimp. The program color appears only in the label's thin line and dash. Amber glass for the microdosing dropper, white HDPE for any pill bottle, white for nasal sprays.
 
 ## 7. Files and where they live
 
