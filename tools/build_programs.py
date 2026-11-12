@@ -311,6 +311,7 @@ def page(p):
           </div>
           <div class="prog-side">
             <div class="tcard prog-media"><div class="tcard-media">{media}</div></div>
+            <p class="img-note">Illustrative image. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
             <div class="price-box" id="priceBox">
               <div class="price-top">
                 <span class="price-big" id="planPrice">{first["price"]}<small id="planUnit">{first["unit"]}</small></span>

@@ -26,6 +26,19 @@ APPROVED = {"tirzepatide", "semaglutide", "sermorelin", "glutathione"}
 GENERIC_OK = {"peptide", "peptides", "polypeptide", "polypeptides", "nucleotide", "nucleotides",
               "dinucleotide", "glucagon"}
 DRUGLIKE = re.compile(r"\b[a-z0-9-]*(?:tide|relin|orelin|tropin|peptin|tidine|morelin)s?\b", re.I)
+PART = re.compile(r"[a-z0-9]*(?:tide|relin|orelin|tropin|peptin|tidine|morelin)s?", re.I)
+
+
+def bad_parts(word):
+    """Every hyphen-separated part that looks like a drug name and is not approved or generic."""
+    out = []
+    for w in word.lower().split("-"):
+        if not PART.fullmatch(w) or w in {"tide", "tides"} or w in GENERIC_OK:
+            continue
+        if w in APPROVED or w.rstrip("s") in APPROVED:
+            continue
+        out.append(w)
+    return out
 
 CLAIMS = [
     (r"\blose\s+(?:up\s+to\s+)?\d+", "weight-loss amount"),
@@ -108,10 +121,8 @@ def main():
         is_public = rel.startswith(PUBLIC)
         # 1. drug-like names anywhere in the repo
         for m in DRUGLIKE.finditer(text):
-            w = m.group(0).lower().split("-")[-1]
-            if w in APPROVED or w.rstrip("s") in APPROVED or w in GENERIC_OK or w in {"tide", "tides"}:
-                continue
-            unknown.setdefault(w, []).append(f"{rel}:{line_of(text, m.start())}")
+            for w in bad_parts(m.group(0)):
+                unknown.setdefault(w, []).append(f"{rel}:{line_of(text, m.start())}")
         # 2. public-surface rules
         if is_public and Path(rel.split(":")[-1]).suffix.lower() not in {".css", ".js", ".json"}:
             body = strip_markup(text)
@@ -144,9 +155,9 @@ def main():
         parts = p.relative_to(ROOT).parts
         if any(x in SKIP_DIRS for x in parts):
             continue
-        m = DRUGLIKE.search(p.name)
-        # Same rule as the text scan: judge the last part of a hyphenated name, so label-tirzepatide passes.
-        if m and m.group(0).lower() not in APPROVED and m.group(0).lower().split("-")[-1] not in APPROVED:
+        # Same rule as the text scan: every part of a hyphenated name is judged, so label-tirzepatide
+        # passes and a name that pairs an unapproved word with an approved one still fails.
+        if any(bad_parts(m.group(0)) for m in DRUGLIKE.finditer(p.name)):
             add("FAIL", f"file name has a drug-like word: {p.relative_to(ROOT).as_posix()}")
     add("REVIEW", "file names that don't match a public product: "
         + ", ".join(sorted({p.relative_to(ROOT).as_posix() for p in ROOT.glob("public/images/*")

@@ -176,10 +176,21 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   `brand/label/label-<program>.png`, made by `brand/label/make_labels.py`, Style A pine band
   picked by Dourado. Every vial cap is deep matte pine; the program color is only the label's
   thin line and dash. Vial prompts in `docs/gemini-prompts.md` start a fresh chat, attach the
-  label, and ask for a camera slightly above so the label curves with the glass. The
-  tirzepatide vial passed review; Dourado is saving it to `assets-in/products/`. Semaglutide,
-  NAD+, sermorelin and microdosing still to make, then convert and check on the site. Nothing
-  pushed.
+  label, and ask for a camera slightly above so the label curves with the glass. All five
+  splash vials are on the site, local only: product cards and program photos are 4 by 5,
+  full-bleed, and the microdosing card and menu item now use its photo. vc-reviewer blocked the
+  first pass because a branded vial can read as Velacore making the medicine; fixed with a
+  visible line, "Illustrative image. Your medication is prepared and labeled by a licensed 503A
+  pharmacy and may look different", under each program photo and in the home treatments note.
+  Open question for OpenLoop: do dispensed vials carry Velacore branding. Ads that use these
+  images need vc-ads to check Meta and Google AI-image rules first. Next: the four lifestyle
+  photos, blocks 7 to 10. Nothing pushed.
+- **Other OpenLoop products, Nov 11.** Dourado reports OpenLoop said everything they offer is
+  fine. Not in writing yet, so unconfirmed. He asked about oral GLP-1, ED medication and
+  testosterone. Advice given: written list from OpenLoop first, then a sourced check of each
+  against LegitScript, Google and Meta rules before any goes public; testosterone is a
+  controlled substance and stays off the public site until counsel or OpenLoop compliance
+  confirms in writing. Nothing added.
 - **Image direction changed, Nov 11, at Dourado's direction.** More people and healthy everyday
   routines, vials in clear splashing water, so the site reads as health and wellness. BRAND.md
   section 5 rewritten with the guardrails: adults 35 to 60, ordinary builds, everyday activity,
