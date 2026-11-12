@@ -183,8 +183,16 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   visible line, "Illustrative image. Your medication is prepared and labeled by a licensed 503A
   pharmacy and may look different", under each program photo and in the home treatments note.
   Open question for OpenLoop: do dispensed vials carry Velacore branding. Ads that use these
-  images need vc-ads to check Meta and Google AI-image rules first. Next: the four lifestyle
-  photos, blocks 7 to 10. Nothing pushed.
+  images need vc-ads to check Meta and Google AI-image rules first.
+- **Lifestyle photos done, Nov 11.** How it works steps 1 to 3 carry the online visit, the
+  clinician call and the delivery photos; a full-width walk band with the couple and their
+  Australian shepherd sits after the Learn teaser. The delivery box is plain: an AI-drawn
+  Velacore mark was blocked by vc-reviewer because shipments come from the pharmacy. People
+  photos now lean to the late thirties and forties, per Dourado. Also fixed: the tablet nav
+  switches to the menu button below 781 px, and the phone Treatments list no longer shifts off
+  the left edge, a bug that was live on phones. vc-reviewer PASS on both batches, vials and
+  lifestyle. All local, waiting on Dourado's "push it". Originals still to copy to the business
+  Drive under 01-brand.
 - **Other OpenLoop products, Nov 11.** Dourado reports OpenLoop said everything they offer is
   fine. Not in writing yet, so unconfirmed. He asked about three more categories: an oral form
   of an approved program, a men's health category, and a controlled-substance hormone therapy.
