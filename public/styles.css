@@ -257,8 +257,9 @@ a[aria-disabled="true"]::after{content:" (link coming soon)";font-weight:400;fon
 .prog-media::before{background:var(--cap,var(--cap-violet))}
 body.prog-tirzepatide{--cap:var(--cap-blue)}
 body.prog-microdosing{--cap:var(--cap-jade)}
-.prog-media .tcard-media{aspect-ratio:16/11;padding:22px}
-.prog-media .tcard-photo{object-fit:contain}
+.prog-media .tcard-media{aspect-ratio:4/5;padding:0}
+/* Vial shots are full photos with their own mint ground: fill the frame, keep the label centered. */
+.prog-media .tcard-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 .price-box{background:var(--mint);border:1px solid var(--line);border-radius:var(--r);padding:22px}
 .price-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
 .price-big{font-family:var(--display);font-size:2.6rem;font-weight:500;letter-spacing:-.01em}

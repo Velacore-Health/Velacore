@@ -6,10 +6,22 @@ Run from the repo root after any change to prices, wording or the template:
 Prices come from docs/pricing-research.md section 5. Facts come from
 docs/openloop-proposal-notes.md. Nothing here may make an outcome claim.
 """
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "public" / "programs"
+
+
+def img_size(rel):
+    """Real width and height of a public image, read with ffprobe, so the page tags match the file."""
+    try:
+        out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "stream=width,height", "-of", "csv=p=0",
+                              str(ROOT / "public" / "images" / rel)], capture_output=True, text=True, check=True)
+        w, h = out.stdout.strip().split(",")[:2]
+        return int(w), int(h)
+    except Exception:
+        return 760, 950
 
 PROGRAMS = [
     {
@@ -220,7 +232,7 @@ def start_button(p, cls="btn btn-primary"):
 
 
 def page(p):
-    media = f'<img class="tcard-photo" src="../images/{p["image"]}" width="760" height="950" alt="Velacore Health {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.png" alt="" width="119" height="128" />'
+    media = f'<img class="tcard-photo" src="../images/{p["image"]}" width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Velacore Health {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.png" alt="" width="119" height="128" />'
     plans = "\n".join(
         f'''          <label class="plan-option">
             <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{" checked" if i == 0 else ""} />
