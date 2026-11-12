@@ -94,11 +94,14 @@ Files: product images are `public/images/products/<program>.webp` and people and
 
 Every vial, bottle and spray carries the same label, so the shelf reads as one brand:
 
-Line 1: the designer's full logo, version 03, mark above the VELACORE HEALTH wordmark, shown in pine
-Line 2: a thin rule in the program color
-Line 3: the program name, pine, bold capitals
-Line 4 to 7, small: FOR PRESCRIPTION USE ONLY / PRESCRIPTION COMPOUNDED / 503A COMPOUNDING PHARMACY / Rx ONLY
-A stripe in the program color along the bottom edge.
+Style A, pine band, chosen by Dourado Nov 11 2026:
+
+Top panel, pine, the upper 44 percent: the designer's full logo, mark above the VELACORE HEALTH wordmark, reversed out in white as in version 02
+A fine line in the program color under the panel
+The program name in Fraunces, pine, title case, as large as fits
+A short dash in the program color
+Small, pine, wide spaced capitals: FOR PRESCRIPTION USE ONLY / PRESCRIPTION COMPOUNDED / 503A COMPOUNDING PHARMACY
+Rx ONLY in a thin pine outlined pill
 
 The approved artwork is `brand/label/label-<program>.png`, made by `brand/label/make_labels.py`. Image prompts attach it so the label text comes out exact. Never let an image tool write its own label: on Nov 11 2026 Gemini replaced a label with research-use wording, which is never acceptable on a Velacore vial.
 
