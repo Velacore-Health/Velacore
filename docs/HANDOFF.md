@@ -45,6 +45,39 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 - **LegitScript:** "scrappy" route. Asher recommends Bloom Consulting Agency. Ask Asher for a partnership
   confirmation letter.
 
+## Status as of Nov 12, 2026 (newest; read first)
+
+Source: the Nov 12 OpenLoop call, Pocket recording in Dourado's personal Drive. Summary and
+transcript were read in a scratch folder only; nothing from them is stored in this repo.
+
+- **Platform decision changed: Agile, not Launchpad.** Bryan and Jonathan chose OpenLoop Agile at
+  $1,000 total, paid as $250 a month, on the same 12-month term. Go-live can happen before it is
+  paid off. This reverses the Nov 6 note below that Agile is rejected. Launchpad was offered with a
+  lower integration fee, but the monthly fee would not move.
+- **Go-live target:** the Monday or Tuesday after signing, built with JD at OpenLoop.
+- **What Agile means for the site:** intake, cart, portal and card statement carry Agile branding.
+  Ad tracking is basic UTM only, same as Launchpad. Agile gives an export and dashboards with name,
+  email, phone, program, last medication, subscription status and billing dates, plus signup
+  alerts. That export is patient data: it stays in OpenLoop's system and never comes into this repo.
+- **OpenLoop promised to send, Nov 12:** the service agreement with the proposal as schedules, a
+  refund policy, a telehealth consent and a privacy statement, dashboard screenshots, and an
+  updated Agile proposal with every program and price. Nothing is confirmed until those arrive.
+- **LegitScript:** OpenLoop gives a $3,000 coupon against the $5,625 LegitScript fee, invoiced
+  within 15 days of asking. OpenLoop supplies its NPI and backend details plus a Q and A sheet and
+  Slack help; Velacore files the application itself. Not needed to go live, needed before any ads.
+  A website pre-check by OpenLoop was mentioned, unconfirmed.
+- **Pre-intake email page:** Jonathan asked for a Velacore page that captures email before the
+  Agile intake. OpenLoop's IT will say whether it works. Open question: it must collect contact
+  details only, never health answers, or it breaks the no-PHI rule.
+- **More programs:** OpenLoop says its whole Agile catalog is LegitScript compliant. That is a
+  vendor claim, unconfirmed. On the call the partners leaned toward offering everything. The
+  five-treatment rule in CLAUDE.md and COMPLIANCE.md still stands until Dourado decides in writing,
+  OpenLoop confirms in writing, and vc-reviewer clears each new program. Two items are on hold, one
+  by Jonathan and one by OpenLoop. Names stay out of this repo.
+- **Other facts from the call:** sync video is required in about 7 states and the intake handles
+  it. Some customer service is offshore. OpenLoop does no marketing. Asher notice is given and ends
+  after the first of the month. The OpenLoop rep liked the splash vial photos.
+
 ## Status as of Nov 6, 2026 (read this before the older sections)
 
 - **Decision direction: move to OpenLoop Launchpad**, conditional on written answers from OpenLoop
