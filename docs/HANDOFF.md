@@ -191,8 +191,14 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   photos now lean to the late thirties and forties, per Dourado. Also fixed: the tablet nav
   switches to the menu button below 781 px, and the phone Treatments list no longer shifts off
   the left edge, a bug that was live on phones. vc-reviewer PASS on both batches, vials and
-  lifestyle. All local, waiting on Dourado's "push it". Originals still to copy to the business
-  Drive under 01-brand.
+  lifestyle. Patient portal links removed everywhere until a member login exists, per Dourado.
+  Pushed Nov 11 on Dourado's "push it", 22 commits, 9cfe230 to d5586e8; Netlify live within a
+  minute; key pages 200, 404 page 404, live audit renders Netlify clean at 375 and 1280.
+  Originals still to copy to the business Drive under 01-brand.
+- **Live Shopify store, still on velacorehealth.com, fails the live audit, Nov 11.** Title is
+  "My Store", three policy links 404, the FDA disclaimer is missing on four product pages,
+  prices are the old ones, and one live product is outside the approved five. Fixing it needs
+  Dourado in the Shopify admin, or the domain cutover to Netlify, which retires the store.
 - **Other OpenLoop products, Nov 11.** Dourado reports OpenLoop said everything they offer is
   fine. Not in writing yet, so unconfirmed. He asked about three more categories: an oral form
   of an approved program, a men's health category, and a controlled-substance hormone therapy.
