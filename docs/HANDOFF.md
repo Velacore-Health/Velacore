@@ -74,6 +74,26 @@ transcript were read in a scratch folder only; nothing from them is stored in th
   five-treatment rule in CLAUDE.md and COMPLIANCE.md still stands until Dourado decides in writing,
   OpenLoop confirms in writing, and vc-reviewer clears each new program. Two items are on hold, one
   by Jonathan and one by OpenLoop. Names stay out of this repo.
+- **Site plan switched to Agile, Nov 12, on Dourado's word.** What that means, in order:
+  1. Prices: on Agile OpenLoop sets the retail price. Every price on the site today, the $129 first
+     month and the monthly prices, is our own Launchpad-era plan and stays a plan until the updated
+     Agile proposal arrives. Then the program data in `tools/build_programs.py` changes once and
+     the build carries it everywhere. Do not guess Agile prices.
+  2. Start visit buttons: each one links to that program's Agile intake URL, which JD supplies.
+     The buttons are already wired by program through `data-intake`; the URLs go into
+     `.claude/skills/vc-site-audit/audit-config.json` and the build.
+  3. Hand-off message: because the Agile intake shows Agile's name at the top, the intake section
+     should tell patients they finish on the partner's secure pages and that the partner's name
+     appears there and on the card statement. The site already says partner and card statement in
+     general terms. Whether to name Agile publicly waits for the signed agreement, then vc-copy
+     writes it and vc-reviewer checks it.
+  4. Pre-intake page: only if OpenLoop's IT says yes, and only name and email, no health
+     questions. Until then, no form on our site.
+  5. Legal pages: refund, terms, privacy and consent get rewritten against the documents OpenLoop
+     is sending, then vc-reviewer.
+  6. Ads: Agile gives UTM tracking only, no pixel on the intake. vc-ads plans measurement around
+     clicks on our own pages; any tracking on our pages goes through a health-privacy check first.
+  7. Domain cutover and the Shopify stopgap still wait for the signed agreement.
 - **Other facts from the call:** sync video is required in about 7 states and the intake handles
   it. Some customer service is offshore. OpenLoop does no marketing. Asher notice is given and ends
   after the first of the month. The OpenLoop rep liked the splash vial photos.

@@ -4,6 +4,11 @@ Goal: pick price points that win volume without the business breaking when patie
 Sources are mostly 2026 comparison/affiliate sites and vendor blogs (listed at the end); treat all
 figures as directional and verify on provider sites before quoting them anywhere.
 
+**Nov 12 2026 update:** Velacore chose OpenLoop Agile. On Agile, OpenLoop sets the retail price,
+so the launch prices and the A/B test in sections 4 and 5 were written for Launchpad and do not
+apply as written. Keep the market research; replace the plan with the prices in the updated Agile
+proposal once it arrives.
+
 ## 1. What the market charges (month-to-month, compounded)
 
 | Product | Low end (usually with a catch) | Mainstream cluster | Median | Velacore today |

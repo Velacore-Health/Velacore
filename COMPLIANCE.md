@@ -34,6 +34,12 @@ Glutathione was on the site until Nov 6 2026. It is not in OpenLoop's proposal, 
 site until OpenLoop confirms it in writing. Prices come from `docs/pricing-research.md` section 5
 and are plans until the OpenLoop agreement is signed and the price ceiling is confirmed.
 
+Nov 12 2026: the platform is OpenLoop Agile, not Launchpad. On Agile, OpenLoop sets the retail
+price, so the prices in this table are placeholders until the updated Agile proposal arrives.
+OpenLoop says its wider Agile catalog is LegitScript compliant; that is unconfirmed, and this list
+of five stays the only public list until Dourado decides in writing, OpenLoop confirms in writing,
+and vc-reviewer clears each addition.
+
 Descriptors are deliberately **mechanistic/factual**, not benefit claims (e.g. "GLP-1 receptor
 agonist," not "melts fat"). Keep it that way.
 
