@@ -161,9 +161,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .tcard[data-cat="weight"]:nth-of-type(2)::before{background:var(--cap-violet)}
 .tcard[data-cat="weight"]:nth-of-type(3)::before{background:var(--cap-jade)}
 .tcard[data-cat="all"]::before{background:var(--line-strong)}
-.tcard-media{position:relative;aspect-ratio:4/4.2;background:var(--mint);display:grid;place-items:center;overflow:hidden}
+.tcard-media{position:relative;aspect-ratio:4/5;background:var(--mint);display:grid;place-items:center;overflow:hidden}
 .tcard-media .node-glyph{width:70px;height:70px}
-.tcard-photo{width:100%;height:100%;object-fit:cover;display:block}
+/* Vial shots are full scenes with their own mint ground: fill the frame, keep cap and label in view. */
+.tcard-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block}
 .tcard-cat{position:absolute;z-index:2;top:18px;left:14px;font-size:.78rem;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);padding:4px 10px;border-radius:999px}
 .tcard-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
 .tcard-body h3{font-size:1.5rem;margin-bottom:6px}
@@ -401,8 +402,8 @@ body.prog-microdosing{--cap:var(--cap-jade)}
   .pcar--3d.on .pcar-card[data-d="-1"]{transform:translateX(-62%) translateZ(-140px) rotateY(32deg) scale(.88)}
   .pcar--3d.on .pcar-card[data-d="1"]{transform:translateX(62%) translateZ(-140px) rotateY(-32deg) scale(.88)}
   .pcar.on .pcar-card:not([data-d="0"]) a,.pcar.on .pcar-card:not([data-d="0"]) button{pointer-events:none}
-  .pcar.on .tcard-media{aspect-ratio:4/3}
-  .pcar.on .tcard-photo{position:absolute;inset:0;height:100%;object-fit:contain;padding:10px 0}
+  .pcar.on .tcard-media{aspect-ratio:4/5}
+  .pcar.on .tcard-photo{object-fit:cover;padding:0}
   .pcar.on .tcard-body{padding:18px 18px 20px}
   .pcar.on .tcard-mech{font-size:.92rem}
   .pcar.on .pcar-ctl{display:flex;align-items:center;justify-content:center;gap:6px;margin:14px 0 0}
