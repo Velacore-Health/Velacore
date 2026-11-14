@@ -28,7 +28,7 @@ Please do not put health details in an email to us. That means no symptoms, no m
 
 ### h2: Medical questions
 
-Medical questions go to your clinician, not to Velacore. We cannot give medical advice and we cannot see your chart.
+Medical questions go to your clinician, not to Velacore. We cannot give medical advice.
 
 If you are already a patient, message your clinician or ask for a video visit through your patient portal. Patient support is available 24 hours a day, every day.
 
@@ -44,7 +44,7 @@ These are handled by our telehealth services partner, whose name appears on your
 
 ### h2: Privacy requests
 
-Email hello@velacorehealth.com with the subject line Privacy request. See the Your privacy choices page, draft `03-your-privacy-choices.md`. For your health records, see the Health information and HIPAA page, draft `02-health-information-and-hipaa.md`.
+Email hello@velacorehealth.com with the subject line Privacy request. Our privacy policy is at privacy.html.
 
 ### h2: Phone and mail
 

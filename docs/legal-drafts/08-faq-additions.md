@@ -20,13 +20,13 @@ Left out on purpose: the exact moment of the first charge. See part B, question 
 
 ### How do I reorder or cancel?
 
-You do not need to reorder. Your program continues each billing period, and the clinician reviews your progress before refills. You can cancel at any time for any reason from your patient portal or by contacting support, and a month whose medication has already been ordered will still ship.
+You do not need to reorder. Your program continues each billing period, and the clinician reviews your intake updates before refills. You can cancel at any time for any reason from your patient portal or by contacting support, and a month whose medication has already been ordered will still ship.
 
 Source: live FAQ and refund policy, proposal notes patient journey.
 
 ### How do I change my card or shipping address?
 
-Your patient portal handles changes to your account. If you cannot find what you need there, patient support is available 24 hours a day, every day. Velacore does not hold your card or address, so we cannot change them for you.
+Contact patient support, which is available 24 hours a day, every day. Velacore does not hold your card or address, so we cannot change them for you.
 
 Source: live home page, "your patient portal handles refills, changes and cancellation". The exact screens are a part B question.
 
@@ -38,11 +38,11 @@ Source: proposal notes eligibility, live FAQ. This is an eligibility answer. Bod
 
 ### Is it legal to get a prescription online?
 
-A prescription written after a telehealth visit is a real prescription. Every intake is reviewed by a clinician licensed in your state, and a few states require a live video visit before the first prescription, which the intake arranges for you. The clinician decides whether to prescribe, and nothing is guaranteed.
+Every intake is reviewed by a clinician licensed in your state, and a few states require a live video visit before the first prescription. The clinician decides whether to prescribe, and nothing is guaranteed.
 
 Source: proposal notes on licensing in all 50 states and the video-visit states.
 
-[NEEDS ATTORNEY: confirm the first sentence before this answer goes live. It is the only legal statement in part A. If counsel prefers, drop the first sentence and the answer still stands.]
+[NEEDS ATTORNEY: a direct sentence on legality was removed on vc-reviewer's ruling, Nov 13. Counsel can supply one.]
 
 ## Part B. Needs OpenLoop, with the exact question to ask
 
