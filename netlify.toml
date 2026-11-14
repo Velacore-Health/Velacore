@@ -41,6 +41,16 @@
   status = 200
 
 [[redirects]]
+  from = "/learn/:slug"
+  to = "/learn/:slug.html"
+  status = 200
+
+[[redirects]]
+  from = "/start/:slug"
+  to = "/start/:slug.html"
+  status = 200
+
+[[redirects]]
   from = "/:page"
   to = "/:page.html"
   status = 200
