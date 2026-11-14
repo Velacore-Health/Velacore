@@ -22,7 +22,7 @@ Read-only toward the site. Writes only a report and screenshots to `_audit/<date
 2. `public/`: each treatment card is one of the five, its Start visit link matches the OpenLoop intake link in the config, internal links and anchors resolve, the sitemap maps to real files, the four legal pages exist and are linked, old-model wording such as physician fee, Asher and JotForm, placeholder text, and how many states the consent page's complaint directory names.
 3. Live `velacorehealth.com` and the Vercel foundation site: each answers 200, what platform serves it, page title, no password page, no LegitScript badge, no unapproved drug names or coaching or claim words on the home page, same-site links from the home page answer 200, and on Shopify only, each live product page carries the FDA disclaimer. Any intake links set in the config must answer 200.
 4. Prices on every surface side by side: `public/`, the theme fallback, the product CSV, the live store, and the planned month-to-month price. Disagreement between live surfaces is a FAIL.
-5. The theme zip matches `shopify-theme/`. Stopgap only.
+5. Retired Nov 13 2026: the Shopify theme zip check, since the store closed.
 6. Screenshots of the local home page, the live home page and one live product page at desktop and phone widths.
 
 ## Target model, decided Nov 6 2026
@@ -30,7 +30,7 @@ Read-only toward the site. Writes only a report and screenshots to `_audit/<date
 - Asher is canceled. OpenLoop is the platform. JotForm is retired.
 - `public/` is the site and the foundation to build on. Vercel already serves it at https://velacore.vercel.app. The velacorehealth.com domain moves from the Shopify store to Vercel.
 - Each treatment's Start visit button links out to that treatment's OpenLoop hosted intake page. Patient data never touches our site.
-- The live Shopify store is a stopgap and goes away once Vercel serves the domain.
+- Since Nov 13 2026 velacorehealth.com serves `public/` from Netlify, primary address www.velacorehealth.com; the Shopify store is closed.
 
 ## What it doesn't check
 

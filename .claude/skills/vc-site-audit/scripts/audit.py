@@ -6,8 +6,8 @@ Run from the repo root:
     python -I .claude/skills/vc-site-audit/scripts/audit.py --no-render skip screenshots
 
 Target model: velacorehealth.com serves the static site in public/, and each treatment's
-Start visit button links to that treatment's OpenLoop hosted intake. The Shopify store is a
-temporary stopgap, checked only while it is the live site.
+Start visit button links to that treatment's Start page. The Shopify stopgap store was closed and its
+files removed Nov 13 2026; the live check still flags it if a Shopify page ever answers again.
 
 Never prints a restricted product name: unapproved items are reported by position only.
 """
@@ -232,27 +232,6 @@ def site_prices():
     return out
 
 
-def csv_prices():
-    out = {}
-    path = ROOT / "shopify-products-import.csv"
-    if path.exists():
-        for r in csv.DictReader(io.StringIO(path.read_text(encoding="utf-8"))):
-            p = norm_product(r.get("Title", ""))
-            if p:
-                out[p] = int(float(r["Variant Price"]))
-    return out
-
-
-def theme_prices():
-    out = {}
-    path = ROOT / "shopify-theme/sections/treatments.liquid"
-    if path.exists():
-        for m in re.finditer(r"<h3>([^<]+)</h3>.*?tcard-price\">[^$]*\$(\d+)", path.read_text(encoding="utf-8")):
-            p = norm_product(m.group(1))
-            if p:
-                out[p] = int(m.group(2))
-    return out
-
 
 # ---------------------------------------------------------------- live
 def audit_live(live):
@@ -351,7 +330,7 @@ def audit_live(live):
 
 def audit_prices(live):
     section("4. Prices across every surface")
-    surfaces = {"public/ site": site_prices(), "theme fallback": theme_prices(), "product CSV": csv_prices()}
+    surfaces = {"public/ site": site_prices()}
     if live.get("prices"):
         surfaces["live store"] = live["prices"]
     surfaces["planned"] = {k: v for k, v in CFG["planned_prices"].items() if v}
@@ -374,24 +353,6 @@ def audit_prices(live):
             add("REVIEW", "glutathione is listed on Dourado's Nov 13 2026 decision; confirm it against the written Agile proposal")
     live["price_table"] = "\n".join(rows)
 
-
-def audit_theme_zip():
-    section("5. Shopify theme zip, stopgap only")
-    zp = ROOT / "velacore-shopify-theme.zip"
-    if not zp.exists():
-        add("REVIEW", "velacore-shopify-theme.zip not found")
-        return
-    stale = []
-    with zipfile.ZipFile(zp) as z:
-        names = set(z.namelist())
-        for f in (ROOT / "shopify-theme").rglob("*"):
-            if f.is_file() and f.name != "SETUP.md":
-                rel = f.relative_to(ROOT / "shopify-theme").as_posix()
-                if rel not in names:
-                    stale.append(f"{rel} missing from zip")
-                elif z.read(rel).replace(b"\r\n", b"\n") != f.read_bytes().replace(b"\r\n", b"\n"):
-                    stale.append(f"{rel} differs")
-    add("REVIEW" if stale else "PASS", "theme zip " + ("is out of date: " + "; ".join(stale[:8]) if stale else "matches shopify-theme/"))
 
 
 # ---------------------------------------------------------------- render
@@ -502,7 +463,6 @@ def main():
     if not a.no_live:
         audit_live(live)
     audit_prices(live)
-    audit_theme_zip()
     if not a.no_render:
         audit_render(outdir, live, not a.no_live)
 

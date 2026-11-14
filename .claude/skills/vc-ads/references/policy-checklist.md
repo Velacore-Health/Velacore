@@ -6,7 +6,7 @@ Run every ad, landing page and audience through this list. One fail blocks the i
 
 - [ ] LegitScript certification issued in Velacore Health's name, with the certificate number on file. Meta and Google both require it for online pharmacy and prescription telehealth advertisers in the US. Not issued yet as of Nov 6 2026.
 - [ ] Platform permission granted: Meta's online pharmacy and prescription drug advertising permission, Google's healthcare and medicines certification. Both are applications made after LegitScript and both are Dourado's to submit.
-- [ ] The advertising domain is the certified domain, velacorehealth.com, and the landing page is on it. No ads point at the Shopify store or a third-party page.
+- [ ] The advertising domain is the certified domain, velacorehealth.com, and the landing page is on it. No ads point at the old Shopify store, which is closed, or a third-party page.
 - [ ] Every ad account, page and pixel is in Velacore Health's name, owned by First Venture Group LLC, not mixed with any other business.
 
 ## Claims and copy

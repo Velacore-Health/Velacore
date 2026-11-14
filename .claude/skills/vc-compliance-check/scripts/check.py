@@ -19,7 +19,7 @@ ROOT = Path.cwd()
 TEXT_EXT = {".html", ".liquid", ".json", ".js", ".css", ".md", ".csv", ".txt", ".xml", ".yml", ".yaml"}
 SKIP_DIRS = {".git", "01-raw-clips", "02-selects", "03-edits", "04-scheduled", "node_modules"}
 # Scanned for public-surface rules: claims, coaching, badge text.
-PUBLIC = ("public/", "shopify-theme/", "shopify-products-import.csv", "velacore-preview.html", "velacore-shopify-theme.zip:")
+PUBLIC = ("public/", "velacore-preview.html")  # the Shopify theme and CSV were removed Nov 13 2026 when the store closed
 
 APPROVED = {"tirzepatide", "semaglutide", "sermorelin", "glutathione"}
 # Generic words that end like drug names but are not product names.
@@ -137,9 +137,8 @@ def main():
                     add("REVIEW", f"claim word '{label}' at {rel}:{key[1]}: ...{ctx}...")
             for m in COACHING.finditer(body):
                 add("FAIL", f"coaching language at {rel}:{line_of(body, m.start())}: ...{context(body, m)}...")
-            if re.search(r"LegitScript\s+Certified", text, re.I) and not rel.startswith(("shopify-theme/", "velacore-shopify-theme.zip:")):
-                for m in re.finditer(r"LegitScript\s+Certified", text, re.I):
-                    add("FAIL", f"LegitScript badge text outside the theme toggle at {rel}:{line_of(text, m.start())}")
+            for m in re.finditer(r"LegitScript\s+Certified", text, re.I):
+                add("FAIL", f"LegitScript badge text at {rel}:{line_of(text, m.start())}; allowed only after certification is issued")
         # 3. secrets anywhere
         for pat, label in SECRETS:
             for m in re.finditer(pat, text):
@@ -148,7 +147,7 @@ def main():
     for word, where in sorted(unknown.items()):
         add("FAIL", f"drug-like word not on the approved list: '{word}' in {len(where)} place(s): {', '.join(where[:5])}")
     if not unknown:
-        add("PASS", "no drug-like words outside the five approved treatments")
+        add("PASS", "no drug-like words outside the approved treatments")
 
     # 4. file names
     for p in ROOT.rglob("*"):
@@ -165,38 +164,20 @@ def main():
                                               "og", "start", "dr-broussard",
                                               "amino"}}) or ["none"]))  # amino = education-section chain illustration
 
-    # 5. badge toggle default
-    sd = ROOT / "shopify-theme/config/settings_data.json"
-    try:
-        raw = sd.read_text(encoding="utf-8")
-        flag = re.search(r'"legitscript_certified"\s*:\s*(true|false)', raw)
-        if flag and flag.group(1) == "false":
-            add("PASS", "LegitScript badge toggle is OFF in settings_data.json")
-        elif flag:
-            add("FAIL", "LegitScript badge toggle is ON in settings_data.json; allowed only after certification is issued")
-        else:
-            add("REVIEW", "legitscript_certified setting not found in settings_data.json")
-    except OSError:
-        add("REVIEW", "settings_data.json not found")
+    if not any("LegitScript badge" in m for m in results["FAIL"]):
+        add("PASS", "no LegitScript badge text on public pages")
 
-    # 6. disclaimer on product surfaces
+    # 5. FDA compounded-medication disclaimer on every program page and Start page
     disc = re.compile(r"not\s+FDA[\s-]approved", re.I)
-    mp = ROOT / "shopify-theme/sections/main-product.liquid"
-    if mp.exists() and disc.search(mp.read_text(encoding="utf-8")):
-        add("PASS", "FDA compounded-medication disclaimer present in main-product.liquid")
+    pages = sorted((ROOT / "public/programs").glob("*.html")) + sorted((ROOT / "public/start").glob("*.html"))
+    missing = [p.relative_to(ROOT).as_posix() for p in pages if not disc.search(p.read_text(encoding="utf-8"))]
+    if not pages:
+        add("FAIL", "no program pages found in public/programs")
+    elif missing:
+        for m in missing:
+            add("FAIL", f"FDA compounded-medication disclaimer missing from {m}")
     else:
-        add("FAIL", "FDA compounded-medication disclaimer missing from main-product.liquid")
-    csvp = ROOT / "shopify-products-import.csv"
-    if csvp.exists():
-        rows = list(csv.DictReader(io.StringIO(csvp.read_text(encoding="utf-8"))))
-        titles = [r.get("Title", "") for r in rows]
-        for r in rows:
-            name = r.get("Title", "").lower()
-            if not any(a in name for a in APPROVED | {"nad"}):
-                add("FAIL", f"CSV product not on the approved list: {r.get('Title')}")
-            if not disc.search(r.get("Body (HTML)", "")):
-                add("FAIL", f"CSV product missing FDA disclaimer: {r.get('Title')}")
-        add("PASS" if len(rows) == 5 else "REVIEW", f"CSV has {len(rows)} products: {', '.join(titles)}")
+        add("PASS", f"FDA compounded-medication disclaimer present on all {len(pages)} program and Start pages")
 
     for level in ("FAIL", "REVIEW", "PASS"):
         for msg in results[level]:

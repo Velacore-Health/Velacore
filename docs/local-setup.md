@@ -21,7 +21,7 @@ Written Nov 6, 2026 from the agent-setup inventory Kevin produced. For the first
    `git config user.name "Bryan Dourado"` and `git config user.email "firstventuregroupllc@gmail.com"`.
 3. Create `.env` in the repo root, add it to `.gitignore`, and keep every key there.
 4. Write the first memory files in the app's memory folder for this project: agent name, how to report to Dourado, one step at a time, no em dashes, the install rule.
-5. Offer to install, in this order and only when needed: GitHub CLI, pandoc, Shopify CLI. Log each in `docs/installs.md`.
+5. Offer to install, in this order and only when needed: GitHub CLI, pandoc. Log each in `docs/installs.md`.
 6. Create `.claude/skills/` with a `vc-` prefix convention. First candidates: `vc-site-audit` modeled on the Salvage Health audit skill in spirit, and `vc-compliance-check` that scans `public/` and `shopify-theme/` for forbidden product names, efficacy claims and the LegitScript badge state.
 7. Optional, user level: a `~/.claude/agents/vale.md` file in the same shape as Maggie's, pointing at `CLAUDE.md` and `COMPLIANCE.md`. Only after Dourado agrees to a user-level file.
 

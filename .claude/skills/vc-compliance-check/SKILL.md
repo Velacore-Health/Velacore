@@ -20,8 +20,8 @@ Read-only. This skill reports problems and never fixes them. Fixes need Dourado'
 ## What it checks
 
 - Drug-like words, meaning names ending in -tide, -relin, -tropin and similar, that aren't Tirzepatide, Semaglutide, Sermorelin or Glutathione. NAD+ is checked through the CSV. Covers every text file in the repo and the text files inside the theme zip.
-- On public surfaces only, meaning `public/`, `shopify-theme/`, the product CSV, the preview HTML and the theme zip: efficacy or claim words, coaching language, and "LegitScript Certified" text outside the theme's toggle.
-- The `legitscript_certified` toggle in `shopify-theme/config/settings_data.json` is off.
+- On public surfaces only, meaning `public/` and the preview HTML: efficacy or claim words, coaching language, and "LegitScript Certified" text outside the theme's toggle.
+- No LegitScript badge text on any public page, and the FDA compounded-medication disclaimer on every program page and Start page.
 - The FDA compounded-medication disclaimer is in `main-product.liquid` and in every CSV product body.
 - Possible secrets: live keys, inline API keys, DEA numbers.
 

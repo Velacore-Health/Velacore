@@ -52,8 +52,5 @@
     ]
   },
   "removed_products": [],
-  "stopgap_surfaces": [
-    "theme fallback",
-    "product CSV"
-  ]
+  "stopgap_surfaces": []
 }
