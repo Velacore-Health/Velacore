@@ -9,6 +9,7 @@
     "semaglutide",
     "microdosing",
     "nad+",
+    "glutathione",
     "sermorelin"
   ],
   "intake_links": {
@@ -16,6 +17,7 @@
     "semaglutide": "",
     "microdosing": "",
     "nad+": "",
+    "glutathione": "",
     "sermorelin": ""
   },
   "intake_host_hint": "openloop",
@@ -24,6 +26,7 @@
     "semaglutide": 229,
     "microdosing": 179,
     "nad+": 199,
+    "glutathione": 199,
     "sermorelin": 199
   },
   "legacy_model_terms": [
@@ -48,9 +51,7 @@
       812
     ]
   },
-  "removed_products": [
-    "glutathione"
-  ],
+  "removed_products": [],
   "stopgap_surfaces": [
     "theme fallback",
     "product CSV"

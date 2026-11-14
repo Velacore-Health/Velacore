@@ -45,7 +45,29 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 - **LegitScript:** "scrappy" route. Asher recommends Bloom Consulting Agency. Ask Asher for a partnership
   confirmation letter.
 
-## Status as of Nov 12, 2026 (newest; read first)
+## Status as of Nov 13, 2026 (newest; read first)
+
+- **Glutathione is back on the site, Dourado's decision in chat, Nov 13.** His words: "I would
+  put glutathione back on the list. I'm pretty sure it's going to be on there." Basis: the OpenLoop
+  rep named it as an Agile program on the Nov 12 call. Not in writing yet. It is the sixth program:
+  its own page, home card, menu entry, intake button, sitemap entry, and a Style A label in
+  `brand/label/`. CLAUDE.md and COMPLIANCE.md are updated. The older lines below that say five
+  treatments, or glutathione off until written confirmation, are history.
+- **What is placeholder on the glutathione page:** the form, which the copy leaves to the
+  clinician on purpose because the demo showed a tablet and the old site said injection; the
+  prices, $129 first month, $199 a month, 12-week $169 a month and $507 up front, copied from the
+  NAD+ placeholder pattern, with $199 from `docs/pricing-research.md`; and the refill rhythm and
+  video and support lines carried over from NAD+. Check all of it against the written Agile
+  proposal, and take glutathione down if the proposal leaves it out.
+- **No glutathione vial photo yet.** The home card and menu show the logo tile until Dourado runs
+  block 12 in `docs/gemini-prompts.md`.
+- **Hero:** the five-vial marble group shot is the home hero, with one wrong digit on each label
+  corrected by hand to 503A. vc-reviewer PASS.
+- **Stopgap Shopify store and CSV:** the glutathione form wording there was made neutral, but the
+  rest is still the old Asher-era store, old prices and the $20 fee. Never import the CSV or upload
+  the theme as is.
+
+## Status as of Nov 12, 2026
 
 Source: the Nov 12 OpenLoop call, Pocket recording in Dourado's personal Drive. Summary and
 transcript were read in a scratch folder only; nothing from them is stored in this repo.
@@ -95,8 +117,8 @@ transcript were read in a scratch folder only; nothing from them is stored in th
      clicks on our own pages; any tracking on our pages goes through a health-privacy check first.
   7. Domain cutover and the Shopify stopgap still wait for the signed agreement.
 - **Glutathione:** on the Nov 12 call the OpenLoop rep named glutathione as one of Agile's
-  longevity programs, alongside NAD+ and sermorelin. Verbal only. It comes back on the site when
-  the updated Agile proposal lists it in writing, with its form and price.
+  longevity programs, alongside NAD+ and sermorelin. Verbal only. Superseded Nov 13: Dourado put it
+  back on the site without waiting; see the Nov 13 block.
 - **Other facts from the call:** sync video is required in about 7 states and the intake handles
   it. Some customer service is offshore. OpenLoop does no marketing. Asher notice is given and ends
   after the first of the month. The OpenLoop rep liked the splash vial photos.

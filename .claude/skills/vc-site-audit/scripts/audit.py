@@ -358,7 +358,7 @@ def audit_prices(live):
         if plan and current and current != {plan}:
             add("REVIEW", f"{p}: shows ${'/$'.join(map(str, sorted(current)))}, planned month-to-month is ${plan} once the platform is signed")
         if p == "glutathione" and current:
-            add("REVIEW", "glutathione is still listed; OpenLoop's written proposal says it is not included")
+            add("REVIEW", "glutathione is listed on Dourado's Nov 13 2026 decision; confirm it against the written Agile proposal")
     live["price_table"] = "\n".join(rows)
 
 

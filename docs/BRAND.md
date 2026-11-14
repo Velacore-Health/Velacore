@@ -56,6 +56,7 @@ Program colors, picked from the logo gradient. Each program owns one, used as it
 | Semaglutide | Helix violet | #8A6BC9 |
 | Microdosing GLP-1 | Jade | #0C8F72 |
 | NAD+ | Helix violet | #8A6BC9 |
+| Glutathione | Helix violet | #8A6BC9 |
 | Sermorelin | Helix violet | #8A6BC9 |
 
 Logo gradient, read from the designer's SVG on Nov 6: three stops, mint green #78CBA9 at 0, blue #3A8EC6 at 0.36, magenta #DD25DA at 1, running from the upper right of the helix to the lower left. The site's program colors, helix blue #3E5FC0 and helix violet #8A6BC9, are mid-tones picked from that gradient for stripes and caps; they are not the stops themselves. Keep both: the stops for anything that reproduces the logo, the mid-tones for program colors.

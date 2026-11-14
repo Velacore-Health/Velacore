@@ -28,17 +28,21 @@ site names **only these**:
 | Semaglutide | GLP-1 receptor agonist, injection | $229, $149 first month |
 | Microdosing GLP-1 | Low-dose GLP-1 combined with vitamins or amino acids, oral or injection | $179 |
 | NAD+ | NAD+ injectable, nasal or oral dropper | $199 |
+| Glutathione | Glutathione, a peptide of three amino acids, in the form the clinician prescribes | $199, placeholder |
 | Sermorelin | Growth hormone–releasing hormone analog, injection | $199 |
 
-Glutathione was on the site until Nov 6 2026. It is not in OpenLoop's proposal, so it is off the
-site until OpenLoop confirms it in writing. Prices come from `docs/pricing-research.md` section 5
+Glutathione was off the site from Nov 6 to Nov 13 2026 because the Nov 2 Launchpad proposal left it
+out. Dourado put it back Nov 13 2026 after the OpenLoop rep named it as an Agile program on the
+Nov 12 call. That is verbal only: confirm form and price against the written Agile proposal, and
+take it down again if the proposal leaves it out. Prices come from `docs/pricing-research.md` section 5
 and are plans until the OpenLoop agreement is signed and the price ceiling is confirmed.
 
 Nov 12 2026: the platform is OpenLoop Agile, not Launchpad. On Agile, OpenLoop sets the retail
 price, so the prices in this table are placeholders until the updated Agile proposal arrives.
-OpenLoop says its wider Agile catalog is LegitScript compliant; that is unconfirmed, and this list
-of five stays the only public list until Dourado decides in writing, OpenLoop confirms in writing,
-and vc-reviewer clears each addition.
+OpenLoop says its wider Agile catalog is LegitScript compliant; that is unconfirmed. The six in the
+table are the only public list. Glutathione is the one exception to the written-confirmation gate:
+Dourado decided it in chat on Nov 13 2026 on the strength of the Nov 12 call. Any further addition
+needs Dourado's decision, OpenLoop's confirmation in writing, and vc-reviewer clearing it.
 
 Descriptors are deliberately **mechanistic/factual**, not benefit claims (e.g. "GLP-1 receptor
 agonist," not "melts fat"). Keep it that way.

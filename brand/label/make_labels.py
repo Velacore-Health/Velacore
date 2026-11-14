@@ -21,6 +21,7 @@ PROGRAMS = [
     ("semaglutide", "Semaglutide", "#8A6BC9"),
     ("microdosing", "Microdosing GLP-1", "#0C8F72"),
     ("nad", "NAD+", "#8A6BC9"),
+    ("glutathione", "Glutathione", "#8A6BC9"),
     ("sermorelin", "Sermorelin", "#8A6BC9"),
 ]
 

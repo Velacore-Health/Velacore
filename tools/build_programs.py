@@ -149,6 +149,37 @@ PROGRAMS = [
         ],
     },
     {
+        "slug": "glutathione", "name": "Glutathione", "cat": "Vitality", "image": "products/glutathione.webp",
+        "title": "Glutathione Program, Reviewed Online",
+        "meta": "Glutathione in the form your clinician prescribes, prepared by a licensed 503A pharmacy, in all 50 states. $129 first month, then $199 a month, shipping included. Prescription required.",
+        "lede": "Glutathione, a peptide made of three amino acids, prescribed only when a licensed clinician decides it is appropriate for you and prepared by a licensed 503A compounding pharmacy in the form the clinician chooses.",
+        "chips": ["Prescription only", "Form set by your clinician", "Ships every 4 weeks"],
+        "plans": [
+            {"id": "monthly", "label": "Month to month", "price": "$199", "unit": "/mo", "note": "$129 your first month, then $199 a month. Cancel any time."},
+            {"id": "12week", "label": "12-week plan", "price": "$169", "unit": "/mo", "note": "$507 charged up front, shipped every 4 weeks."},
+        ],
+        "what_h": "What glutathione is",
+        "what": [
+            "Glutathione is a peptide made of three amino acids: glutamate, cysteine and glycine. The body makes it and uses it as an antioxidant inside cells. In this program your clinician chooses the form and sets the dose, and a licensed 503A compounding pharmacy prepares it to that prescription.",
+            "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Whether glutathione is appropriate for you is the clinician's decision.",
+        ],
+        "facts": ["A peptide of three amino acids", "Form and dose set by your clinician", "Written instructions included", "Clinician review at each refill", "Video visit on request, at no extra cost", "Patient support 24 hours a day"],
+        "journey": [
+            ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
+            ("First prescription", "If appropriate, the clinician prescribes a 4-week supply in the form that fits you."),
+            ("Refill review at 3 to 4 weeks", "You update a short intake and the clinician reviews it before writing a 12-week refill."),
+            ("12-week reviews", "Reviews continue every 12 weeks. Refills ship every 4 weeks. Changes and cancellation run through your patient portal."),
+        ],
+        "eligibility": "Adults 18 and over, per our Terms of Service. The clinician makes the final decision on every intake.",
+        "faq": [
+            ("Which form should I choose?", "You do not need to choose. Your clinician decides the form and dose from your intake, and the licensed 503A pharmacy prepares it to that prescription. Your written instructions cover how to use it."),
+            ("Do I need labs?", "Your clinician will tell you if labs are recommended for you."),
+            ("What does the price include?", "The medication, clinician reviews, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
+            ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any month whose medication has not been ordered is refunded."),
+        ],
+    },
+    {
         "slug": "sermorelin", "name": "Sermorelin", "cat": "Hormone support", "image": "products/sermorelin.webp",
         "title": "Sermorelin Program, Reviewed Online",
         "meta": "Compounded sermorelin injection prescribed by licensed clinicians in all 50 states. $129 first month, then $199 a month, shipping included. Prescription required.",
@@ -185,7 +216,8 @@ MENU = [
     ("Weight", [("tirzepatide", "Tirzepatide", "images/products/tirzepatide.webp", "Dual GIP / GLP-1 injection"),
                 ("semaglutide", "Semaglutide", "images/products/semaglutide.webp", "GLP-1 injection"),
                 ("microdosing", "Microdosing GLP\u20111", "images/products/microdosing.webp", "Low dose, oral or injection")]),
-    ("Vitality", [("nad", "NAD+", "images/products/nad.webp", "Injection, nasal or oral")]),
+    ("Vitality", [("nad", "NAD+", "images/products/nad.webp", "Injection, nasal or oral"),
+                  ("glutathione", "Glutathione", "images/products/glutathione.webp", "Form set by clinician")]),
     ("Hormone support", [("sermorelin", "Sermorelin", "images/products/sermorelin.webp", "GHRH analog injection")]),
 ]
 
@@ -404,7 +436,7 @@ def page(p):
         <p>A telehealth platform coordinating access to licensed clinicians and 503A compounding pharmacies.</p>
       </div>
       <nav class="footer-col" aria-label="Programs"><h4>Programs</h4>
-        <a href="tirzepatide.html">Tirzepatide</a><a href="semaglutide.html">Semaglutide</a><a href="microdosing.html">Microdosing GLP-1</a><a href="nad.html">NAD+</a><a href="sermorelin.html">Sermorelin</a></nav>
+        <a href="tirzepatide.html">Tirzepatide</a><a href="semaglutide.html">Semaglutide</a><a href="microdosing.html">Microdosing GLP-1</a><a href="nad.html">NAD+</a><a href="glutathione.html">Glutathione</a><a href="sermorelin.html">Sermorelin</a></nav>
       <nav class="footer-col" aria-label="More"><h4>More</h4>
         <a href="../index.html#how">How it works</a><a href="../learn.html">Learn</a><a href="../faq.html">FAQ</a><a href="mailto:hello@velacorehealth.com">Contact</a></nav>
       <nav class="footer-col" aria-label="Legal"><h4>Legal</h4>

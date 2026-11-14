@@ -17,7 +17,7 @@ A direct-to-consumer telehealth brand for physician-prescribed peptides and GLP-
 
 ## Hard rules, never break these
 
-- Only these treatments are named on the public site or in any public file: Tirzepatide, Semaglutide, NAD+, Sermorelin, and the microdosing GLP-1 program. Glutathione is off the site since Nov 6 2026 until OpenLoop confirms it in writing. Restricted catalog items are never written anywhere in this repo.
+- Only these treatments are named on the public site or in any public file: Tirzepatide, Semaglutide, NAD+, Glutathione, Sermorelin, and the microdosing GLP-1 program. Glutathione came back Nov 13 2026 on Dourado's decision, after OpenLoop named it as an Agile program on the Nov 12 call; its form and price stay placeholders until the written Agile proposal confirms them. Restricted catalog items are never written anywhere in this repo.
 - No efficacy or outcome claims. Copy is factual and mechanistic. No coaching language. Keep the FDA compounded-medication disclaimer on product pages.
 - The LegitScript badge stays off until certification is issued in Velacore's name.
 - Nothing confidential goes in the repo: no API keys, no Asher or OpenLoop cost sheets, no DEA or NPI documents, no patient data. Secrets live in a `.env` file that is gitignored.
@@ -47,7 +47,7 @@ Git identity is not set globally. Set it for this repo: user.name Bryan Dourado,
 
 - `public/` the static marketing site, served by Vercel at velacore.vercel.app. `public/programs/` holds one page per program; never edit those by hand. Edit `tools/build_programs.py`, the data and template, then run `python -I tools/build_programs.py` from the repo root. Product images live in `public/images/products/<slug>.webp`, one fixed name per program; to swap one, drop the new PNG in `assets-in/products/` and run `python -I tools/prepare_images.py`, then the build. Prompts and the motif are in `docs/image-brief.md`.
 - `shopify-theme/` the Shopify theme, same design. `SETUP.md` is the admin guide. Rebuild `velacore-shopify-theme.zip` after theme edits.
-- `shopify-products-import.csv` imports the five products.
+- `shopify-products-import.csv` is the stopgap store import, out of date on prices and fees; never import it before a rewrite.
 - `docs/` handoff, pricing research, OpenLoop call guide, `openloop-proposal-notes.md` with the patient-facing terms and prices from the proposal, `installs.md`, SOPs. Nothing in `docs/` is served.
 - `COMPLIANCE.md` compliance decisions and the LegitScript checklist.
 - `docs/BRAND.md` the brand bible: approved logos, colors, type, voice, image motif, the product label. `brand/` holds the brand card to upload with any image prompt. Read BRAND.md before making anything visual.
@@ -93,7 +93,7 @@ Program pages are generated. Edit `tools/build_programs.py`, then from the repo 
 
 Two scripts, both read-only:
 
-- `python -I .claude/skills/vc-compliance-check/scripts/check.py` scans every public file for drug names outside the approved five, claim and coaching words, the LegitScript badge, the FDA disclaimer and secrets. Must show 0 fail.
+- `python -I .claude/skills/vc-compliance-check/scripts/check.py` scans every public file for drug names outside the approved treatments, claim and coaching words, the LegitScript badge, the FDA disclaimer and secrets. Must show 0 fail.
 - `python -I .claude/skills/vc-site-audit/scripts/audit.py --no-live` checks links, files, sitemap, legal pages, prices across every surface, and renders the home and one program page at 375 and 1280 for overflow, broken images, text contrast and 44 px tap targets. Drop `--no-live` to include the live site. Must show no FAIL except the Start visit placeholders until OpenLoop sends the intake URLs.
 
 Both run before anything is shown to Dourado and before every deploy. A weekly read-only run is scheduled for Monday 8 AM as the app task `vc-weekly-audit`, approved by Dourado Nov 6 2026.

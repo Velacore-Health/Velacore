@@ -123,6 +123,18 @@ New version, same five vials from the attached photos, same labels word for word
 
 ---
 
+## 12. Glutathione vial in water, save as `glutathione.png`, folder `products`
+
+Added Nov 13 2026 when Dourado put glutathione back. To match the five other splash vials, this edits the finished NAD+ photo and swaps only the label. The form is not confirmed: the vial is a placeholder look, like the others, and the illustrative-image line covers it. Redo it if the Agile proposal names a tablet.
+
+Start a new Gemini chat, Aspect ratio 3:4. Attach two files, in this order: `nad.jpg` from the Desktop folder `velacore-vials\group-refs`, then `label-glutathione.png` from `velacore-vials\labels`.
+
+```
+Edit the first attached photo. Keep everything exactly the same: the vial, the pine green cap, the water splash, the droplets, the light, the background and the framing. Change only the printed label on the vial: replace it with the second attached label artwork, exactly as designed, the same dark green top panel with the white logo, the same thin violet line, and the word Glutathione with the three small lines and Rx ONLY. Do not add, remove or change any word on the label, and add no other text anywhere. The label stays wrapped on the curved glass, dry, sharp and fully readable.
+```
+
+---
+
 ## Reject the image if any of these show
 
 - Any word on a vial label misspelled, warped, doubled or changed from the attached label artwork.
