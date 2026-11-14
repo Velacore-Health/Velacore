@@ -462,3 +462,18 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .hero-photo.is-wide .frame{aspect-ratio:4/3;max-height:none;background:#eef5f1}
 .hero-photo.is-wide img{object-fit:cover;object-position:50% 50%}
 @media (min-width:941px){.hero-inner:has(.is-wide){grid-template-columns:.9fr 1.1fr}}
+
+/* Learn page: peptide walk-through, Nov 13 2026. One step at a time, chosen by the visitor. */
+.pep-walk{display:flex;flex-direction:column;gap:14px;padding:18px 18px 18px}
+.pep-walk svg{width:100%;height:auto;aspect-ratio:8/5;display:block;background:var(--mint);border-radius:var(--r-sm)}
+.pw-step{opacity:0;transition:opacity .35s var(--ease)}
+.pw-step.is-on{opacity:1}
+.pw-cap{margin:0;color:var(--ink);font-size:1.02rem;line-height:1.5;min-height:3em}
+.pw-lab{font:600 17px var(--body);fill:var(--ink)}
+.pw-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pw-tabs button{min-height:44px;padding:0 10px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;color:var(--ink);font:600 .92rem/1.2 var(--body);cursor:pointer;white-space:nowrap}
+.pw-tabs button:hover{border-color:var(--jade)}
+.pw-tabs button[aria-pressed="true"]{background:var(--jade);border-color:var(--jade);color:#fff}
+.pw-tabs button:focus-visible{outline:3px solid var(--jade);outline-offset:2px}
+@media (max-width:520px){.pw-tabs{grid-template-columns:repeat(2,1fr)}.pw-cap{min-height:4.5em}.pw-lab{font-size:20px}}
+@media (prefers-reduced-motion:reduce){.pw-step{transition:none}}

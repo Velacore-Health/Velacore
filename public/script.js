@@ -4,6 +4,20 @@
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Learn page: peptide walk-through
+  Array.prototype.forEach.call(document.querySelectorAll('[data-pepwalk]'), function (w) {
+    var steps = w.querySelectorAll('.pw-step');
+    var btns = w.querySelectorAll('[data-go]');
+    var cap = w.querySelector('.pw-cap');
+    Array.prototype.forEach.call(btns, function (b, i) {
+      b.addEventListener('click', function () {
+        Array.prototype.forEach.call(steps, function (s, k) { s.classList.toggle('is-on', k === i); });
+        Array.prototype.forEach.call(btns, function (x, k) { x.setAttribute('aria-pressed', String(k === i)); });
+        cap.textContent = b.getAttribute('data-cap');
+      });
+    });
+  });
+
   // Year in footer
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();

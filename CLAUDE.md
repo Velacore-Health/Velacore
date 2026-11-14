@@ -45,7 +45,7 @@ Git identity is not set globally. Set it for this repo: user.name Bryan Dourado,
 
 ## Repo map
 
-- `public/` the static marketing site, served by Vercel at velacore.vercel.app. `public/programs/` holds one page per program; never edit those by hand. Edit `tools/build_programs.py`, the data and template, then run `python -I tools/build_programs.py` from the repo root. Product images live in `public/images/products/<slug>.webp`, one fixed name per program; to swap one, drop the new PNG in `assets-in/products/` and run `python -I tools/prepare_images.py`, then the build. Prompts and the motif are in `docs/image-brief.md`.
+- `public/` the static marketing site, served by Vercel at velacore.vercel.app. `public/programs/` holds one page per program; never edit those by hand. Edit `tools/build_programs.py`, the data and template, then run `python -I tools/build_programs.py` from the repo root. Product images live in `public/images/products/<slug>.webp`, one fixed name per program; to swap one, drop the new PNG in `assets-in/products/` and run `python -I tools/prepare_images.py`, then the build. Prompts and the motif are in `docs/image-brief.md`. The peptide walk-through on the Learn page is drawn by `tools/make_peptide_walk.py`; paste its output over the pep-walk block in `public/learn.html`.
 - `shopify-theme/` the Shopify theme, same design. `SETUP.md` is the admin guide. Rebuild `velacore-shopify-theme.zip` after theme edits.
 - `shopify-products-import.csv` is the stopgap store import, out of date on prices and fees; never import it before a rewrite.
 - `docs/` handoff, pricing research, OpenLoop call guide, `openloop-proposal-notes.md` with the patient-facing terms and prices from the proposal, `installs.md`, SOPs. Nothing in `docs/` is served.
