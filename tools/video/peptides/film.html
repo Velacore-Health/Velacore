@@ -1,0 +1,148 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..600,0..100&family=Hanken+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#EEF5F1}
+svg{display:block}
+.cap{font:600 34px 'Hanken Grotesk',sans-serif;fill:#15302A}
+.lab{font:600 24px 'Hanken Grotesk',sans-serif;fill:#15302A}
+.title{font-family:'Fraunces',serif;font-weight:560;font-variation-settings:'opsz' 144,'SOFT' 50;fill:#15302A}
+.small{font:500 24px 'Hanken Grotesk',sans-serif;fill:#4C625B}
+</style></head>
+<body>
+<svg id="s" width="1280" height="720" viewBox="0 0 1280 720"></svg>
+<script>
+/* Peptides, explained simply. Velacore Health explainer, Nov 13 2026.
+   render(t) draws the frame at t seconds. Beat timing comes from window.BEATS,
+   set by render.py from the narration audio; the defaults below are estimates. */
+const BEATS = window.BEATS || [
+  {id:"open",  start:0.0,  dur:4.8},
+  {id:"amino", start:5.3,  dur:5.6},
+  {id:"pep",   start:11.4, dur:8.4},
+  {id:"prot",  start:20.3, dur:8.0},
+  {id:"msg",   start:28.8, dur:9.2},
+  {id:"close", start:38.5, dur:8.0},
+];
+const CAPS = {
+  amino:"Amino acids are the building blocks. 20 kinds.",
+  pep:"A peptide is a short chain, usually 2 to 50",
+  prot:"A protein is a much longer chain, folded",
+  msg:"A peptide fits a receptor, and the cell responds",
+  close:"A licensed clinician decides if a peptide is right for you",
+};
+const T = ["#C9EEDF","#8FDDC3","#57C9A6","#0C8F72"], ST = "#0A7A61";
+const LOGO = "../../../public/logo-full.png";
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const ease=x=>{x=clamp(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;};
+const lerp=(a,b,k)=>a+(b-a)*k;
+const B=id=>BEATS.find(b=>b.id===id);
+// local progress inside a beat, from `from` seconds after its start over `len` seconds
+const P=(id,t,from=0,len=1)=>clamp((t-B(id).start-from)/len);
+const END = BEATS[BEATS.length-1].start + BEATS[BEATS.length-1].dur + 1.5;
+window.FILM_END = END;
+
+function bead(x,y,r,i,o=1){return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="${T[i%4]}" stroke="${ST}" stroke-width="${Math.max(1.5,r/8).toFixed(1)}" opacity="${o.toFixed(3)}"/>`;}
+function chain(pts,r,o=1,w=4,colorShift=1){
+  if(!pts.length) return "";
+  const d="M"+pts.map(p=>p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" L");
+  return `<path d="${d}" fill="none" stroke="${ST}" stroke-width="${w}" stroke-linejoin="round" opacity="${o.toFixed(3)}"/>`+pts.map((p,i)=>bead(p[0],p[1],r,i*3+colorShift,o)).join("");
+}
+function text(x,y,s,cls,o=1,anchor="middle",size){return `<text class="${cls}" x="${x}" y="${y}" text-anchor="${anchor}" opacity="${o.toFixed(3)}"${size?` style="font-size:${size}px"`:""}>${s}</text>`;}
+
+// Shapes
+const ringPos=k=>[640+230*Math.cos(2*Math.PI*k/20-Math.PI/2),330+230*Math.sin(2*Math.PI*k/20-Math.PI/2)];
+const pepPos=i=>[340+120*i,330+50*Math.sin(i*1.1)];
+const N=72;
+const folded=k=>{const u=2*Math.PI*k/N;return [640+300*Math.sin(3*u+0.6)*(0.75+0.25*Math.cos(5*u)),320+210*Math.sin(2*u)*(0.8+0.2*Math.sin(7*u))];};
+const line=k=>{const i=k-36;return [640+i*17,330+40*Math.sin(k*0.35)];};
+
+function frame(t){
+  let o="";
+  const cap=(id)=>{ if(!CAPS[id]) return; const b=B(id); const a=clamp((t-b.start)/0.4)*clamp((b.start+b.dur+0.45-t)/0.4);
+    if(a>0) o+=`<rect x="0" y="626" width="1280" height="94" fill="#FFFFFF" opacity="${(0.92*a).toFixed(3)}"/>`+text(640,685,CAPS[id],"cap",a); };
+
+  // 1. Opener: title
+  {const b=B("open"); const a=clamp(t/0.6)*clamp((b.start+b.dur+0.3-t)/0.5);
+   if(a>0){ o+=text(640,330,"Peptides, explained simply.","title",a,"middle",84);
+     o+=chain([0,1,2,3,4].map(i=>[520+60*i,420+12*Math.sin(i*1.3+t*2)]),14,a*clamp((t-0.6)/0.8)); }}
+
+  // 2. Amino acid: one bead, then the 20 kinds around it
+  {const b=B("amino"); const vis=clamp((t-b.start)/0.4);
+   const leave=B("pep").start;
+   if(t>=b.start && t<leave+1.6){
+     const pop=ease(P("amino",t,0,0.7));
+     const fade = t<leave?1:clamp(1-(t-leave)/0.6);
+     o+=bead(640,330,70*pop,1,vis*fade);
+     for(let k=0;k<20;k++){const a=ease(P("amino",t,1.0+k*0.08,0.4)); const [x,y]=ringPos(k);
+       // ring beads 0..5 travel into the peptide chain in the next beat
+       if(k<6 && t>=leave){continue;}
+       o+=bead(x,y,16*a,k,a*fade);}
+     if(t<leave) o+=text(640,600,"20 kinds of amino acid","lab",P("amino",t,2.4,0.5));
+   }}
+
+  // 3. Peptide: six beads fly in and link
+  {const b=B("pep");
+   if(t>=b.start && t<B("prot").start+0.01){
+     const pts=[];
+     for(let i=0;i<6;i++){const k=ease(P("pep",t,i*0.12,1.1)); const [x0,y0]=ringPos(i); const [x1,y1]=pepPos(i); pts.push([lerp(x0,x1,k),lerp(y0,y1,k),k]);}
+     const link=P("pep",t,1.4,0.8);
+     const shown=pts.map(p=>[p[0],p[1]]);
+     const rr=pts.map(p=>lerp(16,34,p[2]));
+     if(link>0){ const d="M"+shown.map(p=>p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" L"); o+=`<path d="${d}" fill="none" stroke="${ST}" stroke-width="5" pathLength="1" stroke-dasharray="${link.toFixed(3)} 1"/>`; }
+     shown.forEach((p,i)=>o+=bead(p[0],p[1],rr[i],i*3+1));
+     const br=P("pep",t,2.4,0.5);
+     o+=`<path d="M300 440 v16 H980 v-16" fill="none" stroke="${ST}" stroke-width="3" opacity="${br.toFixed(3)}"/>`+text(640,500,"Peptide: 2 to 50 amino acids","lab",br);
+   }}
+
+  // 4. Protein: the chain grows long, then folds
+  {const b=B("prot");
+   if(t>=b.start && t<B("msg").start+0.8){
+     const grow=ease(P("prot",t,0,2.4)), fold=ease(P("prot",t,2.6,2.6));
+     const out=t>B("msg").start?clamp(1-(t-B("msg").start)/0.6):1;
+     const n=Math.max(6,Math.round(lerp(6,N,grow)));
+     const pts=[];
+     for(let k=0;k<n;k++){const a=line(k+Math.round((N-n)/2)); const f=folded(k+Math.round((N-n)/2)); pts.push([lerp(a[0],f[0],fold),lerp(a[1],f[1],fold)]);}
+     o+=chain(pts,lerp(12,13,fold),out,3);
+     o+=text(640,600,"Protein: a long chain, folded","lab",P("prot",t,4.6,0.5)*out);
+   }}
+
+  // 5. Messenger: a peptide drifts to a receptor on a cell
+  {const b=B("msg");
+   if(t>=b.start && t<B("close").start+0.8){
+     const out=t>B("close").start?clamp(1-(t-B("close").start)/0.6):1;
+     const rise=ease(P("msg",t,0.2,1.2));
+     const yS=lerp(720,500,rise);
+     o+=`<path d="M0 ${yS+30} Q640 ${yS-40} 1280 ${yS+30} V720 H0 Z" fill="#DDF0E7" stroke="${ST}" stroke-width="4" opacity="${out.toFixed(3)}"/>`;
+     const rg=ease(P("msg",t,1.0,0.8));
+     const rx=760, ry=yS-12;
+     o+=`<path d="M${rx-34} ${ry} V${ry-70*rg} a34 34 0 0 0 68 0 V${ry}" fill="none" stroke="${ST}" stroke-width="9" stroke-linecap="round" opacity="${(rg*out).toFixed(3)}"/>`;
+     const go=ease(P("msg",t,1.8,3.0));
+     const tipX=lerp(330,rx,go), tipY=lerp(120,ry-70*rg-22,go);
+     const pts=[0,1,2,3].map(i=>[tipX-(3-i)*70*Math.cos(0.6),tipY-(3-i)*70*Math.sin(0.6)]);
+     o+=chain(pts,24,out,5);
+     const dock=P("msg",t,4.8,0.1);
+     if(dock>0){for(let k=0;k<3;k++){const w=P("msg",t,5.0+k*0.35,1.2); o+=`<path d="M${rx-30-k*16} ${ry+30+k*18} q${30+k*16} 16 ${60+k*32} 0" fill="none" stroke="${ST}" stroke-width="3.5" stroke-linecap="round" opacity="${(w*(1-0.25*k)*out).toFixed(3)}"/>`;}}
+     const la=P("msg",t,1.4,0.5)*out;
+     o+=text(rx+70,ry-60,"Receptor","lab",la,"start")+text(160,yS+120,"Cell","lab",la,"start")+text(pts[0][0]-20,pts[0][1]-44,"Peptide","lab",P("msg",t,2.2,0.5)*out,"middle");
+   }}
+
+  // 6. Closing: card with the wordmark
+  {const b=B("close");
+   if(t>=b.start+0.4){
+     const a=ease(P("close",t,0.4,0.8));
+     // logo sized by height so the stack of logo, title and fine print fits above the caption bar
+     const lh=230, lw=lh*LOGO_W/LOGO_H, top=70;
+     o+=`<image href="${LOGO}" x="${(640-lw/2).toFixed(1)}" y="${top}" width="${lw.toFixed(1)}" height="${lh}" opacity="${a.toFixed(3)}"/>`;
+     o+=text(640,top+lh+90,"Peptides, explained simply.","title",a,"middle",54);
+     o+=text(640,top+lh+150,"Education only, not medical advice. Prescription required.","small",P("close",t,1.4,0.6));
+   }}
+
+  cap("amino");cap("pep");cap("prot");cap("msg");cap("close");
+  return o;
+}
+let LOGO_W=1, LOGO_H=1;
+window.ready = new Promise(res=>{const im=new Image(); im.onload=()=>{LOGO_W=im.naturalWidth;LOGO_H=im.naturalHeight;document.fonts.ready.then(res);}; im.src=LOGO;});
+window.render = t => { document.getElementById("s").innerHTML = frame(t); };
+window.ready.then(()=>render(0));
+</script>
+</body></html>
