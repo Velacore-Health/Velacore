@@ -9,6 +9,27 @@
 # Clean URLs: /terms serves public/terms.html; /programs/tirzepatide serves public/programs/tirzepatide.html.
 # Netlify's pretty URLs setting does this when enabled in the project's Build & deploy settings;
 # these rules make it explicit so the site behaves the same with that setting off.
+# velacore.health is a second door: every visit there goes to the one main address, so Google sees one site.
+# Added Nov 13 2026 with the domain move. The bare velacorehealth.com to www forward is set in Netlify's
+# Domain management as the primary domain, not here, so the two can never loop.
+[[redirects]]
+  from = "https://velacore.health/*"
+  to = "https://www.velacorehealth.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://velacore.health/*"
+  to = "https://www.velacorehealth.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.velacore.health/*"
+  to = "https://www.velacorehealth.com/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/index.html"
   to = "/"
