@@ -94,6 +94,9 @@ transcript were read in a scratch folder only; nothing from them is stored in th
   6. Ads: Agile gives UTM tracking only, no pixel on the intake. vc-ads plans measurement around
      clicks on our own pages; any tracking on our pages goes through a health-privacy check first.
   7. Domain cutover and the Shopify stopgap still wait for the signed agreement.
+- **Glutathione:** on the Nov 12 call the OpenLoop rep named glutathione as one of Agile's
+  longevity programs, alongside NAD+ and sermorelin. Verbal only. It comes back on the site when
+  the updated Agile proposal lists it in writing, with its form and price.
 - **Other facts from the call:** sync video is required in about 7 states and the intake handles
   it. Some customer service is offshore. OpenLoop does no marketing. Asher notice is given and ends
   after the first of the month. The OpenLoop rep liked the splash vial photos.
