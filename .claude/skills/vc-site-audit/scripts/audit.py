@@ -130,14 +130,27 @@ def audit_local():
             add("FAIL", f"treatment card #{i} at public/index.html:{c['line']} is not one of the five approved treatments")
             continue
         seen.add(prod)
+        # Since Nov 13 2026 every card's Start visit goes to the program's Start page, and the Start page's
+        # Continue button carries the intake link. See docs/funnel-plan.md.
+        slug = "nad" if prod == "nad+" else prod
+        want_page = f"start/{slug}.html"
+        if c["href"] != want_page:
+            add("FAIL", f"{c['name']}: Start visit goes to '{c['href']}', expected its Start page {want_page}")
+            continue
+        sp = PUBLIC / want_page
+        if not sp.exists():
+            add("FAIL", f"{c['name']}: Start page {want_page} is missing")
+            continue
+        m = re.search(r'<a[^>]*href="([^"]*)"[^>]*data-intake=', sp.read_text(encoding="utf-8"))
+        got = m.group(1) if m else ""
         want = CFG["intake_links"].get(prod, "")
         if want:
-            if c["href"] == want:
-                add("PASS", f"{c['name']}: Start visit goes to its OpenLoop intake link")
+            if got == want:
+                add("PASS", f"{c['name']}: card goes to its Start page, which continues to its intake link")
             else:
-                add("FAIL", f"{c['name']}: Start visit goes to '{c['href']}', expected its intake link {want}")
+                add("FAIL", f"{c['name']}: Start page continues to '{got}', expected its intake link {want}")
         else:
-            add("REVIEW", f"{c['name']}: Start visit goes to '{c['href']}'. No OpenLoop intake link set yet in audit-config.json")
+            add("REVIEW", f"{c['name']}: card goes to {want_page}. No intake link set yet in audit-config.json, so its Continue button is a placeholder")
     for p in CFG["approved_products"]:
         if p not in seen:
             add("REVIEW", f"no treatment card found for {p}")

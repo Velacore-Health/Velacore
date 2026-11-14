@@ -477,3 +477,55 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .pw-tabs button:focus-visible{outline:3px solid var(--jade);outline-offset:2px}
 @media (max-width:520px){.pw-tabs{grid-template-columns:repeat(2,1fr)}.pw-cap{min-height:4.5em}.pw-lab{font-size:20px}}
 @media (prefers-reduced-motion:reduce){.pw-step{transition:none}}
+
+/* ---------- Funnel, Nov 13 2026: Start pages, goal tiles, price bar ---------- */
+.sp-header .nav{justify-content:space-between}
+.sp-back{color:var(--jade);font-weight:600;text-decoration:underline;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center}
+.sp-main{background:var(--mint)}
+.sp-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;max-width:1040px}
+.sp-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:36px 36px 28px}
+.sp-card h1{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:10px;text-wrap:balance}
+.sp-price{font-weight:600;color:var(--ink);margin:0 0 22px}
+.sp-steps{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:14px}
+.sp-steps li{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start}
+.sp-steps p{margin:4px 0 0;color:var(--ink-soft)}
+.sp-num{width:34px;height:34px;border-radius:50%;background:var(--mint-2);color:var(--ink);font-weight:700;display:grid;place-items:center}
+.sp-handoff{font-size:.95rem;color:var(--ink-soft);border-left:3px solid var(--jade-tint);padding-left:12px;margin:0 0 20px}
+.sp-pending{margin:14px 0 0;font-size:.95rem;color:var(--ink)}
+.sp-pending a{color:var(--jade);text-decoration:underline}
+.sp-card .price-fine{margin-top:18px}
+.sp-media{border-radius:var(--r);overflow:hidden;background:#fff;border:1px solid var(--line)}
+.sp-media img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 40%}
+.sp-footer{padding-top:28px}
+@media (max-width:780px){.sp-grid{grid-template-columns:1fr}.sp-media{display:none}.sp-card{padding:26px 20px 22px}}
+
+.goals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.goal-tile{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;color:inherit;text-decoration:none;transition:border-color .2s var(--ease)}
+.goal-tile:hover{border-color:var(--jade)}
+.goal-tile:focus-visible{outline:3px solid var(--jade);outline-offset:3px}
+.goal-media{aspect-ratio:4/3;background:var(--mint);overflow:hidden}
+.goal-media img{width:100%;height:100%;object-fit:cover;display:block}
+.goal-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.goal-body h3{font-size:1.4rem;margin:0}
+.goal-body p{margin:0;color:var(--ink-soft)}
+.goal-go{margin-top:auto;font-weight:600;color:var(--jade);min-height:44px;display:flex;align-items:center}
+@media (max-width:860px){.goals-grid{grid-template-columns:1fr}.goal-tile{display:grid;grid-template-columns:42% 1fr}.goal-media{aspect-ratio:auto;height:100%}.goal-body{padding:16px}}
+@media (max-width:420px){.goal-tile{grid-template-columns:1fr}.goal-media{aspect-ratio:16/10}}
+.closing-cta{text-align:center;max-width:640px;margin:0 auto}
+.closing-cta p{color:var(--ink-soft)}
+
+.mobile-cta--price{gap:12px;align-items:center}
+@media (max-width:680px){.mobile-cta--price.is-shown,.mobile-cta--price{display:flex}.mcta-price{display:flex;flex-direction:column;line-height:1.25;min-width:0}.mcta-price b{font-size:.95rem}.mcta-price small{font-size:.85rem;color:var(--ink-soft)}.mobile-cta--price .btn{margin-left:auto;white-space:nowrap}}
+.goals-grid + .img-note{margin-top:16px;text-align:center}
+
+/* Funnel fixes per vc-reviewer Nov 13 2026 */
+.tcard .btn-sm{min-height:44px}
+.tcard-link{min-height:44px;display:inline-flex;align-items:center}
+.sp-card a[aria-disabled="true"]::after{content:none}
+.sp-side .img-note{margin-top:10px}
+.sp-header .brand-name{white-space:nowrap}
+@media (max-width:480px){.sp-back-name{display:none}}
+@media (max-width:420px){.goal-tile[data-goal="hormone"] .goal-media img{object-position:50% 62%}}
+@media (max-width:780px){.sp-side{display:none}}
+.sp-back{min-width:44px;justify-content:center;padding:0 6px}
+.sp-back-name{margin-left:.3em}

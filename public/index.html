@@ -55,12 +55,12 @@
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <div class="nav-item has-mega"><a href="index.html#treatments" aria-haspopup="true" aria-expanded="false">Treatments</a><div class="mega" role="menu"><div class="mega-col"><h4>Weight</h4><a class="mega-item" href="programs/tirzepatide.html"><img src="images/products/tirzepatide.webp" alt="" width="54" height="54" loading="lazy" /><span><b>Tirzepatide</b><small>Dual GIP / GLP-1 injection</small></span></a><a class="mega-item" href="programs/semaglutide.html"><img src="images/products/semaglutide.webp" alt="" width="54" height="54" loading="lazy" /><span><b>Semaglutide</b><small>GLP-1 injection</small></span></a><a class="mega-item" href="programs/microdosing.html"><img src="images/products/microdosing.webp" alt="" width="54" height="54" loading="lazy" /><span><b>Microdosing GLP‑1</b><small>Low dose, oral or injection</small></span></a></div><div class="mega-col"><h4>Vitality</h4><a class="mega-item" href="programs/nad.html"><img src="images/products/nad.webp" alt="" width="54" height="54" loading="lazy" /><span><b>NAD+</b><small>Injection, nasal or oral</small></span></a><a class="mega-item" href="programs/glutathione.html"><img src="images/products/glutathione.webp" alt="" width="54" height="54" loading="lazy" /><span><b>Glutathione</b><small>Form set by clinician</small></span></a></div><div class="mega-col"><h4>Hormone support</h4><a class="mega-item" href="programs/sermorelin.html"><img src="images/products/sermorelin.webp" alt="" width="54" height="54" loading="lazy" /><span><b>Sermorelin</b><small>GHRH analog injection</small></span></a></div><div class="mega-col mega-cta"><h4>Not sure?</h4><p>Start the online visit and a licensed clinician will help determine what is appropriate.</p><a class="btn btn-primary btn-sm" href="index.html#intake">Start online visit</a></div></div></div>
+        <div class="nav-item has-mega"><a href="index.html#treatments" aria-haspopup="true" aria-expanded="false">Treatments</a><div class="mega" role="menu"><div class="mega-col"><h4>Weight</h4><a class="mega-item" href="programs/tirzepatide.html"><img src="images/products/tirzepatide.webp" alt="" width="54" height="54" loading="lazy" /><span><b>Tirzepatide</b><small>Dual GIP / GLP-1 injection</small></span></a><a class="mega-item" href="programs/semaglutide.html"><img src="images/products/semaglutide.webp" alt="" width="54" height="54" loading="lazy" /><span><b>Semaglutide</b><small>GLP-1 injection</small></span></a><a class="mega-item" href="programs/microdosing.html"><img src="images/products/microdosing.webp" alt="" width="54" height="54" loading="lazy" /><span><b>Microdosing GLP‑1</b><small>Low dose, oral or injection</small></span></a></div><div class="mega-col"><h4>Vitality</h4><a class="mega-item" href="programs/nad.html"><img src="images/products/nad.webp" alt="" width="54" height="54" loading="lazy" /><span><b>NAD+</b><small>Injection, nasal or oral</small></span></a><a class="mega-item" href="programs/glutathione.html"><img src="images/products/glutathione.webp" alt="" width="54" height="54" loading="lazy" /><span><b>Glutathione</b><small>Form set by clinician</small></span></a></div><div class="mega-col"><h4>Hormone support</h4><a class="mega-item" href="programs/sermorelin.html"><img src="images/products/sermorelin.webp" alt="" width="54" height="54" loading="lazy" /><span><b>Sermorelin</b><small>GHRH analog injection</small></span></a></div><div class="mega-col mega-cta"><h4>Not sure?</h4><p>Choose where to start. A licensed clinician reviews your intake and decides what is appropriate.</p><a class="btn btn-primary btn-sm" href="index.html#goals">Find your program</a></div></div></div>
         <a href="#how">How it works</a>
         <a href="learn.html">Learn</a>
         <a href="#provider">Clinicians</a>
         <a href="faq.html">FAQ</a>
-        <a href="#intake" class="btn btn-primary btn-sm">Start online visit</a>
+        <a href="#goals" class="btn btn-primary btn-sm" data-find>Find your program</a>
       </nav>
 
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -78,8 +78,7 @@
         <p class="hero-lede">Velacore Health is a telehealth platform. You start an online visit, an independent licensed clinician decides whether to prescribe, and a 503A compounding pharmacy fills the order.</p>
         <p class="hero-price">From $129 your first month, then from $179 a month. Shipping included.</p>
         <div class="hero-cta">
-          <a href="#intake" class="btn btn-primary">Start your visit</a>
-          <a href="#treatments" class="btn btn-ghost">See programs and prices</a>
+          <a href="#goals" class="btn btn-primary" data-find>Find your program</a>
         </div>
         <ul class="hero-trust">
           <li><span class="check" aria-hidden="true">✓</span>Licensed clinicians in all 50 states</li>
@@ -95,6 +94,31 @@
           </div>
           <figcaption class="img-note">Illustrative image. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <!-- Goal chooser, funnel plan Nov 13 2026: the hero's one button lands here -->
+    <section class="section" id="goals">
+      <div class="container">
+        <div class="section-head center">
+          <h2>Choose where to start</h2>
+          <p class="section-sub">Every program is prescription only. A licensed clinician reviews your intake and decides what is appropriate.</p>
+        </div>
+        <div class="goals-grid">
+          <a class="goal-tile" href="#treatments" data-goal="weight">
+            <div class="goal-media"><img src="images/lifestyle/goal-weight.webp" width="1600" height="1194" alt="Velacore Health microdosing GLP-1, tirzepatide and semaglutide vials on white marble" loading="lazy" /></div>
+            <div class="goal-body"><h3>Weight</h3><p>Three GLP-1 programs: Tirzepatide, Semaglutide and Microdosing GLP-1.</p><span class="goal-go">See weight programs</span></div>
+          </a>
+          <a class="goal-tile" href="#treatments" data-goal="vitality">
+            <div class="goal-media"><img src="images/lifestyle/goal-vitality.webp" width="1600" height="1194" alt="Velacore Health NAD+ and glutathione vials on white marble" loading="lazy" /></div>
+            <div class="goal-body"><h3>Vitality</h3><p>Two programs: NAD+ and Glutathione, in the form your clinician prescribes.</p><span class="goal-go">See vitality programs</span></div>
+          </a>
+          <a class="goal-tile" href="programs/sermorelin.html" data-goal="hormone">
+            <div class="goal-media"><img src="images/products/sermorelin.webp" width="1194" height="1600" alt="Velacore Health sermorelin vial" loading="lazy" /></div>
+            <div class="goal-body"><h3>Hormone support</h3><p>One program: Sermorelin, a growth hormone-releasing hormone analog.</p><span class="goal-go">See the Sermorelin program</span></div>
+          </a>
+        </div>
+        <p class="img-note center">Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
       </div>
     </section>
 
@@ -128,7 +152,7 @@
               </div>
               <p class="tcard-plan">12-week plan $249/mo, $747 up front. Baseline labs included.</p>
               <a class="tcard-link" href="programs/tirzepatide.html">Learn more about this program</a>
-              <a href="#intake" class="btn btn-ghost btn-block btn-sm">Start visit</a>
+              <a href="start/tirzepatide.html" class="btn btn-primary btn-block btn-sm" data-start="tirzepatide">Start visit</a>
             </div>
           </article>
 
@@ -144,7 +168,7 @@
               </div>
               <p class="tcard-plan">12-week plan $199/mo, $597 up front. Baseline labs included.</p>
               <a class="tcard-link" href="programs/semaglutide.html">Learn more about this program</a>
-              <a href="#intake" class="btn btn-ghost btn-block btn-sm">Start visit</a>
+              <a href="start/semaglutide.html" class="btn btn-primary btn-block btn-sm" data-start="semaglutide">Start visit</a>
             </div>
           </article>
 
@@ -161,7 +185,7 @@
               </div>
               <p class="tcard-plan">12-week plan $159/mo, $477 up front. Unlimited clinician consults.</p>
               <a class="tcard-link" href="programs/microdosing.html">Learn more about this program</a>
-              <a href="#intake" class="btn btn-ghost btn-block btn-sm">Start visit</a>
+              <a href="start/microdosing.html" class="btn btn-primary btn-block btn-sm" data-start="microdosing">Start visit</a>
             </div>
           </article>
 
@@ -177,7 +201,7 @@
               </div>
               <p class="tcard-plan">12-week plan $169/mo, $507 up front.</p>
               <a class="tcard-link" href="programs/nad.html">Learn more about this program</a>
-              <a href="#intake" class="btn btn-ghost btn-block btn-sm">Start visit</a>
+              <a href="start/nad.html" class="btn btn-primary btn-block btn-sm" data-start="nad">Start visit</a>
             </div>
           </article>
 
@@ -193,7 +217,7 @@
               </div>
               <p class="tcard-plan">12-week plan $169/mo, $507 up front.</p>
               <a class="tcard-link" href="programs/glutathione.html">Learn more about this program</a>
-              <a href="#intake" class="btn btn-ghost btn-block btn-sm">Start visit</a>
+              <a href="start/glutathione.html" class="btn btn-primary btn-block btn-sm" data-start="glutathione">Start visit</a>
             </div>
           </article>
 
@@ -209,7 +233,7 @@
               </div>
               <p class="tcard-plan">12-week plan $169/mo, $507 up front.</p>
               <a class="tcard-link" href="programs/sermorelin.html">Learn more about this program</a>
-              <a href="#intake" class="btn btn-ghost btn-block btn-sm">Start visit</a>
+              <a href="start/sermorelin.html" class="btn btn-primary btn-block btn-sm" data-start="sermorelin">Start visit</a>
             </div>
           </article>
 
@@ -224,7 +248,7 @@
                 <span class="tcard-rx">Rx only</span>
               </div>
               <p class="tcard-plan">Refunded in full if the clinician does not prescribe.</p>
-              <a href="#intake" class="btn btn-primary btn-block btn-sm">Start online visit</a>
+              <a href="#goals" class="btn btn-primary btn-block btn-sm" data-find>Find your program</a>
             </div>
           </article>
         </div>
@@ -255,7 +279,7 @@
             <div class="step-num">1</div>
             <h3>Start your visit</h3>
             <p>Pick a program and complete a secure online intake about your goals, history and medications.</p>
-            <a class="step-link" href="#intake">Start your visit</a>
+            <a class="step-link" href="#goals" data-find>Find your program</a>
           </li>
           <li class="step">
             <figure class="step-photo"><img src="images/lifestyle/step-clinician.webp" width="1600" height="1194" alt="A clinician in scrubs reviewing an intake at a laptop and taking notes" loading="lazy" /></figure>
@@ -353,7 +377,7 @@
           </ul>
         </div>
         </div>
-        <div class="why-cta"><a href="#intake" class="btn btn-primary">Start your visit</a></div>
+        <div class="why-cta"><a href="#goals" class="btn btn-primary" data-find>Find your program</a></div>
       </div>
     </section>
 
@@ -368,7 +392,7 @@
             month whose medication has not yet been ordered is refunded. Medications are
             non-returnable once dispensed, as required by pharmacy law.
           </p>
-          <a href="#intake" class="btn btn-primary">Start your online visit</a>
+          <a href="#goals" class="btn btn-primary" data-find>Find your program</a>
         </div>
       </div>
     </section>
@@ -411,28 +435,11 @@
 
     <!-- Intake -->
     <section class="section" id="intake">
-      <div class="container cta-grid">
-        <div class="cta-copy">
-          <h2>Your visit starts here.</h2>
-          <p>Choose a program. You will complete a secure intake on our telehealth partner's pages, a licensed clinician reviews it, and if treatment is appropriate your medication ships to your door.</p>
-          <ul class="cta-points">
-            <li><span class="dot"></span> Secure intake on our telehealth partner's pages</li>
-            <li><span class="dot"></span> A licensed clinician makes the prescribing decision</li>
-            <li><span class="dot"></span> Refunded in full if not prescribed</li>
-            <li><span class="dot"></span> Filled by a licensed 503A pharmacy, shipping included</li>
-          </ul>
-        </div>
-
-        <div class="intake-card intake-list">
-          <!-- Each button links to that program's hosted intake page. Links are set when the telehealth partner provides them. -->
-          <a class="btn btn-primary btn-block" href="#" data-intake="tirzepatide" aria-disabled="true">Tirzepatide</a>
-          <a class="btn btn-primary btn-block" href="#" data-intake="semaglutide" aria-disabled="true">Semaglutide</a>
-          <a class="btn btn-primary btn-block" href="#" data-intake="microdosing" aria-disabled="true">Microdosing GLP‑1</a>
-          <a class="btn btn-primary btn-block" href="#" data-intake="nad+" aria-disabled="true">NAD+</a>
-          <a class="btn btn-primary btn-block" href="#" data-intake="glutathione" aria-disabled="true">Glutathione</a>
-          <a class="btn btn-primary btn-block" href="#" data-intake="sermorelin" aria-disabled="true">Sermorelin</a>
-          <p class="intake-fine">Prescription required. Starting a visit is not a guarantee of treatment. Compounded medications are not FDA approved.</p>
-        </div>
+      <div class="container closing-cta">
+        <h2>Ready when you are</h2>
+        <p>Choose a program to see its price and what happens next. A licensed clinician makes every prescribing decision, and you are refunded in full if you are not prescribed.</p>
+        <a href="#goals" class="btn btn-primary" data-find>Find your program</a>
+        <p class="intake-fine">Prescription required. Starting a visit is not a guarantee of treatment. Compounded medications are not FDA approved.</p>
       </div>
     </section>
 
@@ -473,13 +480,13 @@
         <h4>More</h4>
         <a href="faq.html">FAQ</a>
         <a href="#guarantee">Our promise</a>
-        <a href="#intake">Start online visit</a>
+        <a href="#goals">Find your program</a>
         <a href="mailto:hello@velacorehealth.com">Contact</a>
       </nav>
       <div class="footer-col">
         <h4>Get in touch</h4>
         <a href="mailto:hello@velacorehealth.com">hello@velacorehealth.com</a>
-        <a href="#intake">Start online visit</a>
+        <a href="#goals">Find your program</a>
       </div>
     </div>
 
@@ -511,7 +518,7 @@
 
   <!-- Sticky mobile CTA -->
   <div class="mobile-cta" id="mobileCta" aria-hidden="false">
-    <a href="#intake" class="btn btn-primary btn-block">Start online visit</a>
+    <a href="#goals" class="btn btn-primary btn-block" data-find>Find your program</a>
   </div>
 
   <script src="script.js"></script>

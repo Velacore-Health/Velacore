@@ -147,6 +147,32 @@
     });
   })();
 
+  // Funnel, Nov 13 2026. Goal tiles open the matching filter in the program list.
+  Array.prototype.forEach.call(document.querySelectorAll('a[data-goal][href="#treatments"]'), function (a) {
+    a.addEventListener('click', function (e) {
+      var btn = document.querySelector('.filter[data-filter="' + a.getAttribute('data-goal') + '"]');
+      var sec = document.getElementById('treatments');
+      if (!btn || !sec) return;
+      e.preventDefault();
+      btn.click();
+      sec.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      if (history.replaceState) history.replaceState(null, '', '#treatments');
+    });
+  });
+
+  // Start pages: carry the ad's UTM tags into the partner's intake link.
+  (function () {
+    var q = window.location.search;
+    if (!q || q.indexOf('utm_') === -1) return;
+    var keep = q.slice(1).split('&').filter(function (kv) { return kv.indexOf('utm_') === 0; }).join('&');
+    if (!keep) return;
+    Array.prototype.forEach.call(document.querySelectorAll('a[data-intake], a[data-start]'), function (a) {
+      var href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      a.setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + keep);
+    });
+  })();
+
   // Intake links: placeholders stay put until the hosted intake URLs are set; real links fire a GA4 event
   document.querySelectorAll('a[data-intake]').forEach(function (a) {
     a.addEventListener('click', function (e) {

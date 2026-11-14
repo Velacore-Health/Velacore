@@ -6,11 +6,16 @@ Run from the repo root after any change to prices, wording or the template:
 Prices come from docs/pricing-research.md section 5. Facts come from
 docs/openloop-proposal-notes.md. Nothing here may make an outcome claim.
 """
+import json
+import re
 import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "public" / "programs"
+START_OUT = ROOT / "public" / "start"
+# Agile intake links, one per program, kept in one place: the site audit config. Empty until OpenLoop sends them.
+INTAKE = json.loads((ROOT / ".claude/skills/vc-site-audit/audit-config.json").read_text(encoding="utf-8"))["intake_links"]
 
 
 def img_size(rel):
@@ -233,8 +238,8 @@ def mega_menu(prefix):
         cols.append(f'<div class="mega-col"><h4>{cat}</h4>{"".join(rows)}</div>')
     return (f'<div class="nav-item has-mega"><a href="{prefix}index.html#treatments" aria-haspopup="true" aria-expanded="false">Treatments</a>'
             f'<div class="mega" role="menu">{"".join(cols)}'
-            f'<div class="mega-col mega-cta"><h4>Not sure?</h4><p>Start the online visit and a licensed clinician will help determine what is appropriate.</p>'
-            f'<a class="btn btn-primary btn-sm" href="{prefix}index.html#intake">Start online visit</a></div></div></div>')
+            f'<div class="mega-col mega-cta"><h4>Not sure?</h4><p>Choose where to start. A licensed clinician reviews your intake and decides what is appropriate.</p>'
+            f'<a class="btn btn-primary btn-sm" href="{prefix}index.html#goals">Find your program</a></div></div></div>')
 
 
 GA = """  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2PQL4DLF8"></script>
@@ -259,8 +264,22 @@ TRUST = """    <div class="trust-bar">
 DISCLAIMER = "Prescription required. Starting a visit is not a guarantee of treatment. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Individual results vary. Not appropriate for everyone. Your clinician decides whether this program is appropriate for you."
 
 
-def start_button(p, cls="btn btn-primary"):
-    return f'<a class="{cls}" href="#" data-intake="{"nad+" if p["slug"] == "nad" else p["slug"]}" aria-disabled="true">Start your visit</a>'
+def intake_key(p):
+    return "nad+" if p["slug"] == "nad" else p["slug"]
+
+
+def start_button(p, cls="btn btn-primary", prefix="../"):
+    """Every Start your visit button leads to the program's Start page, never straight to the intake."""
+    return f'<a class="{cls}" href="{prefix}start/{p["slug"]}.html" data-start="{p["slug"]}">Start your visit</a>'
+
+
+def mcta_price(p):
+    """Phone bar price: two short lines so the full price always shows."""
+    first = p["plans"][0]
+    m = re.match(r"(\$\d+) your first month, then (\$\d+) a month", first["note"])
+    if m:
+        return f'<span class="mcta-price"><b>{m.group(1)} first month</b><small>then {m.group(2)}/mo</small></span>'
+    return f'<span class="mcta-price"><b>{first["price"]}{first["unit"]}</b><small>{p["name"]}</small></span>'
 
 
 def page(p):
@@ -323,7 +342,7 @@ def page(p):
         <a href="../learn.html">Learn</a>
         <a href="../index.html#provider">Clinicians</a>
         <a href="../faq.html">FAQ</a>
-        <a href="#start" class="btn btn-primary btn-sm">Start online visit</a>
+        <a href="../start/{p["slug"]}.html" class="btn btn-primary btn-sm" data-start="{p["slug"]}">Start your visit</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
@@ -450,7 +469,89 @@ def page(p):
     </div>
   </footer>
 
-  <div class="mobile-cta" id="mobileCta" aria-hidden="false"><a href="#start" class="btn btn-primary btn-block">Start online visit</a></div>
+  <div class="mobile-cta mobile-cta--price" id="mobileCta" aria-hidden="false">{mcta_price(p)}<a href="../start/{p["slug"]}.html" class="btn btn-primary" data-start="{p["slug"]}">Start your visit</a></div>
+  <script src="../script.js"></script>
+</body>
+</html>
+"""
+
+
+# Start page copy. Drafted by vc-copy in docs/funnel-copy.md; tokens are filled per program.
+START = {
+    "title": "Start your {Program} visit",
+    "meta": "Before your {Program} visit: a short online intake on our telehealth partner's secure site, review by a licensed clinician, and a full refund if you are not prescribed. Prescription required.",
+    "h1": "Before you start your {Program} visit",
+    "price": "{note} Shipping included.",
+    # The intake length is not confirmed by OpenLoop in writing, so this says "a few minutes".
+    "steps": [
+        "You fill in a secure online intake. It takes a few minutes.",
+        "A licensed clinician in your state reviews it and decides whether {Program} is appropriate for you. In a few states the first review is a live video visit.",
+        "If you are prescribed, a licensed 503A pharmacy fills your order and ships it to you. If not, your payment is refunded in full.",
+    ],
+    "handoff": "The next page is our telehealth partner's secure site, so you will see their name there instead of ours.",
+    "button": "Continue to secure intake",
+    "back": "Back to {Program}",
+    "pending": "The online visit for {Program} opens soon. In the meantime, email hello@velacorehealth.com with any questions.",
+}
+
+
+def start_page(p):
+    fill = lambda s: s.replace("{Program}", p["name"]).replace("{note}", p["plans"][0]["note"])
+    link = INTAKE.get(intake_key(p), "")
+    steps = "".join(f'<li><span class="sp-num" aria-hidden="true">{i}</span><p>{fill(s)}</p></li>' for i, s in enumerate(START["steps"], 1))
+    if link:
+        button = f'<a class="btn btn-primary btn-block" href="{link}" data-intake="{intake_key(p)}" rel="noopener">{fill(START["button"])}</a>'
+        pending = ""
+    else:
+        button = f'<a class="btn btn-primary btn-block" href="#" data-intake="{intake_key(p)}" aria-disabled="true">{fill(START["button"])}</a>'
+        pending = f'<p class="sp-pending">{fill(START["pending"]).replace("hello@velacorehealth.com", "<a href=\"mailto:hello@velacorehealth.com\">hello@velacorehealth.com</a>")}</p>'
+    media = f'<img src="../images/{p["image"]}" width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else ""
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- No analytics on Start pages until Dourado makes the health-privacy call, per vc-reviewer Nov 13 2026. -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fill(START["title"])} | Velacore Health</title>
+  <meta name="description" content="{fill(START["meta"])}" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#15302A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="icon" href="../logo-mark.png" />
+</head>
+<body class="start-page prog-{p["slug"]}">
+  <header class="site-header sp-header">
+    <div class="container nav">
+      <a href="../index.html" class="brand" aria-label="Velacore Health home">
+        <img class="brand-mark" src="../logo-mark.png" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span>
+      </a>
+      <a class="sp-back" href="../programs/{p["slug"]}.html">Back<span class="sp-back-name"> to {p["name"]}</span></a>
+    </div>
+  </header>
+  <main class="section sp-main">
+    <div class="container sp-grid">
+      <div class="sp-card">
+        <h1>{fill(START["h1"])}</h1>
+        <p class="sp-price">{fill(START["price"])}</p>
+        <ol class="sp-steps">{steps}</ol>
+        <p class="sp-handoff">{fill(START["handoff"])}</p>
+        {button}
+        {pending}
+        <p class="price-fine">{DISCLAIMER}</p>
+      </div>
+      <div class="sp-side"><div class="sp-media" aria-hidden="true">{media}</div><p class="img-note">Illustrative image. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p></div>
+    </div>
+  </main>
+  <footer class="site-footer sp-footer">
+    <div class="container footer-legal">
+      <p class="disclaimer"><b>Important:</b> Velacore Health does not provide, guarantee, or facilitate any medical services, prescriptions, or treatments. The platform coordinates access to licensed clinicians and 503A compounding pharmacies; all medical decisions are made solely by the independent clinician. All medications are prescription only. Compounded medications are not FDA approved.</p>
+      <div class="footer-bottom"><p>© <span id="year"></span> Velacore Health, First Venture Group LLC.</p>
+      <nav aria-label="Legal"><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../telehealth-consent.html">Telehealth consent</a><a href="../refund-policy.html">Refund policy</a></nav></div>
+    </div>
+  </footer>
   <script src="../script.js"></script>
 </body>
 </html>
@@ -462,6 +563,10 @@ def main():
     for p in PROGRAMS:
         (OUT / f"{p['slug']}.html").write_text(page(p), encoding="utf-8")
         print("wrote", f"public/programs/{p['slug']}.html")
+    START_OUT.mkdir(parents=True, exist_ok=True)
+    for p in PROGRAMS:
+        (START_OUT / f"{p['slug']}.html").write_text(start_page(p), encoding="utf-8")
+        print("wrote", f"public/start/{p['slug']}.html")
 
 
 if __name__ == "__main__":
