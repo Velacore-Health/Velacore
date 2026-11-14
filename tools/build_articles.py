@@ -103,9 +103,9 @@ def page(a):
       </a>
       <nav class="nav-links" id="navLinks" aria-label="Primary">
         {bp.mega_menu("../")}
-        <a href="../index.html#how">How it works</a>
+        <a href="../how-it-works.html">How it works</a>
         <a href="../learn.html">Learn</a>
-        <a href="../index.html#provider">Clinicians</a>
+        <a href="../clinicians.html">Clinicians</a>
         <a href="../faq.html">FAQ</a>
         <a href="../index.html#goals" class="btn btn-primary btn-sm" data-find>Find your program</a>
       </nav>
@@ -147,7 +147,7 @@ def page(a):
       <nav class="footer-col" aria-label="Programs"><h4>Programs</h4>
         {"".join(f'<a href="../programs/{p["slug"]}.html">{p["name"]}</a>' for p in bp.PROGRAMS)}</nav>
       <nav class="footer-col" aria-label="More"><h4>More</h4>
-        <a href="../index.html#how">How it works</a><a href="../learn.html">Learn</a><a href="../faq.html">FAQ</a><a href="mailto:hello@velacorehealth.com">Contact</a></nav>
+        <a href="../how-it-works.html">How it works</a><a href="../learn.html">Learn</a><a href="../faq.html">FAQ</a><a href="../pricing.html">Pricing</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
       <nav class="footer-col" aria-label="Legal"><h4>Legal</h4>
         <a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../telehealth-consent.html">Telehealth Consent</a><a href="../refund-policy.html">Refund Policy</a></nav>
     </div>

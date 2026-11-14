@@ -13,6 +13,13 @@
   <url><loc>https://www.velacorehealth.com/programs/nad</loc></url>
   <url><loc>https://www.velacorehealth.com/programs/glutathione</loc></url>
   <url><loc>https://www.velacorehealth.com/programs/sermorelin</loc></url>
+<!-- pages:start -->
+  <url><loc>https://www.velacorehealth.com/how-it-works</loc><priority>0.7</priority></url>
+  <url><loc>https://www.velacorehealth.com/clinicians</loc><priority>0.7</priority></url>
+  <url><loc>https://www.velacorehealth.com/pricing</loc><priority>0.7</priority></url>
+  <url><loc>https://www.velacorehealth.com/about</loc><priority>0.7</priority></url>
+  <url><loc>https://www.velacorehealth.com/contact</loc><priority>0.7</priority></url>
+<!-- pages:end -->
 <!-- articles:start -->
   <url><loc>https://www.velacorehealth.com/learn/what-is-a-503a-compounding-pharmacy</loc><lastmod>2026-11-13</lastmod><priority>0.6</priority></url>
   <url><loc>https://www.velacorehealth.com/learn/semaglutide-vs-tirzepatide</loc><lastmod>2026-11-13</lastmod><priority>0.6</priority></url>

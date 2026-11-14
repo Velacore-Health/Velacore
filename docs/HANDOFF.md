@@ -47,6 +47,17 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+- **Five stand-alone pages built Nov 13, committed, not pushed.** How it works, Clinicians,
+  Pricing, About and Contact, at `public/<slug>.html`. Copy is in `tools/pages.py`, builder is
+  `python -I tools/build_pages.py`. The Pricing cards read from the program data, nothing typed
+  twice. Menus and footers on every page point to them; the home page sections remain. No
+  analytics on the five pages. vc-reviewer PASS. Dourado asked for these and for the Learn
+  articles to go out in the same push; the push still needs his "push it" for the batch.
+- **Open on those pages.** The Pricing page says prices are illustrative until the partner's
+  final list is confirmed; no other page says so. Dourado decides whether to add the same line
+  wherever a price shows. The reviewer will block that sentence and real intake links being live
+  together. Contact has no phone or mailing address yet. The credentialing list on Clinicians
+  comes from the Nov 2 proposal and needs a recheck against the signed Agile agreement.
 - **Learn articles, batch 1, committed 310ec22, not pushed.** Four pages in `public/learn/`, built
   by `python -I tools/build_articles.py` from `tools/articles.py`. vc-reviewer PASS after three
   fixes. Byline says written by Velacore Health and not reviewed by a clinician. No analytics on
