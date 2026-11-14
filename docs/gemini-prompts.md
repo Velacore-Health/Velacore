@@ -97,6 +97,30 @@ Photoreal candid photograph, horizontal 4 by 3, like a real moment someone snapp
 
 Photoreal candid photograph, horizontal 16 by 9. Two friends in their late thirties to early forties, a man and a woman, no gray hair, natural ordinary builds, walking side by side on a tree-lined park path in soft early morning light, mid-conversation and laughing, in current casual everyday wear: she in straight-leg jeans, white sneakers and a light oversized knit sweater, he in dark chinos, clean white sneakers and an unbuttoned light overshirt over a plain tee. One blue merle Australian shepherd, gray, black and white speckled coat with copper markings, trots beside them on a loose plain leash held by the woman. Seen from a little distance, slightly from the side, green trees and a hint of mist behind them. Natural skin texture, true-to-life colors, 85 mm lens look, gentle background blur. Bright, airy, clean wellness brand look: cool natural daylight, fresh greens, pale and soft tones, no warm golden-hour or orange light. Not a workout, no athletic wear, no fitness trackers in focus, no text, no logos, no signs.
 
+## 11. Hero group shot, save as `hero-group.png`, folder `lifestyle`
+
+Written Nov 13 2026. The first try put one vial behind the others and left the splash with no vial in it. This version uses the five finished vial photos as references, so the labels are already right, and asks for one straight row.
+
+Start a new Gemini chat. Set Aspect ratio to 4:3. Attach all five photos from the Desktop folder `velacore-vials\group-refs`.
+
+```
+Photoreal product photograph, horizontal 4 by 3. Use the five attached photos as exact references for the five vials: same glass, same deep matte pine green caps with silver crimps, and the same printed labels, word for word, with the same colors. Do not change, add or remove any word on any label, and add no other text anywhere. Stand all five vials upright in one straight row across the middle of the frame, side by side, evenly spaced with a small gap between each, all on the same line, all the same size, none in front of or behind another, none touching. From left to right: Microdosing GLP-1, Semaglutide, Tirzepatide in the center, NAD+, Sermorelin. Every label faces the camera, fully visible, sharp, dry and readable, physically wrapped on the curved glass. All five vials stand in one shallow layer of perfectly clear water on a white surface, and each vial has its own small crown-shaped splash of clear water rising around its base, with a few clean droplets in the air. The splashes stay low, below the labels, and never cover them. Camera straight on at label height, looking down about 10 degrees. Background a soft pale mint, color EEF5F1, fading to white at the top. Bright cool daylight from the upper left, high-speed photography, crystal clear water, gentle reflections on the wet surface. Leave clean space above and to both sides of the row. No other objects, no syringe, no needle, no color in the water.
+```
+
+If one vial drifts behind the others, reply in the same chat: "same image, but all five vials in one straight row, none behind another, every label fully visible."
+
+Floating version, Dourado's idea Nov 13 2026, because a splash under five vials read oddly. Use it in the same chat as the five photos:
+
+```
+New version, same five vials from the attached photos, same labels word for word, same pine green caps. Horizontal 4 by 3. No water on the ground and no splash. The five vials float in the air in front of a soft pale mint background, color EEF5F1, fading to white at the top, as if gently suspended mid-fall. They form one loose row across the frame from left to right: Microdosing GLP-1, Semaglutide, Tirzepatide in the center, NAD+, Sermorelin. Each vial sits at a slightly different height, a gentle wave, and each is tilted a little, no more than 10 degrees, every one at a different small angle. All five are the same size, none in front of or behind another, none overlapping or touching, with clear space between them. Every label faces the camera, fully visible, sharp and readable. A few small clear water droplets float near the vials, never on the labels. A soft, faint shadow on a white surface below them. Bright cool daylight from the upper left, crisp studio product photography, high detail on the glass. No other objects, no text other than the labels, no syringe, no needle.
+```
+
+The floating try, Nov 13, was rejected: Dourado found it flat, and the fifth label read a misspelled word instead of Sermorelin. Next, his marble idea:
+
+```
+New version, same five vials from the attached photos, same labels word for word, same pine green caps. Check every label against the attached photos, especially the right-hand vial, which must read Sermorelin. Horizontal 4 by 3. The vials stand upright, never tilted, on a pale white marble tabletop with soft gray veining. On the marble sit simple solid risers of the same white marble, plain rectangular blocks with crisp edges, at three heights, so the vials are staggered: the center vial on the tallest riser, the two vials beside it on medium risers, the two outer vials on the marble tabletop itself. From left to right: Microdosing GLP-1, Semaglutide, Tirzepatide in the center, NAD+, Sermorelin. All five in one row across the frame, side by side, evenly spaced, none in front of or behind another, none touching. Every label faces the camera, fully visible, sharp and readable. Background a soft pale mint wall, color EEF5F1, fading to white at the top. Bright cool daylight from the upper left, soft natural shadows on the marble, crisp studio product photography, high detail on the glass. No water, no plants, no other objects, no text other than the labels, no syringe, no needle.
+```
+
 ---
 
 ## Reject the image if any of these show
