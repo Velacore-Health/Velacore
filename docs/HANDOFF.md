@@ -93,7 +93,9 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   and www.velacore.health are aliases. Let's Encrypt certificate issued, expires Feb 11 2027,
   renews itself. A redirect in netlify.toml sends velacore.health to www.velacorehealth.com, live
   after the next push. The Shopify stopgap no longer serves the domain; whether to close the store
-  is Dourado's call.
+  is Dourado's call. Decided Nov 13: Jonathan is closing the Shopify account. After it closes,
+  `shopify-theme/`, `velacore-shopify-theme.zip` and `shopify-products-import.csv` are history; the
+  site audit's stopgap store checks can be retired.
 - **Google Search Console set up Nov 13** under firstventuregroupllc@gmail.com: Domain property
   velacorehealth.com, verified by a TXT record in Squarespace DNS, a second google-site-verification
   line next to the Workspace one. Never delete either. Sitemap https://www.velacorehealth.com/sitemap.xml
