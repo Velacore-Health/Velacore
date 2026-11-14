@@ -59,8 +59,7 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   NAD+ placeholder pattern, with $199 from `docs/pricing-research.md`; and the refill rhythm and
   video and support lines carried over from NAD+. Check all of it against the written Agile
   proposal, and take glutathione down if the proposal leaves it out.
-- **No glutathione vial photo yet.** The home card and menu show the logo tile until Dourado runs
-  block 12 in `docs/gemini-prompts.md`.
+- **Glutathione vial photo added Nov 13,** a Gemini edit of the NAD+ splash photo, vc-reviewer PASS.
 - **Hero:** the five-vial marble group shot is the home hero, with one wrong digit on each label
   corrected by hand to 503A. vc-reviewer PASS.
 - **Stopgap Shopify store and CSV:** the glutathione form wording there was made neutral, but the

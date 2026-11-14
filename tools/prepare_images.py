@@ -13,8 +13,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 FOLDERS = {
-    "products": {"tirzepatide", "semaglutide", "microdosing", "nad", "sermorelin"},
-    "lifestyle": {"hero", "step-visit", "step-clinician", "step-delivery", "wellness"},
+    "products": {"tirzepatide", "semaglutide", "microdosing", "nad", "glutathione", "sermorelin"},
+    "lifestyle": {"hero", "hero-group", "step-visit", "step-clinician", "step-delivery", "wellness"},
 }
 
 
