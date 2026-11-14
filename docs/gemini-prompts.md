@@ -135,6 +135,20 @@ Edit the first attached photo. Keep everything exactly the same: the vial, the p
 
 ---
 
+## 14. Goal tiles for the home page, save as `goal-weight.png`, `goal-vitality.png`, `goal-hormone.png`, folder `lifestyle`
+
+Added Nov 13 2026 for the funnel plan in `docs/funnel-plan.md`. Same marble risers as the hero. Each in a new chat, Aspect ratio 4:3, attach only the vial photos named, from the Desktop folder `velacore-vials\group-refs`.
+
+Weight, attach `microdosing.jpg`, `semaglutide.jpg`, `tirzepatide.jpg`:
+
+```
+Photoreal product photograph, horizontal 4 by 3. Use the three attached photos as exact references for three vials: same glass, same deep matte pine green caps with silver crimps, and the same printed labels, word for word. Do not change, add or remove any word on any label, and add no other text anywhere. The three vials stand upright on a pale white marble tabletop with soft gray veining, staggered on simple solid white marble risers with crisp edges: the center vial on a taller riser, the two others on the tabletop. From left to right: Microdosing GLP-1, Tirzepatide in the center, Semaglutide. Side by side, evenly spaced, none in front of or behind another, none touching. Every label faces the camera, fully visible, sharp and readable. Background a soft pale mint wall, color EEF5F1, fading to white at the top. Bright cool daylight from the upper left, soft natural shadows, crisp studio product photography. Leave generous empty space around the group. No water, no plants, no other objects, no syringe, no needle.
+```
+
+Vitality, attach `nad.jpg`, `glutathione.jpg`: the same prompt with "two attached photos as exact references for two vials", and "From left to right: NAD+ on a taller riser, Glutathione on the tabletop."
+
+Hormone support, attach `sermorelin.jpg`: the same prompt with "the attached photo as an exact reference for one vial", and "The Sermorelin vial stands alone on one white marble riser in the center."
+
 ## 13. Peptides explainer video clips, Veo in Gemini
 
 Added Nov 13 2026. Dourado chose Gemini's Veo over an ElevenLabs Pro upgrade. Five clips of 8 seconds, 16 by 9, no text and no people in any of them; captions, Eric's narration, music and the closing card are added in the edit. Gemini adds its own sound to each clip; the edit mutes it. Save each as `clip1.mp4` to `clip5.mp4` in `03-edits/peptides-video/clips/`.
