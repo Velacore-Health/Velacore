@@ -99,3 +99,11 @@ If the video is ever used outside the Learn page, on social, ads, email or YouTu
 - Pronunciation to check on the first take: peptide as PEP-tide, receptor as ree-SEP-ter.
 - No product names, no prices and no brand-name drugs appear, so the video names no treatment. "Prescription required" is not strictly needed on the card, but it can sit in small type under the title card if Dourado wants it.
 - The key and lock line is an analogy for fit only. It makes no claim about what the response does.
+
+## Edit decisions, Nov 13 2026, approved by Dourado
+
+- Look: AI video clips from Veo in Gemini, prompts in `docs/gemini-prompts.md` block 13, replacing the flat code animation, which Dourado found not cutting edge enough.
+- Voice: Eric, ElevenLabs voice id cjVigY5qzO86Huf0OWal, settings stability 0.8, style 0, speed 0.84, for a calm, educational, empathetic read. Opening line softened to "If peptides sound complicated, you are not alone."
+- Pacing: about 0.6 seconds between the end of one line and the start of the next, trailing silence trimmed. Dourado approved this pace on the clips 1 and 2 preview.
+- Music: a quiet ambient bed from ElevenLabs music, ducked under the voice, faded out before its closing swell.
+- Step tags: a small pill in the lower left names each step: Amino acids, Peptide, Protein, Messenger.
