@@ -47,6 +47,25 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+- **Learn articles, batch 1, committed 310ec22, not pushed.** Four pages in `public/learn/`, built
+  by `python -I tools/build_articles.py` from `tools/articles.py`. vc-reviewer PASS after three
+  fixes. Byline says written by Velacore Health and not reviewed by a clinician. No analytics on
+  them. Before pushing on a later day, set the dates to the real day. After the push, check that
+  /learn still serves the hub, since a `learn` folder now sits beside `learn.html`.
+- **Policy page drafts, Nov 13, in `docs/legal-drafts/`, nothing public.** Dourado asked for the
+  reference site's policy pages to be studied and matched in our own words. Ten files by vc-copy:
+  telehealth consent, health information and HIPAA, privacy choices, privacy policy changes, terms
+  additions, refund additions, contact page, FAQ additions, About page, and a README with the
+  questions for OpenLoop, the attorney and Dourado. Most wait on the attorney or OpenLoop papers.
+  Contact, About and five FAQ answers are the nearest to ready. Categories on the reference site
+  outside our six programs were not drafted; adding any is Dourado's decision plus written
+  OpenLoop confirmation.
+- **Live site problems found while drafting, not fixed yet.** `public/privacy.html` still
+  describes our own intake questionnaire and Business Associate Agreements, which no longer match.
+  `public/telehealth-consent.html` says starting a visit is consent to that page, but the binding
+  consent is on the partner's intake. `public/script.js` would send the program name to Google on
+  an intake click once real links go in; settle before the intake URLs arrive. "HIPAA-compliant
+  platform" and "Shipping is included" have no written source.
 - **Glutathione is back on the site, Dourado's decision in chat, Nov 13.** His words: "I would
   put glutathione back on the list. I'm pretty sure it's going to be on there." Basis: the OpenLoop
   rep named it as an Agile program on the Nov 12 call. Not in writing yet. It is the sixth program:
