@@ -65,6 +65,12 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 - **Stopgap Shopify store and CSV:** the glutathione form wording there was made neutral, but the
   rest is still the old Asher-era store, old prices and the $20 fee. Never import the CSV or upload
   the theme as is.
+- **Pushed Nov 13 on Dourado's "push it":** d5586e8 to b3098ae, ten commits, live on
+  https://velacore-health.netlify.app. Verified: home, all six program pages, the four legal pages,
+  FAQ and Learn return 200, the 404 page returns 404, the new hero and glutathione images load, and
+  the live audit renders the Netlify home clean at 375 and 1280. velacorehealth.com is still the old
+  Shopify store and still fails the audit: title My Store, broken policy links, missing disclaimers,
+  old prices. That waits on the domain cutover or a Shopify fix.
 
 ## Status as of Nov 12, 2026
 
