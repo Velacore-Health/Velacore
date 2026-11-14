@@ -86,6 +86,8 @@ Drafted Nov 6 2026 after Kevin read the Netlify account: one team on the Persona
 
 ### Domain
 
+**Moved Nov 13 2026.** velacorehealth.com and velacore.health point at the Netlify project; www.velacorehealth.com is primary. Details and the exact records are in the Nov 13 block of `docs/HANDOFF.md`. Everything below in this section is the plan as written before the move.
+
 Facts read Nov 6 2026 by DNS lookup, nothing changed:
 
 - velacorehealth.com is registered at Squarespace, per Dourado. Its name servers are Google Cloud DNS, ns-cloud-d1 to d4.googledomains.com, which is what Squarespace uses for domains that came over from Google Domains. So the DNS records are edited in the Squarespace domain panel.

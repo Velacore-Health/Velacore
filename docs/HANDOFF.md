@@ -83,6 +83,18 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   `03-edits/peptides-video/`; clips 3 to 5 wait on the Gemini video limit. Decisions are in
   `docs/video-peptides-script.md`. ElevenLabs video needs their Pro plan; Dourado chose Gemini.
 
+- **Domain moved Nov 13, on Dourado's word "move everything over", before the OpenLoop signing.**
+  In Squarespace DNS for velacorehealth.com: the A record for @ changed from 23.227.38.65 to
+  75.2.60.5 and the www CNAME from shops.myshopify.com to velacore-health.netlify.app. The five
+  Google Workspace MX records and the verification TXT were not touched and were checked after.
+  velacore.health: the Squarespace Defaults preset was deleted, A @ 75.2.60.5 and CNAME www to
+  velacore-health.netlify.app added; Domain Connect and Email Security presets kept. In Netlify:
+  www.velacorehealth.com is the primary domain, velacorehealth.com redirects to it, velacore.health
+  and www.velacore.health are aliases. Let's Encrypt certificate issued, expires Feb 11 2027,
+  renews itself. A redirect in netlify.toml sends velacore.health to www.velacorehealth.com, live
+  after the next push. The Shopify stopgap no longer serves the domain; whether to close the store
+  is Dourado's call. Next: Google Search Console.
+
 ## Status as of Nov 12, 2026
 
 Source: the Nov 12 OpenLoop call, Pocket recording in Dourado's personal Drive. Summary and
