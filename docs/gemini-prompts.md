@@ -135,6 +135,24 @@ Edit the first attached photo. Keep everything exactly the same: the vial, the p
 
 ---
 
+## 13. Peptides explainer video clips, Veo in Gemini
+
+Added Nov 13 2026. Dourado chose Gemini's Veo over an ElevenLabs Pro upgrade. Five clips of 8 seconds, 16 by 9, no text and no people in any of them; captions, Eric's narration, music and the closing card are added in the edit. Gemini adds its own sound to each clip; the edit mutes it. Save each as `clip1.mp4` to `clip5.mp4` in `03-edits/peptides-video/clips/`.
+
+Every clip ends with the same style line, so the five match:
+
+> Style: photoreal scientific 3D visualization, macro scale, translucent glass-like spheres in soft mint, jade green and pale aqua, a clean bright pale mint and white environment, soft diffused daylight, shallow depth of field, very slow gentle camera drift, calm, serene and reassuring, smooth and unhurried motion. No text, no letters, no labels, no numbers, no people, no hands, no syringes, no needles, no pills, no logos.
+
+1. Opening. `Slow dreamy opening shot. Dozens of small translucent glass-like spheres float weightlessly in a bright, airy space, drifting very slowly, catching soft light, gently out of focus at first, then the nearest ones come softly into focus.` + style line.
+2. Amino acids. `A slow push-in on loose translucent spheres of slightly different soft colors, mint, jade, aqua and pale green, floating apart from each other. One sphere drifts to the center and comes into crisp focus, glowing softly, while the others float calmly around it.` + style line.
+3. Peptide. `Six translucent spheres of slightly different soft colors drift slowly toward each other and gently connect one by one with thin glowing links, forming a short, slightly curved chain of six beads that floats calmly in the center of the frame.` + style line.
+4. Protein. `A long chain of many small linked translucent spheres floats in the air, then slowly and gracefully folds in on itself into a compact, rounded, tangled three-dimensional shape, like a soft ball of beads, rotating very slowly.` + style line.
+5. Messenger. `Close macro view of the smooth, softly glowing surface of a cell, like a gentle pale mint landscape, with a small cup-shaped receptor rising from it. A short chain of four linked translucent spheres drifts slowly down from above and settles gently into the receptor, and a soft ripple of light spreads calmly across the cell surface.` + style line.
+
+Reject a clip if any text or letters appear, if it shows a person, hands, a needle or a pill, or if the motion is fast or jarring.
+
+---
+
 ## Reject the image if any of these show
 
 - Any word on a vial label misspelled, warped, doubled or changed from the attached label artwork.

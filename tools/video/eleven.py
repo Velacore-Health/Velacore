@@ -3,6 +3,7 @@
   python -I tools/video/eleven.py voices
   python -I tools/video/eleven.py tts VOICE_ID "text" out.mp3
   python -I tools/video/eleven.py credits
+  python -I tools/video/eleven.py music "prompt" SECONDS out.mp3
 """
 import json, sys, urllib.request
 from pathlib import Path
@@ -31,11 +32,20 @@ def main():
             print(v["voice_id"], "|", v["name"], "|", v.get("category"), "|", l.get("gender"), l.get("age"), l.get("accent"), l.get("descriptive") or l.get("description"), l.get("use_case"))
     elif cmd == "tts":
         vid, text, out = sys.argv[2], sys.argv[3], sys.argv[4]
+        # optional 5th argument: JSON voice settings, e.g. '{"stability":0.75,"style":0,"speed":0.85}'
+        vs = {"stability": 0.55, "similarity_boost": 0.75, "style": 0.1, "use_speaker_boost": True}
+        if len(sys.argv) > 5:
+            vs.update(json.loads(sys.argv[5]))
         audio = call(f"/v1/text-to-speech/{vid}?output_format=mp3_44100_128",
-                     {"text": text, "model_id": "eleven_multilingual_v2",
-                      "voice_settings": {"stability": 0.55, "similarity_boost": 0.75, "style": 0.1, "use_speaker_boost": True}},
+                     {"text": text, "model_id": "eleven_multilingual_v2", "voice_settings": vs},
                      accept="audio/mpeg")
         Path(out).write_bytes(audio); print("wrote", out, len(audio), "bytes")
+    elif cmd == "music":
+        music(sys.argv[2], sys.argv[3], sys.argv[4])
+
+def music(prompt, seconds, out):
+    audio = call("/v1/music?output_format=mp3_44100_128", {"prompt": prompt, "music_length_ms": int(float(seconds) * 1000)}, accept="audio/mpeg")
+    Path(out).write_bytes(audio); print("wrote", out, len(audio), "bytes")
 
 if __name__ == "__main__":
     main()
