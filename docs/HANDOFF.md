@@ -47,6 +47,23 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+- **Nov 16: second OpenLoop proposal read, nothing on the site changed yet.** File is
+  "Velacore Health - OpenLoop - Proposal - 11_12_26 (1).pdf", 30 pages, in the Velacore Workspace
+  Drive, dated Nov 12 with a 30 day expiration. It stays out of the repo, and so does the column
+  showing what Velacore receives. Read page by page in the Drive viewer, not downloaded.
+  What it changes for the site, all still marked illustrative until the Order Form is signed:
+  - Patient prices are listed as fixed amounts and differ from the site on five of six programs.
+    Month to month: Semaglutide $209, Tirzepatide $249, Microdosing $179, NAD+ $229,
+    Sermorelin $229, Glutathione $145. 12 weeks up front: $597, $717, $507, $537, $537, $387.
+    The site's lower first month price is not in the proposal at all.
+  - Glutathione is now in writing as an injection, with 4, 12 and 24 week plans.
+  - New disclosure lines: all patient-facing materials must be approved by OpenLoop before use;
+    Velacore receives PHI only under the BAA; no tracking pixels and no PHI-based advertising.
+    This bears on the open analytics decision and on the rule that patient data never touches
+    our servers.
+  - The GLP-1 pages are titled as including care coaching. The site keeps no coaching language.
+  - LegitScript is not mentioned anywhere in the document.
+  - Open questions for OpenLoop and the attorney were given to Dourado in chat on Nov 16.
 - **Five stand-alone pages built Nov 13, committed, not pushed.** How it works, Clinicians,
   Pricing, About and Contact, at `public/<slug>.html`. Copy is in `tools/pages.py`, builder is
   `python -I tools/build_pages.py`. The Pricing cards read from the program data, nothing typed
