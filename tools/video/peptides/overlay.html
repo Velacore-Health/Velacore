@@ -10,26 +10,35 @@
   /* subtitle mode: words only, a soft light halo keeps them readable on any frame */
   #sub{position:absolute;left:0;right:0;bottom:58px;text-align:center;font-weight:500;font-size:35px;letter-spacing:.005em;line-height:1.2;
        text-shadow:0 0 5px rgba(255,255,255,.98),0 0 12px rgba(255,255,255,.9),0 0 26px rgba(255,255,255,.75),0 1px 1px rgba(255,255,255,.9)}
+  /* the four step names under the four beads of the opening clip */
+  #steps{position:absolute;inset:0;display:none}
+  #steps span{position:absolute;top:452px;width:240px;margin-left:-120px;text-align:center;font-weight:600;font-size:25px;
+       text-shadow:0 0 5px rgba(255,255,255,.98),0 0 12px rgba(255,255,255,.9),0 0 26px rgba(255,255,255,.75)}
   /* closing scene */
   #end{position:absolute;inset:0;background:var(--mint);display:none}
   #logo{position:absolute;top:44px;left:50%;height:64px;transform:translateX(-50%)}
   #head{position:absolute;top:136px;left:0;right:0;text-align:center;font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:46px;letter-spacing:-.01em;font-variation-settings:"opsz" 96,"SOFT" 30}
-  #row{position:absolute;top:224px;left:0;right:0;display:flex;justify-content:center;gap:22px}
+  #row{position:absolute;top:224px;left:0;right:0;display:none;justify-content:center;gap:22px}
+  /* the six-vial group photo from the home page, cropped to a wide band */
+  #group{position:absolute;top:198px;left:50%;width:640px;height:316px;margin-left:-320px;border-radius:20px;overflow:hidden;background:#fff}
+  #group img{width:640px;display:block;margin-top:-84px}
   .p{width:172px;text-align:center}
   .p img{width:172px;height:216px;object-fit:cover;border-radius:18px;display:block;background:#fff}
   .p span{display:block;margin-top:12px;font-weight:600;font-size:19px}
-  #btn{position:absolute;top:520px;left:50%;transform:translateX(-50%);background:var(--pine);color:#fff;font-weight:600;font-size:26px;padding:17px 44px;border-radius:999px;white-space:nowrap}
-  #url{position:absolute;top:596px;left:0;right:0;text-align:center;font-size:21px;font-weight:500;color:var(--soft)}
+  #btn{position:absolute;top:532px;left:50%;transform:translateX(-50%);background:var(--pine);color:#fff;font-weight:600;font-size:26px;padding:17px 44px;border-radius:999px;white-space:nowrap}
+  #url{position:absolute;top:606px;left:0;right:0;text-align:center;font-size:21px;font-weight:500;color:var(--soft)}
   #fine{position:absolute;bottom:26px;left:120px;right:120px;text-align:center;font-size:15px;line-height:1.45;color:var(--soft)}
   #cur{position:absolute;width:34px;height:34px;left:0;top:0}
 </style>
 </head>
 <body>
 <div id="sub"></div>
+<div id="steps"></div>
 <div id="end">
   <img id="logo" src="../../../public/logo-full.png" alt="">
   <div id="head">See which program may fit you</div>
   <div id="row"></div>
+  <div id="group"><img src="../../../public/images/lifestyle/hero-group.webp" alt=""></div>
   <div id="btn">Find your program</div>
   <div id="url">velacorehealth.com</div>
   <div id="fine">Prescription required. A licensed clinician decides whether a program is appropriate for you. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Images are illustrative. Education only, not medical advice.</div>
@@ -46,7 +55,9 @@ for (const [slug, name] of PROGRAMS) {
 const q = new URLSearchParams(location.search);
 const ease = x => { x = Math.max(0, Math.min(1, x)); return 1 - Math.pow(1 - x, 3); };
 const fade = (el, t, a, d, rise) => { const k = ease((t - a) / d); el.style.opacity = k; if (rise) el.style.translate = `0 ${(1 - k) * rise}px`; };
-window.setSub = s => { document.getElementById("end").style.display = "none"; document.getElementById("sub").textContent = s; };
+window.setSteps = xs => { document.getElementById("sub").textContent = ""; const st = document.getElementById("steps"); st.style.display = "block";
+  st.innerHTML = ["Amino acids", "Peptide", "Protein", "Messenger"].map((n, i) => `<span style="left:${xs[i]}px">${n}</span>`).join(""); };
+window.setSub = s => { document.getElementById("steps").style.display = "none"; document.getElementById("end").style.display = "none"; document.getElementById("sub").textContent = s; };
 // closing scene, t in seconds from its first frame
 window.renderEnd = t => {
   document.getElementById("sub").textContent = "";
@@ -54,11 +65,12 @@ window.renderEnd = t => {
   fade(document.getElementById("logo"), t, 0.3, 0.7, 0);
   fade(document.getElementById("head"), t, 0.7, 0.8, 14);
   [...row.children].forEach((el, i) => fade(el, t, 1.2 + i * 0.13, 0.7, 18));
+  fade(document.getElementById("group"), t, 1.2, 0.9, 18);
   const btn = document.getElementById("btn");
   fade(btn, t, 2.5, 0.6, 0); fade(document.getElementById("url"), t, 2.9, 0.6, 0); fade(document.getElementById("fine"), t, 1.0, 0.8, 0);
   // the cursor glides in to the button, presses once, and rests
   const cur = document.getElementById("cur");
-  const k = ease((t - 3.3) / 1.3), x0 = 1010, y0 = 690, x1 = 742, y1 = 556;
+  const k = ease((t - 3.3) / 1.3), x0 = 1010, y0 = 690, x1 = 742, y1 = 568;
   cur.style.opacity = ease((t - 3.2) / 0.3);
   cur.style.translate = `${x0 + (x1 - x0) * k}px ${y0 + (y1 - y0) * k}px`;
   const press = t > 4.75 && t < 5.0 ? 1 - Math.abs((t - 4.875) / 0.125) : 0;

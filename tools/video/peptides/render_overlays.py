@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).parent
 WORK = ROOT / "03-edits" / "peptides-video"
 FPS, END_LEN = 30, 7.0
+STEP_X = [313, 528, 742, 962]   # centers of the four beads in clips/clip1.mp4 at about six seconds
 
 subs = json.loads((WORK / "subs" / "list.json").read_text(encoding="utf-8"))
 with sync_playwright() as p:
@@ -22,6 +23,10 @@ with sync_playwright() as p:
     for i, s in enumerate(subs):
         pg.evaluate("s => setSub(s)", s["text"])
         pg.screenshot(path=str(WORK / "subs" / f"s{i:02d}.png"), omit_background=True)
+    # the four step names, placed under the four beads at the end of the opening clip
+    pg.evaluate("xs => setSteps(xs)", STEP_X)
+    pg.screenshot(path=str(WORK / "subs" / "steps.png"), omit_background=True)
+    pg.evaluate("s => setSub(s)", "")
     print("subtitles drawn:", len(subs))
     if "end" in sys.argv[1:]:
         enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "image2pipe", "-framerate", str(FPS), "-i", "-",

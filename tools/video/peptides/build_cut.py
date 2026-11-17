@@ -22,7 +22,11 @@ MUSIC_SKIP = 6.0
 MUSIC = "music-bed-aura.mp3"             # soothing ambient pad, ElevenLabs music, Nov 16
 LEAD_IN, LEAD_IN_GAIN = "lead-in-swell.wav", 0.0   # lead-in sound switched off Nov 16: Dourado disliked the chime and the swell; the bed fading up is the lead-in
 LINE_LUFS = -19                          # every narration line is brought to the same loudness before the mix
+STEPS_IN = 5.0                            # the four step names come in once the four beads have settled
+GAP_AFTER_OPEN = 1.9                      # longer pause after line 1 so all four step names can be read
 SUBS = True                              # subtitles on the picture, words only, drawn by render_overlays.py
+# hand-set subtitle breaks where the automatic ones split a phrase badly; the words must match the line exactly
+SUB_OVERRIDE = {6: ["Whether a peptide is right for you", "is a licensed clinician's decision,", "and it's made after a review", "of your health history."]}
 SUB_MAX = 44                             # longest subtitle line, in characters
 MINT, PINE = "EEF5F1", "15302A"
 FONT = "C\\:/Windows/Fonts/segoeuisl.ttf"  # stand-in; the brand face Hanken Grotesk is not installed here
@@ -37,7 +41,7 @@ LINES = [
 ]
 PILLS = {1: "label-amino.png", 2: "label-peptide.png", 3: "label-protein.png", 4: "label-messenger.png"}
 # where each clip starts in its source, in seconds
-CLIP_IN = {0: 0.0, 1: 5.5, 2: 1.4, 3: 0.0, 4: 0.3}
+CLIP_IN = {0: 0.0, 1: 5.5, 2: 1.4, 3: 0.0, 4: 0.0}
 CLICK_AT, CLICK_GAIN = 4.82, 0.4          # seconds into the closing scene when the button is pressed; click level
 
 
@@ -65,8 +69,9 @@ beats, t = [], LEAD
 for i in range(6):
     d = speech_end(f"{VO}/beat{i + 1}.mp3")
     beats.append({"beat": i + 1, "start": round(t, 3), "end": round(t + d, 3), "speech": round(d, 3)})
-    t += d + GAP
+    t += d + (GAP_AFTER_OPEN if i == 0 else GAP)
 cuts = [0.0] + [round((beats[i]["end"] + beats[i + 1]["start"]) / 2, 3) for i in range(5)]
+cuts[1] = round(beats[1]["start"] - 0.25, 3)   # hold the opening picture until just before line 2, so the step names can be read
 card_at = round(beats[5]["end"] + CARD_LAG, 3)
 end = round(card_at + CARD_HOLD, 3)
 cuts += [card_at, end]                    # 8 marks, 7 picture segments
@@ -100,11 +105,9 @@ for k in range(5):
         else:
             filt.append(f"[{n}:v]trim=start={CLIP_IN[k]}:duration={seg_len[k]},setpts=PTS-STARTPTS,{norm}[s{k}]")
     labels.append(f"s{k}")
-# beat 6: the clinician photo from the site with a slow push in, so the picture shows what the line says
-n = add("-loop", "1", "-framerate", str(FPS), "-t", str(seg_len[5]), "-i", str(ROOT / "public" / "images" / "lifestyle" / "step-clinician.webp"))
-nf = int(seg_len[5] * FPS) + 2
-filt.append(f"[{n}:v]scale=3200:-2,crop=3200:1800:0:300,zoompan=z='1+0.07*on/{nf}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
-            f"d=1:s={W}x{H}:fps={FPS},trim=duration={seg_len[5]},setpts=PTS-STARTPTS,setsar=1,format=yuv420p[s5]")
+# beat 6: the clinician at her desk reviewing a chart, clips/clip6.mp4, animated in Veo from the step-clinician office photo
+n = add("-i", "clips/clip6.mp4")
+filt.append(f"[{n}:v]trim=start=0.3:duration={seg_len[5]},setpts=PTS-STARTPTS,{norm}[s5]")
 labels.append("s5")
 # closing scene: the six programs, the button and a click, drawn by render_overlays.py
 n = add("-i", "end-scene.mp4")
@@ -143,7 +146,7 @@ def phrases(line):
 
 subs = []
 for b, line in zip(beats, LINES):
-    ph = phrases(line)
+    ph = SUB_OVERRIDE.get(b["beat"]) or phrases(line)
     total = sum(len(x) for x in ph)
     t0 = b["start"]
     for x in ph:
@@ -157,6 +160,12 @@ draw = [sys.executable, "-I", str(ROOT / "tools" / "video" / "peptides" / "rende
 if "end" in sys.argv[2:] or not (WORK / "end-scene.mp4").exists():
     draw.append("end")
 subprocess.run(draw, check=True, cwd=ROOT)
+# the four step names appear under the four beads as she says "four steps"
+n = add("-loop", "1", "-framerate", str(FPS), "-t", str(end), "-i", "subs/steps.png")
+sa, sz = STEPS_IN, cuts[1] - XF / 2 - 0.3
+filt.append(f"[{n}:v]format=rgba,fade=t=in:st={sa:.3f}:d=0.4:alpha=1,fade=t=out:st={sz:.3f}:d=0.3:alpha=1[stp]")
+filt.append(f"[{prev}][stp]overlay=0:0:enable='between(t,{sa:.3f},{sz + 0.3:.3f})'[stepped]")
+prev = "stepped"
 if SUBS:
     for i, (a, z, x) in enumerate(subs):
         last = i == len(subs) - 1 or subs[i + 1][0] - z > 0.3

@@ -4,6 +4,20 @@ The running list of what still has to be made or changed, in the order we will d
 
 Gemini video and image credits reset at 9:21 PM on Nov 16. Video gave two clips per window last time, so the two clips go first.
 
+## Where it stands at the end of Nov 16
+
+Every Gemini item below was made and passed Vale's check on Nov 16. The prompts stay here as the record of what worked.
+
+- Item 1, opening clip: done, first run. In the video as `clips/clip1.mp4`.
+- Item 2, clip 5: done, first run.
+- Item 3, clinician photo: done. On the local site in step 2, mirrored at Dourado's request so she faces the patient photo. Two points for vc-reviewer: her face shows in profile, and blurred medicine bottles sit in the cabinet behind her.
+- Item 4, clinician in motion: done, first run. In the video as `clips/clip6.mp4`.
+- Item 4b, six-vial group shot: done on the third image. The edit prompt below failed, it kept five vials and misspelled the small print. What worked was a fresh image from six separate vial photos; that prompt is in the Nov 16 chat and should be copied into `docs/gemini-prompts.md`. Gemini then fixed one misspelled HEALTH and Vale patched the other by copying the word from the Tirzepatide vial. Tell vc-reviewer about the patch. On the local home page hero and in the video closing scene.
+- Item 5, wide Sermorelin: done, cropped tighter by Vale so the vial matches the other tiles. On the local home page as the Hormone support tile.
+- Item 6, NAD+ vial on marble: done. Filed as `assets-in/products/nad-marble.jpg`, not on the site yet.
+
+Nothing from this session is live. Nothing is pushed. vc-reviewer has seen none of it.
+
 ## Gemini, in this order
 
 ### 1. Opening clip, replaces clip 1
@@ -103,6 +117,7 @@ Show exactly one vial. No other objects, no plants, no second vial, no bottle, n
 - Add a Find your program button under the video player on the Learn page.
 - Send the finished video and every new image through vc-reviewer. The reviewer has not yet seen the new closing line, "and it's made after a review of your health history", or the closing scene.
 - Update `docs/gemini-prompts.md` with the prompts that passed.
+- Logo, asked by Dourado Nov 16: he wants it crisp and in the site's colors, because the purple and violet gradient clashes with the pine, jade and mint. The designer's vector already exists at `brand/logo/VelaCore Health_01/VelaCore Health-01.svg`; the site is using a small PNG of it. Plan: keep the designer's shape, since it is printed on every vial label in every product photo, and prepare two or three color treatments in pine and jade as SVG for Dourado to choose from. Then update `docs/BRAND.md`, which today says the mark is never recolored, and swap the site files. A full redraw of the mark would mean remaking every product photo, so that is only on his explicit word.
 
 ## Waiting on a decision or on OpenLoop
 

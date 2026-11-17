@@ -73,6 +73,17 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
   - Oral Semaglutide and oral Microdosing photos wait on OpenLoop naming the form.
   - The OpenLoop question email is drafted in `docs/openloop-email-draft.md`. Dourado has not said
     it was sent.
+  - Later the same night, after Gemini reset: the whole queue was made. The video now has a new
+    opening clip with the four step names, clip 5, and a clinician clip under the closing line, and
+    its closing scene shows the six-vial group shot. On the local site only, three home page images
+    changed: the hero is the new six-vial group shot, step 2 is the new clinic photo mirrored to face
+    step 1, and the Hormone support tile has its own Sermorelin marble photo. Compliance check 0 fail,
+    site audit only the six Start placeholders. None of it is pushed and vc-reviewer has not seen it;
+    that review is the next gate. Details and the two flags on the clinician photo are at the top of
+    `docs/gemini-queue.md`.
+  - Dourado asked for the logo to be crisp and in the site colors, no purple. The site header already
+    uses the jade mark; the purple gradient file `public/logo-full.png` is what the video closing scene
+    uses. Plan is in `docs/gemini-queue.md`: recolor the designer's vector, do not redraw the mark.
 - **Nov 16: second OpenLoop proposal read, nothing on the site changed yet.** File is
   "Velacore Health - OpenLoop - Proposal - 11_12_26 (1).pdf", 30 pages, in the Velacore Workspace
   Drive, dated Nov 12 with a 30 day expiration. It stays out of the repo, and so does the column
