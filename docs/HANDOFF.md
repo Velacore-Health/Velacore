@@ -47,7 +47,7 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
-Night of Nov 16 2026, after the push. Local only, not pushed, all three vc-reviewer PASS.
+Night of Nov 16 2026, after the first push. Pushed Nov 17 2026 at about 12:15 AM on Dourado's push it, 10 commits to 2fbe37d, every piece vc-reviewer PASS. Verified live: changed pages and new files return 200, the chooser runs on the live home page at 375, the live audit shows only the six Start placeholders failing.
 - How it works is rebuilt as a visual page: four photo steps with short lines, the long copy folded under each step, a refund band, two does and does not cards. Data is the `flow` block in `tools/pages.py`, layout is `flow_main` in `tools/build_pages.py`. Dourado's brief for the whole site: sell and teach at a glance, for people with a short attention span, not a worksheet.
 - Learn page: the bead walk-through is gone; the video sits beside the intro text. Dourado found the flat drawing clashed with the video.
 - Image sharpness: the files were sharp, the vials were small in frame. Goal tiles are cropped tighter and the hero and tiles now use srcset with sharpened sizes. Glutathione on water is only 896 px wide at the source and Tirzepatide is heavily compressed.
