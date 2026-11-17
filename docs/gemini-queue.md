@@ -70,9 +70,21 @@ Soft cool morning daylight from a large window on the left, gentle shadows, true
 
 Reject if: any extra or missing arm, hand or finger, any readable text, clutter, a model or fitness look, or a face that reads as a known person.
 
-### Held: Semaglutide oral
+### E. Semaglutide oral, asked by Dourado Nov 17
 
-Not made yet. The written proposal gives an oral daily dose but not the form, tablet or drops or something else. A picture would guess. Ask OpenLoop, then make it.
+The written proposal prices Semaglutide oral and gives 5 or 10 mg a day, but not the form. Drawn as an amber dropper to match the Microdosing GLP-1 oral photo until OpenLoop names the form; the question is in `docs/openloop-email-draft.md`. If they say tablet, it is redone as a white bottle per BRAND.md section 6. Not placed on the site until Dourado adds Semaglutide oral as an offering.
+
+New chat, Images on, Aspect ratio 3:4. Attach, in this order: `microdosing-oral.jpg`, then `semaglutide-marble.jpg`, both from `assets-in\products`.
+
+```
+Edit the first attached photo. Keep everything exactly the same: the same amber glass dropper bottle, the same ribbed deep pine green cap and white dropper bulb, the same marble riser, tabletop, mint wall, light, shadow, camera height and framing, and every word of the label in the same place and font.
+
+Change only two things. One: change the product name on the label from Microdosing GLP-1 to Semaglutide, in the same serif font, weight and color, centered on one line. Two: change the jade green line under the dark green band and the short jade dash under the name to violet, exactly the violet used on the label in the second attached photo.
+
+Keep every other word exactly as it is: the VELACORE HEALTH logo, FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, and Rx ONLY in its outlined pill. Add no other text anywhere. Exactly one bottle, no other objects.
+```
+
+Save the download; Vale files it as `semaglutide-oral.jpg`.
 
 ## Gemini, in this order
 
