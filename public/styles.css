@@ -628,6 +628,25 @@ body.prog-microdosing{--cap:var(--cap-jade)}
   .hw-scope{margin-top:60px}
   .hw-split{grid-template-columns:1fr}
 }
+/* ---------- Pricing: cards first ---------- */
+.pr-cards{padding-top:72px}
+.pr-cards .section-head{margin-bottom:36px}
+.pr-grid .tcard{display:flex}
+.pr-cards .treat-note{text-align:center;margin:28px auto 0}
+.pr-split h2,.pr-split2 h3{font-size:clamp(1.5rem,2.8vw,2rem);margin-bottom:12px}
+.pr-split .hw-line{margin-bottom:6px}
+.pr-pay{display:grid;gap:12px;margin-top:18px}
+.pr-pay .hw-card{padding:18px 20px}
+.pr-pay p{margin:0;color:var(--ink-soft);line-height:1.55}
+.pr-pay strong{color:var(--ink);font-weight:600}
+.pr-body .hw-promise{margin-top:0}
+.pr-body .hw-promise .hw-more{border-top-color:rgba(255,255,255,.25);margin-top:10px}
+.pr-body .hw-promise .hw-more summary,.pr-body .hw-promise .hw-more-body p,.pr-body .hw-promise .hw-more-body a{color:#fff}
+.pr-body .hw-promise .hw-more-body p{opacity:.9}
+.pr-split2{margin-top:36px}
+.pr-split2 .hw-card p{color:var(--ink-soft);margin:0 0 10px}
+.pr-split2 .hw-card h3{margin-bottom:14px}
+@media(max-width:860px){.pr-cards{padding-top:56px}.pr-split2{margin-top:24px}}
 .art-wrap{max-width:760px}
 .art h1{font-size:clamp(2rem,4.4vw,3rem);text-wrap:balance;margin:10px 0 12px}
 .art-meta{font-size:.92rem;color:var(--ink-faint);margin:0 0 26px}

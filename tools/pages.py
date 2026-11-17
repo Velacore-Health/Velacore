@@ -174,6 +174,7 @@ PAGES = [
     },
     {
         "slug": "pricing",
+        "pricing": True,   # visual layout, Nov 17 2026: cards first, short bands, the paragraphs below fold under them
         "title": "Pricing: what one program price includes",
         "meta": "One price per program with no separate consultation or physician fee. Plans, payment methods, refunds and cancellation. Prescription required.",
         "h1": "Pricing",

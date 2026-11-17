@@ -125,6 +125,98 @@ def flow_main(a, faq_html):
   </main>"""
 
 
+def price_cards():
+    """One card per program in the home page card style: vial photo, form line, first month price, the
+    12-week plan, Learn more and Start visit. Every figure is read from the program data in build_programs.py."""
+    cards = []
+    for p in bp.PROGRAMS:
+        monthly = next(x for x in p["plans"] if x["id"] == "monthly")
+        week12 = next(x for x in p["plans"] if x["id"] == "12week")
+        m = re.match(r"^(\$\d+) your first month, then (\$\d+) a month", monthly["note"])
+        assert m, (p["slug"], monthly["note"])
+        first, then = m.group(1), m.group(2)
+        w = re.match(r"^(\$\d+) charged up front", week12["note"]); assert w, p["slug"]
+        wi, he = img_size(p["image"])
+        cards.append(
+            f'<article class="tcard" id="price-{p["slug"]}"><div class="tcard-media"><span class="tcard-cat">{p["cat"]}</span>'
+            f'<img class="tcard-photo" src="images/{p["image"]}" width="{wi}" height="{he}" alt="Velacore Health {p["name"]} vial" loading="lazy" /></div>'
+            f'<div class="tcard-body"><h3>{p["name"]}</h3><p class="tcard-mech">{p["chips"][1]}. {p["chips"][2]}.</p>'
+            f'<div class="tcard-meta"><span class="tcard-price">{first} <small>first month, then {then}/mo</small></span><span class="tcard-rx">Rx only</span></div>'
+            f'<p class="tcard-plan">12-week plan {week12["price"]}/mo, {w.group(1)} up front.</p>'
+            f'<a class="tcard-link" href="programs/{p["slug"]}.html">What the price includes</a>'
+            f'<a href="start/{p["slug"]}.html" class="btn btn-primary btn-block btn-sm" data-start="{p["slug"]}">Start visit</a></div></article>')
+    return '<div class="tgrid pr-grid">' + "".join(cards) + "</div>"
+
+
+def img_size(rel):
+    return bp.img_size(rel)
+
+
+def pricing_main(a, faq_html):
+    """The pricing page as a visual page: cards first, then short bands. The long paragraphs in a["sections"]
+    fold under the bands by heading, so nothing is typed twice."""
+    sec = dict(a["sections"])
+    def fold(label, heading):
+        return f'<details class="hw-more"><summary>{label}</summary><div class="hw-more-body">{"".join(block(b) for b in sec[heading])}</div></details>'
+    includes = "".join(f"<li>{x[2:]}</li>" for x in sec["What one price includes"][1].split("\n"))
+    pay = sec["Two ways to pay"][1].split("\n")
+    pay_cards = "".join(f'<div class="hw-card"><p>{x[2:]}</p></div>' for x in pay)
+    nots = "".join(f"<li>{x[2:]}</li>" for x in sec["What is not included or not accepted"][0].split("\n"))
+    return f"""  <main>
+    <section class="section on-cream page-top hw-top">
+      <div class="container">
+        <h1>{a["h1"]}</h1>
+        <p class="hw-sub">One price per program, shown before you start. No consultation fee, no physician fee, shipping included. Prescription required.</p>
+        <div class="hw-cta"><a href="index.html#goals" class="btn btn-primary" data-find>Find your program</a> <a href="how-it-works.html" class="btn btn-ghost">How it works</a></div>
+      </div>
+    </section>
+    <section class="section pr-cards">
+      <div class="container">
+        <div class="section-head center"><h2>Programs and prices</h2><p class="section-sub">Pay month to month or save with a 12-week plan. A licensed clinician decides whether a program is appropriate for you.</p></div>
+        {price_cards()}
+        <p class="treat-note">{sec["Programs and prices"][1]} {sec["Programs and prices"][2]} Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
+      </div>
+    </section>
+    <section class="section on-cream">
+      <div class="container">
+        <div class="hw-split pr-split">
+          <div>
+            <h2>What one price includes</h2>
+            <p class="hw-line">{sec["What one price includes"][0]}</p>
+            <ul class="hw-facts">{includes}</ul>
+            <p class="hw-note">{sec["What one price includes"][2]}</p>
+          </div>
+          <div>
+            <h2>Two ways to pay</h2>
+            <p class="hw-line">{sec["Two ways to pay"][0]}</p>
+            <div class="pr-pay">{pay_cards}</div>
+            <p class="hw-note">{sec["Two ways to pay"][2]}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section hw-body pr-body">
+      <div class="container">
+        <div class="hw-promise">
+          <h2>Not prescribed? Your program payment is refunded in full.</h2>
+          <p>You can cancel at any time, for any reason. Every billing period whose medication has not yet been ordered is refunded. Medications are non-returnable once dispensed.</p>
+          {fold("More about refunds and cancellation", "Refunds and cancellation")}
+          <a href="refund-policy.html">Refund policy</a>
+        </div>
+        <div class="hw-split pr-split2">
+          <div class="hw-card"><h3>Not included or not accepted</h3><ul class="hw-nots">{nots}</ul></div>
+          <div class="hw-card"><h3>Payment methods</h3><p>{sec["Payment methods"][0]}</p><p class="hw-note">{sec["Payment methods"][1]}</p></div>
+        </div>
+        <div class="hw-faq">{faq_html}</div>
+        <p class="edu-note">{NOTE}</p>
+        <div class="art-next">
+          <a href="index.html#goals" class="btn btn-primary" data-find>Find your program</a>
+        </div>
+      </div>
+    </section>
+  </main>"""
+
+
 def page(a):
     url = f"{SITE}/{a['slug']}"
     sections = "".join(f"<h2>{h}</h2>" + "".join(block(b) for b in bs) for h, bs in a["sections"])
@@ -142,7 +234,7 @@ def page(a):
     ld_html = "\n".join(f'  <script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     faq_html = f'<section class="art-faq" aria-label="Common questions"><h2>Common questions</h2><div class="faq">{faq}</div></section>' if faq else ""
     programs = "".join(f'<a href="programs/{p["slug"]}.html">{p["name"]}</a>' for p in bp.PROGRAMS)
-    main_html = flow_main(a, faq_html) if a.get("flow") else f"""  <main>
+    main_html = flow_main(a, faq_html) if a.get("flow") else pricing_main(a, faq_html) if a.get("pricing") else f"""  <main>
     <article class="section art">
       <div class="container art-wrap">
         <p class="crumbs"><a href="index.html">Home</a> / {a["h1"]}</p>
