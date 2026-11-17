@@ -303,7 +303,7 @@
 
   // Sticky mobile CTA: shown only after the hero scrolls away, hidden again on the start section
   var mobileCta = document.getElementById('mobileCta');
-  var heroSec = document.querySelector('.hero, .prog-hero');
+  var heroSec = document.querySelector('.hero, .hub, .prog-hero');
   var intakeSec = document.getElementById('intake') || document.getElementById('start');
   if (mobileCta && 'IntersectionObserver' in window) {
     var heroVisible = !!heroSec, intakeVisible = false, carVisible = false; // pages without a hero show the bar at once

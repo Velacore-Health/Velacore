@@ -798,3 +798,53 @@ body.panel-open{overflow:hidden}
 .pt-price small{font-weight:500;font-size:.85rem;color:var(--ink-soft)}
 .pt-note{grid-column:1/-1;font-size:.95rem;color:var(--ink-soft);line-height:1.5}
 @media (min-width:760px){.pt-grid{grid-template-columns:1fr 1fr}}
+
+/* Header edge to edge and the home hub, Nov 17 2026, Dourado's Hims markup */
+.site-header>.nav{max-width:none;padding:0 clamp(16px,2.4vw,36px)}
+.hub{padding:26px 0 0;background:var(--paper)}
+.hub-inner{max-width:1360px;margin:0 auto;padding:0 clamp(16px,2.4vw,36px)}
+.hub h1{font-size:clamp(1.9rem,3.6vw,3rem);text-wrap:balance;margin:0 0 10px;max-width:24ch}
+.hub-lede{font-size:1rem;color:var(--ink-soft);max-width:44rem;margin:0 0 20px}
+.hub-note{font-size:.85rem;color:var(--ink-faint);margin:10px 0 0}
+.hub-big{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hub-card{display:grid;grid-template-columns:1fr 48%;grid-template-rows:1fr auto;min-height:216px;border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);background:var(--tint)}
+.hub-weight{--tint:#E4EBF9}
+.hub-hormone{--tint:#D9F0E6}
+.hub-text{grid-column:1;grid-row:1;padding:24px 8px 0 24px}
+.hub-text b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,2vw,1.65rem);line-height:1.15;margin-bottom:6px}
+.hub-text span{display:block;font-size:.95rem;color:var(--ink-soft)}
+.hub-go{grid-column:1;grid-row:2;align-self:end;margin:0 0 18px 24px;font-weight:600;color:var(--jade-dark);text-decoration:underline;text-underline-offset:3px;min-height:24px}
+.hub-card img{grid-column:2;grid-row:1/3;width:100%;height:100%;object-fit:cover;object-position:50% 45%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 22%)}
+.hub-card:hover .hub-go{text-decoration-thickness:2px}
+.hub-card:focus-visible,.hub-small a:focus-visible{outline:3px solid var(--jade);outline-offset:3px}
+.hub-small{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.hub-small a{display:grid;grid-template-columns:1fr 56px;align-items:center;gap:12px;min-height:84px;padding:10px 12px 10px 18px;border-radius:18px;background:var(--mint);color:var(--ink);text-decoration:none;font-weight:600;line-height:1.25;transition:background .2s var(--ease)}
+.hub-small a:hover{background:var(--mint-2)}
+.hub-small img{width:56px;height:56px;border-radius:12px;object-fit:cover;display:block}
+.wband{padding:18px 0 48px}
+.wband-panel{margin:0 clamp(8px,1vw,14px);border-radius:28px;background:var(--mint);padding:clamp(36px,5vw,64px) clamp(16px,4vw,48px) clamp(18px,3vw,32px);text-align:center}
+.wband-copy{max-width:660px;margin:0 auto}
+.wband h2{font-size:clamp(2rem,4.4vw,3.4rem);text-wrap:balance;margin:0 0 14px}
+.wband-copy>p{color:var(--ink-soft);font-size:1.08rem;margin:0 auto 22px;max-width:34rem}
+.wband .hero-price{margin:14px 0 0;font-size:.98rem;color:var(--ink)}
+.wband-photo{margin:28px auto 0;max-width:760px}
+.wband-photo img{width:100%;height:auto;border-radius:20px;display:block}
+.wband-photo figcaption{font-size:.85rem;color:var(--ink-faint);margin-top:10px}
+.wband-foot{padding-top:26px;display:grid;gap:16px;justify-items:center;text-align:center}
+.wband-foot .hero-trust{grid-template-columns:repeat(4,auto);max-width:none;gap:10px 26px}
+@media (max-width:1000px){.hub-small{grid-template-columns:repeat(2,1fr)}.wband-foot .hero-trust{grid-template-columns:1fr 1fr;text-align:left}}
+@media (max-width:700px){
+  .hub{padding-top:18px}
+  .hub h1{font-size:1.85rem;margin-bottom:8px}
+  .hub-lede{font-size:.95rem;margin-bottom:16px}
+  .hub-big{grid-template-columns:1fr}
+  .hub-card{min-height:172px;grid-template-columns:1fr 44%}
+  .hub-text{padding:18px 4px 0 18px}
+  .hub-go{margin:0 0 16px 18px}
+  .hub-small a{min-height:76px;grid-template-columns:1fr 44px;padding:10px 10px 10px 14px;font-size:.95rem}
+  .hub-small img{width:44px;height:44px;border-radius:10px}
+  .wband-panel{border-radius:22px}
+  .wband-foot .hero-trust{grid-template-columns:1fr}
+}
+@media (min-width:981px) and (max-width:1100px){.nav-links .mega{left:50%;transform:translateX(-50%) translateY(6px)}.nav-links .has-mega:hover .mega,.nav-links .has-mega:focus-within .mega,.nav-links .has-mega.open .mega{transform:translateX(-50%) translateY(0)}}
+@media (min-width:981px){.site-header>.nav{position:relative}.nav-links .has-mega{position:static}.nav-links .mega{top:calc(100% - 2px)}.nav-links .mega::before{top:-28px;height:28px}}

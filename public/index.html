@@ -78,36 +78,54 @@
   <!-- panel:end -->
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-        <h1>Prescription GLP‑1 and peptide programs, reviewed by licensed clinicians.</h1>
-        <p class="hero-kicker">What are you here for?</p>
-        <ol class="hero-menu" aria-label="Choose a goal">
-          <li><a href="#goals" data-pick-goal="weight"><img src="images/lifestyle/goal-weight-480.webp" width="480" height="360" alt="" loading="eager" /><span><b>Weight</b><small>Tirzepatide, Semaglutide, Microdosing GLP-1</small></span><i aria-hidden="true"></i></a></li>
-          <li><a href="#goals" data-pick-goal="vitality"><img src="images/lifestyle/goal-vitality-480.webp" width="480" height="360" alt="" loading="eager" /><span><b>Vitality</b><small>NAD+, Glutathione</small></span><i aria-hidden="true"></i></a></li>
-          <li><a href="#goals" data-pick-goal="hormone"><img src="images/lifestyle/goal-hormone-480.webp" width="480" height="360" alt="" loading="eager" /><span><b>Hormone support</b><small>Sermorelin</small></span><i aria-hidden="true"></i></a></li>
-        </ol>
-        <div class="hero-cta">
-          <a href="#goals" class="btn btn-primary" data-find>Not sure? Find your program</a>
+    <!-- Hub, Nov 17 2026: Dourado's Hims markup. Two big cards, four small ones, then the weight band. -->
+    <section class="hub" aria-labelledby="hubTitle">
+      <div class="hub-inner">
+        <h1 id="hubTitle">Prescription programs, reviewed by licensed clinicians</h1>
+        <p class="hub-lede">Velacore Health is a telehealth platform. You start an online visit, an independent licensed clinician decides whether to prescribe, and a 503A compounding pharmacy fills the order.</p>
+        <div class="hub-big">
+          <a class="hub-card hub-weight" href="#goals" data-pick-goal="weight">
+            <span class="hub-text"><b>Start your weight program</b><span>Tirzepatide, Semaglutide, Microdosing GLP-1</span></span>
+            <span class="hub-go">Find your match</span>
+            <img src="images/lifestyle/goal-weight-800.webp" srcset="images/lifestyle/goal-weight-480.webp 480w, images/lifestyle/goal-weight-800.webp 800w" sizes="(max-width:700px) 55vw, 360px" width="800" height="600" alt="" loading="eager" fetchpriority="high" />
+          </a>
+          <a class="hub-card hub-hormone" href="#goals" data-pick-goal="hormone">
+            <span class="hub-text"><b>Hormone support</b><span>Sermorelin, a GHRH analog</span></span>
+            <span class="hub-go">See Sermorelin</span>
+            <img src="images/lifestyle/goal-hormone-800.webp" srcset="images/lifestyle/goal-hormone-480.webp 480w, images/lifestyle/goal-hormone-800.webp 800w" sizes="(max-width:700px) 55vw, 360px" width="800" height="600" alt="" loading="eager" />
+          </a>
         </div>
-        <p class="hero-price">From $129 your first month, then from $179 a month. Shipping included.</p>
-        <p class="hero-lede">Velacore Health is a telehealth platform. You start an online visit, an independent licensed clinician decides whether to prescribe, and a 503A compounding pharmacy fills the order.</p>
+        <ul class="hub-small">
+          <li><a href="#goals" data-pick-goal="vitality"><span>NAD+ and Glutathione</span><img src="images/products/thumbs/nad.webp" width="216" height="216" alt="" loading="eager" /></a></li>
+          <li><a href="#noneedle"><span>Needle-free options</span><img src="images/products/thumbs/semaglutide-oral.webp" width="216" height="216" alt="" loading="eager" /></a></li>
+          <li><a href="pricing.html"><span>Compare prices</span><img src="images/products/thumbs/tirzepatide.webp" width="216" height="216" alt="" loading="eager" /></a></li>
+          <li><a href="#goals" data-find><span>Not sure? Start here</span><img src="images/lifestyle/hero-group-square-600.webp" width="600" height="600" alt="" loading="eager" /></a></li>
+        </ul>
+        <p class="img-note hub-note">Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
+      </div>
+    </section>
+
+    <!-- Weight band, the hero picture under the hub -->
+    <section class="wband" aria-labelledby="wbandTitle">
+      <div class="wband-panel">
+        <div class="wband-copy">
+          <h2 id="wbandTitle">GLP-1 weight programs, prescribed online</h2>
+          <p>Tirzepatide, Semaglutide and Microdosing GLP-1. A licensed clinician in your state reviews your intake and decides what is appropriate for you.</p>
+          <a href="#goals" class="btn btn-primary" data-pick-goal="weight">See weight programs</a>
+          <p class="hero-price">From $129 your first month, then from $179 a month. Shipping included.</p>
+        </div>
+        <figure class="wband-photo">
+          <img src="images/lifestyle/goal-weight-1200.webp" srcset="images/lifestyle/goal-weight-800.webp 800w, images/lifestyle/goal-weight-1200.webp 1200w, images/lifestyle/goal-weight.webp 1600w" sizes="(max-width:800px) 94vw, 760px" width="1600" height="1194" alt="Three Velacore Health vials on white marble: Microdosing GLP-1, Tirzepatide and Semaglutide" loading="lazy" decoding="async" />
+          <figcaption class="img-note">Illustrative image. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</figcaption>
+        </figure>
+      </div>
+      <div class="container wband-foot">
         <ul class="hero-trust">
           <li><span class="check" aria-hidden="true">✓</span>Licensed clinicians in all 50 states</li>
           <li><span class="check" aria-hidden="true">✓</span>503A compounding pharmacies</li>
           <li><span class="check" aria-hidden="true">✓</span>Shipping included</li>
           <li><span class="check" aria-hidden="true">✓</span>Refunded in full if not prescribed</li>
         </ul>
-        </div>
-        <!-- Hero photo: product-led. Six-vial group shot on marble risers, Nov 16 2026. -->
-        <figure class="hero-photo is-photo is-wide">
-          <div class="frame">
-            <img src="images/lifestyle/hero-group-1280.webp" srcset="images/lifestyle/hero-group-640.webp 640w, images/lifestyle/hero-group-960.webp 960w, images/lifestyle/hero-group-1280.webp 1280w, images/lifestyle/hero-group-1920.webp 1920w" sizes="(max-width:940px) 92vw, 600px" width="1920" height="1434" alt="Six Velacore Health vials standing on white marble risers: microdosing GLP-1, semaglutide, tirzepatide, NAD+, glutathione and sermorelin" fetchpriority="high" />
-          </div>
-          <figcaption class="img-note">Illustrative image. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</figcaption>
-        </figure>
       </div>
     </section>
 

@@ -61,7 +61,7 @@ Program colors, picked from the logo gradient. Each program owns one, used as it
 
 Logo gradient, read from the designer's SVG on Nov 6: three stops, mint green #78CBA9 at 0, blue #3A8EC6 at 0.36, magenta #DD25DA at 1, running from the upper right of the helix to the lower left. The site's program colors, helix blue #3E5FC0 and helix violet #8A6BC9, are mid-tones picked from that gradient for stripes and caps; they are not the stops themselves. Keep both: the stops for anything that reproduces the logo, the mid-tones for program colors.
 
-Goal tints, added Nov 17 2026 at Dourado's direction after the Hims study. Each goal owns one pale tint, used as a soft fade on the lower part of a program card and nowhere else yet:
+Goal tints, added Nov 17 2026 at Dourado's direction after the Hims study. Each goal owns one pale tint, used as a soft fade on the lower part of a program card, and as the flat background of the two big goal cards at the top of the home page, added Nov 17 2026 from Dourado's Hims markup:
 
 | Goal | Tint | Hex | Comes from |
 |---|---|---|---|
