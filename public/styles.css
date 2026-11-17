@@ -76,6 +76,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .brand-name{font-family:var(--display);font-size:1.22rem;font-weight:700;letter-spacing:-.02em}
 .brand-accent{color:var(--jade)}
 .site-footer .brand-accent,.on-pine .brand-accent{color:var(--jade-tint)}
+.site-footer :focus-visible,.on-pine :focus-visible{outline-color:#fff}
 .nav-links{display:flex;align-items:center;gap:28px}
 @media (max-width:980px) and (min-width:781px){.nav-links{gap:12px}.nav-links a:not(.btn),.nav-links .has-mega{display:none}.brand-name{font-size:1.15rem;white-space:nowrap}}
 .nav-links a:not(.btn){font-size:.98rem;font-weight:500;color:var(--ink-soft);transition:color .2s;white-space:nowrap}
@@ -424,7 +425,7 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 @media (max-width:480px){.footer-grid{grid-template-columns:1fr}}
 
 @media (prefers-reduced-motion:reduce){
-  *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 
 /* Program row that slides, Nov 17 2026. Replaces the phone-only 3D carousel; one row on every screen. */
@@ -568,6 +569,25 @@ body.prog-microdosing{--cap:var(--cap-jade)}
   .section.blk{padding:40px 0}
   .blk-actions .btn{flex:1 1 100%}
 }
+/* ---------- Stepper on How it works, Nov 17 2026 ---------- */
+.hw-body{padding-top:0}
+.hw-stepper{position:sticky;top:72px;z-index:5;list-style:none;margin:0 auto 64px;padding:10px 24px;display:flex;justify-content:center;gap:6px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hw-stepper a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;font-weight:600;font-size:.95rem;color:var(--ink-soft);transition:background .25s var(--ease),color .25s var(--ease)}
+.hw-stepper a:hover{color:var(--ink)}
+.hw-stepper li.is-on a{background:var(--pine);color:#fff}
+.hw-stepper a:focus-visible{outline:3px solid var(--jade);outline-offset:2px}
+@media (max-width:480px){.hw-stepper{gap:2px;padding:8px 8px}.hw-stepper a{padding:0 12px;font-size:.88rem}}
+/* ---------- Phone footer as an accordion, Nov 17 2026. Only when the script has added footer-acc; links stay visible without it ---------- */
+@media (max-width:640px){
+  .footer-acc .footer-col{border-top:1px solid rgba(255,255,255,.14)}
+  .footer-acc .footer-col h4{position:relative;margin:0;min-height:48px;display:flex;align-items:center;cursor:pointer;font-size:1rem}
+  .footer-acc .footer-col h4::after{content:"";position:absolute;right:4px;top:50%;width:9px;height:9px;border:solid var(--on-pine-soft);border-width:0 2px 2px 0;transform:translateY(-70%) rotate(45deg);transition:transform .25s var(--ease)}
+  .footer-acc .footer-col.is-open h4::after{transform:translateY(-30%) rotate(225deg)}
+  .footer-acc .footer-col:not(.is-open)>a,.footer-acc .footer-col:not(.is-open)>p{display:none}
+  .footer-acc .footer-col.is-open{padding-bottom:12px}
+  .footer-acc.footer-grid{gap:0;padding-bottom:20px}
+  .footer-acc .footer-brand{padding-bottom:20px}
+}
 /* ---------- Goal band at the foot of a page, Nov 17 2026 ---------- */
 .goal-band .container{display:flex;flex-direction:column;align-items:center;text-align:center}
 .goal-band h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:10px}
@@ -662,7 +682,7 @@ body.panel-open{overflow:hidden}
 .hw-glance a:hover{border-top-color:var(--jade)}
 .hw-n{font-family:var(--display);font-size:1.5rem;line-height:1;color:var(--jade)}
 .hw-steps{list-style:none;margin:0;padding:0;display:grid;gap:88px}
-.hw-step{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;scroll-margin-top:96px}
+.hw-step{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;scroll-margin-top:150px}
 .hw-step:nth-child(even) .hw-photo{order:2}
 .hw-photo{margin:0;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--mint)}
 .hw-photo img{display:block;width:100%;height:100%;object-fit:cover}

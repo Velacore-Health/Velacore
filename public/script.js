@@ -55,6 +55,29 @@
     });
   })();
 
+  // Stepper on How it works, Nov 17 2026: the word for the step nearest the middle of the screen is lit
+  var stepper = document.querySelector('[data-stepper]');
+  if (stepper && 'IntersectionObserver' in window) {
+    var words = [].slice.call(stepper.children), stepEls = [].slice.call(document.querySelectorAll('.hw-step'));
+    var light = function (i) { words.forEach(function (w, k) { w.classList.toggle('is-on', k === i); if (k === i) w.querySelector('a').setAttribute('aria-current', 'step'); else w.querySelector('a').removeAttribute('aria-current'); }); };
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) light(stepEls.indexOf(e.target)); });
+    }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+    stepEls.forEach(function (el) { io.observe(el); });
+  }
+
+  // Phone footer as an accordion, Nov 17 2026: the script adds the class, so links stay visible without it
+  var fgrid = document.querySelector('.footer-grid');
+  if (fgrid && window.matchMedia('(max-width:640px)').matches) {
+    fgrid.classList.add('footer-acc');
+    fgrid.querySelectorAll('.footer-col h4').forEach(function (h) {
+      var col = h.parentNode; h.setAttribute('role', 'button'); h.tabIndex = 0; h.setAttribute('aria-expanded', 'false');
+      var flip = function () { var open = col.classList.toggle('is-open'); h.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+      h.addEventListener('click', flip);
+      h.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+    });
+  }
+
   // Treatments dropdown: tap to open on phones, keyboard friendly everywhere
   document.querySelectorAll('.has-mega > a').forEach(function (trigger) {
     trigger.addEventListener('click', function (e) {

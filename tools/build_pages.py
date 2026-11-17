@@ -71,6 +71,7 @@ def flow_main(a, faq_html):
         return f'<details class="hw-more"><summary>{label}</summary><div class="hw-more-body">{"".join(block(b) for b in sec[heading])}</div></details>'
 
     glance = "".join(f'<li><a href="#step-{i}"><span class="hw-n">{i}</span>{s["short"]}</a></li>' for i, s in enumerate(f["steps"], 1))
+    stepper = "".join(f'<li><a href="#step-{i}">{s["word"]}</a></li>' for i, s in enumerate(f["steps"], 1))
     steps = ""
     for i, s in enumerate(f["steps"], 1):
         facts = "".join(f"<li>{x}</li>" for x in s["facts"])
@@ -99,6 +100,8 @@ def flow_main(a, faq_html):
       </div>
     </section>
     <section class="section hw-body">
+      <!-- Stepper, Nov 17 2026: one word per step, the current one lit as its step passes the middle of the screen -->
+      <ol class="hw-stepper" data-stepper aria-label="Where you are in the four steps">{stepper}</ol>
       <div class="container">
         <ol class="hw-steps">{steps}
         </ol>
