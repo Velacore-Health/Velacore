@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 FOLDERS = {
     "products": {"tirzepatide", "semaglutide", "microdosing", "nad", "glutathione", "sermorelin", "nad-nasal", "nad-oral", "microdosing-oral", "semaglutide-oral"},  # form variants: <program>-<form>
-    "lifestyle": {"hero", "hero-group", "goal-weight", "goal-vitality", "goal-hormone", "step-visit", "step-clinician", "step-delivery", "step-support", "wellness"},
+    "lifestyle": {"hero", "hero-group", "goal-weight", "goal-vitality", "goal-hormone", "step-visit", "step-clinician", "step-delivery", "step-support", "clinician-call", "wellness"},
 }
 
 

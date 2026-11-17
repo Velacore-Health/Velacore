@@ -124,13 +124,37 @@ Same as F, attach `nad-oral-marble.jpg` first, then `microdosing-oral.jpg`, and 
 
 Why: the block "Licensed clinicians in every state" shows the logo mark. Dourado wants a picture that says it. A clinician on a video visit, seen over the shoulder, face out of frame, nothing readable, per the house rule in `docs/gemini-prompts.md` section 8; the reviewer flagged that certificates and credentials imply a real person, so none here. New chat, Images on, 4:5, nothing attached.
 
-```
-Photoreal photograph, vertical 4 by 5, editorial style, calm and clean. Over-the-shoulder view of a clinician at a tidy white desk in a bright, minimal modern office, holding a video call on an open laptop. We see the clinician from behind and slightly to the side: the shoulder and arm in a crisp white coat over deep pine green scrubs, a stethoscope around the neck, one hand resting near the laptop. The face is out of frame. The laptop screen is softly out of focus and shows only a blurred, friendly video call window with soft mint and white tones, no readable text, no recognizable face. Behind the desk a plain white wall with soft pale mint daylight and lots of empty space, one small green plant. Cool soft morning daylight from the left, shallow depth of field, natural skin texture on the hand, exactly five fingers.
+Version 2, Nov 17 2026, Dourado asked for every detail of the anatomy and the room spelled out:
 
-No certificates, no frames on the wall, no name badge, no readable text or logos anywhere, no patient in the room, no pills, no syringes, no needles, no clutter.
+```
+A photoreal editorial photograph, vertical 4 by 5 frame, shot on a full-frame camera with a 50 mm lens at f/2.8, natural and calm, like a quiet moment from a modern clinic brochure. Not an illustration, not a 3D render.
+
+THE PERSON
+One clinician only, a man or woman in their early thirties, seen from behind and slightly to the right, an over-the-shoulder view. The camera sits just behind the right shoulder at seated eye height. The head is cropped out at the top of the frame at about the jawline, so no face, no ear, no eyes are visible; at most a little short neat hair at the nape of the neck. The person sits upright and relaxed on a simple white desk chair, facing the laptop straight on.
+
+Clothing: a crisp, well-fitted white clinic coat with natural soft folds at the elbow and shoulder seam, worn open over deep pine green scrubs. A classic stethoscope in matte black rests around the back of the neck, both ends hanging evenly down the front of the chest. No name badge, no embroidery, no pen with a logo, no lanyard.
+
+Anatomy, follow exactly: one human body with exactly two arms and two hands, both attached naturally at the shoulders. The right arm is nearest the camera: the upper arm hangs relaxed from the shoulder, the elbow is bent at a comfortable angle, and the right forearm rests along the desk edge. The right hand lies on the desk beside the laptop, palm down and relaxed, with exactly five fingers, a thumb and four fingers, with natural knuckles, short clean natural nails, and realistic skin texture with fine creases. The left arm is mostly hidden by the body; only the left hand shows, resting lightly on the far side of the laptop keyboard, palm down, exactly five fingers, the thumb toward the camera. No third hand, no extra fingers, no fused or bent-backward fingers, no floating hands, no arms coming from behind the chair. Both wrists bend naturally. Sleeves end cleanly at the wrists. No ring, no watch with a readable face.
+
+THE DESK
+A plain white matte desk with a thin light oak edge, clean and nearly empty. On it: a slim silver laptop, open, centered slightly left of the frame and angled a little toward the camera; a small white ceramic mug of coffee to the right of the laptop with a faint curl of steam; one closed pale gray notebook lying flat under the right hand's fingertips. Nothing else on the desk. No papers with writing, no phone, no pill bottles, no vials, no medical equipment.
+
+THE LAPTOP SCREEN
+The screen is softly out of focus because of the shallow depth of field. It shows a video call window with soft white and pale mint tones and the warm blurred shape of a person on the other end, too soft to see any facial features. No readable words, numbers, buttons, icons, logos or interface text anywhere on the screen.
+
+THE ROOM
+A bright, minimal, modern consultation office, calm and uncluttered. Behind the desk a smooth plain white wall with a very soft pale mint tone where the daylight falls, lots of empty space above the laptop. To the left, out of frame, a large window; its light falls across the desk in a soft wide band. In the right background, softly blurred, one small potted green plant with a few broad leaves in a plain white pot sitting on a low white shelf. The floor is not visible. Nothing hangs on the walls.
+
+LIGHT AND COLOR
+Cool, soft morning daylight from the left, gentle shadows to the right, no harsh highlights, no lamps, no glow. The palette is white, pale mint, deep pine green and the light oak edge, with the green plant as the one touch of fresh color. Shallow depth of field: the shoulder, the coat fabric and the right hand are crisp; the laptop screen and the background fall off into a soft blur.
+
+DO NOT INCLUDE
+No face, no profile, no ear, no eyes. No second person in the room. No certificates, diplomas, frames, posters or art on the walls. No name badge, no ID card, no lanyard. No readable text, letters, numbers or logos anywhere in the image, including on the laptop lid. No pills, syringes, needles, vials, scales, tape measures or medical charts. No clutter, no cables in view, no bookshelves full of books. No extra limbs, no extra fingers, no distorted hands.
 ```
 
 Save; Vale files it as `assets-in/lifestyle/clinician-call.jpg`.
+
+Done Nov 17 2026, first run of Version 2. Accepted with the back of the head, one ear and the jawline showing, which the prompt excluded and the Nov 16 house rule allows. The person on the laptop screen wears a white coat, and the screen shows blurred call buttons; nothing is readable. vc-reviewer PASS. On the home page clinician block with the line: Picture is an AI-generated illustration and does not show a Velacore clinician. If it is ever redone: scrubs in a neutral navy or gray instead of pine, so they never read as a Velacore uniform, and the person on the screen in casual clothes.
 
 ## Gemini, in this order
 
