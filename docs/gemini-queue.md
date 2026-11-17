@@ -72,19 +72,33 @@ Reject if: any extra or missing arm, hand or finger, any readable text, clutter,
 
 ### E. Semaglutide oral, asked by Dourado Nov 17
 
-The written proposal prices Semaglutide oral and gives 5 or 10 mg a day, but not the form. Drawn as an amber dropper to match the Microdosing GLP-1 oral photo until OpenLoop names the form; the question is in `docs/openloop-email-draft.md`. If they say tablet, it is redone as a white bottle per BRAND.md section 6. Not placed on the site until Dourado adds Semaglutide oral as an offering.
+Done Nov 17 on the fourth prompt: two semi-translucent mint green prescription vials, one on its side with tablets spilled. Filed as `semaglutide-oral.jpg`, site copy `public/images/products/semaglutide-oral.webp`, not placed on any page yet.
 
-New chat, Images on, Aspect ratio 3:4. Attach, in this order: `microdosing-oral.jpg`, then `semaglutide-marble.jpg`, both from `assets-in\products`.
+The written proposal prices Semaglutide oral and gives 5 or 10 mg a day, but not the form. Dourado thinks it is a tablet, so it is drawn as a closed white pill bottle per BRAND.md section 6, no loose pills shown. Still to confirm with OpenLoop; the question is in `docs/openloop-email-draft.md`. Not placed on the site until Dourado adds Semaglutide oral as an offering.
+
+New chat, Images on, Aspect ratio 3:4. Attach `semaglutide-marble.jpg` from `assets-in` then `products`.
 
 ```
-Edit the first attached photo. Keep everything exactly the same: the same amber glass dropper bottle, the same ribbed deep pine green cap and white dropper bulb, the same marble riser, tabletop, mint wall, light, shadow, camera height and framing, and every word of the label in the same place and font.
+Edit the attached photo. Keep the scene exactly the same: the same white marble riser, the same pale marble tabletop, the same soft mint wall fading to white, the same daylight from the upper left, the same soft shadow, the same camera height and the same vertical 3 by 4 framing.
 
-Change only two things. One: change the product name on the label from Microdosing GLP-1 to Semaglutide, in the same serif font, weight and color, centered on one line. Two: change the jade green line under the dark green band and the short jade dash under the name to violet, exactly the violet used on the label in the second attached photo.
+Replace the glass vial with one closed white pharmacy pill bottle of the same height, made of smooth matte white plastic, round, with a ribbed deep pine green screw cap. Move the label from the vial onto the bottle exactly as it is, word for word, in the same layout and fonts: the dark green band with the VELACORE HEALTH logo, the violet line, Semaglutide, the short violet dash, FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, and Rx ONLY in its outlined pill. The label wraps the bottle front, sharp and readable.
 
-Keep every other word exactly as it is: the VELACORE HEALTH logo, FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, and Rx ONLY in its outlined pill. Add no other text anywhere. Exactly one bottle, no other objects.
+Add no other text anywhere. Exactly one bottle, closed. No loose pills, no tablets, no other objects, no hands, no syringe, no needle.
 ```
 
 Save the download; Vale files it as `semaglutide-oral.jpg`.
+
+Try 2, Dourado's idea Nov 17: two bottles, one standing, one on its side with a few tablets spilled, gentle. This bends BRAND.md section 5, no props in product shots, which is our own rule, not a LegitScript rule; vc-reviewer decides before it goes on the site. Tablets plain white, no imprint, so nothing looks like a brand-name drug.
+
+```
+Edit the attached photo. Keep the scene exactly the same: the same pale marble tabletop with soft gray veining, the same soft mint wall fading to white, the same daylight from the upper left, the same soft shadows, the same camera height and the same vertical 3 by 4 framing.
+
+Replace the vial with two identical closed white pharmacy pill bottles made of smooth matte white plastic, round, each with a ribbed deep pine green screw cap. The first bottle stands upright on the white marble riser, label facing the camera. The second bottle lies on its side on the marble tabletop in front of the riser and slightly to the right, its cap off and resting beside it, with five or six small plain round white tablets spilled gently out of the opening in a short, tidy line. The tablets are plain with no markings, letters or numbers.
+
+Both bottles carry the label from the attached photo exactly as it is, word for word, in the same layout and fonts: the dark green band with the VELACORE HEALTH logo, the violet line, Semaglutide, the short violet dash, FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, and Rx ONLY in its outlined pill. The standing bottle's label is sharp, centered and fully readable.
+
+Calm, clean, premium studio product photography. Add no other text anywhere. No other objects, no glass of water, no hands, no syringe, no needle.
+```
 
 ## Gemini, in this order
 

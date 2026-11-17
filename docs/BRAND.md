@@ -117,7 +117,7 @@ The approved artwork is `brand/label/label-<program>.png`, made by `brand/label/
 
 Nothing else. No seals, no stars, no "FDA", no benefit words, no dosage claims on the mock label.
 
-Every vial cap is deep matte pine, #15302A, with a silver crimp. The program color appears only in the label's thin line and dash. Amber glass for the microdosing dropper, white HDPE for any pill bottle, white for nasal sprays.
+Every vial cap is deep matte pine, #15302A, with a silver crimp. The program color appears only in the label's thin line and dash. Amber glass for the microdosing dropper, for tablets a tall straight-sided prescription vial in semi-translucent mint green with a flat pine child-resistant cap, never a vitamin-bottle shape, by Dourado's choice Nov 17 2026; the Semaglutide oral shot shows two vials, one on its side with a few plain unmarked tablets spilled, the one product shot allowed props, white for nasal sprays.
 
 ## 7. Files and where they live
 
