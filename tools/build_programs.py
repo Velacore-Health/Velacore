@@ -142,7 +142,7 @@ PROGRAMS = [
         ],
         "facts": ["Injection, nasal spray or oral dropper", "50 mg to 200 mg per dose, set by your clinician", "Supplies and written instructions included", "Clinician review at each refill", "Video visit on request, at no extra cost", "Patient support 24 hours a day"],
         "forms": [("Injection", "products/nad.webp", "A small self-injection under the skin. Supplies included."),
-                  ("Nasal spray", "products/nad-nasal.webp", "A metered spray. No needle."),
+                  ("Nasal spray", "products/nad-nasal.webp", "A nasal spray. No needle."),
                   ("Oral dropper", "products/nad-oral.webp", "Drops taken by mouth. No needle.")],
         "journey": [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
@@ -223,13 +223,22 @@ PROGRAMS = [
     },
 ]
 
+# The forms that need no injection, Nov 17 2026: (link, name, thumb, line). Used by the Treatments dropdown and the side panel.
+NEEDLE_FREE = [("semaglutide.html#forms", "Semaglutide oral", "images/products/thumbs/semaglutide-oral.webp", "Taken by mouth daily"),
+               ("nad.html#forms", "NAD+ nasal spray", "images/products/thumbs/nad-nasal.webp", "A nasal spray"),
+               ("nad.html#forms", "NAD+ oral dropper", "images/products/thumbs/nad-oral.webp", "Drops taken by mouth"),
+               ("microdosing.html", "Microdosing GLP‑1", "images/products/thumbs/microdosing-oral.webp", "Oral options, clinician picks")]
+
+# The Treatments dropdown, one list per column; a column can hold more than one group.
+# Needle-free added Nov 17 2026 at Dourado's request: the oral and nasal forms, each linking to its program.
 MENU = [
-    ("Weight", [("tirzepatide", "Tirzepatide", "images/products/thumbs/tirzepatide.webp", "Dual GIP / GLP-1 injection"),
-                ("semaglutide", "Semaglutide", "images/products/thumbs/semaglutide.webp", "GLP-1, injection or oral"),
-                ("microdosing", "Microdosing GLP\u20111", "images/products/thumbs/microdosing.webp", "Low dose, oral or injection")]),
-    ("Vitality", [("nad", "NAD+", "images/products/thumbs/nad.webp", "Injection, nasal or oral"),
-                  ("glutathione", "Glutathione", "images/products/thumbs/glutathione.webp", "Form set by clinician")]),
-    ("Hormone support", [("sermorelin", "Sermorelin", "images/products/thumbs/sermorelin.webp", "GHRH analog injection")]),
+    [("Weight", [("tirzepatide", "Tirzepatide", "images/products/thumbs/tirzepatide.webp", "Dual GIP / GLP-1 injection"),
+                 ("semaglutide", "Semaglutide", "images/products/thumbs/semaglutide.webp", "GLP-1, injection or oral"),
+                 ("microdosing", "Microdosing GLP‑1", "images/products/thumbs/microdosing.webp", "Low dose, oral or injection")])],
+    [("Vitality", [("nad", "NAD+", "images/products/thumbs/nad.webp", "Injection, nasal or oral"),
+                   ("glutathione", "Glutathione", "images/products/thumbs/glutathione.webp", "Form set by clinician")]),
+     ("Hormone support", [("sermorelin", "Sermorelin", "images/products/thumbs/sermorelin.webp", "GHRH analog injection")])],
+    [("Needle-free", NEEDLE_FREE)],
 ]
 
 
@@ -248,11 +257,14 @@ GOALS = [("weight", "Weight", "Tirzepatide, Semaglutide, Microdosing GLP-1"),
          ("hormone", "Hormone support", "Sermorelin")]
 
 
+GOAL_THUMB = {"weight": "tirzepatide", "vitality": "nad", "hormone": "sermorelin"}  # Nov 17 2026: one vial fills the small tile
+
+
 def side_panel(prefix):
     """The slide-in menu, Nov 17 2026: the goal question, the six programs with their first month price,
     the site links, one button. The same on every page; prefix is '' at the root and '../' one level down."""
     goals = "".join(
-        f'<li><a href="{prefix}index.html#goals-{g}" data-pick-goal="{g}"><img src="{prefix}images/lifestyle/goal-{g}-480.webp" width="480" height="360" alt="" loading="lazy" />'
+        f'<li><a href="{prefix}index.html#goals-{g}" data-pick-goal="{g}"><img src="{prefix}images/products/thumbs/{GOAL_THUMB[g]}.webp" width="216" height="216" alt="" loading="lazy" />'
         f'<span><b>{name}</b><small>{sub}</small></span><i aria-hidden="true"></i></a></li>' for g, name, sub in GOALS)
     progs = "".join(
         f'<a class="panel-prog" href="{prefix}programs/{p["slug"]}.html"><img src="{prefix}images/products/thumbs/{p["slug"]}.webp" width="216" height="216" alt="" loading="lazy" />'
@@ -260,11 +272,15 @@ def side_panel(prefix):
     links = [("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("learn.html", "Learn"), ("clinicians.html", "Clinicians"),
              ("faq.html", "FAQ"), ("about.html", "About"), ("contact.html", "Contact")]
     more = "".join(f'<a href="{prefix}{h}">{t}</a>' for h, t in links)
+    nofree = "".join(
+        f'<a class="panel-prog" href="{prefix}programs/{href}"><img src="{prefix}{img}" width="216" height="216" alt="" loading="lazy" />'
+        f'<b>{name}</b><small>{line}</small></a>' for href, name, img, line in NEEDLE_FREE)
     return (f'<!-- panel:start -->\n  <div class="panel-overlay" id="panelOverlay" hidden></div>\n'
             f'  <aside class="panel" id="sidePanel" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true" hidden>\n'
             f'    <div class="panel-head"><span class="panel-title">Menu</span><button type="button" class="panel-close" id="panelClose" aria-label="Close menu">&#215;</button></div>\n'
             f'    <p class="panel-kicker">What are you here for?</p><ol class="hero-menu panel-goals" aria-label="Choose a goal">{goals}</ol>\n'
             f'    <p class="panel-kicker">Programs</p><div class="panel-progs">{progs}</div>\n'
+            f'    <p class="panel-kicker">Needle-free</p><div class="panel-progs">{nofree}</div>\n'
             f'    <p class="panel-kicker">More</p><nav class="panel-links" aria-label="Pages">{more}</nav>\n'
             f'    <div class="panel-foot"><a href="{prefix}index.html#goals" class="btn btn-primary btn-block" data-find>Find your program</a>'
             f'<p>Prescription required. A licensed clinician reviews your intake and decides what is appropriate for you.</p></div>\n'
@@ -275,7 +291,7 @@ def goal_band(prefix):
     """The chooser's first question at the foot of a page, Nov 17 2026: three goal rows that open step 2 of the home
     chooser, and one button for the rest. Not on the home page, which has the chooser itself, and not on legal pages."""
     goals = "".join(
-        f'<li><a href="{prefix}index.html#goals-{g}" data-pick-goal="{g}"><img src="{prefix}images/lifestyle/goal-{g}-480.webp" width="480" height="360" alt="" loading="lazy" />'
+        f'<li><a href="{prefix}index.html#goals-{g}" data-pick-goal="{g}"><img src="{prefix}images/products/thumbs/{GOAL_THUMB[g]}.webp" width="216" height="216" alt="" loading="lazy" />'
         f'<span><b>{name}</b><small>{sub}</small></span><i aria-hidden="true"></i></a></li>' for g, name, sub in GOALS)
     return (f'<!-- goalband:start -->\n    <section class="section goal-band on-cream" aria-labelledby="goalBandTitle">\n      <div class="container">\n'
             f'        <h2 id="goalBandTitle">What are you here for?</h2>\n'
@@ -288,12 +304,16 @@ def goal_band(prefix):
 def mega_menu(prefix):
     """The Treatments dropdown. prefix is '' on the home page and '../' on program pages."""
     cols = []
-    for cat, items in MENU:
-        rows = []
-        for slug, name, img, sub in items:
-            thumb = f'<img src="{prefix}{img}" alt="" width="54" height="54" loading="lazy" />' if img and (ROOT / "public" / img).exists() else f'<img class="mega-tile" src="{prefix}logo-mark.png" alt="" width="119" height="128" loading="lazy" />'
-            rows.append(f'<a class="mega-item" href="{prefix}programs/{slug}.html">{thumb}<span><b>{name}</b><small>{sub}</small></span></a>')
-        cols.append(f'<div class="mega-col"><h4>{cat}</h4>{"".join(rows)}</div>')
+    for column in MENU:
+        groups = []
+        for cat, items in column:
+            rows = []
+            for slug, name, img, sub in items:
+                href = slug if slug.endswith(".html") or ".html#" in slug else f"{slug}.html"
+                thumb = f'<img src="{prefix}{img}" alt="" width="54" height="54" loading="lazy" />' if img and (ROOT / "public" / img).exists() else f'<img class="mega-tile" src="{prefix}logo-mark.png" alt="" width="119" height="128" loading="lazy" />'
+                rows.append(f'<a class="mega-item" href="{prefix}programs/{href}">{thumb}<span><b>{name}</b><small>{sub}</small></span></a>')
+            groups.append(f'<h4>{cat}</h4>{"".join(rows)}')
+        cols.append(f'<div class="mega-col">{"".join(groups)}</div>')
     return (f'<div class="nav-item has-mega"><a href="{prefix}index.html#treatments" aria-haspopup="true" aria-expanded="false">Treatments</a>'
             f'<div class="mega" role="menu">{"".join(cols)}'
             f'<div class="mega-col mega-cta"><h4>Not sure?</h4><p>Two quick questions narrow it down. A licensed clinician reviews your intake and decides what is appropriate.</p>'

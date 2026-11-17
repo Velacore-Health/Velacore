@@ -127,7 +127,7 @@
   document.querySelectorAll('[data-prow]').forEach(function (root) {
     var track = root.querySelector('.prow-track'), prev = root.querySelector('[data-prev]'), next = root.querySelector('[data-next]');
     if (!track) return;
-    function step() { var c = track.querySelector('.tcard'); return c ? c.getBoundingClientRect().width + 18 : 300; }
+    function step() { var c = [].filter.call(track.querySelectorAll('.tcard'), function (x) { return x.offsetParent; })[0]; return c ? c.getBoundingClientRect().width + 18 : 300; }
     function sync() {
       var max = track.scrollWidth - track.clientWidth;
       if (prev) prev.disabled = track.scrollLeft <= 2;

@@ -865,3 +865,15 @@ body.panel-open{overflow:hidden}
 .hub-card picture{position:relative}
 .hub-card picture img{position:absolute;inset:0}
 @media (max-width:700px){.hub-weight{grid-template-columns:1fr 156px;min-height:192px}.hub-weight img{object-position:50% 50%}}
+/* Program row, Nov 17 2026 at Dourado's request: every card in the row lines up. The row is a grid and each card borrows its rows,
+   so the title, line, price, plan, link and button sit at the same height on every card whatever the text length. Older browsers keep the flex row. */
+.tcard-rx{white-space:nowrap}
+@supports (grid-template-rows:subgrid){
+  .prow-track{display:grid;grid-auto-flow:column;grid-auto-columns:min(300px,80vw);grid-template-rows:repeat(7,auto);column-gap:18px;row-gap:0}
+  .prow-track .tcard{display:grid;grid-row:span 7;grid-template-rows:subgrid;row-gap:0}
+  .prow-track .tcard-body{grid-row:2/span 6;display:grid;grid-template-rows:subgrid;row-gap:0}
+  .prow-track .tcard-body>h3{align-self:end}
+  .prow-track .tcard-meta{margin-top:0;align-self:start}
+  .prow-track .tcard-link{justify-self:start}
+  .prow-track .tcard-body>.btn{grid-row:6;align-self:end}
+}
