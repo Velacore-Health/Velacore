@@ -151,3 +151,13 @@ First pass blocked three things and all three were fixed the same night: the AI 
 - The house rule in `docs/gemini-prompts.md` section 8 was rewritten to match. It is our own rule, not a quoted LegitScript rule. vc-reviewer has not seen this version yet; it goes back with the Learn page block.
 - Fallback if LegitScript or the attorney objects: a new Veo clip, seen from behind her shoulder, reading a chart on a tablet, no writing and no face.
 - Question for the attorney packet: is a labeled AI-generated clinician acceptable on a telehealth site under FTC rules and for LegitScript.
+
+## Single vials on marble, Nov 16 late night
+
+Dourado's decision: all six product photos on marble, no water.
+
+- Made and checked line by line: `tirzepatide-marble.jpg`, `semaglutide-marble.jpg`, `microdosing-marble.jpg`, `glutathione-marble.jpg`, all in `assets-in/products`.
+- The method that works: make one good photo, then attach it first and ask Gemini to change only the product name and the two colored lines. Same camera, riser and light every time, and the fine print stays as it was. Rebuilding the scene per vial gave a different camera and a broken 5 in 503A on the first Semaglutide try.
+- Ask for the vial large in the frame, about three quarters of the height. Small vials are what made labels look blurry on the site.
+- NAD+ and Sermorelin on the site are the earlier marble photos, cropped to match. Their riser and vial shape differ a little. Gemini hit its limit; redo both with the method above after the Nov 17 reset, attaching `tirzepatide-marble.jpg` first and `semaglutide-marble.jpg` second for the violet.
+- The site copies in `public/images/products` were made directly with ffmpeg at 1200 by 1600, not with `tools/prepare_images.py`. The water versions are in git history.
