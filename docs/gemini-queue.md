@@ -154,7 +154,7 @@ No face, no profile, no ear, no eyes. No second person in the room. No certifica
 
 Save; Vale files it as `assets-in/lifestyle/clinician-call.jpg`.
 
-Done Nov 17 2026, first run of Version 2. Accepted with the back of the head, one ear and the jawline showing, which the prompt excluded and the Nov 16 house rule allows. The person on the laptop screen wears a white coat, and the screen shows blurred call buttons; nothing is readable. vc-reviewer PASS. On the home page clinician block with the line: Picture is an AI-generated illustration and does not show a Velacore clinician. If it is ever redone: scrubs in a neutral navy or gray instead of pine, so they never read as a Velacore uniform, and the person on the screen in casual clothes.
+Done Nov 17 2026, first run of Version 2. Accepted with the back of the head, one ear and the jawline showing, which the prompt excluded and the Nov 16 house rule allows. The person on the laptop screen wears a white coat, and the screen shows blurred call buttons; nothing is readable. vc-reviewer PASS. On the home page clinician block. The AI line under it came off Nov 17 afternoon at Dourado's request. If it is ever redone: scrubs in a neutral navy or gray instead of pine, so they never read as a Velacore uniform, and the person on the screen in casual clothes.
 
 ## Gemini, in this order
 
