@@ -47,6 +47,14 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+Night of Nov 16 2026, after the push. Local only, not pushed, all three vc-reviewer PASS.
+- How it works is rebuilt as a visual page: four photo steps with short lines, the long copy folded under each step, a refund band, two does and does not cards. Data is the `flow` block in `tools/pages.py`, layout is `flow_main` in `tools/build_pages.py`. Dourado's brief for the whole site: sell and teach at a glance, for people with a short attention span, not a worksheet.
+- Learn page: the bead walk-through is gone; the video sits beside the intro text. Dourado found the flat drawing clashed with the video.
+- Image sharpness: the files were sharp, the vials were small in frame. Goal tiles are cropped tighter and the hero and tiles now use srcset with sharpened sizes. Glutathione on water is only 896 px wide at the source and Tirzepatide is heavily compressed.
+- Dourado's decision: all six single vial photos go on marble, no water. NAD+ and Sermorelin are made. Tirzepatide, Semaglutide, Microdosing GLP-1 and Glutathione still need a Gemini edit each, one step at a time, vial large in the frame. Swap all six on the site together.
+- Open: a vector vial sample was offered and not yet answered. The no extra cost video visit wording needs written confirmation for Semaglutide and Tirzepatide. Four Start visit buttons in the home carousel are 41 px tall at 375.
+
+
 Late Nov 16 2026, the explainer is on the Learn page in the local copy, not pushed.
 - `public/learn.html` has a video block: player with poster, captions attached and off by default, prescription and FDA small print, an AI voice and AI pictures line, a transcript and a Find your program button. Files are `public/media/peptides-explained.mp4` at 3.6 MB, its `.vtt`, and `public/images/learn/peptides-explained-poster.webp`. vc-reviewer PASS.
 - Dourado's decisions that night: the closing scene uses the site header lockup, no purple. The AI clinician is shown at full frame with her face and no label over the shot. The house rule in `docs/gemini-prompts.md` section 8 was rewritten to match; it is our own rule, not a quoted LegitScript rule.

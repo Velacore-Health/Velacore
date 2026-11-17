@@ -56,6 +56,75 @@ def plain(text):
     return html.unescape(re.sub(r"<[^>]+>", "", text))
 
 
+NOTE = ("Prescription required. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. "
+        "Whether any treatment is appropriate for you is decided solely by a licensed clinician.")
+
+
+def flow_main(a, faq_html):
+    """The visual layout: a short opening, the steps as photo rows, a refund band and two short lists.
+    The long paragraphs are not typed again. Each step and band names a heading in a["sections"] and
+    that section's text is folded under it."""
+    f = a["flow"]
+    sec = dict(a["sections"])
+
+    def more(label, heading):
+        return f'<details class="hw-more"><summary>{label}</summary><div class="hw-more-body">{"".join(block(b) for b in sec[heading])}</div></details>'
+
+    glance = "".join(f'<li><a href="#step-{i}"><span class="hw-n">{i}</span>{s["short"]}</a></li>' for i, s in enumerate(f["steps"], 1))
+    steps = ""
+    for i, s in enumerate(f["steps"], 1):
+        facts = "".join(f"<li>{x}</li>" for x in s["facts"])
+        note = f'<p class="hw-note">{s["note"]}</p>' if s.get("note") else ""
+        steps += f"""
+          <li class="hw-step" id="step-{i}">
+            <figure class="hw-photo"><img src="images/lifestyle/{s["img"]}.webp" width="{s["w"]}" height="{s["h"]}" alt="{html.escape(s["alt"])}" loading="lazy"{' style="object-position:' + s["pos"] + '"' if s.get("pos") else ""} /></figure>
+            <div class="hw-copy">
+              <div class="hw-n">{i}</div>
+              <h2>{s["title"]}</h2>
+              <p class="hw-line">{s["line"]}</p>
+              <ul class="hw-facts">{facts}</ul>{note}
+              {more("More about this step", s["more"])}
+            </div>
+          </li>"""
+    pr = f["promise"]
+    does = "".join(f"<li>{x[2:]}</li>" for x in sec[f["scope"]][1].split("\n"))
+    doesnt = "".join(f"<li>{x[2:]}</li>" for x in sec[f["scope"]][3].split("\n"))
+    return f"""  <main>
+    <section class="section on-cream page-top hw-top">
+      <div class="container">
+        <h1>{a["h1"]}</h1>
+        <p class="hw-sub">{f["sub"]}</p>
+        <div class="hw-cta"><a href="index.html#goals" class="btn btn-primary" data-find>Find your program</a> <a href="pricing.html" class="btn btn-ghost">See prices</a></div>
+        <ol class="hw-glance" aria-label="The four steps">{glance}</ol>
+      </div>
+    </section>
+    <section class="section hw-body">
+      <div class="container">
+        <ol class="hw-steps">{steps}
+        </ol>
+        <div class="hw-promise">
+          <h2>{pr["title"]}</h2>
+          <p>{pr["line"]}</p>
+          <a href="refund-policy.html">Refund policy</a>
+        </div>
+        <div class="hw-scope">
+          <h2>{f["scope"]}</h2>
+          <div class="hw-split">
+            <div class="hw-card"><h3>Velacore does</h3><ul class="hw-facts">{does}</ul></div>
+            <div class="hw-card"><h3>Velacore does not</h3><ul class="hw-nots">{doesnt}</ul></div>
+          </div>
+          <p class="hw-partner">{sec[f["scope"]][4]}</p>
+        </div>
+        <div class="hw-faq">{faq_html}</div>
+        <p class="edu-note">{NOTE}</p>
+        <div class="art-next">
+          <a href="index.html#goals" class="btn btn-primary" data-find>Find your program</a>
+        </div>
+      </div>
+    </section>
+  </main>"""
+
+
 def page(a):
     url = f"{SITE}/{a['slug']}"
     sections = "".join(f"<h2>{h}</h2>" + "".join(block(b) for b in bs) for h, bs in a["sections"])
@@ -73,6 +142,23 @@ def page(a):
     ld_html = "\n".join(f'  <script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     faq_html = f'<section class="art-faq" aria-label="Common questions"><h2>Common questions</h2><div class="faq">{faq}</div></section>' if faq else ""
     programs = "".join(f'<a href="programs/{p["slug"]}.html">{p["name"]}</a>' for p in bp.PROGRAMS)
+    main_html = flow_main(a, faq_html) if a.get("flow") else f"""  <main>
+    <article class="section art">
+      <div class="container art-wrap">
+        <p class="crumbs"><a href="index.html">Home</a> / {a["h1"]}</p>
+        <h1>{a["h1"]}</h1>
+        <p class="art-answer">{a["lede"]}</p>
+        <div class="art-body">
+{sections}
+        </div>
+        {faq_html}
+        <p class="edu-note">{NOTE}</p>
+        <div class="art-next">
+          <a href="index.html#goals" class="btn btn-primary" data-find>Find your program</a>
+        </div>
+      </div>
+    </article>
+  </main>"""
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,23 +200,7 @@ def page(a):
     </div>
   </header>
 
-  <main>
-    <article class="section art">
-      <div class="container art-wrap">
-        <p class="crumbs"><a href="index.html">Home</a> / {a["h1"]}</p>
-        <h1>{a["h1"]}</h1>
-        <p class="art-answer">{a["lede"]}</p>
-        <div class="art-body">
-{sections}
-        </div>
-        {faq_html}
-        <p class="edu-note">Prescription required. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Whether any treatment is appropriate for you is decided solely by a licensed clinician.</p>
-        <div class="art-next">
-          <a href="index.html#goals" class="btn btn-primary" data-find>Find your program</a>
-        </div>
-      </div>
-    </article>
-  </main>
+{main_html}
 
   <footer class="site-footer">
     <div class="container footer-grid">
