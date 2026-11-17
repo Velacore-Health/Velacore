@@ -362,7 +362,7 @@ def page(p):
             for name, img, line in p["forms"] if (ROOT / "public" / "images" / img).exists())
         forms = f'''
     <!-- Forms, Nov 17 2026: one card, one photo per form. Shown only where the program data lists forms. -->
-    <section class="section blk prog-forms">
+    <section class="section blk prog-forms" id="forms">
       <div class="container">
         <div class="blk-card blk-card-mint">
           <div class="section-head">

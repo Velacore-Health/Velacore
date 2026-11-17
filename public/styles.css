@@ -587,8 +587,12 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .form-tiles b{display:block;font-family:var(--display);font-weight:600;font-size:1.2rem;padding:16px 18px 4px}
 .form-tiles p{color:var(--ink-soft);font-size:.95rem;margin:0;padding:0 18px 18px}
 .section.blk + .section.blk.prog-forms{padding-top:0}
+.form-tiles-links li{background:none;border:0;border-radius:0;overflow:visible}
+.form-tiles-links a{display:block;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;color:inherit;text-decoration:none;height:100%;transition:border-color .2s var(--ease)}
+.form-tiles-links a:hover{border-color:var(--jade)}
+.form-tiles-links a:focus-visible{outline:3px solid var(--jade);outline-offset:3px}
 .trust-bar + .prog-forms{padding-top:64px}
-@media (max-width:700px){.form-tiles{grid-template-columns:1fr}.form-tiles li{display:grid;grid-template-columns:38% 1fr;align-items:center}.form-tiles img{height:100%}.form-tiles b{padding:14px 18px 4px}.form-tiles p{padding-bottom:14px}}
+@media (max-width:700px){.form-tiles{grid-template-columns:1fr}.form-tiles li,.form-tiles-links a{display:grid;grid-template-columns:38% 1fr;align-items:center}.form-tiles-links li{display:block}.form-tiles img{height:100%}.form-tiles b{padding:14px 18px 4px}.form-tiles p{padding-bottom:14px}}
 /* ---------- Goal band at the foot of a page, Nov 17 2026 ---------- */
 .goal-band .container{display:flex;flex-direction:column;align-items:center;text-align:center}
 .goal-band h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:10px}

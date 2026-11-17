@@ -114,6 +114,8 @@ Show exactly one vial. No other objects, no plants, no second vial, no bottle, n
 - When the clinician motion clip arrives: use it under the closing line in the video in place of the still photo.
 - When the group shot arrives: convert it, use it on the home page hero and in the video's closing scene in place of the six tiles.
 - Done Nov 17: the NAD+ nasal spray and dropper photos are on the NAD+ page as the Forms card.
+- Dourado, Nov 17: a proper photo of the oral GLP-1 before that offering goes on the site. Two shots on the marble set, edited from the Tirzepatide photo so the label matches: Semaglutide oral, a white HDPE bottle with the pine cap per BRAND.md section 6 and the label reading Semaglutide, and the Microdosing GLP-1 oral form, an amber glass dropper. Save as `semaglutide-oral.jpg` and `microdosing-oral.jpg` in `assets-in/products/`, then `python -I tools/prepare_images.py`.
+- Next photo for the needle-free section on the home page: the Microdosing GLP-1 oral form, amber glass dropper per BRAND.md section 6, same marble set, edited from the Tirzepatide photo method. Until it exists the home tile shows the microdosing vial.
 - Add a Find your program button under the video player on the Learn page.
 - Send the finished video and every new image through vc-reviewer. The reviewer has not yet seen the new closing line, "and it's made after a review of your health history", or the closing scene.
 - Update `docs/gemini-prompts.md` with the prompts that passed.
