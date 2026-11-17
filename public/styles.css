@@ -580,6 +580,15 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .prog-who .btn{margin-top:8px}
 .section.blk + .section.blk{padding-top:0}
 @media (max-width:860px){.prog-blocks .prog-two{grid-template-columns:1fr}}
+/* ---------- Program forms card, Nov 17 2026 ---------- */
+.form-tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.form-tiles li{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.form-tiles img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;background:var(--mint)}
+.form-tiles b{display:block;font-family:var(--display);font-weight:600;font-size:1.2rem;padding:16px 18px 4px}
+.form-tiles p{color:var(--ink-soft);font-size:.95rem;margin:0;padding:0 18px 18px}
+.section.blk + .section.blk.prog-forms{padding-top:0}
+.trust-bar + .prog-forms{padding-top:64px}
+@media (max-width:700px){.form-tiles{grid-template-columns:1fr}.form-tiles li{display:grid;grid-template-columns:38% 1fr;align-items:center}.form-tiles img{height:100%}.form-tiles b{padding:14px 18px 4px}.form-tiles p{padding-bottom:14px}}
 /* ---------- Goal band at the foot of a page, Nov 17 2026 ---------- */
 .goal-band .container{display:flex;flex-direction:column;align-items:center;text-align:center}
 .goal-band h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:10px}

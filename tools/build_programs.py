@@ -138,6 +138,9 @@ PROGRAMS = [
             "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Whether NAD+ is appropriate for you is the clinician's decision.",
         ],
         "facts": ["Injection, nasal spray or oral dropper", "50 mg to 200 mg per dose, set by your clinician", "Supplies and written instructions included", "Clinician review at each refill", "Video visit on request, at no extra cost", "Patient support 24 hours a day"],
+        "forms": [("Injection", "products/nad.webp", "A small self-injection under the skin. Supplies included."),
+                  ("Nasal spray", "products/nad-nasal.webp", "A metered spray. No needle."),
+                  ("Oral dropper", "products/nad-oral.webp", "Drops taken by mouth. No needle.")],
         "journey": [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
             ("First prescription", "If appropriate, the clinician prescribes a 4-week supply in the form that fits you."),
@@ -352,6 +355,25 @@ def page(p):
             <div class="faq-body"><p>{a}</p></div>
           </details>''' for q, a in p["faq"])
     what = "".join(f"<p>{x}</p>" for x in p["what"])
+    forms = ""
+    if p.get("forms"):
+        tiles = "".join(
+            f'<li><img src="../images/{img}" width="{img_size(img)[0]}" height="{img_size(img)[1]}" alt="Velacore Health {p["name"]} {name.lower()}" loading="lazy" /><div><b>{name}</b><p>{line}</p></div></li>'
+            for name, img, line in p["forms"] if (ROOT / "public" / "images" / img).exists())
+        forms = f'''
+    <!-- Forms, Nov 17 2026: one card, one photo per form. Shown only where the program data lists forms. -->
+    <section class="section blk prog-forms">
+      <div class="container">
+        <div class="blk-card blk-card-mint">
+          <div class="section-head">
+            <h2>{ {2: "Two", 3: "Three", 4: "Four"}.get(len(p["forms"]), str(len(p["forms"]))) } forms, one program</h2>
+            <p class="section-sub">Your clinician decides the form and the dose from your intake. Product images are illustrations; your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
+          </div>
+          <ul class="form-tiles">{tiles}</ul>
+        </div>
+      </div>
+    </section>
+'''
     faq_ld = ",".join('{"@type":"Question","name":"%s","acceptedAnswer":{"@type":"Answer","text":"%s"}}' % (q.replace('"', "'"), a.replace('"', "'")) for q, a in p["faq"])
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -430,7 +452,7 @@ def page(p):
     </section>
 
 {TRUST}
-
+{forms}
     <!-- Program cards, Nov 17 2026: what it is, who it is for, the four steps, each one card -->
     <section class="section blk prog-blocks">
       <div class="container prog-two">

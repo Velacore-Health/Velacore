@@ -113,7 +113,7 @@ Show exactly one vial. No other objects, no plants, no second vial, no bottle, n
 - When the clinician photo arrives: convert it and use it on the site steps.
 - When the clinician motion clip arrives: use it under the closing line in the video in place of the still photo.
 - When the group shot arrives: convert it, use it on the home page hero and in the video's closing scene in place of the six tiles.
-- Place the NAD+ nasal spray and dropper photos on the NAD+ page.
+- Done Nov 17: the NAD+ nasal spray and dropper photos are on the NAD+ page as the Forms card.
 - Add a Find your program button under the video player on the Learn page.
 - Send the finished video and every new image through vc-reviewer. The reviewer has not yet seen the new closing line, "and it's made after a review of your health history", or the closing scene.
 - Update `docs/gemini-prompts.md` with the prompts that passed.
