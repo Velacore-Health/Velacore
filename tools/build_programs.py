@@ -238,7 +238,7 @@ def mega_menu(prefix):
         cols.append(f'<div class="mega-col"><h4>{cat}</h4>{"".join(rows)}</div>')
     return (f'<div class="nav-item has-mega"><a href="{prefix}index.html#treatments" aria-haspopup="true" aria-expanded="false">Treatments</a>'
             f'<div class="mega" role="menu">{"".join(cols)}'
-            f'<div class="mega-col mega-cta"><h4>Not sure?</h4><p>Choose where to start. A licensed clinician reviews your intake and decides what is appropriate.</p>'
+            f'<div class="mega-col mega-cta"><h4>Not sure?</h4><p>Two quick questions narrow it down. A licensed clinician reviews your intake and decides what is appropriate.</p>'
             f'<a class="btn btn-primary btn-sm" href="{prefix}index.html#goals">Find your program</a></div></div></div>')
 
 

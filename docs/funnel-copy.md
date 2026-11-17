@@ -14,26 +14,27 @@ Prices are tokens. On OpenLoop Agile, OpenLoop sets the retail price, so every p
 
 ### Goal chooser, right under the hero
 
-- h2: Choose where to start
-- p.section-sub: Every program is prescription only. A licensed clinician reviews your intake and decides what is appropriate.
+- h2: Find your program
+- p.section-sub: Two quick questions narrow six programs down to the ones that may fit. Every program is prescription only. A licensed clinician reviews your intake and decides what is appropriate.
+- Changed Nov 17 2026: the tiles are step 1 of a chooser. Step 2 asks about injections, step 3 shows the matching cards. Step wording lives in public/index.html, the six result notes in public/script.js.
 
 Tile 1
 
 - h3: Weight
 - p: Three GLP-1 programs: Tirzepatide, Semaglutide and Microdosing GLP-1.
-- button: See weight programs
+- button: Start here
 
 Tile 2
 
 - h3: Vitality
 - p: Two programs: NAD+ and Glutathione, in the form your clinician prescribes.
-- button: See vitality programs
+- button: Start here
 
 Tile 3
 
 - h3: Hormone support
 - p: One program: Sermorelin, a growth hormone-releasing hormone analog.
-- button: See the Sermorelin program
+- button: Start here
 
 Note: tile lines name what is inside and nothing more. No benefit words, so the tile titles carry the category and the lines stay mechanistic.
 

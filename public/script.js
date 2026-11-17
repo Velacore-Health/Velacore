@@ -193,6 +193,7 @@
           card.classList.remove('pcar-card'); card.removeAttribute('aria-roledescription'); card.removeAttribute('aria-label');
           card.removeAttribute('data-d'); card.removeAttribute('style'); card.removeAttribute('aria-hidden');
           card.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
+          card.querySelectorAll('a, button').forEach(function (el) { el.removeAttribute('tabindex'); });
           out.appendChild(card);
         });
         document.getElementById('chTitle').textContent = TITLE[goal];
@@ -206,7 +207,7 @@
   })();
 
   // Funnel, Nov 13 2026. Goal tiles open the matching filter in the program list.
-  Array.prototype.forEach.call(document.querySelectorAll('a[data-goal][href="#treatments"]:not([data-chooser] a)'), function (a) {
+  Array.prototype.forEach.call(Array.prototype.filter.call(document.querySelectorAll('a[data-goal][href="#treatments"]'), function (a) { return !a.closest('[data-chooser]'); }), function (a) {
     a.addEventListener('click', function (e) {
       var btn = document.querySelector('.filter[data-filter="' + a.getAttribute('data-goal') + '"]');
       var sec = document.getElementById('treatments');
