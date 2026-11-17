@@ -70,7 +70,18 @@ Goal tints, added Nov 17 2026 at Dourado's direction after the Hims study. Each 
 | Hormone support | Pale jade | #D9F0E6 | Jade tint, a touch lighter |
 | Not sure | Mint deep | #DDF0E7 | The site tint |
 
-Rules: pine is the only body text color on light grounds. Jade ink is for things you can click; plain jade is for the mark. Fine print is #5F716A at the lightest, never lighter. The program colors are stripes, label lines and the small dot in a card's category pill, never text and never backgrounds on their own. Gradients: inside the logo, and a white to goal-tint fade on a card body. A fade always runs between two close tones over a short distance so it never bands; never a long run, never two strong colors, never a gradient under text that needs the tint for contrast. Changed Nov 17 2026 from no gradients anywhere, Dourado's choice after the Hims study. One exception, also Dourado's choice Nov 17 2026: the backdrop behind the home page top carries three pale washes from the logo family, mint, pale helix blue and pale violet, fading to white at its foot, with a faint grain over it so it never bands. Text on it stays pine or pine soft and measures at least 4.5 to 1 against the darkest point behind it. A second, Dourado's choice Nov 17 2026 evening: the big Weight card on the home page eases from its pale helix blue into the photo's own mint wall and marble across the text side, so the photo has no hard color edge. Text on it measures at least 4.5 to 1. Nowhere else yet. No black, no pure grey.
+Hover fills, added Nov 17 2026 at Dourado's direction, used only on the home hub tiles on hover or keyboard focus, always with white text:
+
+| Tile | From | To |
+|---|---|---|
+| NAD+ and Glutathione | Deep violet #5A3FA3 | Violet #7A5CC0 |
+| Needle-free options | Deep jade #05594A | Jade #0A8268 |
+| Compare prices | Deep helix blue #2A4596 | Helix blue #4A6BD0 |
+| Not sure? Start here | Ocean blue #2B74A8 | Teal #1F6E73 |
+
+The two big home cards deepen to #CDD9F7 for Weight and #C0E6D3 for Hormone support on hover, under pine text.
+
+Rules: pine is the only body text color on light grounds. Jade ink is for things you can click; plain jade is for the mark. Fine print is #5F716A at the lightest, never lighter. The program colors are stripes, label lines and the small dot in a card's category pill, never text and never backgrounds on their own. Gradients: inside the logo, and a white to goal-tint fade on a card body. A fade always runs between two close tones over a short distance so it never bands; never a long run, never two strong colors, never a gradient under text that needs the tint for contrast. Changed Nov 17 2026 from no gradients anywhere, Dourado's choice after the Hims study. One exception, also Dourado's choice Nov 17 2026: the backdrop behind the home page top carries three pale washes from the logo family, mint, pale helix blue and pale violet, fading to white at its foot, with a faint grain over it so it never bands. Text on it stays pine or pine soft and measures at least 4.5 to 1 against the darkest point behind it. A second, Dourado's choice Nov 17 2026 evening: the big Weight card on the home page eases from its pale helix blue into the photo's own mint wall and marble across the text side, so the photo has no hard color edge. Text on it measures at least 4.5 to 1. A third, Dourado's choice Nov 17 2026 evening from the Hims reference: on hover or keyboard focus, the four small tiles under the big home cards fill with their own gradient, each a deeper shade of a logo family color, violet #5A3FA3 to #7A5CC0, jade #05594A to #0A8268, helix blue #2A4596 to #4A6BD0, ocean blue #2B74A8 to teal #1F6E73, with white text at least 4.7 to 1 on the lightest stop; the two big cards deepen their own tint, #CDD9F7 and #C0E6D3, under pine text. Nowhere else yet. No black, no pure grey.
 
 ## 3. Type
 

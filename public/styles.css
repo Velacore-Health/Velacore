@@ -908,3 +908,27 @@ body.panel-open{overflow:hidden}
 /* Weight card blend, Nov 17 2026 at Dourado's request: the blue eases into the photo's own mint wall and marble across the
    text side, so there is no hard color edge where the photo starts. The second layer is the photo's left-edge colors, sampled. */
 .hub-weight{background:linear-gradient(90deg,#E4EBF9 0%,#E4EBF9 16%,rgba(228,235,249,0) 52%),linear-gradient(180deg,#F2F9F7 0%,#E7F3EE 50%,#E4EEEE 78%,#EBEBEF 100%)}
+/* Hub hover, Nov 17 2026 at Dourado's request from the Hims reference: each small tile fills with its own gradient from the
+   brand family, text turns white; the two big cards deepen their tint and ease the photo in a little. White text measures at
+   least 4.7 to 1 on the lightest stop of every fill; card text at least 4.6 on the deeper tints. Pointer devices only, and the
+   same state on keyboard focus. Transitions are off under reduced motion through the global rule. */
+.hub-small li:nth-child(1) a{--hov:linear-gradient(135deg,#5A3FA3 0%,#7A5CC0 100%)}
+.hub-small li:nth-child(2) a{--hov:linear-gradient(135deg,#05594A 0%,#0A8268 100%)}
+.hub-small li:nth-child(3) a{--hov:linear-gradient(135deg,#2A4596 0%,#4A6BD0 100%)}
+.hub-small li:nth-child(4) a{--hov:linear-gradient(135deg,#2B74A8 0%,#1F6E73 100%)}
+.hub-small a{position:relative;isolation:isolate;overflow:hidden;transition:color .25s ease,box-shadow .25s ease}
+.hub-small a::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--hov);opacity:0;transition:opacity .25s ease}
+.hub-small a:focus-visible{color:#fff}
+.hub-small a:focus-visible::before{opacity:1}
+.hub-card{position:relative;isolation:isolate}
+.hub-card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s ease;pointer-events:none}
+.hub-weight::before{background:linear-gradient(90deg,#CDD9F7 0%,#CDD9F7 24%,rgba(205,217,247,0) 56%)}
+.hub-hormone::before{background:linear-gradient(90deg,#C0E6D3 0%,#C0E6D3 24%,rgba(192,230,211,0) 56%)}
+.hub-card img{transition:transform .4s ease}
+.hub-card:focus-visible::before{opacity:1}
+@media (hover:hover){
+  .hub-small a:hover{color:#fff}
+  .hub-small a:hover::before{opacity:1}
+  .hub-card:hover::before{opacity:1}
+  .hub-card:hover img{transform:scale(1.03)}
+}
