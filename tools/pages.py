@@ -238,7 +238,7 @@ PAGES = [
         "h1": "About Velacore Health",
         "lede": "Velacore Health is a telehealth coordination platform. We connect adults in the United States with independent licensed clinicians and licensed 503A compounding pharmacies.",
         "hero": ("lifestyle/about-hero", "A woman on a sofa reading her phone, a dog asleep beside her"),
-        "photos": {"What we do not do": ("lifestyle/pharmacy-lab", "A pharmacist in a clean room weighing powder on a balance")},
+        "photos": {"How it works": ("lifestyle/pharmacy-lab", "A pharmacist in a clean room weighing powder on a balance")},
         "sections": [
             ("Who operates Velacore", [
                 "Velacore Health is operated by First Venture Group LLC.",
