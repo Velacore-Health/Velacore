@@ -141,7 +141,7 @@ def price_cards():
         w = re.match(r"^(\$\d+) charged up front", week12["note"]); assert w, p["slug"]
         wi, he = img_size(p["image"])
         cards.append(
-            f'<article class="tcard" id="price-{p["slug"]}"><div class="tcard-media"><span class="tcard-cat">{p["cat"]}</span>'
+            f'<article class="tcard" data-cat="{ {"Vitality": "vitality", "Hormone support": "hormone"}.get(p["cat"], "weight") }" id="price-{p["slug"]}"><div class="tcard-media"><span class="tcard-cat">{p["cat"]}</span>'
             f'<img class="tcard-photo" src="images/{p["image"]}"{bp.prod_srcset(p["image"], "", "(max-width:700px) 92vw, 380px")} width="{wi}" height="{he}" alt="Velacore Health {p["name"]} vial" loading="lazy" /></div>'
             f'<div class="tcard-body"><h3>{p["name"]}</h3><p class="tcard-mech">{p["chips"][1]}. {p["chips"][2]}.</p>'
             f'<div class="tcard-meta"><span class="tcard-price">{first} <small>first month, then {then}/mo{', injection' if any(x['id'] == 'oral' for x in p['plans']) else ''}</small></span><span class="tcard-rx">Rx only</span></div>'

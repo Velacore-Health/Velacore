@@ -889,3 +889,14 @@ body.panel-open{overflow:hidden}
 .prog-media .tcard-photo{transform:none}
 /* Form tiles zoom in on the bottle; the clip keeps the zoomed photo inside its own box, which has no frame of its own. */
 .form-tiles img{transform:scale(1.16);transform-origin:50% 72%;clip-path:inset(9.9% 6.9% 3.9% 6.9%)}
+/* Pricing page cards, Nov 17 2026 at Dourado's request: the same row lining as the home program row. Each card borrows
+   seven rows of the grid so title, line, price, plan, link and button sit level across every card in a row. */
+@supports (grid-template-rows:subgrid){
+  .pr-grid{row-gap:0}
+  .pr-grid .tcard{display:grid;grid-row:span 7;grid-template-rows:subgrid;row-gap:0;margin-bottom:22px}
+  .pr-grid .tcard-body{grid-row:2/span 6;display:grid;grid-template-rows:subgrid;row-gap:0}
+  .pr-grid .tcard-body>h3{align-self:end}
+  .pr-grid .tcard-meta{margin-top:0;align-self:start}
+  .pr-grid .tcard-link{justify-self:start}
+  .pr-grid .tcard-body>.btn{grid-row:6;align-self:end}
+}
