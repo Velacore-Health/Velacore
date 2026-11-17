@@ -47,6 +47,14 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+Late Nov 16 2026, the explainer is on the Learn page in the local copy, not pushed.
+- `public/learn.html` has a video block: player with poster, captions attached and off by default, prescription and FDA small print, an AI voice and AI pictures line, a transcript and a Find your program button. Files are `public/media/peptides-explained.mp4` at 3.6 MB, its `.vtt`, and `public/images/learn/peptides-explained-poster.webp`. vc-reviewer PASS.
+- Dourado's decisions that night: the closing scene uses the site header lockup, no purple. The AI clinician is shown at full frame with her face and no label over the shot. The house rule in `docs/gemini-prompts.md` section 8 was rewritten to match; it is our own rule, not a quoted LegitScript rule.
+- Open on that shot: the reviewer's advisory is that the white coat, stethoscope and two blurred wall certificates imply credentials. Cheapest fix is a clip without the wall frames. The question of an AI clinician goes to the attorney before the LegitScript submission. Ad use of the video stays blocked.
+- Small leftovers: the Messenger pill overlaps her for under half a second at 34 s; `docs/gemini-prompts.md` section 13 still says no people and names the old narrator; nobody but Dourado can confirm the audio.
+- Waiting on Dourado's push it, three batches: the five pages plus four Learn articles, the three home page images, and this Learn video block.
+
+
 - **Nov 16 evening: explainer video and image session. Nothing pushed, the site is unchanged.**
   The running list of what is left, in order, with every Gemini prompt, is `docs/gemini-queue.md`.
   Read that first when picking this up.
