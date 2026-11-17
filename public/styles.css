@@ -125,7 +125,19 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero-lede{font-size:1.2rem;color:var(--ink-soft);max-width:34rem;margin-bottom:30px}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
 .hero-chips{display:flex;flex-wrap:wrap;gap:8px 22px}
-.hero-price{font-size:1.08rem;font-weight:600;color:var(--ink);margin:-12px 0 24px}
+.hero-price{font-size:1.02rem;font-weight:600;color:var(--ink);margin:0 0 10px}
+/* the hero as a menu, Nov 17 2026: three goal rows, then one button */
+.hero-kicker{font-weight:600;color:var(--ink);margin:0 0 10px;font-size:1.05rem}
+.hero-menu{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:10px;max-width:34rem}
+.hero-menu a{display:grid;grid-template-columns:64px 1fr 24px;align-items:center;gap:16px;min-height:76px;padding:6px 14px 6px 6px;background:#fff;border:1.5px solid var(--line-strong);border-radius:var(--r);color:var(--ink);text-decoration:none;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.hero-menu a:hover{border-color:var(--jade);transform:translateX(2px)}
+.hero-menu a:focus-visible{outline:3px solid var(--jade);outline-offset:3px}
+.hero-menu img{width:64px;height:64px;object-fit:cover;border-radius:10px;display:block;background:var(--mint)}
+.hero-menu b{display:block;font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1.1;font-variation-settings:"opsz" 36}
+.hero-menu small{display:block;font-size:.92rem;color:var(--ink-soft);margin-top:3px}
+.hero-menu i{width:10px;height:10px;border:solid var(--jade);border-width:2px 2px 0 0;transform:rotate(45deg);justify-self:center}
+.hero .hero-lede{font-size:.95rem;margin-bottom:22px;color:var(--ink-faint)}
+.hero .hero-cta{margin-bottom:14px}
 .hero-trust{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;max-width:34rem}
 .hero-trust li{display:flex;align-items:center;gap:10px;font-size:.95rem;color:var(--ink-soft)}
 .hero-trust .check{width:20px;height:20px;font-size:.66rem}

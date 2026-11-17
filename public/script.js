@@ -181,6 +181,10 @@
     root.querySelectorAll('.goal-tile[data-goal]').forEach(function (a) {
       a.addEventListener('click', function (e) { e.preventDefault(); goal = a.getAttribute('data-goal'); show(2); });
     });
+    // the hero menu rows pick a goal from anywhere on the page
+    document.querySelectorAll('[data-pick-goal]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); goal = a.getAttribute('data-pick-goal'); show(2); });
+    });
     root.querySelectorAll('[data-form]').forEach(function (b) {
       b.addEventListener('click', function () {
         if (!goal) { show(1); return; }
