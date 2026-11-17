@@ -137,6 +137,7 @@ def page(a):
         </div>
       </div>
     </article>
+    {bp.goal_band('../')}
   </main>
 
   <footer class="site-footer">

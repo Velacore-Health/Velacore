@@ -293,7 +293,9 @@ def page(a):
   </header>
   {bp.side_panel("")}
 
-{main_html}
+{main_html.rsplit('</main>', 1)[0]}
+    {bp.goal_band('')}
+  </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">

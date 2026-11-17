@@ -265,6 +265,20 @@ def side_panel(prefix):
             f'  </aside>\n  <!-- panel:end -->')
 
 
+def goal_band(prefix):
+    """The chooser's first question at the foot of a page, Nov 17 2026: three goal rows that open step 2 of the home
+    chooser, and one button for the rest. Not on the home page, which has the chooser itself, and not on legal pages."""
+    goals = "".join(
+        f'<li><a href="{prefix}index.html#goals-{g}" data-pick-goal="{g}"><img src="{prefix}images/lifestyle/goal-{g}-480.webp" width="480" height="360" alt="" loading="lazy" />'
+        f'<span><b>{name}</b><small>{sub}</small></span><i aria-hidden="true"></i></a></li>' for g, name, sub in GOALS)
+    return (f'<!-- goalband:start -->\n    <section class="section goal-band on-cream" aria-labelledby="goalBandTitle">\n      <div class="container">\n'
+            f'        <h2 id="goalBandTitle">What are you here for?</h2>\n'
+            f'        <p class="goal-band-sub">Pick a goal and two quick questions narrow six programs down to the ones that may fit. A licensed clinician decides what is appropriate.</p>\n'
+            f'        <ol class="hero-menu goal-band-menu" aria-label="Choose a goal">{goals}</ol>\n'
+            f'        <a href="{prefix}index.html#goals" class="btn btn-ghost" data-find>Not sure? Find your program</a>\n'
+            f'      </div>\n    </section>\n    <!-- goalband:end -->')
+
+
 def mega_menu(prefix):
     """The Treatments dropdown. prefix is '' on the home page and '../' on program pages."""
     cols = []

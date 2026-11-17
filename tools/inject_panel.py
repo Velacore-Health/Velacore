@@ -17,5 +17,12 @@ for name in PAGES:
     else:
         j = s.index("  </header>") + len("  </header>")
         s = s[:j] + "\n  " + panel + s[j:]
+    if name in ("learn.html", "faq.html"):
+        band = bp.goal_band("")
+        if "<!-- goalband:start -->" in s:
+            s = re.sub(r"<!-- goalband:start -->.*?<!-- goalband:end -->", lambda m: band, s, count=1, flags=re.S)
+        else:
+            j = s.index("    <!-- Please note -->")
+            s = s[:j] + band + "\n\n" + s[j:]
     f.write_text(s, encoding="utf-8")
     print("panel on", name)
