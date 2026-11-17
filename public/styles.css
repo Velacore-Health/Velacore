@@ -804,7 +804,7 @@ body.panel-open{overflow:hidden}
 .hub-inner{max-width:1360px;margin:0 auto;padding:0 clamp(16px,2.4vw,36px)}
 .hub h1{font-size:clamp(1.9rem,3.6vw,3rem);text-wrap:balance;margin:0 0 10px;max-width:24ch}
 .hub-lede{font-size:1rem;color:var(--ink-soft);max-width:44rem;margin:0 0 20px}
-.hub-note{font-size:.85rem;color:var(--ink-faint);margin:10px 0 0}
+.hub-note{font-size:.85rem;color:var(--ink-soft);margin:10px 0 0}
 .hub-big{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .hub-card{display:grid;grid-template-columns:1fr 48%;grid-template-rows:1fr auto;min-height:216px;border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);background:var(--tint)}
 .hub-weight{--tint:#E4EBF9}
@@ -847,3 +847,21 @@ body.panel-open{overflow:hidden}
 }
 @media (min-width:981px) and (max-width:1100px){.nav-links .mega{left:50%;transform:translateX(-50%) translateY(6px)}.nav-links .has-mega:hover .mega,.nav-links .has-mega:focus-within .mega,.nav-links .has-mega.open .mega{transform:translateX(-50%) translateY(0)}}
 @media (min-width:981px){.site-header>.nav{position:relative}.nav-links .has-mega{position:static}.nav-links .mega{top:calc(100% - 2px)}.nav-links .mega::before{top:-28px;height:28px}}
+/* Hub backdrop, Nov 17 2026 trial at Dourado's ask: a soft gradient behind the home top for card contrast.
+   Three pale washes from the logo gradient family, fading to white at the foot; a faint grain on top stops banding. */
+.hub{position:relative;isolation:isolate;padding-bottom:30px;background:
+  linear-gradient(180deg,rgba(255,255,255,0) 72%,#fff 100%),
+  radial-gradient(62% 75% at 0% 0%,#D3ECE0 0%,rgba(211,236,224,0) 72%),
+  radial-gradient(58% 70% at 100% 6%,#DCE5F8 0%,rgba(220,229,248,0) 72%),
+  radial-gradient(55% 60% at 72% 96%,#E8E0F6 0%,rgba(232,224,246,0) 70%),
+  #F5F9F7}
+.hub::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hub-small a{background:#fff;box-shadow:0 1px 2px rgba(21,48,42,.06),0 8px 22px -14px rgba(21,48,42,.28)}
+.hub-small a:hover{background:#fff;box-shadow:0 1px 2px rgba(21,48,42,.08),0 10px 26px -12px rgba(21,48,42,.34)}
+.hub-card{box-shadow:0 1px 2px rgba(21,48,42,.05),0 12px 30px -18px rgba(21,48,42,.30)}
+.hub-card picture{grid-column:2;grid-row:1/3;display:block;min-height:0}
+.hub-card picture img{width:100%;height:100%}
+@media (max-width:700px){.hub-card img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 42%);mask-image:linear-gradient(90deg,transparent 0,#000 42%)}.hub-weight img{object-position:50% 60%}}
+.hub-card picture{position:relative}
+.hub-card picture img{position:absolute;inset:0}
+@media (max-width:700px){.hub-weight{grid-template-columns:1fr 156px;min-height:192px}.hub-weight img{object-position:50% 50%}}
