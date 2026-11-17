@@ -250,12 +250,12 @@ def side_panel(prefix):
         f'<span><b>{name}</b><small>{sub}</small></span><i aria-hidden="true"></i></a></li>' for g, name, sub in GOALS)
     progs = "".join(
         f'<a class="panel-prog" href="{prefix}programs/{p["slug"]}.html"><img src="{prefix}images/products/thumbs/{p["slug"]}.webp" width="216" height="216" alt="" loading="lazy" />'
-        f'<b>{p["name"]}</b><small>from {first_month(p)}</small></a>' for p in PROGRAMS)
+        f'<b>{p["name"]}</b><small>{first_month(p)} first month</small></a>' for p in PROGRAMS)
     links = [("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("learn.html", "Learn"), ("clinicians.html", "Clinicians"),
              ("faq.html", "FAQ"), ("about.html", "About"), ("contact.html", "Contact")]
     more = "".join(f'<a href="{prefix}{h}">{t}</a>' for h, t in links)
     return (f'<!-- panel:start -->\n  <div class="panel-overlay" id="panelOverlay" hidden></div>\n'
-            f'  <aside class="panel" id="sidePanel" aria-label="Menu" aria-hidden="true" hidden>\n'
+            f'  <aside class="panel" id="sidePanel" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true" hidden>\n'
             f'    <div class="panel-head"><span class="panel-title">Menu</span><button type="button" class="panel-close" id="panelClose" aria-label="Close menu">&#215;</button></div>\n'
             f'    <p class="panel-kicker">What are you here for?</p><ol class="hero-menu panel-goals" aria-label="Choose a goal">{goals}</ol>\n'
             f'    <p class="panel-kicker">Programs</p><div class="panel-progs">{progs}</div>\n'

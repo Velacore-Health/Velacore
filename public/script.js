@@ -55,24 +55,6 @@
     });
   })();
 
-  // Mobile nav toggle
-  var toggle = document.getElementById('navToggle');
-  var links = document.getElementById('navLinks');
-  if (toggle && links) {
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('open');
-      toggle.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-    links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        links.classList.remove('open');
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-
   // Treatments dropdown: tap to open on phones, keyboard friendly everywhere
   document.querySelectorAll('.has-mega > a').forEach(function (trigger) {
     trigger.addEventListener('click', function (e) {
