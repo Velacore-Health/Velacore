@@ -900,3 +900,8 @@ body.panel-open{overflow:hidden}
   .pr-grid .tcard-link{justify-self:start}
   .pr-grid .tcard-body>.btn{grid-row:6;align-self:end}
 }
+/* Weight card photo, Nov 17 2026 at Dourado's request: the fade never touches a vial. Wide screens keep the three vials with
+   a 16 px fade, which ends before the first vial. Between phone and 1300 px the box is narrower than the trio, so it shows one
+   Tirzepatide vial with mirrored margins, tirzepatide-wide.webp, and the fade falls on the margin. */
+@media (min-width:1300px){.hub-weight img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16px);mask-image:linear-gradient(90deg,transparent 0,#000 16px)}}
+@media (min-width:701px) and (max-width:1299px){.hub-weight img{object-position:50% 50%}}
