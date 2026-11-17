@@ -905,3 +905,6 @@ body.panel-open{overflow:hidden}
    Tirzepatide vial with mirrored margins, tirzepatide-wide.webp, and the fade falls on the margin. */
 @media (min-width:1300px){.hub-weight img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16px);mask-image:linear-gradient(90deg,transparent 0,#000 16px)}}
 @media (min-width:701px) and (max-width:1299px){.hub-weight img{object-position:50% 50%}}
+/* Weight card blend, Nov 17 2026 at Dourado's request: the blue eases into the photo's own mint wall and marble across the
+   text side, so there is no hard color edge where the photo starts. The second layer is the photo's left-edge colors, sampled. */
+.hub-weight{background:linear-gradient(90deg,#E4EBF9 0%,#E4EBF9 16%,rgba(228,235,249,0) 52%),linear-gradient(180deg,#F2F9F7 0%,#E7F3EE 50%,#E4EEEE 78%,#EBEBEF 100%)}
