@@ -78,7 +78,8 @@ window.renderEnd = t => {
   fade(btn, t, 2.5, 0.6, 0); fade(document.getElementById("url"), t, 2.9, 0.6, 0); fade(document.getElementById("fine"), t, 1.0, 0.8, 0);
   // the cursor glides in to the button, presses once, and rests
   const cur = document.getElementById("cur");
-  const k = ease((t - 4.8) / 1.3), x0 = 1010, y0 = 690, x1 = 742, y1 = 568;
+  // in from the right at button height so it never crosses the small print, reviewer note Nov 17 2026
+  const k = ease((t - 4.8) / 1.3), x0 = 1180, y0 = 586, x1 = 742, y1 = 568;
   cur.style.opacity = ease((t - 4.7) / 0.3);
   cur.style.translate = `${x0 + (x1 - x0) * k}px ${y0 + (y1 - y0) * k}px`;
   const press = t > 6.25 && t < 6.5 ? 1 - Math.abs((t - 6.375) / 0.125) : 0;
