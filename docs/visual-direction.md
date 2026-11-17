@@ -50,7 +50,7 @@ Three edgier sets we could add, each a Gemini edit of the approved vial photo so
 2. Pine studio. The vial on a pine ground, matte, with a soft pool of light under it and one thin rim of the program color along the glass edge. Use: the dark band on the home page, the pricing page header, social.
 3. Frosted glass. The vial behind a sheet of frosted glass with the mint wall behind, only the label sharp. Use: section dividers, the Learn page, the video poster.
 
-Lifestyle photos stay as BRAND.md says: real homes, cool daylight, adults 35 to 60, no gym, no scale, no needle. The edgier move there is tighter crops and more shadow, not different people.
+Lifestyle photos stay as BRAND.md says: real homes, cool daylight, adults late twenties to late thirties, naturally good-looking, ordinary healthy builds, no gym, no scale, no needle. The edgier move there is tighter crops and more shadow, not different people.
 
 Section backgrounds on the site, in order of weight: paper, mint, a goal tint, pine. One pine band per page at most.
 

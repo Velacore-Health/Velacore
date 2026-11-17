@@ -18,6 +18,62 @@ Every Gemini item below was made and passed Vale's check on Nov 16. The prompts 
 
 Nothing from this session is live. Nothing is pushed. vc-reviewer has seen none of it.
 
+## The Nov 17 push set, in this order
+
+All four made, checked and vc-reviewer PASS on Nov 17: A, B, C and D. Step 4 needed a second try.
+
+Dourado, Nov 17: get all the images done before the next push. Glutathione was redone and passed review the same morning. Four left. Save each download in Downloads as Gemini names it; Vale finds it, checks every label line enlarged, files it and places it. Each one goes through vc-reviewer before the push.
+
+### A. Microdosing GLP-1 oral dropper, replaces the placeholder in the Tired of needles section
+
+New chat, Images on, Aspect ratio 3:4. Attach, in this order: `nad-oral-marble.jpg`, then `microdosing-marble.jpg`, both from `assets-in\products`.
+
+```
+Edit the first attached photo. Keep the scene exactly the same: the same white marble riser, the same pale marble tabletop, the same soft mint wall fading to white, the same daylight from the upper left, the same soft shadow, the same camera height and the same vertical 3 by 4 framing. Keep the bottle the same shape and size, with the same ribbed deep pine green cap and the same white dropper bulb.
+
+Change only three things. One: make the bottle glass clear warm amber brown pharmacy glass. Two: change the product name on the label from NAD+ to Microdosing GLP-1, set on two centered lines, Microdosing on the first line and GLP-1 on the second, in the same serif font, weight and color as NAD+, spelled exactly as on the label in the second attached photo. Three: change the violet line under the dark green band and the short violet dash under the name to jade green, color 0C8F72, exactly as on the label in the second attached photo.
+
+Keep every other word on the label exactly as it is, word for word: the VELACORE HEALTH logo, FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, and Rx ONLY in its outlined pill. Add no other text anywhere. Exactly one bottle. No other objects, no hands, no pills, no syringe, no needle.
+```
+
+Reject if any label word is misspelled, if 503A has a malformed 5, or if the glass is not amber.
+
+### B. NAD+ vial, redone to match the set
+
+Why: the NAD+ vial on the site is the earlier marble photo, cropped; its riser and vial shape differ from Tirzepatide, Semaglutide, Microdosing and Glutathione.
+
+New chat, Images on, Aspect ratio 3:4. Attach, in this order: `tirzepatide-marble.jpg`, then `semaglutide-marble.jpg`, both from `assets-in\products`.
+
+```
+Edit the first attached photo. Keep everything exactly the same: the same vial, the same deep pine green cap and silver crimp, the same marble riser, tabletop, mint wall, light, shadow, camera height and framing, and every word of the label in the same place and font.
+
+Change only two things. One: change the product name on the label from Tirzepatide to NAD+, in the same serif font, size, weight and color, centered. Two: change the blue line under the dark green band and the short blue dash under the name to violet, exactly the violet used on the label in the second attached photo.
+
+Keep every other word exactly as it is: the VELACORE HEALTH logo, FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, and Rx ONLY in its outlined pill. Add no other text anywhere. Exactly one vial, no other objects.
+```
+
+### C. Sermorelin vial, redone to match the set
+
+Same as B, same two attachments, same prompt with Sermorelin in place of NAD+.
+
+### D. Step 4 support photo for How it works
+
+Try 1 rejected Nov 17: a third arm and hand, a cluttered room, pictures on the floor. Dourado wants a happy medium between the Hims framing and our brand, people in their late twenties to late thirties, somewhat attractive. Try 2, new chat, Images on, 4:3, nothing attached:
+
+```
+Photoreal candid photograph, horizontal 4 by 3, editorial lifestyle style, like a real quiet moment at home, not a stock photo. A naturally good-looking man about 32, well groomed, short dark hair, light stubble, an approachable everyday face, ordinary healthy build, not a model, wearing a plain deep pine green crewneck sweater. He sits on a light linen sofa in a calm, bright, minimal living room. He holds his phone in both hands in front of his chest, typing a short message with his thumbs, a small easy smile, looking down at the phone. Exactly two arms and two hands, both on the phone, natural fingers, nothing resting on the sofa back.
+
+Frame him from the knees up, slightly off center to the right, filling about half the frame. Behind him a smooth plain white wall with soft pale mint daylight on it, one tall green plant softly out of focus on the left, and one pale mint cushion beside him. Lots of clean empty wall space. Nothing on the floor, no shelves, no clutter, no pictures or frames on the walls, no books, no papers, no table.
+
+Soft cool morning daylight from a large window on the left, gentle shadows, true skin tones with natural texture, no retouched or glamour look, shallow depth of field, calm and uncluttered. The phone screen faces away from the camera and shows nothing readable. No logos, no text anywhere, no watch, no coffee mug, no medical items, no pills, no needles, no scale.
+```
+
+Reject if: any extra or missing arm, hand or finger, any readable text, clutter, a model or fitness look, or a face that reads as a known person.
+
+### Held: Semaglutide oral
+
+Not made yet. The written proposal gives an oral daily dose but not the form, tablet or drops or something else. A picture would guess. Ask OpenLoop, then make it.
+
 ## Gemini, in this order
 
 ### 1. Opening clip, replaces clip 1

@@ -19,7 +19,7 @@ Bright, clean, cool daylight. White and pale mint, with one touch of green. Real
 
 ## Rules for people, never break these
 
-- Adults about 35 to 60, varied backgrounds, ordinary everyday builds. Nobody model-thin, nobody with a fitness-model body.
+- Adults in their late twenties to late thirties, varied backgrounds, Dourado Nov 17 2026. Naturally good-looking and well groomed, approachable, the kind of person you would notice in a cafe, with ordinary healthy builds. Nobody model-thin, nobody with a fitness-model body, no glamour or retouched look.
 - Everyday activity only: cooking, walking, coffee, reading, a laptop at a kitchen table. No gym, no workout gear, no sweat.
 - Never show: scales, tape measures, mirrors, waistlines, bellies, loose clothing being held out, before and after, pills, needles, syringes, injections, medical gowns.
 - Never a caption, name or quote that makes the person look like a Velacore patient. They are scenes, not testimonials.

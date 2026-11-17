@@ -35,7 +35,7 @@ PAGES = [
                  "note": "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
                  "more": "Pharmacy fulfillment"},
                 {"word": "Support", "short": "Reviews and support continue", "title": "Reviews and support continue",
-                 "img": "hero", "w": 1194, "h": 1600, "pos": "50% 30%", "alt": "A woman pouring a glass of water in her kitchen",
+                 "img": "step-support", "w": 1600, "h": 1194, "pos": "62% 50%", "alt": "A man on his sofa typing a message on his phone",
                  "line": "The clinician reviews your intake updates on a set schedule, and patient support is available 24 hours a day, every day.",
                  "facts": ["Nothing about your prescription changes without a clinician's review", "Message your clinician through your patient portal"],
                  "more": "Ongoing reviews and support"},
