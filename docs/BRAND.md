@@ -65,13 +65,13 @@ Rules: pine is the only body text color on light grounds. Jade ink is for things
 
 ## 3. Type
 
-- Headlines: Fraunces, weight 500, optical size high, the SOFT axis around 30 to 50. Sentence case. No single word colored or italic inside a headline.
+- Headlines: Plus Jakarta Sans, weight 600, letter spacing slightly tight. Sentence case. No single word colored or italic inside a headline. Changed Nov 17 2026 at Dourado's direction from Fraunces, after a side by side on the home hero; he wanted the friendly, wide sans feel of the Hims site. Fraunces is retired from the site.
 - Body, buttons, labels, navigation: Hanken Grotesk, 400 to 600.
-- Logo wordmark: the logo's own lettering. It is not a web font we have. Do not try to set VELACORE in Fraunces or Hanken; use the logo file.
-- Sizes on the site: body 17 px, line length under 80 characters, headlines from 2.6 rem to 4.4 rem.
+- Logo wordmark: the logo's own lettering. It is not a web font we have. Do not try to set VELACORE in Plus Jakarta Sans or Hanken; use the logo file. The site header and the video end card set the words Velacore Health in Plus Jakarta Sans beside the mark; Dourado accepted that lockup on Nov 16 2026.
+- Sizes on the site: body 17 px, line length under 80 characters, headlines from 2.2 rem to 3.4 rem.
 - Nothing in all caps except the logo wordmark and the product label. No tracked-out small-caps labels.
 
-Both web fonts load from Google Fonts. Desktop files for Canva or print: download Fraunces and Hanken Grotesk from Google Fonts, both are free under the Open Font License.
+Both web fonts load from Google Fonts. Desktop files for Canva or print: download Plus Jakarta Sans and Hanken Grotesk from Google Fonts, both are free under the Open Font License.
 
 ## 4. Voice
 
@@ -99,7 +99,7 @@ Style A, pine band, chosen by Dourado Nov 11 2026:
 
 Top panel, pine, the upper 44 percent: the designer's full logo, mark above the VELACORE HEALTH wordmark, reversed out in white as in version 02
 A fine line in the program color under the panel
-The program name in Fraunces, pine, title case, as large as fits
+The program name in the label serif as printed, pine, title case, as large as fits. The label artwork keeps its own serif; the site font change of Nov 17 2026 does not reach the label.
 A short dash in the program color
 Small, pine, wide spaced capitals: FOR PRESCRIPTION USE ONLY / PRESCRIPTION COMPOUNDED / 503A COMPOUNDING PHARMACY
 Rx ONLY in a thin pine outlined pill
