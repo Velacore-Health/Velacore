@@ -218,12 +218,12 @@ PROGRAMS = [
 ]
 
 MENU = [
-    ("Weight", [("tirzepatide", "Tirzepatide", "images/products/tirzepatide.webp", "Dual GIP / GLP-1 injection"),
-                ("semaglutide", "Semaglutide", "images/products/semaglutide.webp", "GLP-1 injection"),
-                ("microdosing", "Microdosing GLP\u20111", "images/products/microdosing.webp", "Low dose, oral or injection")]),
-    ("Vitality", [("nad", "NAD+", "images/products/nad.webp", "Injection, nasal or oral"),
-                  ("glutathione", "Glutathione", "images/products/glutathione.webp", "Form set by clinician")]),
-    ("Hormone support", [("sermorelin", "Sermorelin", "images/products/sermorelin.webp", "GHRH analog injection")]),
+    ("Weight", [("tirzepatide", "Tirzepatide", "images/products/thumbs/tirzepatide.webp", "Dual GIP / GLP-1 injection"),
+                ("semaglutide", "Semaglutide", "images/products/thumbs/semaglutide.webp", "GLP-1 injection"),
+                ("microdosing", "Microdosing GLP\u20111", "images/products/thumbs/microdosing.webp", "Low dose, oral or injection")]),
+    ("Vitality", [("nad", "NAD+", "images/products/thumbs/nad.webp", "Injection, nasal or oral"),
+                  ("glutathione", "Glutathione", "images/products/thumbs/glutathione.webp", "Form set by clinician")]),
+    ("Hormone support", [("sermorelin", "Sermorelin", "images/products/thumbs/sermorelin.webp", "GHRH analog injection")]),
 ]
 
 
