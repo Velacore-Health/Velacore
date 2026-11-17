@@ -61,7 +61,16 @@ Program colors, picked from the logo gradient. Each program owns one, used as it
 
 Logo gradient, read from the designer's SVG on Nov 6: three stops, mint green #78CBA9 at 0, blue #3A8EC6 at 0.36, magenta #DD25DA at 1, running from the upper right of the helix to the lower left. The site's program colors, helix blue #3E5FC0 and helix violet #8A6BC9, are mid-tones picked from that gradient for stripes and caps; they are not the stops themselves. Keep both: the stops for anything that reproduces the logo, the mid-tones for program colors.
 
-Rules: pine is the only body text color on light grounds. Jade ink is for things you can click; plain jade is for the mark. Fine print is #5F716A at the lightest, never lighter. The program colors are stripes and label lines, never text and never backgrounds. No gradients anywhere except inside the logo itself. No black, no pure grey.
+Goal tints, added Nov 17 2026 at Dourado's direction after the Hims study. Each goal owns one pale tint, used as a soft fade on the lower part of a program card and nowhere else yet:
+
+| Goal | Tint | Hex | Comes from |
+|---|---|---|---|
+| Weight | Pale helix blue | #E4EBF9 | Helix blue at about 12 percent |
+| Vitality | Pale helix violet | #ECE6F8 | Helix violet at about 12 percent |
+| Hormone support | Pale jade | #D9F0E6 | Jade tint, a touch lighter |
+| Not sure | Mint deep | #DDF0E7 | The site tint |
+
+Rules: pine is the only body text color on light grounds. Jade ink is for things you can click; plain jade is for the mark. Fine print is #5F716A at the lightest, never lighter. The program colors are stripes, label lines and the small dot in a card's category pill, never text and never backgrounds on their own. Gradients: inside the logo, and a white to goal-tint fade on a card body. A fade always runs between two close tones over a short distance so it never bands; never a long run, never two strong colors, never a gradient under text that needs the tint for contrast. Changed Nov 17 2026 from no gradients anywhere, Dourado's choice after the Hims study. No black, no pure grey.
 
 ## 3. Type
 

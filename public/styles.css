@@ -427,43 +427,43 @@ body.prog-microdosing{--cap:var(--cap-jade)}
   *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 
-/* Program carousel, phones only. Built by Kevin Nov 6 2026, adapted to the Velacore tokens. Desktop keeps the grid. */
-.pcar{position:relative;--pc-cw:clamp(250px,74vw,320px)}
-.pcar-ctl{display:none}
-.pcar-status{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (max-width:759px){
-  .pcar.on{padding:4px 0}
-  .pcar.on .pcar-stage{position:relative;overflow:clip;padding:6px 0 14px;perspective:1100px;touch-action:pan-y;user-select:none;-webkit-user-select:none;outline:none}
-  .pcar.on .pcar-stage:focus-visible{outline:2px solid var(--jade);outline-offset:6px;border-radius:var(--r)}
-  .pcar.on .pcar-track{display:block;position:relative;height:var(--pc-h,560px);transform-style:preserve-3d}
-  .pcar.on .pcar-card{position:absolute;left:50%;top:0;width:var(--pc-cw);margin-left:calc(var(--pc-cw) / -2);transition:transform .5s var(--ease),opacity .4s var(--ease);will-change:transform;box-shadow:0 10px 30px rgba(21,48,42,.08)}
-  .pcar.on .pcar-card::after{content:"";position:absolute;inset:0;background:var(--mint);opacity:0;transition:opacity .4s var(--ease);pointer-events:none;z-index:2}
-  .pcar.on .pcar-card[data-d="0"]{transform:none;z-index:3}
-  .pcar.on .pcar-card[data-d="-1"]{transform:translateX(-106%) scale(.94);z-index:2;cursor:pointer}
-  .pcar.on .pcar-card[data-d="1"]{transform:translateX(106%) scale(.94);z-index:2;cursor:pointer}
-  .pcar.on .pcar-card[data-d="-1"]::after,.pcar.on .pcar-card[data-d="1"]::after{opacity:.78}
-  .pcar.on .pcar-card[data-d="-2"],.pcar.on .pcar-card[data-d="2"],.pcar.on .pcar-card[data-d="3"],.pcar.on .pcar-card[data-d="-3"]{transform:scale(.9);opacity:0;z-index:1;pointer-events:none}
-  .pcar--3d.on .pcar-card[data-d="-1"]{transform:translateX(-62%) translateZ(-140px) rotateY(32deg) scale(.88)}
-  .pcar--3d.on .pcar-card[data-d="1"]{transform:translateX(62%) translateZ(-140px) rotateY(-32deg) scale(.88)}
-  .pcar.on .pcar-card:not([data-d="0"]) a,.pcar.on .pcar-card:not([data-d="0"]) button{pointer-events:none}
-  .pcar.on .tcard-media{aspect-ratio:4/5}
-  .pcar.on .tcard-photo{object-fit:cover;padding:0}
-  .pcar.on .tcard-body{padding:18px 18px 20px}
-  .pcar.on .tcard-mech{font-size:.92rem}
-  .pcar.on .pcar-ctl{display:flex;align-items:center;justify-content:center;gap:6px;margin:14px 0 0}
-  .pcar-count{display:none;min-width:64px;text-align:center;font-weight:600;color:var(--pine);font-variant-numeric:tabular-nums}
-  .pcar.on[data-many="true"] .pcar-dots{display:none}
-  .pcar.on[data-many="true"] .pcar-count{display:block}
-  .pcar-nav{flex:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-strong);background:#fff;color:var(--pine);display:grid;place-items:center;cursor:pointer;padding:0;transition:transform .15s}
-  .pcar-nav:active{transform:scale(.95)}
-  .pcar-nav svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-  .pcar-dots{display:flex}
-  .pcar-dot{width:44px;height:44px;background:none;border:0;display:grid;place-items:center;cursor:pointer;padding:0}
-  .pcar-dot span{width:10px;height:10px;border-radius:50%;background:var(--line-strong);transition:background .2s,transform .2s}
-  .pcar-dot[aria-current="true"] span{background:var(--jade);transform:scale(1.3)}
-  .pcar-nav:focus-visible,.pcar-dot:focus-visible{outline:2px solid var(--jade);outline-offset:3px}
-}
-@media (prefers-reduced-motion:reduce){.pcar-card,.pcar-card::after{transition:none!important}}
+/* Program row that slides, Nov 17 2026. Replaces the phone-only 3D carousel; one row on every screen. */
+.prow{position:relative;margin:0 -24px}
+.prow-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;padding:6px 24px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;scroll-behavior:smooth}
+.prow-track::-webkit-scrollbar{display:none}
+.prow-track.is-dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;user-select:none}
+.prow-track:focus-visible{outline:3px solid var(--jade);outline-offset:-3px;border-radius:var(--r)}
+.prow-track .tcard{flex:0 0 min(300px,80vw);scroll-snap-align:start}
+.prow-track .tcard-media{aspect-ratio:1/1}
+.prow-track .tcard-mech{min-height:0;margin-bottom:14px}
+.prow-track .tcard-body{padding:20px 20px 22px}
+.prow-track .tcard-wide{flex-direction:column}
+.prow-track .tcard-wide .tcard-photo{object-position:50% 50%}
+.prow-track img,.prow-track a{-webkit-user-drag:none}
+.prow-track img{user-select:none}
+.prow-track .tcard-link{color:var(--jade-dark)}
+.prow::after{content:"";position:absolute;top:0;bottom:18px;right:0;width:56px;background:linear-gradient(to right,rgba(238,245,241,0),var(--mint));pointer-events:none;transition:opacity .2s}
+.prow.at-end::after{opacity:0}
+.prow-ctl{display:flex;justify-content:center;gap:10px;margin-top:4px}
+.prow-nav{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line-strong);background:#fff;color:var(--pine);display:grid;place-items:center;cursor:pointer;padding:0;transition:border-color .2s,transform .15s}
+.prow-nav:hover{border-color:var(--jade)}
+.prow-nav:active{transform:scale(.95)}
+.prow-nav:disabled{opacity:.35;cursor:default}
+.prow-nav svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.prow-nav:focus-visible{outline:3px solid var(--jade);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.prow-track{scroll-behavior:auto}}
+/* Card color, Nov 17 2026 at Dourado's direction after the Hims study: each goal owns a soft tint, the card body fades white to that tint.
+   Two close tones over a short run so there is no banding. Text stays pine; the tint never carries text contrast on its own. */
+.tcard{--tint:var(--mint-2)}
+.tcard[data-cat="weight"]{--tint:#E4EBF9}
+.tcard[data-cat="vitality"]{--tint:#ECE6F8}
+.tcard[data-cat="hormone"]{--tint:#D9F0E6}
+.tcard-body{background:linear-gradient(180deg,#fff 0%,#fff 28%,var(--tint) 100%)}
+.tcard-meta{border-top-color:rgba(21,48,42,.12)}
+.tcard-cat::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cap-violet);margin-right:7px;vertical-align:1px}
+.tcard[data-cat="weight"] .tcard-cat::before{background:var(--cap-blue)}
+.tcard[data-cat="weight"]:nth-of-type(3) .tcard-cat::before{background:var(--cap-jade)}
+.tcard[data-cat="hormone"] .tcard-cat::before{background:var(--cap-jade)}
 
 /* Home page cut down for ad traffic, Nov 8 2026 */
 .page-top{padding-top:64px}
@@ -540,6 +540,13 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .mobile-cta--price{gap:12px;align-items:center}
 @media (max-width:680px){.mobile-cta--price.is-shown,.mobile-cta--price{display:flex}.mcta-price{display:flex;flex-direction:column;line-height:1.25;min-width:0}.mcta-price b{font-size:.95rem}.mcta-price small{font-size:.85rem;color:var(--ink-soft)}.mobile-cta--price .btn{margin-left:auto;white-space:nowrap}}
 .goals-grid + .img-note{margin-top:16px;text-align:center}
+/* ---------- Goal band at the foot of a page, Nov 17 2026 ---------- */
+.goal-band .container{display:flex;flex-direction:column;align-items:center;text-align:center}
+.goal-band h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:10px}
+.goal-band-sub{color:var(--ink-soft);max-width:36rem;margin:0 0 26px}
+.goal-band-menu{max-width:none;width:100%;grid-template-columns:repeat(3,1fr);gap:14px;text-align:left;margin-bottom:22px}
+.goal-band-menu a{background:#fff;height:100%}
+@media (max-width:860px){.goal-band-menu{grid-template-columns:1fr;max-width:34rem}}
 /* ---------- Slide-in menu, Nov 17 2026 ---------- */
 .menu-btn{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 16px 0 14px;border:1.5px solid var(--line-strong);border-radius:999px;background:#fff;font:600 .95rem var(--body);color:var(--ink);cursor:pointer;margin-left:14px;flex:none}
 .menu-btn:hover{border-color:var(--jade)}

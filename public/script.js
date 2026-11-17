@@ -97,70 +97,55 @@
         var show = f === 'all' || cat === f || cat === 'all';
         card.style.display = show ? '' : 'none';
       });
-      document.querySelectorAll('[data-pcar]').forEach(function (r) { r.dispatchEvent(new Event('pcar:refresh')); });
     });
   });
 
-  // Program carousel, phones only. Built by Kevin, adapted so it follows the filter above.
-  (function () {
-    var mq = window.matchMedia('(max-width:759px)');
-    document.querySelectorAll('[data-pcar]').forEach(function (root) {
-      var stage = root.querySelector('.pcar-stage'), track = root.querySelector('.pcar-track');
-      var all = [].slice.call(track.children), dotsBox = root.querySelector('[data-dots]'), status = root.querySelector('[data-status]'), count = root.querySelector('[data-count]');
-      var cards = all, n = all.length, idx = 0, dots = [];
-      function visible() { return all.filter(function (c) { return c.style.display !== 'none'; }); }
-      function wrap(i) { return (i % n + n) % n; }
-      function buildDots() {
-        dotsBox.innerHTML = ''; dots = [];
-        cards.forEach(function (c, i) {
-          var b = document.createElement('button'); b.type = 'button'; b.className = 'pcar-dot';
-          b.setAttribute('aria-label', 'Show ' + (c.getAttribute('aria-label') || 'program ' + (i + 1)).replace(/,.*$/, ''));
-          b.innerHTML = '<span></span>'; b.addEventListener('click', function () { go(i); }); dotsBox.appendChild(b); dots.push(b);
-        });
-      }
-      function render() {
-        var half = Math.floor(n / 2);
-        cards.forEach(function (c, i) {
-          var d = ((i - idx + n + half) % n) - half;
-          c.setAttribute('data-d', d); c.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
-          [].forEach.call(c.querySelectorAll('a,button'), function (a) { a.tabIndex = d === 0 ? 0 : -1; });
-        });
-        dots.forEach(function (b, i) { b.setAttribute('aria-current', i === idx ? 'true' : 'false'); });
-        if (status) status.textContent = cards[idx] ? (cards[idx].getAttribute('aria-label') || '') : '';
-        if (count) count.textContent = (idx + 1) + ' of ' + n;
-        root.setAttribute('data-many', n >= 5 && window.innerWidth < 420 ? 'true' : 'false');
-      }
-      function size() { var h = 0; cards.forEach(function (c) { h = Math.max(h, c.offsetHeight); }); track.style.setProperty('--pc-h', h + 'px'); }
-      function go(i) { idx = wrap(i); render(); }
-      function reset() { cards = visible(); n = cards.length; idx = 0; all.forEach(function (c) { if (cards.indexOf(c) < 0) { c.removeAttribute('data-d'); c.removeAttribute('aria-hidden'); } }); }
-      function enable() { root.classList.add('on'); reset(); buildDots(); render(); requestAnimationFrame(size); }
-      function disable() {
-        root.classList.remove('on'); track.style.removeProperty('--pc-h');
-        all.forEach(function (c) { c.removeAttribute('data-d'); c.removeAttribute('aria-hidden'); [].forEach.call(c.querySelectorAll('a,button'), function (a) { a.removeAttribute('tabindex'); }); });
-      }
-      function sync() { mq.matches ? enable() : disable(); }
-      root.querySelector('[data-prev]').addEventListener('click', function () { go(idx - 1); });
-      root.querySelector('[data-next]').addEventListener('click', function () { go(idx + 1); });
-      all.forEach(function (c) { c.addEventListener('click', function (e) { if (root.classList.contains('on') && c.getAttribute('data-d') !== '0') { e.preventDefault(); go(cards.indexOf(c)); } }); });
-      stage.addEventListener('keydown', function (e) {
-        if (!root.classList.contains('on')) return;
-        if (e.key === 'ArrowLeft') { go(idx - 1); e.preventDefault(); }
-        if (e.key === 'ArrowRight') { go(idx + 1); e.preventDefault(); }
-      });
-      var x0 = null, y0 = null;
-      stage.addEventListener('pointerdown', function (e) { x0 = e.clientX; y0 = e.clientY; });
-      stage.addEventListener('pointerup', function (e) {
-        if (x0 === null) return; var dx = e.clientX - x0, dy = e.clientY - y0; x0 = null;
-        if (root.classList.contains('on') && Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) go(dx < 0 ? idx + 1 : idx - 1);
-      });
-      stage.addEventListener('pointercancel', function () { x0 = null; });
-      root.addEventListener('pcar:refresh', function () { if (root.classList.contains('on')) enable(); });
-      (mq.addEventListener ? mq.addEventListener('change', sync) : mq.addListener(sync));
-      window.addEventListener('resize', function () { if (root.classList.contains('on')) size(); });
-      window.addEventListener('load', function () { if (root.classList.contains('on')) size(); });
-      sync();
+  // Program row that slides, Nov 17 2026: drag with a mouse, swipe with a thumb, the two arrows, or arrow keys on the row.
+  document.querySelectorAll('[data-prow]').forEach(function (root) {
+    var track = root.querySelector('.prow-track'), prev = root.querySelector('[data-prev]'), next = root.querySelector('[data-next]');
+    if (!track) return;
+    function step() { var c = track.querySelector('.tcard'); return c ? c.getBoundingClientRect().width + 18 : 300; }
+    function sync() {
+      var max = track.scrollWidth - track.clientWidth;
+      if (prev) prev.disabled = track.scrollLeft <= 2;
+      if (next) next.disabled = track.scrollLeft >= max - 2;
+      root.classList.toggle('at-end', track.scrollLeft >= max - 2);
+    }
+    function by(dx) { track.scrollBy({ left: dx, behavior: reduce ? 'auto' : 'smooth' }); }
+    if (prev) prev.addEventListener('click', function () { by(-step()); });
+    if (next) next.addEventListener('click', function () { by(step()); });
+    track.addEventListener('scroll', sync); window.addEventListener('resize', sync); window.addEventListener('load', sync); sync();
+    track.addEventListener('keydown', function (e) {
+      if (e.target !== track) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); by(step()); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); by(-step()); }
     });
-  })();
+    // Mouse drag. Touch scrolls natively. A drag never counts as a click on a card.
+    var x0 = null, s0 = 0, moved = false;
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      x0 = e.clientX; s0 = track.scrollLeft; moved = false;
+    });
+    track.addEventListener('pointermove', function (e) {
+      if (x0 === null) return;
+      var dx = e.clientX - x0;
+      if (!moved && Math.abs(dx) > 6) { moved = true; track.classList.add('is-dragging'); track.setPointerCapture(e.pointerId); }
+      if (moved) track.scrollLeft = s0 - dx;
+    });
+    function end() {
+      if (x0 === null) return;
+      x0 = null;
+      if (moved) {
+        track.classList.remove('is-dragging');
+        var block = function (ev) { ev.preventDefault(); ev.stopPropagation(); };
+        track.addEventListener('click', block, true);
+        setTimeout(function () { track.removeEventListener('click', block, true); }, 60);
+      }
+    }
+    track.addEventListener('pointerup', end); track.addEventListener('pointercancel', end);
+    track.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    filterBtns.forEach(function (b) { b.addEventListener('click', function () { track.scrollTo({ left: 0, behavior: 'auto' }); setTimeout(sync, 30); }); });
+  });
 
   // Find your program chooser, Nov 17 2026. Two answers, then the matching program cards, cloned from the
   // program list so prices and wording exist in one place. Nothing is stored or sent anywhere.
@@ -209,7 +194,7 @@
           var src = document.querySelector('.tcard [data-start="' + slug + '"]');
           if (!src) return;
           var card = src.closest('.tcard').cloneNode(true);
-          card.classList.remove('pcar-card'); card.removeAttribute('aria-roledescription'); card.removeAttribute('aria-label');
+          
           card.removeAttribute('data-d'); card.removeAttribute('style'); card.removeAttribute('aria-hidden');
           card.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
           card.querySelectorAll('a, button').forEach(function (el) { el.removeAttribute('tabindex'); });
@@ -283,25 +268,13 @@
     });
   }
 
-  // Scroll reveal (safe: content visible by default; CSS animates on .is-visible)
-  if ('IntersectionObserver' in window && !reduce) {
-    var revealEls = document.querySelectorAll('.tcard, .pillar, .step');
-    revealEls.forEach(function (el) { el.classList.add('reveal'); });
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
-  }
-
   // Sticky mobile CTA: shown only after the hero scrolls away, hidden again on the start section
   var mobileCta = document.getElementById('mobileCta');
   var heroSec = document.querySelector('.hero, .prog-hero');
   var intakeSec = document.getElementById('intake') || document.getElementById('start');
   if (mobileCta && 'IntersectionObserver' in window) {
     var heroVisible = !!heroSec, intakeVisible = false, carVisible = false; // pages without a hero show the bar at once
-    var carSec = document.querySelector('[data-pcar]');
+    var carSec = document.querySelector('[data-prow]');
     var update = function () {
       var show = !heroVisible && !intakeVisible && !carVisible;
       mobileCta.classList.toggle('is-shown', show);

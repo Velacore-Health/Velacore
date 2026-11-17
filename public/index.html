@@ -174,11 +174,11 @@
           <button class="filter" data-filter="hormone">Hormone support</button>
         </div>
 
-        <div class="pcar pcar--3d" data-pcar aria-roledescription="carousel" aria-label="Programs">
-        <div class="pcar-stage" tabindex="0">
-        <div class="tgrid pcar-track" id="tgrid">
+        <!-- Program row, Nov 17 2026: one row that slides, the same on every screen. Drag, swipe, arrows or arrow keys. -->
+        <div class="prow" data-prow>
+        <div class="prow-track" id="tgrid" role="group" tabindex="0" aria-label="Programs, scroll sideways for more">
           <!-- Tirzepatide -->
-          <article class="tcard pcar-card" data-cat="weight" aria-roledescription="slide" aria-label="Tirzepatide, 1 of 7">
+          <article class="tcard" data-cat="weight">
             <div class="tcard-media"><span class="tcard-cat">Weight</span><img class="tcard-photo" src="images/products/tirzepatide.webp" width="1200" height="1600" alt="Velacore Health Tirzepatide vial" loading="eager" /></div>
             <div class="tcard-body">
               <h3>Tirzepatide</h3>
@@ -194,7 +194,7 @@
           </article>
 
           <!-- Semaglutide -->
-          <article class="tcard pcar-card" data-cat="weight" aria-roledescription="slide" aria-label="Semaglutide, 2 of 7">
+          <article class="tcard" data-cat="weight">
             <div class="tcard-media"><span class="tcard-cat">Weight</span><img class="tcard-photo" src="images/products/semaglutide.webp" width="1200" height="1600" alt="Velacore Health Semaglutide vial" loading="eager" /></div>
             <div class="tcard-body">
               <h3>Semaglutide</h3>
@@ -210,7 +210,7 @@
           </article>
 
           <!-- Microdosing GLP-1 -->
-          <article class="tcard pcar-card" data-cat="weight" aria-roledescription="slide" aria-label="Microdosing GLP-1, 3 of 7">
+          <article class="tcard" data-cat="weight">
             <div class="tcard-media"><span class="tcard-cat">Weight, entry tier</span><img class="tcard-photo" src="images/products/microdosing.webp" width="1200" height="1600" alt="Velacore Health Microdosing GLP-1 vial" loading="lazy" />
             </div>
             <div class="tcard-body">
@@ -227,7 +227,7 @@
           </article>
 
           <!-- NAD+ -->
-          <article class="tcard pcar-card" data-cat="vitality" aria-roledescription="slide" aria-label="NAD+, 4 of 7">
+          <article class="tcard" data-cat="vitality">
             <div class="tcard-media"><span class="tcard-cat">Vitality</span><img class="tcard-photo" src="images/products/nad.webp" width="1200" height="1600" alt="Velacore Health NAD+ vial" loading="lazy" /></div>
             <div class="tcard-body">
               <h3>NAD+</h3>
@@ -243,7 +243,7 @@
           </article>
 
           <!-- Glutathione -->
-          <article class="tcard pcar-card" data-cat="vitality" aria-roledescription="slide" aria-label="Glutathione, 5 of 7">
+          <article class="tcard" data-cat="vitality">
             <div class="tcard-media"><span class="tcard-cat">Vitality</span><img class="tcard-photo" src="images/products/glutathione.webp" width="1200" height="1600" alt="Velacore Health Glutathione vial" loading="lazy" /></div>
             <div class="tcard-body">
               <h3>Glutathione</h3>
@@ -259,7 +259,7 @@
           </article>
 
           <!-- Sermorelin -->
-          <article class="tcard pcar-card" data-cat="hormone" aria-roledescription="slide" aria-label="Sermorelin, 6 of 7">
+          <article class="tcard" data-cat="hormone">
             <div class="tcard-media"><span class="tcard-cat">Hormone support</span><img class="tcard-photo" src="images/products/sermorelin.webp" width="1200" height="1600" alt="Velacore Health Sermorelin vial" loading="lazy" /></div>
             <div class="tcard-body">
               <h3>Sermorelin</h3>
@@ -275,7 +275,7 @@
           </article>
 
           <!-- Not sure -->
-          <article class="tcard tcard-wide pcar-card" data-cat="all" aria-roledescription="slide" aria-label="Not sure where to start, 7 of 7">
+          <article class="tcard tcard-wide" data-cat="all">
             <div class="tcard-media"><img class="tcard-photo" src="images/lifestyle/hero-group-1280.webp" srcset="images/lifestyle/hero-group-640.webp 640w, images/lifestyle/hero-group-960.webp 960w, images/lifestyle/hero-group-1280.webp 1280w, images/lifestyle/hero-group-1920.webp 1920w" sizes="(max-width:940px) 80vw, 640px" width="1920" height="1434" alt="Velacore Health program vials on white marble" loading="lazy" /></div>
             <div class="tcard-body">
               <h3>Not sure where to start?</h3>
@@ -289,14 +289,10 @@
             </div>
           </article>
         </div>
+        <div class="prow-ctl">
+          <button class="prow-nav" type="button" data-prev aria-label="Previous programs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="prow-nav" type="button" data-next aria-label="Next programs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
-        <div class="pcar-ctl">
-          <button class="pcar-nav" type="button" data-prev aria-label="Previous program"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-          <div class="pcar-dots" data-dots></div>
-          <span class="pcar-count" data-count aria-hidden="true"></span>
-          <button class="pcar-nav" type="button" data-next aria-label="Next program"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-        </div>
-        <p class="pcar-status" data-status aria-live="polite"></p>
         </div>
 
         <p class="treat-note">Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different. Prices are the full program cost. Shipping is included and there is no separate consultation or physician fee. Prepaid 12, 24 and 52 week plans are charged up front and ship every 4 weeks. All medications are prescription only, prepared by a licensed 503A compounding pharmacy to a clinician's prescription. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Your clinician decides which program, if any, is appropriate. Individual results vary. This page is not medical advice.</p>
