@@ -52,6 +52,8 @@ Night of Nov 16 2026, after the push. Local only, not pushed, all three vc-revie
 - Learn page: the bead walk-through is gone; the video sits beside the intro text. Dourado found the flat drawing clashed with the video.
 - Image sharpness: the files were sharp, the vials were small in frame. Goal tiles are cropped tighter and the hero and tiles now use srcset with sharpened sizes. Glutathione on water is only 896 px wide at the source and Tirzepatide is heavily compressed.
 - Dourado's decision: all six single vial photos go on marble, no water. NAD+ and Sermorelin are made. Tirzepatide, Semaglutide, Microdosing GLP-1 and Glutathione still need a Gemini edit each, one step at a time, vial large in the frame. Swap all six on the site together.
+- Also in this batch, each vc-reviewer PASS: the Not sure where to start card now shows the six-vial photo as a wide band on desktop; the Treatments menu thumbnails are sharp 216 px close-ups of the marble vials in `public/images/products/thumbs/`; the brand guide section 5 now says marble.
+- Dourado's questions answered Nov 16: an AI clinician face is a house rule, not a LegitScript one; he chose the full shot with no label. He said yes to a three-question Find your program chooser; not started.
 - Open: a vector vial sample was offered and not yet answered. The no extra cost video visit wording needs written confirmation for Semaglutide and Tirzepatide. Four Start visit buttons in the home carousel are 41 px tall at 375.
 
 
