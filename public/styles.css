@@ -330,14 +330,13 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .footer-bottom a:hover{color:#fff}
 
 /* ---------- Peptide education ---------- */
-.edu-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;margin-bottom:46px}
+.edu-intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start;margin-bottom:46px}
 .edu-intro-copy h2{font-size:1.8rem;margin-bottom:14px}
 .edu-intro-copy p{color:var(--ink-soft);font-size:1.08rem;margin-bottom:14px;max-width:36rem}
 .edu-intro-copy strong{color:var(--ink);font-weight:600}
 .edu-viz{border-radius:var(--r);overflow:hidden;background:#fff;border:1px solid var(--line)}
 .edu-viz img{width:100%;height:100%;aspect-ratio:16/10;object-fit:contain;display:block;animation:none}
-.edu-video{max-width:860px;margin:0 auto 46px}
-.edu-video h2{font-size:1.8rem;margin-bottom:14px}
+.edu-video{min-width:0}
 .edu-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:var(--r);border:1px solid var(--line);background:var(--mint)}
 .edu-video-note{color:var(--ink-faint);font-size:.88rem;margin-top:12px}
 .edu-transcript{margin-top:8px}
