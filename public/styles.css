@@ -216,13 +216,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .brand-tile{width:46%;max-width:220px;height:auto;opacity:.95}
 /* the Not sure where to start card: a wide band across the row on desktop, an ordinary card in the phone carousel */
 .tcard-wide .tcard-photo{object-position:50% 58%}
-@media (min-width:941px){
-  .tcard-wide{grid-column:1/-1;flex-direction:row}
-  .tcard-wide .tcard-media{flex:1.2;aspect-ratio:auto;min-height:360px}
-  .tcard-wide .tcard-body{flex:1;justify-content:center;padding:40px 44px}
-  .tcard-wide .tcard-body h3{font-size:2rem;margin-bottom:10px}
-  .tcard-wide .tcard-meta{margin-top:22px}
-  .tcard-wide .btn{align-self:flex-start;width:auto;padding-left:34px;padding-right:34px}
 }
 .mega-tile{width:54px;height:54px;object-fit:contain;padding:10px;background:var(--mint);border-radius:10px}
 .provider-copy>p{color:var(--ink-soft);margin-bottom:14px;font-size:1.05rem}
