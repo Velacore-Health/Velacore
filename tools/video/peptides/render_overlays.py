@@ -11,7 +11,7 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).parent
 WORK = ROOT / "03-edits" / "peptides-video"
-FPS, END_LEN = 30, 7.0
+FPS, END_LEN = 30, 8.4
 STEP_X = [313, 528, 742, 962]   # centers of the four beads in clips/clip1.mp4 at about six seconds
 
 subs = json.loads((WORK / "subs" / "list.json").read_text(encoding="utf-8"))

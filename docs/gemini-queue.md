@@ -125,6 +125,15 @@ Show exactly one vial. No other objects, no plants, no second vial, no bottle, n
 - Oral Semaglutide and oral Microdosing photos. The proposal gives a daily dose and not the form. Ask OpenLoop whether it is a tablet, drops or something else before making a picture.
 - "Free evaluation" wording for a call to action. Not used until OpenLoop confirms in writing what the patient is charged.
 
+## Asked by Dourado late on Nov 16, not started
+
+- Product pictures and site sections by form. The injectable vials stay the lead for the site and for ads. He also wants the non-needle forms shown for people who are tired of injections: sprays, and oral forms. Within the six approved programs that means the NAD+ nasal spray and dropper, which are made, and the oral forms of Semaglutide and Microdosing GLP-1, which wait on OpenLoop naming the form. A form-based section on the site is a design and copy job for Vale, vc-copy and vc-reviewer.
+- A men's sexual health category. He wants to add it and sees it as a strong seller. It is outside the six approved programs, so nothing is written or built for it. It needs, in order: Dourado's decision to change the approved list in CLAUDE.md and COMPLIANCE.md, a separate order form and fee from OpenLoop, a check of what LegitScript and the Meta and Google ad policies allow for that category, and then copy and images. Vale advised deciding it after the first six are certified.
+
+## vc-reviewer, Nov 16
+
+First pass blocked three things and all three were fixed the same night: the AI clinician's face on the step 2 photo and in the video's closing line clip, both now cropped to hands and chart, and a malformed 503A on the Microdosing vial in the hero, now patched. The second look passed all three for the site. Use of the video in any ad stays blocked. Two hand patches exist on `assets-in/lifestyle/hero-group.jpg`, both made with ffmpeg by copying a correct word from a neighboring vial in the same image, and both were compared pixel by pixel by the reviewer: HEALTH on the Semaglutide vial, copied from Tirzepatide, and 503A on the Microdosing GLP-1 vial, copied from Sermorelin. The version before the second patch is `_hero-group-six-before-503-patch.jpg`. The reviewer also set what the Learn page must carry beside the player; that list is in its Nov 16 report and must be built before the video goes on the page.
+
 ## Done on Nov 16
 
 - Clip 3, redone once for a straight chain. Clip 4, first run.

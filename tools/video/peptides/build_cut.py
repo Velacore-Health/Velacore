@@ -16,7 +16,7 @@ OUT = "rough-cut"
 VO = sys.argv[1] if len(sys.argv) > 1 else "vo3"   # narration folder: vo3 is Bella, lowered; vo2 is Eric
 FPS, W, H = 30, 1280, 720
 LEAD, GAP, XF = 0.9, 0.6, 0.4          # first word, pause between lines, cross dissolve
-CARD_HOLD, CARD_LAG = 7.0, 0.7           # closing card length, pause after the last word
+CARD_HOLD, CARD_LAG = 8.4, 0.7           # closing card length, pause after the last word
 MUSIC_GAIN, VOICE_LUFS = 0.45, -16       # bed sits about 8 dB under the voice in the gaps, lower while she speaks
 MUSIC_SKIP = 6.0
 MUSIC = "music-bed-aura.mp3"             # soothing ambient pad, ElevenLabs music, Nov 16
@@ -24,6 +24,8 @@ LEAD_IN, LEAD_IN_GAIN = "lead-in-swell.wav", 0.0   # lead-in sound switched off 
 LINE_LUFS = -19                          # every narration line is brought to the same loudness before the mix
 STEPS_IN = 5.0                            # the four step names come in once the four beads have settled
 GAP_AFTER_OPEN = 1.9                      # longer pause after line 1 so all four step names can be read
+CTA_AT = 0.8                              # seconds into the closing scene when the spoken closing line starts
+CTA_LINE = "See which program may fit you. Find your program at velacorehealth.com."   # beat7.mp3, in the caption file only: the words are already on screen
 SUBS = True                              # subtitles on the picture, words only, drawn by render_overlays.py
 # hand-set subtitle breaks where the automatic ones split a phrase badly; the words must match the line exactly
 SUB_OVERRIDE = {6: ["Whether a peptide is right for you", "is a licensed clinician's decision,", "and it's made after a review", "of your health history."]}
@@ -42,7 +44,7 @@ LINES = [
 PILLS = {1: "label-amino.png", 2: "label-peptide.png", 3: "label-protein.png", 4: "label-messenger.png"}
 # where each clip starts in its source, in seconds
 CLIP_IN = {0: 0.0, 1: 5.5, 2: 1.4, 3: 0.0, 4: 0.0}
-CLICK_AT, CLICK_GAIN = 4.82, 0.4          # seconds into the closing scene when the button is pressed; click level
+CLICK_AT, CLICK_GAIN = 6.32, 0.4          # seconds into the closing scene when the button is pressed; click level
 
 
 def run(args, **kw):
@@ -107,7 +109,9 @@ for k in range(5):
     labels.append(f"s{k}")
 # beat 6: the clinician at her desk reviewing a chart, clips/clip6.mp4, animated in Veo from the step-clinician office photo
 n = add("-i", "clips/clip6.mp4")
-filt.append(f"[{n}:v]trim=start=0.3:duration={seg_len[5]},setpts=PTS-STARTPTS,{norm}[s5]")
+# cropped to the desk, hands and chart: vc-reviewer Nov 16, an AI face must never read as one of our clinicians
+filt.append(f"[{n}:v]trim=start=0.3:duration={seg_len[5]},setpts=PTS-STARTPTS,crop=774:435:440:285,"
+            f"scale={W}:{H}:flags=lanczos,unsharp=5:5:0.6,fps={FPS},setsar=1,format=yuv420p[s5]")
 labels.append("s5")
 # closing scene: the six programs, the button and a click, drawn by render_overlays.py
 n = add("-i", "end-scene.mp4")
@@ -151,7 +155,7 @@ for b, line in zip(beats, LINES):
     t0 = b["start"]
     for x in ph:
         t1 = t0 + b["speech"] * len(x) / total
-        subs.append((round(t0, 3), round(t1, 3), x))
+        subs.append((round(t0, 3), round(t1, 3), x.replace(",", "").replace(".", "")))   # no commas or periods on screen, Dourado Nov 16
         t0 = t1
 (WORK / "subs").mkdir(exist_ok=True)
 (WORK / "subs" / "list.json").write_text(json.dumps([{"start": a, "end": z, "text": x} for a, z, x in subs], indent=1), encoding="utf-8")
@@ -185,7 +189,17 @@ for i, b in enumerate(beats):
     line_gain.append(round(gain, 1))
     filt.append(f"[{n}:a]atrim=0:{cut:.3f},afade=t=in:st=0:d=0.02,afade=t=out:st={cut - 0.1:.3f}:d=0.1,volume={gain:.2f}dB,adelay={ms}|{ms}[v{i}]")
     voices.append(f"[v{i}]")
-filt.append("".join(voices) + f"amix=inputs=6:normalize=0,apad,atrim=0:{end},loudnorm=I={VOICE_LUFS}:TP=-1.5:LRA=11,aresample=48000,asplit[voice][key]")
+# the spoken closing line over the closing scene
+cta_start = card_at - XF / 2 + CTA_AT
+cta_len = speech_end(f"{VO}/beat7.mp3")
+n = add("-i", f"{VO}/beat7.mp3")
+lj = run(["ffmpeg", "-hide_banner", "-nostats", "-i", f"{VO}/beat7.mp3", "-af", "loudnorm=print_format=json", "-f", "null", "-"]).stderr
+gain = LINE_LUFS - float(lj.split('"input_i"')[1].split('"')[1])
+line_gain.append(round(gain, 1))
+ms = int(cta_start * 1000)
+filt.append(f"[{n}:a]atrim=0:{cta_len + 0.15:.3f},afade=t=in:st=0:d=0.02,afade=t=out:st={cta_len + 0.05:.3f}:d=0.1,volume={gain:.2f}dB,adelay={ms}|{ms}[v6]")
+voices.append("[v6]")
+filt.append("".join(voices) + f"amix=inputs=7:normalize=0,apad,atrim=0:{end},loudnorm=I={VOICE_LUFS}:TP=-1.5:LRA=11,aresample=48000,asplit[voice][key]")
 n = add("-i", MUSIC)
 # a little air added so the bed carries on small speakers, then ducked under the voice so it lifts in the gaps
 # the track itself takes six seconds to fade in, so start six seconds into it: the bed is there from the first frame
@@ -211,6 +225,7 @@ if r.returncode:
 vtt = ["WEBVTT", ""]
 for b, line in zip(beats, LINES):
     vtt += [f"{ts(b['start'])} --> {ts(b['end'] + 0.3)}", line, ""]
+vtt += [f"{ts(cta_start)} --> {ts(cta_start + cta_len + 0.3)}", CTA_LINE, ""]
 (WORK / f"{OUT}.vtt").write_text("\n".join(vtt), encoding="utf-8")
 (WORK / f"{OUT}-beats.json").write_text(json.dumps({"beats": beats, "cuts": cuts, "clip5": has5}, indent=1))
 
