@@ -172,7 +172,7 @@ def pricing_main(a, faq_html):
     </section>
     <section class="section pr-cards">
       <div class="container">
-        <div class="section-head center"><h2>Programs and prices</h2><p class="section-sub">Pay month to month or save with a 12-week plan. A licensed clinician decides whether a program is appropriate for you.</p></div>
+        <div class="section-head center"><h2>Programs and prices</h2><p class="section-sub">Pay month to month or choose a 12-week plan. A licensed clinician decides whether a program is appropriate for you.</p></div>
         {price_cards()}
         <p class="treat-note">{sec["Programs and prices"][1]} {sec["Programs and prices"][2]} Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
       </div>

@@ -642,6 +642,7 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .pr-body .hw-promise{margin-top:0}
 .pr-body .hw-promise .hw-more{border-top-color:rgba(255,255,255,.25);margin-top:10px}
 .pr-body .hw-promise .hw-more summary,.pr-body .hw-promise .hw-more-body p,.pr-body .hw-promise .hw-more-body a{color:#fff}
+.pr-body .hw-promise .hw-more-body a{display:inline;margin:0;padding:0;text-decoration:underline;text-underline-offset:3px}
 .pr-body .hw-promise .hw-more-body p{opacity:.9}
 .pr-split2{margin-top:36px}
 .pr-split2 .hw-card p{color:var(--ink-soft);margin:0 0 10px}

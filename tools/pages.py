@@ -192,7 +192,7 @@ PAGES = [
             ("Two ways to pay", [
                 "Each program offers two plan types.",
                 "- <strong>Month to month.</strong> You are charged each month. You can cancel at any time.\n"
-                "- <strong>Prepaid plan.</strong> You are charged once, up front. Medication still ships every four weeks. The 12-week plan is priced below, and 24 and 52 week plans are also offered.",
+                "- <strong>Prepaid plan.</strong> You are charged once, up front. Medication still ships every four weeks. The 12-week plan is priced in the cards above, and 24 and 52 week plans are also offered.",
                 "You choose the plan when you start. The clinician's review is the same on both.",
             ]),
             ("Programs and prices", [
