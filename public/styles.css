@@ -320,10 +320,6 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .prog-two{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
 .prog-two h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin-bottom:16px}
 .prog-text p{color:var(--ink-soft);font-size:1.08rem;margin-bottom:14px;max-width:38rem}
-.prog-note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--jade);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:24px 26px}
-.prog-note h3{font-size:1.3rem;margin-bottom:10px}
-.prog-note p{color:var(--ink-soft);font-size:.98rem;margin-bottom:12px}
-.prog-note .btn{margin-top:6px}
 .steps-4{grid-template-columns:repeat(4,1fr)}
 .edu-note a{color:var(--jade);text-decoration:underline;text-underline-offset:3px}
 
@@ -588,6 +584,15 @@ body.prog-microdosing{--cap:var(--cap-jade)}
   .footer-acc.footer-grid{gap:0;padding-bottom:20px}
   .footer-acc .footer-brand{padding-bottom:20px}
 }
+/* ---------- Program page cards, Nov 17 2026 ---------- */
+.prog-cat{margin:-6px 0 18px}
+.prog-cat .tcard-cat{position:static;display:inline-block}
+.prog-blocks .prog-two{gap:22px;align-items:stretch}
+.prog-blocks h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:14px}
+.prog-who p{color:var(--ink-soft);font-size:1rem;margin-bottom:12px}
+.prog-who .btn{margin-top:8px}
+.section.blk + .section.blk{padding-top:0}
+@media (max-width:860px){.prog-blocks .prog-two{grid-template-columns:1fr}}
 /* ---------- Goal band at the foot of a page, Nov 17 2026 ---------- */
 .goal-band .container{display:flex;flex-direction:column;align-items:center;text-align:center}
 .goal-band h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:10px}

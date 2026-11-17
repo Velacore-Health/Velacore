@@ -345,11 +345,7 @@ def page(p):
     chips = "".join(f'<li class="chip"><span class="dot"></span> {c}</li>' for c in p["chips"])
     facts = "".join(f'<li><span class="check">✓</span> {f}</li>' for f in p["facts"])
     journey = "".join(
-        f'''          <li class="step">
-            <div class="step-num">{i}</div>
-            <h3>{h}</h3>
-            <p>{t}</p>
-          </li>''' for i, (h, t) in enumerate(p["journey"], 1))
+        f'''            <li><span class="hiw-num">{i}</span><div><b>{h}</b><p>{t}</p></div></li>''' for i, (h, t) in enumerate(p["journey"], 1))
     faq = "".join(
         f'''          <details class="faq-item">
             <summary>{q}</summary>
@@ -407,8 +403,8 @@ def page(p):
         <p class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#treatments">Treatments</a> / {p["name"]}</p>
         <div class="prog-grid">
           <div class="prog-copy">
-            <p class="eyebrow">{p["cat"]}</p>
             <h1>{p["name"]}</h1>
+            <p class="prog-cat"><span class="tcard-cat">{p["cat"]}</span></p>
             <p class="hero-lede">{p["lede"]}</p>
             <ul class="hero-chips">{chips}</ul>
             <ul class="facts">{facts}</ul>
@@ -435,30 +431,34 @@ def page(p):
 
 {TRUST}
 
-    <section class="section on-cream">
+    <!-- Program cards, Nov 17 2026: what it is, who it is for, the four steps, each one card -->
+    <section class="section blk prog-blocks">
       <div class="container prog-two">
-        <div>
-                    <h2>{p["what_h"]}</h2>
+        <div class="blk-card blk-card-mint">
+          <h2>{p["what_h"]}</h2>
           <div class="prog-text">{what}</div>
         </div>
-        <div class="prog-note">
-          <h3>Who this program is for</h3>
+        <div class="blk-card blk-card-jade prog-who">
+          <h2>Who this program is for</h2>
           <p>{p["eligibility"]}</p>
           <p>Every program is prescription only. Velacore coordinates access and education; the licensed clinician decides; the 503A pharmacy fills.</p>
-          {start_button(p, "btn btn-ghost")}
+          {start_button(p, "btn btn-primary")}
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section blk">
       <div class="container">
-        <div class="section-head">
-                    <h2>A review before every change, not just a refill</h2>
-          <p class="section-sub">Velacore coordinates each step. A licensed clinician makes every prescribing decision.</p>
-        </div>
-        <ol class="steps steps-4">
+        <div class="blk-card blk-card-mint">
+          <div class="section-head">
+            <h2>A review before every change, not just a refill</h2>
+            <p class="section-sub">Velacore coordinates each step. A licensed clinician makes every prescribing decision.</p>
+          </div>
+          <ol class="hiw-rows">
 {journey}
-        </ol>
+          </ol>
+          <div class="blk-actions">{start_button(p, "btn btn-primary")}<a href="../how-it-works.html" class="btn btn-ghost">See every step</a></div>
+        </div>
       </div>
     </section>
 
