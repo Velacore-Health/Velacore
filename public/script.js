@@ -22,6 +22,39 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Slide-in menu, Nov 17 2026. One panel on every page; nothing stored, nothing sent.
+  (function () {
+    var btn = document.getElementById('menuBtn'), panel = document.getElementById('sidePanel'), overlay = document.getElementById('panelOverlay'), closeBtn = document.getElementById('panelClose');
+    if (!btn || !panel || !overlay || !closeBtn) return;
+    var timer = null;
+    function focusables() { return Array.prototype.filter.call(panel.querySelectorAll('a[href], button'), function (el) { return el.offsetParent !== null; }); }
+    function open() {
+      clearTimeout(timer); panel.hidden = false; overlay.hidden = false;
+      panel.setAttribute('aria-hidden', 'false'); btn.setAttribute('aria-expanded', 'true'); document.body.classList.add('panel-open');
+      requestAnimationFrame(function () { panel.classList.add('is-open'); overlay.classList.add('is-open'); });
+      closeBtn.focus();
+    }
+    function close(returnFocus) {
+      panel.classList.remove('is-open'); overlay.classList.remove('is-open');
+      panel.setAttribute('aria-hidden', 'true'); btn.setAttribute('aria-expanded', 'false'); document.body.classList.remove('panel-open');
+      timer = setTimeout(function () { panel.hidden = true; overlay.hidden = true; }, reduce ? 0 : 320);
+      if (returnFocus) btn.focus();
+    }
+    btn.addEventListener('click', function () { panel.classList.contains('is-open') ? close(true) : open(); });
+    closeBtn.addEventListener('click', function () { close(true); });
+    overlay.addEventListener('click', function () { close(true); });
+    panel.addEventListener('click', function (e) { if (e.target.closest('a')) close(false); });
+    document.addEventListener('keydown', function (e) {
+      if (!panel.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { close(true); return; }
+      if (e.key !== 'Tab') return;
+      var f = focusables(); if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+  })();
+
   // Mobile nav toggle
   var toggle = document.getElementById('navToggle');
   var links = document.getElementById('navLinks');
@@ -205,6 +238,9 @@
         show(3);
       });
     });
+    // arriving from the menu on another page: #goals-weight opens step 2 with that goal picked
+    var m = /^#goals-(weight|vitality|hormone)$/.exec(window.location.hash);
+    if (m) { goal = m[1]; show(2); if (history.replaceState) history.replaceState(null, '', '#goals'); }
     root.querySelectorAll('[data-ch-back]').forEach(function (b) {
       b.addEventListener('click', function () { var n = +b.getAttribute('data-ch-back'); if (n === 1) goal = null; show(n); });
     });

@@ -109,9 +109,10 @@ def page(a):
         <a href="../faq.html">FAQ</a>
         <a href="../index.html#goals" class="btn btn-primary btn-sm" data-find>Find your program</a>
       </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      {bp.MENU_BUTTON}
     </div>
   </header>
+  {bp.side_panel("../")}
 
   <main>
     <article class="section art">

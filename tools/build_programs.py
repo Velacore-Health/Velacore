@@ -227,6 +227,44 @@ MENU = [
 ]
 
 
+def first_month(p):
+    """The first month price, read from the monthly plan note so it is never typed twice."""
+    note = next(x for x in p["plans"] if x["id"] == "monthly")["note"]
+    m = re.match(r"^(\$\d+) your first month", note)
+    assert m, (p["slug"], note)
+    return m.group(1)
+
+
+MENU_BUTTON = '<button class="menu-btn" id="menuBtn" aria-controls="sidePanel" aria-expanded="false"><span class="menu-btn-bars" aria-hidden="true"><span></span><span></span></span>Menu</button>'
+
+GOALS = [("weight", "Weight", "Tirzepatide, Semaglutide, Microdosing GLP-1"),
+         ("vitality", "Vitality", "NAD+, Glutathione"),
+         ("hormone", "Hormone support", "Sermorelin")]
+
+
+def side_panel(prefix):
+    """The slide-in menu, Nov 17 2026: the goal question, the six programs with their first month price,
+    the site links, one button. The same on every page; prefix is '' at the root and '../' one level down."""
+    goals = "".join(
+        f'<li><a href="{prefix}index.html#goals-{g}" data-pick-goal="{g}"><img src="{prefix}images/lifestyle/goal-{g}-480.webp" width="480" height="360" alt="" loading="lazy" />'
+        f'<span><b>{name}</b><small>{sub}</small></span><i aria-hidden="true"></i></a></li>' for g, name, sub in GOALS)
+    progs = "".join(
+        f'<a class="panel-prog" href="{prefix}programs/{p["slug"]}.html"><img src="{prefix}images/products/thumbs/{p["slug"]}.webp" width="216" height="216" alt="" loading="lazy" />'
+        f'<b>{p["name"]}</b><small>from {first_month(p)}</small></a>' for p in PROGRAMS)
+    links = [("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("learn.html", "Learn"), ("clinicians.html", "Clinicians"),
+             ("faq.html", "FAQ"), ("about.html", "About"), ("contact.html", "Contact")]
+    more = "".join(f'<a href="{prefix}{h}">{t}</a>' for h, t in links)
+    return (f'<!-- panel:start -->\n  <div class="panel-overlay" id="panelOverlay" hidden></div>\n'
+            f'  <aside class="panel" id="sidePanel" aria-label="Menu" aria-hidden="true" hidden>\n'
+            f'    <div class="panel-head"><span class="panel-title">Menu</span><button type="button" class="panel-close" id="panelClose" aria-label="Close menu">&#215;</button></div>\n'
+            f'    <p class="panel-kicker">What are you here for?</p><ol class="hero-menu panel-goals" aria-label="Choose a goal">{goals}</ol>\n'
+            f'    <p class="panel-kicker">Programs</p><div class="panel-progs">{progs}</div>\n'
+            f'    <p class="panel-kicker">More</p><nav class="panel-links" aria-label="Pages">{more}</nav>\n'
+            f'    <div class="panel-foot"><a href="{prefix}index.html#goals" class="btn btn-primary btn-block" data-find>Find your program</a>'
+            f'<p>Prescription required. A licensed clinician reviews your intake and decides what is appropriate for you.</p></div>\n'
+            f'  </aside>\n  <!-- panel:end -->')
+
+
 def mega_menu(prefix):
     """The Treatments dropdown. prefix is '' on the home page and '../' on program pages."""
     cols = []
@@ -344,9 +382,10 @@ def page(p):
         <a href="../faq.html">FAQ</a>
         <a href="../start/{p["slug"]}.html" class="btn btn-primary btn-sm" data-start="{p["slug"]}">Start your visit</a>
       </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      {MENU_BUTTON}
     </div>
   </header>
+  {side_panel("../")}
 
   <main>
     <section class="prog-hero">

@@ -417,7 +417,7 @@ body.prog-microdosing{--cap:var(--cap-jade)}
   .has-mega:hover .mega,.has-mega:focus-within .mega,.has-mega.open .mega{transform:none}
   .mega-item{padding:6px 4px}
   .mega-cta{display:none}
-  .nav-toggle{display:flex}
+  .nav-toggle{display:none}
   .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .nav-toggle.open span:nth-child(2){opacity:0}
   .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -546,6 +546,41 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .mobile-cta--price{gap:12px;align-items:center}
 @media (max-width:680px){.mobile-cta--price.is-shown,.mobile-cta--price{display:flex}.mcta-price{display:flex;flex-direction:column;line-height:1.25;min-width:0}.mcta-price b{font-size:.95rem}.mcta-price small{font-size:.85rem;color:var(--ink-soft)}.mobile-cta--price .btn{margin-left:auto;white-space:nowrap}}
 .goals-grid + .img-note{margin-top:16px;text-align:center}
+/* ---------- Slide-in menu, Nov 17 2026 ---------- */
+.menu-btn{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 16px 0 14px;border:1.5px solid var(--line-strong);border-radius:999px;background:#fff;font:600 .95rem var(--body);color:var(--ink);cursor:pointer;margin-left:14px;flex:none}
+.menu-btn:hover{border-color:var(--jade)}
+.menu-btn:focus-visible{outline:3px solid var(--jade);outline-offset:3px}
+.menu-btn-bars{display:flex;flex-direction:column;gap:4px}
+.menu-btn-bars span{width:16px;height:2px;background:var(--ink);border-radius:2px}
+.panel-overlay{position:fixed;inset:0;background:rgba(21,48,42,.42);z-index:80;opacity:0;transition:opacity .25s var(--ease)}
+.panel-overlay.is-open{opacity:1}
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(420px,92vw);background:#fff;z-index:90;overflow-y:auto;padding:16px 22px 28px;transform:translateX(102%);transition:transform .3s var(--ease);box-shadow:-20px 0 50px rgba(21,48,42,.18)}
+.panel.is-open{transform:none}
+.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.panel-title{font-family:var(--display);font-weight:600;font-size:1.3rem;letter-spacing:-.02em}
+.panel-close{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line-strong);background:#fff;font-size:1.7rem;line-height:1;cursor:pointer;color:var(--ink);display:grid;place-items:center;padding:0 0 3px}
+.panel-close:hover{border-color:var(--jade)}
+.panel-kicker{font-weight:600;color:var(--ink);margin:22px 0 10px}
+.panel .hero-menu{max-width:none;margin:0}
+.panel .hero-menu a{min-height:68px}
+.panel .hero-menu img{width:54px;height:54px}
+.panel .hero-menu b{font-size:1.1rem}
+.panel .hero-menu small{font-size:.85rem}
+.panel-progs{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 10px;margin:0 -2px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.panel-prog{flex:0 0 128px;scroll-snap-align:start;background:var(--mint);border:1px solid var(--line);border-radius:var(--r);padding:10px 10px 12px;color:var(--ink);text-decoration:none}
+.panel-prog:hover{border-color:var(--jade)}
+.panel-prog img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block;margin-bottom:8px;background:#fff}
+.panel-prog b{display:block;font-size:.92rem;font-weight:600;line-height:1.2}
+.panel-prog small{display:block;font-size:.82rem;color:var(--ink-soft);margin-top:3px}
+.panel-links{display:grid}
+.panel-links a{display:flex;align-items:center;justify-content:space-between;min-height:48px;border-top:1px solid var(--line);color:var(--ink);font-weight:500;text-decoration:none}
+.panel-links a:last-child{border-bottom:1px solid var(--line)}
+.panel-links a::after{content:"";width:9px;height:9px;border:solid var(--jade);border-width:2px 2px 0 0;transform:rotate(45deg);margin-right:8px}
+.panel-foot{margin-top:24px}
+.panel-foot p{font-size:.86rem;color:var(--ink-faint);margin:10px 0 0;line-height:1.5}
+body.panel-open{overflow:hidden}
+@media (max-width:780px){.menu-btn{margin-left:0}.menu-btn-bars span{width:18px}}
+@media (prefers-reduced-motion:reduce){.panel,.panel-overlay{transition:none}}
 /* ---------- Find your program chooser, Nov 17 2026 ---------- */
 .ch-track{list-style:none;margin:0 0 30px;padding:0;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
 .ch-track li{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 6px;border-radius:999px;border:1.5px solid var(--line-strong);font-weight:600;font-size:.92rem;color:var(--ink-faint);background:#fff}
