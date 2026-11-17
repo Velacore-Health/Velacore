@@ -14,9 +14,15 @@
   #steps{position:absolute;inset:0;display:none}
   #steps span{position:absolute;top:478px;transform:translateX(-50%);white-space:nowrap;font-weight:600;font-size:23px;
        background:rgba(255,255,255,.94);padding:9px 20px;border-radius:999px}
+  /* the label over the clinician shot: she is an illustration, not a real clinician */
+  #note{position:absolute;top:26px;right:30px;display:none;font-weight:600;font-size:20px;background:rgba(255,255,255,.94);padding:8px 18px;border-radius:999px}
   /* closing scene */
   #end{position:absolute;inset:0;background:var(--mint);display:none}
-  #logo{position:absolute;top:30px;left:50%;height:92px;transform:translateX(-50%)}
+  /* the same lockup as the site header: the jade mark and the pine and jade wordmark, no purple */
+  #logo{position:absolute;top:34px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:16px;white-space:nowrap}
+  #logo img{height:80px;display:block}
+  #logo span{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:50px;letter-spacing:-.01em}
+  #logo b{font-weight:600;color:#0A7A61}
   #head{position:absolute;top:136px;left:0;right:0;text-align:center;font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:46px;letter-spacing:-.01em;font-variation-settings:"opsz" 96,"SOFT" 30}
   #row{position:absolute;top:224px;left:0;right:0;display:none;justify-content:center;gap:22px}
   /* the six-vial group photo from the home page, cropped to a wide band */
@@ -34,8 +40,9 @@
 <body>
 <div id="sub"></div>
 <div id="steps"></div>
+<div id="note">AI-generated illustration. Not a real clinician.</div>
 <div id="end">
-  <img id="logo" src="../../../public/logo-full.png" alt="">
+  <div id="logo"><img src="../../../public/logo-mark.png" alt=""><span>Velacore <b>Health</b></span></div>
   <div id="head">See which program may fit you</div>
   <div id="row"></div>
   <div id="group"><img src="../../../public/images/lifestyle/hero-group.webp" alt=""></div>
@@ -57,6 +64,7 @@ const ease = x => { x = Math.max(0, Math.min(1, x)); return 1 - Math.pow(1 - x, 
 const fade = (el, t, a, d, rise) => { const k = ease((t - a) / d); el.style.opacity = k; if (rise) el.style.translate = `0 ${(1 - k) * rise}px`; };
 window.setSteps = xs => { document.getElementById("sub").textContent = ""; const st = document.getElementById("steps"); st.style.display = "block";
   st.innerHTML = ["Amino acids", "Peptide", "Protein", "Messenger"].map((n, i) => `<span style="left:${xs[i]}px">${n}</span>`).join(""); };
+window.setNote = on => { document.getElementById("sub").textContent = ""; document.getElementById("steps").style.display = "none"; document.getElementById("note").style.display = on ? "block" : "none"; };
 window.setSub = s => { document.getElementById("steps").style.display = "none"; document.getElementById("end").style.display = "none"; document.getElementById("sub").textContent = s; };
 // closing scene, t in seconds from its first frame
 window.renderEnd = t => {

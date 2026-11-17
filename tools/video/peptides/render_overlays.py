@@ -26,6 +26,10 @@ with sync_playwright() as p:
     # the four step names, placed under the four beads at the end of the opening clip
     pg.evaluate("xs => setSteps(xs)", STEP_X)
     pg.screenshot(path=str(WORK / "subs" / "steps.png"), omit_background=True)
+    # the label that sits over the clinician shot
+    pg.evaluate("setNote(true)")
+    pg.screenshot(path=str(WORK / "subs" / "note.png"), omit_background=True)
+    pg.evaluate("setNote(false)")
     pg.evaluate("s => setSub(s)", "")
     print("subtitles drawn:", len(subs))
     if "end" in sys.argv[1:]:

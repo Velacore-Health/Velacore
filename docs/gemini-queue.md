@@ -141,3 +141,12 @@ First pass blocked three things and all three were fixed the same night: the AI 
 - Sermorelin vial on marble, tall version.
 - Narration re-recorded in Bella's voice and approved line by line. Details in `docs/video-peptides-script.md`.
 - New mix: matched line levels, ambient bed, subtitles as words only, closing scene with the six programs and a button click with an ordinary mouse click sound. No lead-in sound effect; Dourado disliked both the chime and the swell.
+
+## Clinician shot in the explainer, late Nov 16, waiting on Dourado
+
+- The closing scene logo is now the site header lockup, jade mark with the pine and jade wordmark. vc-reviewer passed it.
+- Dourado found the chin-down crop too tight: the eye goes to the chart, and the handwriting is scribble.
+- The cut now shows the whole frame with her face, with a label on screen for the whole shot: AI-generated illustration. Not a real clinician. Switch `C6_FULL` in `tools/video/peptides/build_cut.py` to go back to the crop.
+- This version has not been passed by vc-reviewer. It breaks the face rule in `docs/gemini-prompts.md` section 8 as written. That rule is ours, not a quoted LegitScript rule. Dourado decides whether the rule changes to allow a labeled AI clinician.
+- If he keeps the rule: a new Veo clip, seen from behind her shoulder, reading a chart on a tablet, no writing and no face.
+- Question for the attorney packet: is a labeled AI-generated clinician acceptable on a telehealth site under FTC rules and for LegitScript.
