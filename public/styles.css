@@ -117,7 +117,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;padding:56px 0 72px;background:var(--paper)}
-#molecule{display:none}
 .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
 .hero h1{font-size:clamp(2.2rem,4.4vw,3.4rem);text-wrap:balance;margin-bottom:20px}
 .hero h1 .grad{color:inherit;background:none}
@@ -150,11 +149,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero-photo figcaption{font-size:.9rem;color:var(--ink-soft);padding-left:4px}
 
 /* ---------- Marquee strip ---------- */
-.marquee{background:var(--mint);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
-.marquee-track{display:flex;gap:48px;padding:12px 0;white-space:nowrap;animation:scrollx 36s linear infinite;width:max-content}
-.marquee-track span{display:inline-flex;align-items:center;gap:48px;font-size:.92rem;color:var(--ink-soft);font-weight:500}
-.marquee-track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--jade)}
-@keyframes scrollx{to{transform:translateX(-50%)}}
 
 /* ---------- How it works ---------- */
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
