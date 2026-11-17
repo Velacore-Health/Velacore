@@ -108,16 +108,15 @@ for k in range(5):
             filt.append(f"[{n}:v]trim=start={CLIP_IN[k]}:duration={seg_len[k]},setpts=PTS-STARTPTS,{norm}[s{k}]")
     labels.append(f"s{k}")
 # beat 6: the clinician at her desk reviewing a chart, clips/clip6.mp4, animated in Veo from the step-clinician office photo
-C6_FULL = True            # True: the whole frame with her face and an on-screen label. False: cropped from the chin down
+C6_FULL = True            # True: the whole frame with her face. False: cropped from the chin down
 C6_IN = 2.3               # cropped version only: start after the camera has pushed in
 C6_TOP = (213, 234, 4.6, 2.6)   # cropped version only: top edge of the crop in clip pixels, start, end, when it drops, how long
 n = add("-i", "clips/clip6.mp4")
 if C6_FULL:
-    # Dourado, Nov 16: the tight crop made the scribbled chart the focal point. Whole frame, with a label on screen
-    # for the whole shot saying this is an AI-generated illustration and not a real clinician. Not yet passed by vc-reviewer.
-    m = add("-loop", "1", "-framerate", str(FPS), "-t", str(seg_len[5]), "-i", "subs/note.png")
-    filt.append(f"[{n}:v]trim=start=0.3:duration={seg_len[5]},setpts=PTS-STARTPTS,{norm}[c6]")
-    filt.append(f"[c6][{m}:v]overlay=0:0:shortest=1,format=yuv420p[s5]")
+    # Dourado, Nov 16: the tight crop made the scribbled chart the focal point, so the whole frame is shown.
+    # He took the on-screen label off the same night. The disclosure that she is an AI-generated illustration
+    # is in the closing scene small print and must be visible text beside the player on the page.
+    filt.append(f"[{n}:v]trim=start=0.3:duration={seg_len[5]},setpts=PTS-STARTPTS,{norm}[s5]")
 else:
     # framed from the chin down: vc-reviewer Nov 16. The top edge sits just under her mouth line,
     # so the eyes, nose and mouth never enter the frame. Doubled first so the moving crop steps by half pixels.

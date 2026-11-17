@@ -146,7 +146,8 @@ First pass blocked three things and all three were fixed the same night: the AI 
 
 - The closing scene logo is now the site header lockup, jade mark with the pine and jade wordmark. vc-reviewer passed it.
 - Dourado found the chin-down crop too tight: the eye goes to the chart, and the handwriting is scribble.
-- The cut now shows the whole frame with her face, with a label on screen for the whole shot: AI-generated illustration. Not a real clinician. Switch `C6_FULL` in `tools/video/peptides/build_cut.py` to go back to the crop.
-- This version has not been passed by vc-reviewer. It breaks the face rule in `docs/gemini-prompts.md` section 8 as written. That rule is ours, not a quoted LegitScript rule. Dourado decides whether the rule changes to allow a labeled AI clinician.
-- If he keeps the rule: a new Veo clip, seen from behind her shoulder, reading a chart on a tablet, no writing and no face.
+- Dourado's decision, Nov 16: the whole frame with her face, and no label over the shot. He tried the label and did not like how it looked.
+- The disclosure moved to the closing scene small print: People and images are AI-generated illustrations, not real clinicians or patients. The same line must be visible text beside the player on the Learn page.
+- The house rule in `docs/gemini-prompts.md` section 8 was rewritten to match. It is our own rule, not a quoted LegitScript rule. vc-reviewer has not seen this version yet; it goes back with the Learn page block.
+- Fallback if LegitScript or the attorney objects: a new Veo clip, seen from behind her shoulder, reading a chart on a tablet, no writing and no face.
 - Question for the attorney packet: is a labeled AI-generated clinician acceptable on a telehealth site under FTC rules and for LegitScript.
