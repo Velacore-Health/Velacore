@@ -161,3 +161,15 @@ Dourado's decision: all six product photos on marble, no water.
 - Ask for the vial large in the frame, about three quarters of the height. Small vials are what made labels look blurry on the site.
 - NAD+ and Sermorelin on the site are the earlier marble photos, cropped to match. Their riser and vial shape differ a little. Gemini hit its limit; redo both with the method above after the Nov 17 reset, attaching `tirzepatide-marble.jpg` first and `semaglutide-marble.jpg` second for the violet.
 - The site copies in `public/images/products` were made directly with ffmpeg at 1200 by 1600, not with `tools/prepare_images.py`. The water versions are in git history.
+
+## Step 4 photo for How it works, asked Nov 17 2026
+
+Why: step 4 is ongoing reviews and support. The kitchen photo from the hero does not say that. Save the download as `step-support.jpg` in `assets-in/lifestyle`. Replaces `hero.webp` in the step 4 entry of the `flow` block in `tools/pages.py`.
+
+New chat, Images on, Aspect ratio 4:3.
+
+```
+Photoreal candid photograph, horizontal 4 by 3, like a real moment someone caught on a phone, not a stock or studio image. A man about 45, ordinary build, short dark hair with a little gray, relaxed on a light linen sofa in a bright living room at home, morning daylight from a window on the left. He holds his phone in one hand and is typing a short message with his thumb, calm and unhurried, a small easy smile, looking at the phone. A mug of coffee on the side table, a plant in the corner, white walls, one pale mint cushion. The phone screen faces away from the camera and shows nothing readable. Cool natural daylight, soft shadows, true skin tones, shallow depth of field. No logos, no text anywhere, no watch, no medical items, no pills, no needles, no scale.
+```
+
+Reject if: any readable screen, any text, a logo, a medical item, a gym or workout look, a visibly thin or muscular build, or a face that reads as a known person.
