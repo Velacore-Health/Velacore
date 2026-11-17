@@ -47,6 +47,32 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+- **Nov 16 evening: explainer video and image session. Nothing pushed, the site is unchanged.**
+  The running list of what is left, in order, with every Gemini prompt, is `docs/gemini-queue.md`.
+  Read that first when picking this up.
+  - Explainer rough cut is `03-edits/peptides-video/rough-cut.mp4`, 47 seconds, built by
+    `python -I tools/video/peptides/build_cut.py vo5`. Voice is now Bella, approved line by line;
+    final script and how each take was shaped are in `docs/video-peptides-script.md`. The closing
+    line changed to "a licensed clinician's decision, and it's made after a review of your health
+    history". vc-reviewer has not seen that line or the new closing scene.
+  - The mix: every line matched to the same loudness, an ambient bed that ducks under the voice,
+    subtitles as words only in Hanken Grotesk, no lead-in sound effect, voice in at 0.9 seconds.
+    The closing scene is drawn in code by `tools/video/peptides/render_overlays.py` and
+    `overlay.html`: logo, "See which program may fit you", the six programs, a Find your program
+    button, a pointer click with a click sound, and the small print with the FDA line.
+  - Dourado asked about a "free evaluation" call to action. Vale advised against the word free
+    until OpenLoop confirms in writing what the patient is charged. He did not object and liked the
+    Find your program closing scene; treat the free wording as open, not decided.
+  - Clips 3 and 4 made today. Still to make: a new opening clip, clip 5, a clinician clip in motion.
+  - New product photos filed in `assets-in/products/`, none on the site yet: NAD+ nasal spray and
+    NAD+ oral dropper, each in water and on marble, and the Sermorelin vial on marble.
+  - Dourado's calls today: the two new NAD+ forms go on marble, not water. The clinician step photo
+    looks like a home and must be remade as a clinic office. The home page group shot is missing
+    Glutathione and must be remade with six vials; the same shot will replace the six tiles in the
+    video's closing scene. Whether the other four vials move to marble is undecided.
+  - Oral Semaglutide and oral Microdosing photos wait on OpenLoop naming the form.
+  - The OpenLoop question email is drafted in `docs/openloop-email-draft.md`. Dourado has not said
+    it was sent.
 - **Nov 16: second OpenLoop proposal read, nothing on the site changed yet.** File is
   "Velacore Health - OpenLoop - Proposal - 11_12_26 (1).pdf", 30 pages, in the Velacore Workspace
   Drive, dated Nov 12 with a 30 day expiration. It stays out of the repo, and so does the column

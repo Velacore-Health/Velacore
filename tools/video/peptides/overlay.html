@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Velacore explainer overlays</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--pine:#15302A;--jade:#0C8F72;--mint:#EEF5F1;--soft:#4A635C}
+  html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:transparent;font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--pine)}
+  /* subtitle mode: words only, a soft light halo keeps them readable on any frame */
+  #sub{position:absolute;left:0;right:0;bottom:58px;text-align:center;font-weight:500;font-size:35px;letter-spacing:.005em;line-height:1.2;
+       text-shadow:0 0 5px rgba(255,255,255,.98),0 0 12px rgba(255,255,255,.9),0 0 26px rgba(255,255,255,.75),0 1px 1px rgba(255,255,255,.9)}
+  /* closing scene */
+  #end{position:absolute;inset:0;background:var(--mint);display:none}
+  #logo{position:absolute;top:44px;left:50%;height:64px;transform:translateX(-50%)}
+  #head{position:absolute;top:136px;left:0;right:0;text-align:center;font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:46px;letter-spacing:-.01em;font-variation-settings:"opsz" 96,"SOFT" 30}
+  #row{position:absolute;top:224px;left:0;right:0;display:flex;justify-content:center;gap:22px}
+  .p{width:172px;text-align:center}
+  .p img{width:172px;height:216px;object-fit:cover;border-radius:18px;display:block;background:#fff}
+  .p span{display:block;margin-top:12px;font-weight:600;font-size:19px}
+  #btn{position:absolute;top:520px;left:50%;transform:translateX(-50%);background:var(--pine);color:#fff;font-weight:600;font-size:26px;padding:17px 44px;border-radius:999px;white-space:nowrap}
+  #url{position:absolute;top:596px;left:0;right:0;text-align:center;font-size:21px;font-weight:500;color:var(--soft)}
+  #fine{position:absolute;bottom:26px;left:120px;right:120px;text-align:center;font-size:15px;line-height:1.45;color:var(--soft)}
+  #cur{position:absolute;width:34px;height:34px;left:0;top:0}
+</style>
+</head>
+<body>
+<div id="sub"></div>
+<div id="end">
+  <img id="logo" src="../../../public/logo-full.png" alt="">
+  <div id="head">See which program may fit you</div>
+  <div id="row"></div>
+  <div id="btn">Find your program</div>
+  <div id="url">velacorehealth.com</div>
+  <div id="fine">Prescription required. A licensed clinician decides whether a program is appropriate for you. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Images are illustrative. Education only, not medical advice.</div>
+  <svg id="cur" viewBox="0 0 24 24"><path d="M5 2.5v17l4.6-4.3 3 6.6 2.9-1.3-3-6.5h6.3z" fill="#15302A" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg>
+</div>
+<script>
+const PROGRAMS = [["tirzepatide","Tirzepatide"],["semaglutide","Semaglutide"],["microdosing","Microdosing GLP-1"],["nad","NAD+"],["glutathione","Glutathione"],["sermorelin","Sermorelin"]];
+const row = document.getElementById("row");
+for (const [slug, name] of PROGRAMS) {
+  const d = document.createElement("div"); d.className = "p";
+  d.innerHTML = `<img src="../../../public/images/products/${slug}.webp" alt=""><span>${name}</span>`;
+  row.appendChild(d);
+}
+const q = new URLSearchParams(location.search);
+const ease = x => { x = Math.max(0, Math.min(1, x)); return 1 - Math.pow(1 - x, 3); };
+const fade = (el, t, a, d, rise) => { const k = ease((t - a) / d); el.style.opacity = k; if (rise) el.style.translate = `0 ${(1 - k) * rise}px`; };
+window.setSub = s => { document.getElementById("end").style.display = "none"; document.getElementById("sub").textContent = s; };
+// closing scene, t in seconds from its first frame
+window.renderEnd = t => {
+  document.getElementById("sub").textContent = "";
+  const end = document.getElementById("end"); end.style.display = "block";
+  fade(document.getElementById("logo"), t, 0.3, 0.7, 0);
+  fade(document.getElementById("head"), t, 0.7, 0.8, 14);
+  [...row.children].forEach((el, i) => fade(el, t, 1.2 + i * 0.13, 0.7, 18));
+  const btn = document.getElementById("btn");
+  fade(btn, t, 2.5, 0.6, 0); fade(document.getElementById("url"), t, 2.9, 0.6, 0); fade(document.getElementById("fine"), t, 1.0, 0.8, 0);
+  // the cursor glides in to the button, presses once, and rests
+  const cur = document.getElementById("cur");
+  const k = ease((t - 3.3) / 1.3), x0 = 1010, y0 = 690, x1 = 742, y1 = 556;
+  cur.style.opacity = ease((t - 3.2) / 0.3);
+  cur.style.translate = `${x0 + (x1 - x0) * k}px ${y0 + (y1 - y0) * k}px`;
+  const press = t > 4.75 && t < 5.0 ? 1 - Math.abs((t - 4.875) / 0.125) : 0;
+  btn.style.scale = 1 - 0.045 * press;
+  btn.style.background = t > 4.85 ? "#0C8F72" : "#15302A";
+  btn.style.boxShadow = t > 4.85 ? `0 0 0 ${6 * ease((t - 4.85) / 0.5)}px rgba(12,143,114,${0.22 * (1 - ease((t - 5.2) / 0.8))})` : "none";
+};
+window.ready = Promise.all([document.fonts.ready, ...[...document.images].map(i => i.decode().catch(() => 0))]);
+</script>
+</body>
+</html>

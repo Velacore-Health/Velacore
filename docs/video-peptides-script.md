@@ -107,3 +107,28 @@ If the video is ever used outside the Learn page, on social, ads, email or YouTu
 - Pacing: about 0.6 seconds between the end of one line and the start of the next, trailing silence trimmed. Dourado approved this pace on the clips 1 and 2 preview.
 - Music: a quiet ambient bed from ElevenLabs music, ducked under the voice, faded out before its closing swell.
 - Step tags: a small pill in the lower left names each step: Amino acids, Peptide, Protein, Messenger.
+
+## Final narration, Nov 16 2026, approved line by line by Dourado
+
+Voice changed from Eric to Bella, a stock ElevenLabs voice, with a little warmth added in the low end. Dourado wanted a female voice that is calm and informative with some lift. Each line was recorded and approved on its own. The takes are in `03-edits/peptides-video/vo5/` as `beat1.mp3` to `beat6.mp3`. Build with `python -I tools/video/peptides/build_cut.py vo5`.
+
+Captions, word for word:
+
+1. If peptides sound complicated, you're not alone. Here's the simple version in four steps.
+2. It starts with amino acids, the small building blocks. Your body uses twenty kinds.
+3. Link a few together and you have a peptide. It's a short chain, usually two to fifty amino acids long.
+4. Link many more and fold the chain, and you have a protein. Same building blocks, just a much longer chain.
+5. Many peptides work as messengers. A peptide fits a receptor on a cell, like a key in a lock, and the cell responds.
+6. Whether a peptide is right for you is a licensed clinician's decision, and it's made after a review of your health history.
+
+Line 6 wording changed from the version vc-reviewer cleared on Nov 13, which read "decision, made after a review". The meaning is the same. vc-reviewer has not yet seen the new line; it must confirm it when the finished video is reviewed.
+
+How the takes were shaped, for anyone redoing a line:
+
+- Line 1 is two recordings joined, so "alone" settles before the second sentence.
+- Line 3 has its comma pause after "short chain" trimmed to about a tenth of a second.
+- Lines 2, 4 and 5 were read with an upbeat mark in the reading script so the sentence endings do not drop. The marks are not in the captions.
+- Line 6 is on the newer ElevenLabs engine, eleven_v3, directed as calm, soothing and informative with a gentle smile. Lines 1 to 5 are on eleven_multilingual_v2.
+- Every line gets a short fade in and out in the build, which removed pops at the joins.
+
+Picture notes from the same session: clips 3 and 4 were made Nov 16; clip 5 is still to come. The amino acid clip starts 5.5 seconds in and is slowed about a third so the bead lights up early and holds to the cut.
