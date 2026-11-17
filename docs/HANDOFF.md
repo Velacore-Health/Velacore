@@ -52,7 +52,7 @@ Late Nov 16 2026, the explainer is on the Learn page in the local copy, not push
 - Dourado's decisions that night: the closing scene uses the site header lockup, no purple. The AI clinician is shown at full frame with her face and no label over the shot. The house rule in `docs/gemini-prompts.md` section 8 was rewritten to match; it is our own rule, not a quoted LegitScript rule.
 - Open on that shot: the reviewer's advisory is that the white coat, stethoscope and two blurred wall certificates imply credentials. Cheapest fix is a clip without the wall frames. The question of an AI clinician goes to the attorney before the LegitScript submission. Ad use of the video stays blocked.
 - Small leftovers: the Messenger pill overlaps her for under half a second at 34 s; `docs/gemini-prompts.md` section 13 still says no people and names the old narrator; nobody but Dourado can confirm the audio.
-- Waiting on Dourado's push it, three batches: the five pages plus four Learn articles, the three home page images, and this Learn video block.
+- Pushed Nov 16 2026 at about 11 PM on Dourado's push it, one push of 14 commits to fe03d46: the five pages plus four Learn articles, the three home page images, and the Learn video block. Verified live at www.velacorehealth.com: 21 pages and 6 new files return 200, the 404 page returns 404, the video plays on the live Learn page at 375, the live audit shows only the six Start placeholders failing. This note itself is committed locally and rides along with the next push.
 
 
 - **Nov 16 evening: explainer video and image session. Nothing pushed, the site is unchanged.**
