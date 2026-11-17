@@ -47,6 +47,8 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+Nov 17 2026, 5:30 PM: pushed on Dourado's "Push it", commits 5c42b3c and 0e088fc. The Pricing page cards line up and carry their category colors on www.velacorehealth.com. Checked before: compliance 0 fail, site audit only the Start placeholders. Checked after: the live stylesheet and the six data-cat cards serve, live audit 16 pass with the same placeholder fail, every card in the first row has its price row at the same offset at 1440, no overflow at 1440 or 375. Not checked: iOS Safari and Dourado's own phone.
+
 Nov 17 2026, about 5:30 PM, local only, vc-reviewer PASS: the Pricing page cards line up row by row with the same subgrid method as the home row, and each pricing card now carries data-cat so its top stripe and dot match the home card colors; before, every pricing card showed violet. Not pushed.
 
 Nov 17 2026, 5:07 PM: pushed on Dourado's "Push it", commits 54b3070 through 3fdce85. Live at www.velacorehealth.com: aligned program row, Needle-free menu group, sharp goal thumbs, all ten new photos, and the sharper product photos. Checked before: compliance 0 fail, site audit only the Start placeholders. Checked after: new stylesheet, images and pages serve 200, live audit 16 pass with the same placeholder fail, live screenshots of pricing at 1440, clinicians and home at 375 with no overflow and no broken images. Not checked: iOS Safari and Dourado's own phone. Seen on the live pricing page: the price rows there do not line up across cards the way the home row now does.
