@@ -147,8 +147,66 @@
     });
   })();
 
+  // Find your program chooser, Nov 17 2026. Two answers, then the matching program cards, cloned from the
+  // program list so prices and wording exist in one place. Nothing is stored or sent anywhere.
+  (function () {
+    var root = document.querySelector('[data-chooser]');
+    if (!root) return;
+    var MAP = {
+      weight: { inject: ['tirzepatide', 'semaglutide', 'microdosing'], noneedle: ['microdosing'] },
+      vitality: { inject: ['nad', 'glutathione'], noneedle: ['nad', 'glutathione'] },
+      hormone: { inject: ['sermorelin'], noneedle: ['sermorelin'] }
+    };
+    var NOTE = {
+      'weight|inject': 'Three GLP-1 programs. Tirzepatide and Semaglutide are weekly injections. Microdosing GLP-1 is a lower dose, as an oral form or an injection. The clinician decides which program, if any, is appropriate for you.',
+      'weight|noneedle': 'Microdosing GLP-1 is the one weight program with an oral option. Tirzepatide and Semaglutide are injections only. The clinician decides the program and the form.',
+      'vitality|inject': 'Two programs. NAD+ comes as an injection, a nasal spray or an oral dropper. Glutathione comes in the form the clinician prescribes.',
+      'vitality|noneedle': 'NAD+ comes as a nasal spray or an oral dropper as well as an injection. Glutathione comes in the form the clinician prescribes. The clinician decides the form.',
+      'hormone|inject': 'One program. Sermorelin is an injection. The clinician decides whether it is appropriate for you.',
+      'hormone|noneedle': 'Sermorelin is an injection only. There is no spray, dropper or tablet option for this program today. The clinician decides whether it is appropriate for you.'
+    };
+    var TITLE = { weight: 'Weight programs that may fit', vitality: 'Vitality programs that may fit', hormone: 'The hormone support program' };
+    var goal = null;
+    function show(n) {
+      root.querySelectorAll('.ch-step').forEach(function (s) { s.hidden = s.getAttribute('data-step') !== String(n); });
+      root.querySelectorAll('.ch-track li').forEach(function (li) {
+        var k = +li.getAttribute('data-track');
+        li.classList.toggle('is-on', k === n); li.classList.toggle('is-done', k < n);
+      });
+      var top = root.getBoundingClientRect().top + window.pageYOffset - 96;
+      window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+      var q = root.querySelector('.ch-step:not([hidden]) .ch-q');
+      if (q) { q.setAttribute('tabindex', '-1'); q.focus({ preventScroll: true }); }
+    }
+    root.querySelectorAll('.goal-tile[data-goal]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); goal = a.getAttribute('data-goal'); show(2); });
+    });
+    root.querySelectorAll('[data-form]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (!goal) { show(1); return; }
+        var form = b.getAttribute('data-form');
+        var out = document.getElementById('chResults'); out.innerHTML = '';
+        MAP[goal][form].forEach(function (slug) {
+          var src = document.querySelector('.tcard [data-start="' + slug + '"]');
+          if (!src) return;
+          var card = src.closest('.tcard').cloneNode(true);
+          card.classList.remove('pcar-card'); card.removeAttribute('aria-roledescription'); card.removeAttribute('aria-label');
+          card.removeAttribute('data-d'); card.removeAttribute('style'); card.removeAttribute('aria-hidden');
+          card.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
+          out.appendChild(card);
+        });
+        document.getElementById('chTitle').textContent = TITLE[goal];
+        document.getElementById('chNote').textContent = NOTE[goal + '|' + form];
+        show(3);
+      });
+    });
+    root.querySelectorAll('[data-ch-back]').forEach(function (b) {
+      b.addEventListener('click', function () { var n = +b.getAttribute('data-ch-back'); if (n === 1) goal = null; show(n); });
+    });
+  })();
+
   // Funnel, Nov 13 2026. Goal tiles open the matching filter in the program list.
-  Array.prototype.forEach.call(document.querySelectorAll('a[data-goal][href="#treatments"]'), function (a) {
+  Array.prototype.forEach.call(document.querySelectorAll('a[data-goal][href="#treatments"]:not([data-chooser] a)'), function (a) {
     a.addEventListener('click', function (e) {
       var btn = document.querySelector('.filter[data-filter="' + a.getAttribute('data-goal') + '"]');
       var sec = document.getElementById('treatments');

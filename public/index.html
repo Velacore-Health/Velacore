@@ -101,24 +101,46 @@
     <section class="section" id="goals">
       <div class="container">
         <div class="section-head center">
-          <h2>Choose where to start</h2>
-          <p class="section-sub">Every program is prescription only. A licensed clinician reviews your intake and decides what is appropriate.</p>
+          <h2>Find your program</h2>
+          <p class="section-sub">Two quick questions narrow six programs down to the ones that may fit. Every program is prescription only. A licensed clinician reviews your intake and decides what is appropriate.</p>
         </div>
+        <div class="chooser" data-chooser>
+        <ol class="ch-track" aria-label="Steps"><li class="is-on" data-track="1"><span>1</span>Goal</li><li data-track="2"><span>2</span>Form</li><li data-track="3"><span>3</span>Programs</li></ol>
+        <div class="ch-step" data-step="1">
+        <h3 class="ch-q">What brings you here?</h3>
         <div class="goals-grid">
           <a class="goal-tile" href="#treatments" data-goal="weight">
             <div class="goal-media"><img src="images/lifestyle/goal-weight-800.webp" srcset="images/lifestyle/goal-weight-480.webp 480w, images/lifestyle/goal-weight-800.webp 800w, images/lifestyle/goal-weight-1200.webp 1200w" sizes="(max-width:420px) 92vw, (max-width:860px) 42vw, 362px" width="1200" height="900" alt="Velacore Health microdosing GLP-1, tirzepatide and semaglutide vials on white marble" loading="lazy" /></div>
-            <div class="goal-body"><h3>Weight</h3><p>Three GLP-1 programs: Tirzepatide, Semaglutide and Microdosing GLP-1.</p><span class="goal-go">See weight programs</span></div>
+            <div class="goal-body"><h3>Weight</h3><p>Three GLP-1 programs: Tirzepatide, Semaglutide and Microdosing GLP-1.</p><span class="goal-go">Start here</span></div>
           </a>
           <a class="goal-tile" href="#treatments" data-goal="vitality">
             <div class="goal-media"><img src="images/lifestyle/goal-vitality-800.webp" srcset="images/lifestyle/goal-vitality-480.webp 480w, images/lifestyle/goal-vitality-800.webp 800w, images/lifestyle/goal-vitality-1200.webp 1200w" sizes="(max-width:420px) 92vw, (max-width:860px) 42vw, 362px" width="1200" height="900" alt="Velacore Health NAD+ and glutathione vials on white marble" loading="lazy" /></div>
-            <div class="goal-body"><h3>Vitality</h3><p>Two programs: NAD+ and Glutathione, in the form your clinician prescribes.</p><span class="goal-go">See vitality programs</span></div>
+            <div class="goal-body"><h3>Vitality</h3><p>Two programs: NAD+ and Glutathione, in the form your clinician prescribes.</p><span class="goal-go">Start here</span></div>
           </a>
-          <a class="goal-tile" href="programs/sermorelin.html" data-goal="hormone">
+          <a class="goal-tile" href="#treatments" data-goal="hormone">
             <div class="goal-media"><img src="images/lifestyle/goal-hormone-800.webp" srcset="images/lifestyle/goal-hormone-480.webp 480w, images/lifestyle/goal-hormone-800.webp 800w, images/lifestyle/goal-hormone-1200.webp 1200w" sizes="(max-width:420px) 92vw, (max-width:860px) 42vw, 362px" width="1200" height="900" alt="Velacore Health sermorelin vial on a white marble riser" loading="lazy" /></div>
-            <div class="goal-body"><h3>Hormone support</h3><p>One program: Sermorelin, a growth hormone-releasing hormone analog.</p><span class="goal-go">See the Sermorelin program</span></div>
+            <div class="goal-body"><h3>Hormone support</h3><p>One program: Sermorelin, a growth hormone-releasing hormone analog.</p><span class="goal-go">Start here</span></div>
           </a>
         </div>
         <p class="img-note center">Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
+        </div>
+        <div class="ch-step" data-step="2" hidden>
+          <h3 class="ch-q">How do you feel about a small self-injection?</h3>
+          <p class="ch-sub">Most programs are a self-injection just under the skin with a very small needle, usually weekly or daily. Some come as a nasal spray, a dropper or a tablet. Either answer is fine. The clinician decides the form.</p>
+          <div class="ch-options">
+            <button type="button" class="ch-opt" data-form="inject"><b>Fine with injections</b><small>Show every program for this goal</small></button>
+            <button type="button" class="ch-opt" data-form="noneedle"><b>I would rather avoid needles</b><small>Show the programs with a spray, dropper or tablet option</small></button>
+          </div>
+          <div class="ch-foot"><button type="button" class="ch-back" data-ch-back="1">Back</button></div>
+        </div>
+        <div class="ch-step" data-step="3" hidden>
+          <h3 class="ch-q" id="chTitle">Programs that may fit</h3>
+          <p class="ch-sub" id="chNote"></p>
+          <div class="ch-results tgrid" id="chResults" aria-live="polite"></div>
+          <p class="img-note">Prescription required. A licensed clinician reviews your intake and decides whether any program is appropriate for you. This chooser sorts programs by goal and form. It is not medical advice. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.</p>
+          <div class="ch-foot"><button type="button" class="ch-back" data-ch-back="2">Back</button> <button type="button" class="ch-back" data-ch-back="1">Start over</button> <a href="#treatments" class="ch-all">See all six programs</a></div>
+        </div>
+        </div>
       </div>
     </section>
 
