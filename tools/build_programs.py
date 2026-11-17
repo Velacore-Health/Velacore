@@ -63,19 +63,22 @@ PROGRAMS = [
     {
         "slug": "semaglutide", "name": "Semaglutide", "cat": "Weight", "image": "products/semaglutide.webp",
         "title": "Semaglutide Program, Reviewed Online",
-        "meta": "Compounded semaglutide injection reviewed and prescribed by licensed clinicians in all 50 states. $149 first month, then $229 a month, shipping included. Prescription required.",
-        "lede": "A GLP-1 receptor agonist, prepared as an injection by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
-        "chips": ["Prescription only", "Injection, 5 dose levels", "Ships every 4 weeks"],
+        "meta": "Compounded semaglutide, as an injection or an oral form, reviewed and prescribed by licensed clinicians in all 50 states. Injection $149 first month, then $229 a month; oral $259 a month; shipping included. Prescription required.",
+        "lede": "A GLP-1 receptor agonist, prepared as an injection or an oral form by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
+        "chips": ["Prescription only", "Injection or oral", "Ships every 4 weeks"],
         "plans": [
-            {"id": "monthly", "label": "Month to month", "price": "$229", "unit": "/mo", "note": "$149 your first month, then $229 a month. Cancel any time."},
-            {"id": "12week", "label": "12-week plan", "price": "$199", "unit": "/mo", "note": "$597 charged up front, shipped every 4 weeks."},
+            {"id": "monthly", "label": "Injection, month to month", "price": "$229", "unit": "/mo", "note": "$149 your first month, then $229 a month. Cancel any time."},
+            {"id": "12week", "label": "Injection, 12-week plan", "price": "$199", "unit": "/mo", "note": "$597 charged up front, shipped every 4 weeks."},
+            {"id": "oral", "label": "Oral, month to month", "price": "$259", "unit": "/mo", "note": "$259 a month for the oral form, taken by mouth daily. Cancel any time."},
         ],
         "what_h": "What semaglutide is",
         "what": [
-            "Semaglutide is a peptide that acts on the GLP-1 receptor, a pathway involved in blood sugar regulation and appetite signaling. It is given as a small injection under the skin.",
+            "Semaglutide is a peptide that acts on the GLP-1 receptor, a pathway involved in blood sugar regulation and appetite signaling. It is given as a small injection under the skin, or taken by mouth daily in the oral form.",
             "The compounded version is prepared by a licensed 503A compounding pharmacy to your clinician's prescription. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
         ],
-        "facts": ["GLP-1 receptor agonist", "Five dose levels, 0.8 mg to 8.96 mg per 4 weeks", "Injection supplies and written instructions included", "Clinician review before every dose change", "Baseline labs at a national lab, included", "Optional nausea medication at a local pharmacy, if your clinician prescribes it"],
+        "facts": ["GLP-1 receptor agonist", "Injection: five dose levels, 0.8 mg to 8.96 mg per 4 weeks", "Oral: 5 mg or 10 mg a day", "Clinician review before every dose change", "Baseline labs at a national lab, included", "Optional nausea medication at a local pharmacy, if your clinician prescribes it"],
+        "forms": [("Injection", "products/semaglutide.webp", "A small self-injection under the skin. Supplies included. $149 first month, then $229 a month."),
+                  ("Oral", "products/semaglutide-oral.webp", "Taken by mouth daily. No needle. $259 a month.")],
         "journey": [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
             ("First prescription and labs", "If appropriate, the clinician prescribes the starting dose and orders baseline labs at a national laboratory at no cost to you. In most cases you can start before the results are back."),
@@ -85,8 +88,8 @@ PROGRAMS = [
         "eligibility": "Adults 18 to 74 with a body mass index of 27 or above, or 25 or above with a related health condition. The clinician makes the final decision on every intake.",
         "faq": [
             ("Is this the same as a brand-name medication?", "No. This is a compounded medication prepared by a licensed 503A pharmacy to your clinician's prescription. Compounded medications are not FDA approved. Your clinician will discuss what that means for you."),
-            ("How is the dose decided?", "Your clinician starts at the lowest level and reviews a short update from you each month before any increase. There are five levels. You never move up without a review."),
-            ("What does the price include?", "The medication, injection supplies, clinician reviews, baseline labs at a national laboratory, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
+            ("How is the dose decided?", "Your clinician starts at the lowest level and reviews a short update from you each month before any increase. The injection has five levels and the oral form two daily doses. You never move up without a review."),
+            ("What does the price include?", "The medication, any supplies your form needs, clinician reviews, baseline labs at a national laboratory, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
             ("Can I switch plans or cancel?", "Yes. Cancel any time for any reason from your patient portal. Any month whose medication has not been ordered is refunded."),
         ],
@@ -222,7 +225,7 @@ PROGRAMS = [
 
 MENU = [
     ("Weight", [("tirzepatide", "Tirzepatide", "images/products/thumbs/tirzepatide.webp", "Dual GIP / GLP-1 injection"),
-                ("semaglutide", "Semaglutide", "images/products/thumbs/semaglutide.webp", "GLP-1 injection"),
+                ("semaglutide", "Semaglutide", "images/products/thumbs/semaglutide.webp", "GLP-1, injection or oral"),
                 ("microdosing", "Microdosing GLP\u20111", "images/products/thumbs/microdosing.webp", "Low dose, oral or injection")]),
     ("Vitality", [("nad", "NAD+", "images/products/thumbs/nad.webp", "Injection, nasal or oral"),
                   ("glutathione", "Glutathione", "images/products/thumbs/glutathione.webp", "Form set by clinician")]),
@@ -369,7 +372,7 @@ def page(p):
             <h2>{ {2: "Two", 3: "Three", 4: "Four"}.get(len(p["forms"]), str(len(p["forms"]))) } forms, one program</h2>
             <p class="section-sub">Your clinician decides the form and the dose from your intake. Product images are illustrations; your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
           </div>
-          <ul class="form-tiles">{tiles}</ul>
+          <ul class="form-tiles form-tiles-{len(p["forms"])}">{tiles}</ul>
         </div>
       </div>
     </section>

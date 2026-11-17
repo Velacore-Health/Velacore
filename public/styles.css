@@ -588,6 +588,9 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .form-tiles p{color:var(--ink-soft);font-size:.95rem;margin:0;padding:0 18px 18px}
 .section.blk + .section.blk.prog-forms{padding-top:0}
 .form-tiles-links li{background:none;border:0;border-radius:0;overflow:visible}
+.form-tiles-links{grid-template-columns:repeat(4,1fr)}
+.form-tiles-2{grid-template-columns:repeat(2,1fr);max-width:760px}
+@media (max-width:1000px) and (min-width:701px){.form-tiles-links{grid-template-columns:repeat(2,1fr)}}
 .form-tiles-links a{display:block;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;color:inherit;text-decoration:none;height:100%;transition:border-color .2s var(--ease)}
 .form-tiles-links a:hover{border-color:var(--jade)}
 .form-tiles-links a:focus-visible{outline:3px solid var(--jade);outline-offset:3px}

@@ -144,8 +144,8 @@ def price_cards():
             f'<article class="tcard" id="price-{p["slug"]}"><div class="tcard-media"><span class="tcard-cat">{p["cat"]}</span>'
             f'<img class="tcard-photo" src="images/{p["image"]}" width="{wi}" height="{he}" alt="Velacore Health {p["name"]} vial" loading="lazy" /></div>'
             f'<div class="tcard-body"><h3>{p["name"]}</h3><p class="tcard-mech">{p["chips"][1]}. {p["chips"][2]}.</p>'
-            f'<div class="tcard-meta"><span class="tcard-price">{first} <small>first month, then {then}/mo</small></span><span class="tcard-rx">Rx only</span></div>'
-            f'<p class="tcard-plan">12-week plan {week12["price"]}/mo, {w.group(1)} up front.</p>'
+            f'<div class="tcard-meta"><span class="tcard-price">{first} <small>first month, then {then}/mo{', injection' if any(x['id'] == 'oral' for x in p['plans']) else ''}</small></span><span class="tcard-rx">Rx only</span></div>'
+            f'<p class="tcard-plan">12-week plan {week12["price"]}/mo, {w.group(1)} up front.' + ''.join(f' Oral form {x["price"]}/mo.' for x in p["plans"] if x["id"] == "oral") + '</p>'
             f'<a class="tcard-link" href="programs/{p["slug"]}.html">What the price includes</a>'
             f'<a href="start/{p["slug"]}.html" class="btn btn-primary btn-block btn-sm" data-start="{p["slug"]}">Start visit</a></div></article>')
     return '<div class="tgrid pr-grid">' + "".join(cards) + "</div>"

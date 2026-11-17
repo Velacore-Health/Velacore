@@ -176,13 +176,13 @@
     var root = document.querySelector('[data-chooser]');
     if (!root) return;
     var MAP = {
-      weight: { inject: ['tirzepatide', 'semaglutide', 'microdosing'], noneedle: ['microdosing'] },
+      weight: { inject: ['tirzepatide', 'semaglutide', 'microdosing'], noneedle: ['semaglutide', 'microdosing'] },
       vitality: { inject: ['nad', 'glutathione'], noneedle: ['nad', 'glutathione'] },
       hormone: { inject: ['sermorelin'], noneedle: ['sermorelin'] }
     };
     var NOTE = {
-      'weight|inject': 'Three GLP-1 programs. Tirzepatide and Semaglutide are weekly injections. Microdosing GLP-1 is a lower dose, as an oral form or an injection. The clinician decides which program, if any, is appropriate for you.',
-      'weight|noneedle': 'Microdosing GLP-1 is the one weight program with an oral option. Tirzepatide and Semaglutide are injections only. The clinician decides the program and the form.',
+      'weight|inject': 'Three GLP-1 programs. Tirzepatide is an injection. Semaglutide comes as an injection or an oral form. Microdosing GLP-1 is a lower dose, as an oral form or an injection. The clinician decides which program, if any, is appropriate for you.',
+      'weight|noneedle': 'Semaglutide and Microdosing GLP-1 both come in an oral form. Tirzepatide is an injection only. The clinician decides the program and the form.',
       'vitality|inject': 'Two programs. NAD+ comes as an injection, a nasal spray or an oral dropper. Glutathione comes in the form the clinician prescribes.',
       'vitality|noneedle': 'NAD+ comes as a nasal spray or an oral dropper as well as an injection. Glutathione comes in the form the clinician prescribes. The clinician decides the form.',
       'hormone|inject': 'One program. Sermorelin is an injection. The clinician decides whether it is appropriate for you.',
@@ -221,6 +221,16 @@
           card.removeAttribute('data-d'); card.removeAttribute('style'); card.removeAttribute('aria-hidden');
           card.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
           card.querySelectorAll('a, button').forEach(function (el) { el.removeAttribute('tabindex'); });
+          // needle-free answer: where the program has an oral tile, the card shows the oral form, its photo and its price, read from that tile
+          var oral = form === 'noneedle' && document.querySelector('[data-oral="' + slug + '"]');
+          if (oral) {
+            var oimg = oral.querySelector('img'), oline = oral.querySelector('p').textContent, oprice = (oline.match(/\$\d+/) || [''])[0];
+            var cimg = card.querySelector('.tcard-photo'); if (cimg) { cimg.src = oimg.src; cimg.alt = oimg.alt; }
+            card.querySelector('.tcard-mech').textContent = oline.replace(/\s*\$\d+ a month\.?$/, '');
+            card.querySelector('.tcard-price').innerHTML = oprice + ' <small>a month, oral form</small>';
+            var cplan = card.querySelector('.tcard-plan'); if (cplan) cplan.remove();
+            var clink = card.querySelector('.tcard-link'); if (clink) clink.href = oral.querySelector('a').getAttribute('href');
+          }
           out.appendChild(card);
         });
         document.getElementById('chTitle').textContent = TITLE[goal];

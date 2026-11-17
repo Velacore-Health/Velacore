@@ -100,6 +100,38 @@ Both bottles carry the label from the attached photo exactly as it is, word for 
 Calm, clean, premium studio product photography. Add no other text anywhere. No other objects, no glass of water, no hands, no syringe, no needle.
 ```
 
+## Next set, asked by Dourado Nov 17 afternoon
+
+### F. NAD+ nasal spray in amber
+
+Dourado: every liquid bottle uniform in the dark amber glass of the Microdosing dropper. New chat, Images on, 3:4. Attach `nad-nasal-marble.jpg` first, then `microdosing-oral.jpg`, both from `assets-in` then `products`.
+
+```
+Edit the first attached photo. Keep everything exactly the same: the same bottle shape and size, the same white nasal spray pump and nozzle, the same ribbed deep pine green collar, the same marble riser, tabletop, mint wall, light, shadow, camera height and framing, and every word of the label exactly as it is, word for word, in the same place and font, with the same violet lines.
+
+Change only one thing: make the bottle glass the same clear warm amber brown pharmacy glass as the bottle in the second attached photo.
+
+Add no other text anywhere. Exactly one bottle, no other objects.
+```
+
+Save; Vale files it over `nad-nasal-marble.jpg`, keeping the clear one as `_prev-nad-nasal-clear.jpg`.
+
+### G. NAD+ oral dropper in amber
+
+Same as F, attach `nad-oral-marble.jpg` first, then `microdosing-oral.jpg`, and in the prompt say the same white dropper bulb in place of the spray pump.
+
+### H. Clinician photo for the home page clinician block
+
+Why: the block "Licensed clinicians in every state" shows the logo mark. Dourado wants a picture that says it. A clinician on a video visit, seen over the shoulder, face out of frame, nothing readable, per the house rule in `docs/gemini-prompts.md` section 8; the reviewer flagged that certificates and credentials imply a real person, so none here. New chat, Images on, 4:5, nothing attached.
+
+```
+Photoreal photograph, vertical 4 by 5, editorial style, calm and clean. Over-the-shoulder view of a clinician at a tidy white desk in a bright, minimal modern office, holding a video call on an open laptop. We see the clinician from behind and slightly to the side: the shoulder and arm in a crisp white coat over deep pine green scrubs, a stethoscope around the neck, one hand resting near the laptop. The face is out of frame. The laptop screen is softly out of focus and shows only a blurred, friendly video call window with soft mint and white tones, no readable text, no recognizable face. Behind the desk a plain white wall with soft pale mint daylight and lots of empty space, one small green plant. Cool soft morning daylight from the left, shallow depth of field, natural skin texture on the hand, exactly five fingers.
+
+No certificates, no frames on the wall, no name badge, no readable text or logos anywhere, no patient in the room, no pills, no syringes, no needles, no clutter.
+```
+
+Save; Vale files it as `assets-in/lifestyle/clinician-call.jpg`.
+
 ## Gemini, in this order
 
 ### 1. Opening clip, replaces clip 1

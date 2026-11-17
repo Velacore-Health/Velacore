@@ -25,7 +25,7 @@ site names **only these**:
 | Treatment | Public descriptor (factual, no efficacy claims) | Launch price, month to month, planned |
 |-----------|--------------------------------------------------|--------------|
 | Tirzepatide | Dual GIP / GLP-1 receptor agonist, injection | $279, $199 first month |
-| Semaglutide | GLP-1 receptor agonist, injection | $229, $149 first month |
+| Semaglutide | GLP-1 receptor agonist, injection or oral form | Injection $229, $149 first month; oral $259, from the written proposal, Dourado's decision Nov 17 2026, form to confirm with OpenLoop |
 | Microdosing GLP-1 | Low-dose GLP-1 combined with vitamins or amino acids, oral or injection | $179 |
 | NAD+ | NAD+ injectable, nasal or oral dropper | $199 |
 | Glutathione | Glutathione, a peptide of three amino acids, in the form the clinician prescribes | $199, placeholder |

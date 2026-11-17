@@ -77,7 +77,7 @@ ARTICLES = [
             ("How semaglutide works", [
                 "Semaglutide is a peptide that acts on the GLP-1 receptor. It mimics one hormone, GLP-1. That single target is why it is called a GLP-1 receptor agonist.",
                 "The FDA lists semaglutide among the GLP-1 receptor agonist medications.",
-                'In the <a href="../programs/semaglutide.html">Semaglutide program</a>, it is prepared as an injection given under the skin. There are five dose levels. The clinician starts at the lowest level and reviews an update from you each month before any increase.',
+                'In the <a href="../programs/semaglutide.html">Semaglutide program</a>, it is prepared as an injection given under the skin, with five dose levels, or as an oral form taken daily. The clinician starts at the lowest level and reviews an update from you each month before any increase.',
             ]),
             ("How tirzepatide works", [
                 "Tirzepatide is a peptide that acts on two receptors, GIP and GLP-1. It mimics two hormones instead of one. That is why it is called a dual GIP and GLP-1 receptor agonist.",
@@ -106,7 +106,7 @@ ARTICLES = [
         ],
         "faq": [
             ("Is tirzepatide a GLP-1?", "It acts on the GLP-1 receptor and also on the GIP receptor. That is why it is described as a dual GIP and GLP-1 receptor agonist."),
-            ("Are both given as injections?", "In our programs, yes. Both are prepared as an injection given under the skin."),
+            ("Are both given as injections?", "Tirzepatide is, as an injection given under the skin. Semaglutide comes as an injection or as an oral form taken daily. The clinician decides the form."),
             ("Which one is better?", "We do not make that comparison. The licensed clinician decides which program, if any, is appropriate for you."),
             ("Do I need a prescription for either one?", "Yes. Both are prescription only."),
         ],
