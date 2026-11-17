@@ -33,6 +33,7 @@ Vale draws the Licensed in your state map as a line drawing in the site colors. 
 
 ## House rules these prompts follow
 
+- Dourado decided Nov 17 2026 that the clinician photos go on the Clinicians page with no AI note and no wait for the attorney.
 - Clinicians never get a name, badge, certificate, diploma or credential, and are never presented as one of our clinicians. Scrubs are navy or soft gray, never pine green, so they never read as a Velacore uniform.
 - People are adults in their late twenties to late thirties, varied backgrounds, ordinary healthy builds, current casual clothes, mostly looking away from the camera.
 - No people in the weight pictures. The GLP-1 article picture shows hands and objects only.
