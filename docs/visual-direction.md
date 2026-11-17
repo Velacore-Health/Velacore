@@ -96,7 +96,35 @@ What Hims moves, and what we take:
 
 The rule for anything new that moves: it answers something the visitor did, it shows what changed, and it is gone in under half a second. One page, one moment.
 
-## 5. Next steps, in order
+## 5. The phone recording, Nov 17 2026
+
+Dourado recorded hims.com on his Samsung S26 Ultra, 88 seconds, top to bottom. Read from 44 stills and two slow-motion strips. The recording stayed outside the repo and was deleted after this read.
+
+What the phone view does:
+
+- Every screen is one color block. The page is a stack of full-width blocks, each its own tone: deep brown, tan, blue, teal, navy, peach, cream, black. Inside most blocks sits one rounded card a shade lighter or darker than the block. The eye reads one card per thumb-length.
+- Every block has one headline, one or two lines, and one or two pill buttons. Nothing else. Fine print sits under the block in a smaller tone with a Read more fold.
+- The hero is a slow drift. The product scene on the dark gradient turns and drifts about a degree over several seconds, a loop, no cuts. The headline and button sit still on top of it. That is the only ambient motion on the page.
+- The program row slides sideways, cards with a photo, a name, a from price and a small label. We have this.
+- A question block with pill answers: a headline that asks, four pills under it, each a route. Our chooser does this with tiles; theirs is lighter.
+- A number that counts. A weight figure ticks down on a tan block beside a scale photo. We have no number we are allowed to show, so no.
+- A three-word stepper, Measure, Treat, Optimize, that highlights one word at a time as you scroll past. Cheap and clear. Ours would be Intake, Review, Delivery.
+- A testimonial carousel with stars. Never, by COMPLIANCE.md.
+- A doctor row with names, titles and credentials. Not ours; our clinicians are independent and unnamed on the site.
+- An email capture block and an app download block. Not before the Agile decision on pre-intake email.
+- Footer: an accordion of link groups, the LegitScript badge, a giant watermark wordmark. The accordion is worth taking for the phone footer; the badge waits for certification.
+
+What to take, in order, each a piece Dourado sees before it goes live:
+
+1. Color blocks on the phone. Turn the home page into a stack of full-width blocks, each on paper, mint, a goal tint or pine, with one rounded card inside. One headline, one line, one button per block. The sections already exist; this is spacing, color and cutting words.
+2. The hero drift. One 6 to 8 second silent loop of the marble vial scene turning about a degree, under 1 MB, the headline and the goal rows still on top. Needs the marble hero shot first, then a Gemini or ffmpeg move on it. Still image for reduced motion.
+3. The question block. "What are you here for?" with three pills instead of three tiles, on a goal-tint block, at the top and the foot of the page. The tiles stay inside the chooser.
+4. The Intake, Review, Delivery stepper on How it works, one word lit as it passes the middle of the screen.
+5. The phone footer as an accordion.
+
+Not taken: the counting number, the testimonial carousel, the named doctors, the email capture, the FDA badges, the drug brand names, the coming soon banner.
+
+## 6. Next steps, in order
 
 1. Dourado picks one of the three edgier product sets, or none.
 2. The prompts go into `docs/gemini-queue.md` as edits of the approved Tirzepatide photo, one vial at a time.
