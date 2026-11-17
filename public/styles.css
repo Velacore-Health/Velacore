@@ -883,3 +883,9 @@ body.panel-open{overflow:hidden}
 .art-photo .img-note{margin:10px 0 0}
 .art-body .art-photo{margin:6px 0 22px}
 .faq-photo{max-width:760px;margin:0 auto 30px}
+/* Program cards, Nov 17 2026 at Dourado's request for sharper product photos: the card zooms in on the vial so the label
+   reads larger. The photo files hold far more pixels than the card shows, so the zoom costs no sharpness. */
+.tcard:not(.tcard-wide) .tcard-media .tcard-photo{transform:scale(1.28);transform-origin:50% 46%}
+.prog-media .tcard-photo{transform:none}
+/* Form tiles zoom in on the bottle; the clip keeps the zoomed photo inside its own box, which has no frame of its own. */
+.form-tiles img{transform:scale(1.16);transform-origin:50% 72%;clip-path:inset(9.9% 6.9% 3.9% 6.9%)}

@@ -4,7 +4,8 @@ Run from the repo root:  python -I tools/prepare_images.py
 
 assets-in/products/  -> public/images/products/<name>.webp   the five program vials
 assets-in/lifestyle/ -> public/images/lifestyle/<name>.webp  people and scenes
-Each PNG or JPG is resized to 1600 px on the long side and saved as WebP at quality 88.
+Each PNG or JPG is resized to 1600 px on the long side and saved as WebP at quality 88. Product photos are
+sharpened, saved at quality 92, and get an 800 wide copy for cards on phones.
 Prompts and file names are in docs/gemini-prompts.md. Uses ffmpeg. Nothing else is touched.
 """
 import subprocess
@@ -36,9 +37,17 @@ def convert(IN, OUT, EXPECTED):
     for src in files:
         name = src.stem.lower().replace(" ", "-")
         dst = OUT / f"{name}.webp"
-        cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(src),
-               "-vf", "scale='if(gt(iw,ih),1600,-2)':'if(gt(iw,ih),-2,1600)'",
-               "-c:v", "libwebp", "-quality", "88", str(dst)]
+        if OUT.name == "products":
+            # Nov 17 2026: product photos are sharpened after a Lanczos resize, and get an 800 copy for cards on phones.
+            cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(src),
+                   "-vf", "scale='if(gt(iw,ih),1600,-2)':'if(gt(iw,ih),-2,1600)':flags=lanczos,unsharp=5:5:0.5:5:5:0",
+                   "-c:v", "libwebp", "-quality", "92", str(dst)]
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf", "scale=800:-2:flags=lanczos,unsharp=5:5:0.6:5:5:0",
+                            "-c:v", "libwebp", "-quality", "92", str(OUT / f"{name}-800.webp")], capture_output=True, text=True)
+        else:
+            cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(src),
+                   "-vf", "scale='if(gt(iw,ih),1600,-2)':'if(gt(iw,ih),-2,1600)'",
+                   "-c:v", "libwebp", "-quality", "88", str(dst)]
         r = subprocess.run(cmd, capture_output=True, text=True)
         if r.returncode:
             print(f"FAILED {src.name}: {r.stderr.strip()[:200]}")

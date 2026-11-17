@@ -250,6 +250,16 @@ def first_month(p):
     return m.group(1)
 
 
+def prod_srcset(rel, prefix, sizes):
+    """Nov 17 2026: product photos come in a sharpened 1200 master and an 800 copy, both made from the full-size
+    original in assets-in. The browser picks the smaller one on small screens so no card is soft from heavy scaling."""
+    stem = rel[:-5] if rel.endswith(".webp") else rel
+    if not (ROOT / "public" / "images" / f"{stem}-800.webp").exists():
+        return ""
+    w = img_size(f"{stem}.webp")[0]
+    return f' srcset="{prefix}images/{stem}-800.webp 800w, {prefix}images/{stem}.webp {w}w" sizes="{sizes}"'
+
+
 PRODUCT_NOTE = "Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different."
 
 
@@ -377,7 +387,7 @@ def mcta_price(p):
 
 
 def page(p):
-    media = f'<img class="tcard-photo" src="../images/{p["image"]}" width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Velacore Health {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.png" alt="" width="119" height="128" />'
+    media = f'<img class="tcard-photo" src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:900px) 92vw, 560px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Velacore Health {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.png" alt="" width="119" height="128" />'
     plans = "\n".join(
         f'''          <label class="plan-option">
             <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{" checked" if i == 0 else ""} />
@@ -397,7 +407,7 @@ def page(p):
     forms = ""
     if p.get("forms"):
         tiles = "".join(
-            f'<li><img src="../images/{img}" width="{img_size(img)[0]}" height="{img_size(img)[1]}" alt="Velacore Health {p["name"]} {name.lower()}" loading="lazy" /><div><b>{name}</b><p>{line}</p></div></li>'
+            f'<li><img src="../images/{img}"{prod_srcset(img, "../", "(max-width:700px) 45vw, 300px")} width="{img_size(img)[0]}" height="{img_size(img)[1]}" alt="Velacore Health {p["name"]} {name.lower()}" loading="lazy" /><div><b>{name}</b><p>{line}</p></div></li>'
             for name, img, line in p["forms"] if (ROOT / "public" / "images" / img).exists())
         forms = f'''
     <!-- Forms, Nov 17 2026: one card, one photo per form. Shown only where the program data lists forms. -->
@@ -619,7 +629,7 @@ def start_page(p):
     else:
         button = f'<a class="btn btn-primary btn-block" href="#" data-intake="{intake_key(p)}" aria-disabled="true">{fill(START["button"])}</a>'
         pending = f'<p class="sp-pending">{fill(START["pending"]).replace("hello@velacorehealth.com", "<a href=\"mailto:hello@velacorehealth.com\">hello@velacorehealth.com</a>")}</p>'
-    media = f'<img src="../images/{p["image"]}" width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else ""
+    media = f'<img src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:700px) 80vw, 400px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else ""
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>

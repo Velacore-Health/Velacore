@@ -225,7 +225,7 @@
           var oral = form === 'noneedle' && document.querySelector('[data-oral="' + slug + '"]');
           if (oral) {
             var oimg = oral.querySelector('img'), oline = oral.querySelector('p').textContent, oprice = (oline.match(/\$\d+/) || [''])[0];
-            var cimg = card.querySelector('.tcard-photo'); if (cimg) { cimg.src = oimg.src; cimg.alt = oimg.alt; }
+            var cimg = card.querySelector('.tcard-photo'); if (cimg) { if (oimg.srcset) cimg.srcset = oimg.srcset; else cimg.removeAttribute('srcset'); cimg.src = oimg.src; cimg.alt = oimg.alt; }
             card.querySelector('.tcard-mech').textContent = oline.replace(/\s*\$\d+ a month\.?$/, '');
             card.querySelector('.tcard-price').innerHTML = oprice + ' <small>a month, oral form</small>';
             var cplan = card.querySelector('.tcard-plan'); if (cplan) cplan.remove();
