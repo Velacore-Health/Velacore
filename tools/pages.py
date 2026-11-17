@@ -109,6 +109,13 @@ PAGES = [
         "meta": "Physicians and nurse practitioners licensed in your state review every intake. They are independent of Velacore. Prescription required.",
         "h1": "The clinicians who review your intake",
         "lede": "Every intake is reviewed by a physician or nurse practitioner who holds an active license in your state. The clinician is independent of Velacore, and the prescribing decision is theirs alone.",
+        # Photos, Nov 17 2026, prompts in docs/gemini-site-set-nov17.md. A slot stays empty until its file exists.
+        "hero": ("lifestyle/clinicians-hero", "A clinician in a white coat at a laptop"),
+        "photos": {
+            "Credentialed before they review an intake": ("lifestyle/clinicians-credential", "Closed file folders and a stethoscope on a white desk"),
+            "Video visits": ("lifestyle/clinicians-video", "A person at home on a video visit with a clinician on a laptop"),
+            "What a clinician can decide": ("lifestyle/clinicians-review", "A clinician reading on a tablet by a window"),
+        },
         "sections": [
             ("Who reviews your intake", [
                 "Your intake is reviewed by a licensed physician or nurse practitioner. The clinicians are medical doctors, doctors of osteopathic medicine and nurse practitioners.",
@@ -230,6 +237,8 @@ PAGES = [
         "meta": "Velacore Health is a telehealth coordination platform operated by First Venture Group LLC. What we do and what we do not do. Prescription required.",
         "h1": "About Velacore Health",
         "lede": "Velacore Health is a telehealth coordination platform. We connect adults in the United States with independent licensed clinicians and licensed 503A compounding pharmacies.",
+        "hero": ("lifestyle/about-hero", "A woman on a sofa reading her phone, a dog asleep beside her"),
+        "photos": {"What we do not do": ("lifestyle/pharmacy-lab", "A pharmacist in a clean room weighing powder on a balance")},
         "sections": [
             ("Who operates Velacore", [
                 "Velacore Health is operated by First Venture Group LLC.",
@@ -281,6 +290,7 @@ PAGES = [
         "meta": "Email Velacore Health about programs, pricing and policies. Medical questions go to your clinician. In an emergency call 911. Prescription required.",
         "h1": "Contact us",
         "lede": "Velacore Health coordinates access to licensed clinicians and 503A pharmacies. Here is who to reach for what.",
+        "hero": ("lifestyle/support-phone", "A man reading a message on his phone in a bright kitchen"),
         "sections": [
             ("In an emergency", [
                 "If this is a medical emergency, call 911 or go to the nearest emergency room. If you are thinking about harming yourself, call or text 988 to reach the Suicide and Crisis Lifeline. Do not email us for urgent help.",

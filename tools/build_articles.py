@@ -51,6 +51,7 @@ def nice_date(iso):
 def page(a):
     url = f"{SITE}/learn/{a['slug']}"
     sections = "".join(f"<h2>{h}</h2>" + "".join(para(p) for p in ps) for h, ps in a["sections"])
+    hero = bp.art_photo(a["hero"][0], a["hero"][1], "../", True, bp.PRODUCT_NOTE if a["hero"][0].startswith("products/") else "") if a.get("hero") else ""
     faq = "".join(f'<details class="faq-item"><summary>{q}</summary><div class="faq-body"><p>{ans}</p></div></details>' for q, ans in a["faq"])
     sources = "".join(f'<li><a href="{u}" rel="noopener nofollow">{html.escape(label)}</a></li>' for label, u in a.get("sources", []))
     prog = PROGRAMS.get(a.get("program") or "")
@@ -121,6 +122,7 @@ def page(a):
         <h1>{a["h1"]}</h1>
         <p class="art-meta">Last updated {nice_date(a["reviewed"])}. Written by Velacore Health and not reviewed by a clinician. General education, not medical advice.</p>
         <p class="art-answer">{a["answer"]}</p>
+        {hero}
         <div class="art-body">
 {sections}
         </div>

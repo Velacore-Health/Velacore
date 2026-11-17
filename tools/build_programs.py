@@ -250,6 +250,22 @@ def first_month(p):
     return m.group(1)
 
 
+PRODUCT_NOTE = "Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different."
+
+
+def art_photo(rel, alt, prefix="", eager=False, note=""):
+    """A wide photo for an article or page, Nov 17 2026. rel is the image path under public/images without .webp.
+    Returns nothing until the file exists, so a slot can wait for its Gemini image. A -800 copy, when present, serves phones."""
+    if not (ROOT / "public" / "images" / f"{rel}.webp").exists():
+        return ""
+    w, h = img_size(f"{rel}.webp")
+    small = (ROOT / "public" / "images" / f"{rel}-800.webp").exists()
+    srcset = f' srcset="{prefix}images/{rel}-800.webp 800w, {prefix}images/{rel}.webp {w}w" sizes="(max-width:800px) 92vw, 760px"' if small else ""
+    load = 'loading="eager" fetchpriority="high"' if eager else 'loading="lazy"'
+    cap = f'<figcaption class="img-note">{note}</figcaption>' if note else ""
+    return f'<figure class="art-photo"><img src="{prefix}images/{rel}.webp"{srcset} width="{w}" height="{h}" alt="{alt}" {load} decoding="async" />{cap}</figure>'
+
+
 MENU_BUTTON = '<button class="menu-btn" id="menuBtn" aria-controls="sidePanel" aria-expanded="false"><span class="menu-btn-bars" aria-hidden="true"><span></span><span></span></span>Menu</button>'
 
 GOALS = [("weight", "Weight", "Tirzepatide, Semaglutide, Microdosing GLP-1"),

@@ -222,7 +222,9 @@ def pricing_main(a, faq_html):
 
 def page(a):
     url = f"{SITE}/{a['slug']}"
-    sections = "".join(f"<h2>{h}</h2>" + "".join(block(b) for b in bs) for h, bs in a["sections"])
+    photos = a.get("photos", {})
+    sections = "".join(f"<h2>{h}</h2>" + (bp.art_photo(*photos[h]) if h in photos else "") + "".join(block(b) for b in bs) for h, bs in a["sections"])
+    hero = bp.art_photo(*a["hero"], eager=True) if a.get("hero") else ""
     faq = "".join(f'<details class="faq-item"><summary>{q}</summary><div class="faq-body"><p>{ans}</p></div></details>' for q, ans in a.get("faq", []))
     ld = [
         {"@context": "https://schema.org", "@type": SCHEMA_TYPE.get(a["slug"], "WebPage"), "name": a["h1"], "description": a["meta"], "url": url,
@@ -243,6 +245,7 @@ def page(a):
         <p class="crumbs"><a href="index.html">Home</a> / {a["h1"]}</p>
         <h1>{a["h1"]}</h1>
         <p class="art-answer">{a["lede"]}</p>
+        {hero}
         <div class="art-body">
 {sections}
         </div>
