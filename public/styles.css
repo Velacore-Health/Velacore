@@ -57,11 +57,21 @@ ul,ol{margin:0;padding:0;list-style:none}
 .btn-sm{--pad:10px 18px;font-size:.92rem}
 .btn-block{display:flex;width:100%}
 .btn-primary{background:var(--jade);color:#fff;border-color:var(--jade)}
-.btn-primary:hover{background:var(--jade-dark);border-color:var(--jade-dark)}
 .btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--ink)}
-.btn-ghost:hover{border-color:var(--pine);background:var(--mint)}
 .on-pine .btn-ghost{border-color:rgba(255,255,255,.35);color:var(--on-pine)}
-.on-pine .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+/* Lit from above, Nov 18 2026 from Kevin's notes: a short light-to-base fade, a top highlight, a bottom edge, a close
+   shadow and a soft jade glow. The fade flips and the button sinks a pixel on press. The lightest point, #0C8267,
+   keeps white text at 4.8 to 1. Hover is for mouse devices only so a tap never leaves a phone stuck in hover. */
+.btn-primary{background:linear-gradient(180deg,#0C8267 0%,var(--jade) 55%,#08634F 100%);border-color:#08634F;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(0,0,0,.16),0 1px 2px rgba(21,48,42,.22),0 6px 16px -8px rgba(10,122,97,.55);
+  transition:background .18s var(--ease),box-shadow .18s var(--ease),transform .12s var(--ease),border-color .18s var(--ease)}
+.btn-primary:active{background:linear-gradient(180deg,#08634F 0%,var(--jade) 100%);box-shadow:inset 0 2px 4px rgba(0,0,0,.22),0 1px 1px rgba(21,48,42,.18);transform:translateY(1px) scale(.98)}
+@media (hover:hover) and (pointer:fine){
+  .btn-primary:hover{background:linear-gradient(180deg,var(--jade) 0%,#08634F 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(0,0,0,.18),0 1px 2px rgba(21,48,42,.24),0 8px 20px -8px rgba(10,122,97,.6)}
+  .btn-primary:active{background:linear-gradient(180deg,#08634F 0%,var(--jade) 100%)}
+  .btn-ghost:hover{border-color:var(--pine);background:var(--mint)}
+  .on-pine .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+}
 .btn-arrow::after{content:none}
 
 /* ---------- Top bar ---------- */
@@ -261,7 +271,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .intake-list .btn[aria-disabled="true"]::after{display:block;font-size:.78em}
 .intake-list .intake-fine{padding-top:6px}
 a[aria-disabled="true"]{cursor:not-allowed;pointer-events:auto;white-space:normal;text-align:center}
-.btn[aria-disabled="true"]{background:var(--mint);border-color:var(--line-strong);color:var(--pine)}
+.btn[aria-disabled="true"]{background:var(--mint);border-color:var(--line-strong);color:var(--pine);box-shadow:none;transform:none}
 .btn[aria-disabled="true"]:hover{background:var(--mint);border-color:var(--line-strong);color:var(--pine)}
 a[aria-disabled="true"]::after{content:" (link coming soon)";font-weight:400;font-size:.8em;white-space:nowrap}
 .btn[aria-disabled="true"]::after{color:var(--ink-soft)}
@@ -887,8 +897,8 @@ body.panel-open{overflow:hidden}
    reads larger. The photo files hold far more pixels than the card shows, so the zoom costs no sharpness. */
 .tcard:not(.tcard-wide) .tcard-media .tcard-photo{transform:scale(1.28);transform-origin:50% 46%}
 .prog-media .tcard-photo{transform:none}
-/* Form tiles zoom in on the bottle; the clip keeps the zoomed photo inside its own box, which has no frame of its own. */
-.form-tiles img{transform:scale(1.16);transform-origin:50% 72%;clip-path:inset(9.9% 6.9% 3.9% 6.9%)}
+/* Form tiles, Nov 18 2026: the zoom on the bottle is cut into the tile photos themselves, see tools/prepare_images.py.
+   Zooming in the browser and then shrinking blurred them. */
 /* Pricing page cards, Nov 17 2026 at Dourado's request: the same row lining as the home program row. Each card borrows
    seven rows of the grid so title, line, price, plan, link and button sit level across every card in a row. */
 @supports (grid-template-rows:subgrid){
@@ -912,10 +922,11 @@ body.panel-open{overflow:hidden}
    brand family, text turns white; the two big cards deepen their tint and ease the photo in a little. White text measures at
    least 4.7 to 1 on the lightest stop of every fill; card text at least 4.6 on the deeper tints. Pointer devices only, and the
    same state on keyboard focus. Transitions are off under reduced motion through the global rule. */
-.hub-small li:nth-child(1) a{--hov:linear-gradient(135deg,#5A3FA3 0%,#7A5CC0 100%)}
+/* Nov 18 2026: violet and the second blue retired, Kevin's note that purple beside blue reads as a template. */
+.hub-small li:nth-child(1) a{--hov:linear-gradient(135deg,#7E2A7B 0%,#9B3D97 100%)}
 .hub-small li:nth-child(2) a{--hov:linear-gradient(135deg,#05594A 0%,#0A8268 100%)}
 .hub-small li:nth-child(3) a{--hov:linear-gradient(135deg,#2A4596 0%,#4A6BD0 100%)}
-.hub-small li:nth-child(4) a{--hov:linear-gradient(135deg,#2B74A8 0%,#1F6E73 100%)}
+.hub-small li:nth-child(4) a{--hov:linear-gradient(135deg,#15302A 0%,#2E5A50 100%)}
 .hub-small a{position:relative;isolation:isolate;overflow:hidden;transition:color .25s ease,box-shadow .25s ease}
 .hub-small a::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--hov);opacity:0;transition:opacity .25s ease}
 .hub-small a:focus-visible{color:#fff}
@@ -926,7 +937,7 @@ body.panel-open{overflow:hidden}
 .hub-hormone::before{background:linear-gradient(90deg,#C0E6D3 0%,#C0E6D3 24%,rgba(192,230,211,0) 56%)}
 .hub-card img{transition:transform .4s ease}
 .hub-card:focus-visible::before{opacity:1}
-@media (hover:hover){
+@media (hover:hover) and (pointer:fine){
   .hub-small a:hover{color:#fff}
   .hub-small a:hover::before{opacity:1}
   .hub-card:hover::before{opacity:1}

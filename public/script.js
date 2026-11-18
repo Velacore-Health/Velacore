@@ -225,7 +225,9 @@
           var oral = form === 'noneedle' && document.querySelector('[data-oral="' + slug + '"]');
           if (oral) {
             var oimg = oral.querySelector('img'), oline = oral.querySelector('p').textContent, oprice = (oline.match(/\$\d+/) || [''])[0];
-            var cimg = card.querySelector('.tcard-photo'); if (cimg) { if (oimg.srcset) cimg.srcset = oimg.srcset; else cimg.removeAttribute('srcset'); cimg.src = oimg.src; cimg.alt = oimg.alt; }
+            // the tile photo is cropped for the tile; the card takes the full frame from data-card-src when the tile gives one
+            var osrc = oimg.getAttribute('data-card-src') || oimg.src, oset = oimg.getAttribute('data-card-srcset') || oimg.srcset;
+            var cimg = card.querySelector('.tcard-photo'); if (cimg) { if (oset) cimg.srcset = oset; else cimg.removeAttribute('srcset'); cimg.src = osrc; cimg.alt = oimg.alt; }
             card.querySelector('.tcard-mech').textContent = oline.replace(/\s*\$\d+ a month\.?$/, '');
             card.querySelector('.tcard-price').innerHTML = oprice + ' <small>a month, oral form</small>';
             var cplan = card.querySelector('.tcard-plan'); if (cplan) cplan.remove();

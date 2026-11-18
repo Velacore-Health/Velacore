@@ -260,6 +260,23 @@ def prod_srcset(rel, prefix, sizes):
     return f' srcset="{prefix}images/{stem}-800.webp 800w, {prefix}images/{stem}.webp {w}w" sizes="{sizes}"'
 
 
+# Home tiles show at about 250 px wide; program page tiles at up to 370 px.
+TILE_SIZES = "(max-width:700px) 40vw, 260px"
+TILE_SIZES_WIDE = "(max-width:700px) 40vw, 380px"
+
+
+def tile_img(rel, prefix, sizes=TILE_SIZES):
+    """Nov 18 2026: form tiles use photos already cropped and sized for the tile, made by tools/prepare_images.py, so the
+    browser never zooms or shrinks them hard. Returns the src, srcset, sizes, width and height attributes."""
+    stem = rel[:-5].split("/")[-1]
+    base = f"{prefix}images/products/tiles/{stem}"
+    if not (ROOT / "public" / "images" / "products" / "tiles" / f"{stem}-600.webp").exists():
+        w, h = img_size(rel)
+        return f'src="{prefix}images/{rel}"{prod_srcset(rel, prefix, sizes)} width="{w}" height="{h}"'
+    return (f'src="{base}-600.webp" srcset="{base}-300.webp 300w, {base}-450.webp 450w, {base}-600.webp 600w, {base}-900.webp 900w" '
+            f'sizes="{sizes}" width="600" height="800"')
+
+
 PRODUCT_NOTE = "Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different."
 
 
@@ -336,7 +353,7 @@ def mega_menu(prefix):
             rows = []
             for slug, name, img, sub in items:
                 href = slug if slug.endswith(".html") or ".html#" in slug else f"{slug}.html"
-                thumb = f'<img src="{prefix}{img}" alt="" width="54" height="54" loading="lazy" />' if img and (ROOT / "public" / img).exists() else f'<img class="mega-tile" src="{prefix}logo-mark.png" alt="" width="119" height="128" loading="lazy" />'
+                thumb = f'<img src="{prefix}{img}" alt="" width="54" height="54" loading="lazy" />' if img and (ROOT / "public" / img).exists() else f'<img class="mega-tile" src="{prefix}logo-mark.svg" alt="" width="119" height="128" loading="lazy" />'
                 rows.append(f'<a class="mega-item" href="{prefix}programs/{href}">{thumb}<span><b>{name}</b><small>{sub}</small></span></a>')
             groups.append(f'<h4>{cat}</h4>{"".join(rows)}')
         cols.append(f'<div class="mega-col">{"".join(groups)}</div>')
@@ -387,7 +404,7 @@ def mcta_price(p):
 
 
 def page(p):
-    media = f'<img class="tcard-photo" src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:900px) 92vw, 560px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Velacore Health {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.png" alt="" width="119" height="128" />'
+    media = f'<img class="tcard-photo" src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:900px) 92vw, 560px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Velacore Health {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.svg" alt="" width="119" height="128" />'
     plans = "\n".join(
         f'''          <label class="plan-option">
             <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{" checked" if i == 0 else ""} />
@@ -407,7 +424,7 @@ def page(p):
     forms = ""
     if p.get("forms"):
         tiles = "".join(
-            f'<li><img src="../images/{img}"{prod_srcset(img, "../", "(max-width:700px) 45vw, 300px")} width="{img_size(img)[0]}" height="{img_size(img)[1]}" alt="Velacore Health {p["name"]} {name.lower()}" loading="lazy" /><div><b>{name}</b><p>{line}</p></div></li>'
+            f'<li><img {tile_img(img, "../", TILE_SIZES_WIDE)} alt="Velacore Health {p["name"]} {name.lower()}" loading="lazy" /><div><b>{name}</b><p>{line}</p></div></li>'
             for name, img, line in p["forms"] if (ROOT / "public" / "images" / img).exists())
         forms = f'''
     <!-- Forms, Nov 17 2026: one card, one photo per form. Shown only where the program data lists forms. -->
@@ -453,7 +470,7 @@ def page(p):
   <header class="site-header" id="top">
     <div class="container nav">
       <a href="../index.html" class="brand" aria-label="Velacore Health home">
-        <img class="brand-mark" src="../logo-mark.png" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span>
+        <img class="brand-mark" src="../logo-mark.svg" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span>
       </a>
       <nav class="nav-links" id="navLinks" aria-label="Primary">
         {mega_menu("../")}
@@ -575,7 +592,7 @@ def page(p):
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a href="../index.html" class="brand"><img class="brand-mark" src="../logo-mark.png" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span></a>
+        <a href="../index.html" class="brand"><img class="brand-mark" src="../logo-mark.svg" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span></a>
         <p>A telehealth platform coordinating access to licensed clinicians and 503A compounding pharmacies.</p>
       </div>
       <nav class="footer-col" aria-label="Programs"><h4>Programs</h4>
@@ -650,7 +667,7 @@ def start_page(p):
   <header class="site-header sp-header">
     <div class="container nav">
       <a href="../index.html" class="brand" aria-label="Velacore Health home">
-        <img class="brand-mark" src="../logo-mark.png" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span>
+        <img class="brand-mark" src="../logo-mark.svg" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span>
       </a>
       <a class="sp-back" href="../programs/{p["slug"]}.html">Back<span class="sp-back-name"> to {p["name"]}</span></a>
     </div>
