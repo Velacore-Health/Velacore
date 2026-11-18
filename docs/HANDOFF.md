@@ -47,6 +47,8 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+Nov 18 2026, about noon: pushed 9a14f3d on Dourado's "push it", verified live. The new styles and card images were served about 20 seconds after the push. The live audit shows 16 pass and only the Start placeholder fail. Learn, Clinicians and How it works have no overflow and no broken images at 375 and 1280.
+
 Nov 18 2026, late morning, local only, vc-reviewer PASS on every piece. Changes in this batch:
 - Side menu: mouse drag on the card rows and the panel.
 - Email links also copy the address with a short note.
