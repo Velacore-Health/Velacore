@@ -19,7 +19,7 @@ PAGES = [
             "sub": "Four steps, started online. A licensed clinician makes every prescribing decision. Prescription required.",
             "steps": [
                 {"word": "Intake", "short": "Answer questions online", "title": "Answer a few questions online",
-                 "img": "step-visit", "w": 1600, "h": 1194, "alt": "A man typing on his laptop at his kitchen table",
+                 "img": "step-visit", "w": 1600, "h": 1194, "alt": "A woman typing on her laptop at her kitchen table",
                  "line": "Pick a program and complete a secure intake about your goals, health history and medications.",
                  "facts": ['Not sure which program? <a href="index.html#goals" data-find>Find your program</a> walks you through it', "The intake runs on our telehealth partner's secure pages"],
                  "more": "Online intake"},

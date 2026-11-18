@@ -1,16 +1,16 @@
 # Learn page photo swaps, Nov 18 2026
 
-Dourado asked to swap photos on the Learn page after it moved to photo cards. Three new Gemini images. Run them the same way as `docs/gemini-site-set-nov17.md`: a new chat for each, Images on, 3.1 Pro, the aspect ratio named in the heading, the largest size offered, no attachments, paste the block, check it against the reject list at the bottom, download, rename, and drop it in `assets-in/lifestyle`. Then tell Vale "convert the images".
+Dourado asked to swap photos on the Learn page after it moved to photo cards. Three new Gemini images. Run them the same way as `docs/gemini-site-set-nov17.md`: a new chat for each, Images on, 3.1 Pro, the aspect ratio named in the heading, the largest size offered, no attachments unless the prompt names some, paste the block, check it against the reject list at the bottom, download, rename, and drop it in `assets-in/lifestyle`, or `assets-in/products` where the prompt says so. Then tell Vale "convert the images".
 
 ## What we need, at a glance
 
 | # | File name | Aspect | Replaces | Where it goes |
 |---|---|---|---|---|
 | 1 | step-visit.png | 4:3 | The man in his late forties at a laptop | Learn card How do I know if they are right for me, and step 1 on How it works |
-| 2 | learn-taken.png | 4:3 | The dog sniffing a parcel | Learn card How is it taken |
-| 3 | learn-difference.png | 4:3 | The woman on the sofa, still used at the top of About | Learn card Peptides vs. GLP-1s |
+| 2 | learn-forms.png | 16:9 | The dog sniffing a parcel | Learn card How is it taken, the four forms side by side |
+| 3 | learn-peptides.png | 3:2 |  The woman on the sofa, still used at the top of About | Learn card Peptides vs. GLP-1s |
 
-The old step-visit original is kept as `assets-in/lifestyle/_prev-step-visit-older.jpg`. vc-reviewer PASS on these prompts Nov 18 2026. When the new step-visit is placed, its alt text changes from a man to a person in tools/pages.py and public/learn.html.
+The old step-visit original is kept as `assets-in/lifestyle/_prev-step-visit-older.jpg`. vc-reviewer PASS Nov 18 2026, prompt 2 rechecked the same day. When the new step-visit is placed, its alt text changes from a man to a person in tools/pages.py and public/learn.html.
 
 ## House rules these prompts follow
 
@@ -42,47 +42,43 @@ DO NOT INCLUDE
 No readable text, numbers or logos on the laptop or anywhere. No pills, syringes, needles, scales, tape measures, mirrors. No workout clothes or gym gear. No looking at the camera. No extra fingers.
 ```
 
-## 2. learn-taken.png, 4:3
+## 2. learn-forms.png, 16:9, folder products
 
-Hands and objects only, no face or body.
+Changed Nov 18 2026 at Dourado's request: the Learn card How is it taken has to show what it describes, the forms a prescription can come in. This replaces the box and instruction card picture. It is a product photo, so the illustration note sits on the page with it.
+
+Attach four files in this order, all from `assets-in` then `products`: `semaglutide.jpg`, `semaglutide-oral.jpg`, `nad-oral.jpg`, `nad-nasal.jpg`.
 
 ```
-A photoreal close photograph, horizontal 4 by 3, seen from slightly above, 50 mm lens look at f/2.8. Two hands lift a folded plain white instruction card out of an open plain white shipping box on a light oak kitchen counter. Inside the box, folded pale mint tissue paper. The card shows only soft gray blocks and lines, too blurred to read. Beside the box on the counter: a small green plant in a white pot, softly blurred. Only the hands and forearms are in frame, with the cuffs of a soft gray sweater.
+Combine the four attached product photos into one horizontal 16 by 9 product photograph. Take each container exactly as it is: the same glass, the same caps, dropper and spray pump, and the same printed labels, word for word, with the same logo and the same colored lines. Do not change, add or remove any word on any label, and add no other text anywhere.
 
-ANATOMY, follow exactly
-Exactly two hands, a left and a right, belonging to one person standing at the counter. Five fingers on each hand, the thumbs on top of the card and the fingers beneath it, natural knuckles, short clean natural nails, realistic skin texture.
+Stand all four upright in one row, evenly spaced with a clear gap between each, from left to right: the injection vial, the oral bottle with its cap on and closed, the amber dropper bottle, and the nasal spray bottle. Each stands on its own simple solid white marble riser of equal height, on a pale white marble tabletop with soft gray veining. Background a soft pale mint wall fading to white at the top. Bright cool daylight from the upper left, a soft shadow to the lower right of each. Every label faces the camera, sharp and readable. The row is centered with calm empty space on both sides.
 
-LIGHT AND COLOR
-Cool soft daylight from a window on the left, white, light oak, pale mint and soft gray, one touch of green.
+No loose tablets or capsules, no water, no plants, no other objects, no syringe, no needle, no hands.
+```
+
+## 3. learn-peptides.png, 3:2, no attachments
+
+Changed Nov 18 2026 at Dourado's request: he wants the Peptides vs. GLP-1s diagram to look high tech, not a basic illustration. Gemini makes the picture with no words in it; Vale lays the words Peptides and GLP-1s over it in the page, so they stay sharp and spelled right. Dourado's decision overrides the BRAND.md line against 3D renders for this education visual.
+
+```
+A premium high-tech scientific visualization, horizontal 3 by 2, photoreal 3D render with the look of a modern biotech brand, clean and calm, not a cartoon, not flat clip art.
+
+THE SUBJECT
+One large translucent glass sphere, centered slightly left, filling about two thirds of the frame height. Inside it, a delicate chain of small glossy beads linked like a string of pearls, round beads, not capsule or tablet shaped, curves gracefully through the sphere, the beads alternating deep jade green and soft mint, representing a chain of amino acids. Nested inside the large sphere, in its lower right part, sits one smaller solid sphere in deep jade green with a soft inner glow, about one third the size of the large sphere, fully inside it and not touching its edge. The upper left part of the large sphere stays clear and empty so a word can be placed there later. The small jade sphere stays plain and smooth so words can be placed on it later.
+
+BACKGROUND AND LIGHT
+A soft gradient background from very pale mint to white, with a faint subtle glow behind the sphere. Cool soft studio light from the upper left, gentle reflections and refraction in the glass, a soft shadow beneath. Colors only deep pine green, jade green, mint and white, with a faint hint of soft blue in the glass reflections.
 
 DO NOT INCLUDE
-No face, no body beyond the forearms. Nothing else in the box. No readable text, numbers or logos on the card, the box or anywhere. No vials, bottles, pills, syringes, needles, scales, tape measures. No extra fingers.
-```
-
-## 3. learn-difference.png, 4:3
-
-```
-A photoreal editorial photograph, horizontal 4 by 3, shot on a full-frame camera with a 35 mm lens at f/2.8, candid and calm. Not an illustration, not a 3D render.
-
-THE PERSON
-One man in his early thirties with short dark hair and a neatly trimmed short beard, seated in a pale wooden chair at a small round white table by a window on the right third of the frame, seen three quarters from the side. He reads a tablet he holds in both hands, his eyes on the screen, relaxed and focused. He wears a light blue button-down shirt with the sleeves rolled once. An ordinary healthy build, approachable, well groomed.
-
-ANATOMY, follow exactly
-One body, exactly two arms and two hands, holding the tablet by its sides, the thumbs on the front edge and four fingers behind it on each hand, short clean natural nails. No extra fingers, no fused fingers, no third hand.
-
-THE ROOM
-On the table only a white ceramic cup of tea on a saucer. The left half of the frame is calm empty space: a smooth white wall with a very soft pale mint tone, daylight from a tall window on the right. One tall green plant in a plain white pot in the far corner, softly blurred. Nothing hangs on the walls, nothing on the floor.
-
-LIGHT AND COLOR
-Cool soft daylight, gentle shadows, no lamps, no glow. White, pale mint, light wood and soft blue, the plant as the one touch of green. Natural skin texture, true-to-life colors, shallow depth of field.
-
-DO NOT INCLUDE
-The tablet screen faces away from the camera so nothing on it can be seen. No readable text, numbers or logos anywhere. No pills, syringes, needles, scales, tape measures, mirrors. No workout clothes or gym gear. No looking at the camera. No extra fingers.
+No text, no letters, no numbers, no labels, no logos anywhere. No pills, syringes, needles, vials, people or hands. No DNA double helix. No purple. No busy particles or sparkles.
 ```
 
 ---
 
 ## Reject the image if
+
+- For learn-forms only: the four product labels are meant to be readable. Reject it if any label word changes, if loose tablets or a needle appear, or if any other text shows.
+- For learn-peptides: reject it if any letter or number appears, if the small sphere is not fully inside the large one, if a DNA helix appears, or if any bead or sphere looks like a pill, capsule or tablet.
 
 - Any hand has more or fewer than five fingers, or there is an extra hand or arm.
 - Any readable word, number or logo appears.

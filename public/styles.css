@@ -1023,3 +1023,30 @@ p,li,figcaption,dd,.section-sub{text-wrap:pretty}
 /* Email copied note, Nov 18 2026: a small pine pill at the top of the screen, under the header, so it never covers fine print. */
 .copy-note{position:fixed;left:50%;top:84px;z-index:120;transform:translate(-50%,-8px);width:max-content;max-width:calc(100vw - 32px);padding:12px 18px;border-radius:999px;background:var(--pine);color:#fff;font-size:.95rem;font-weight:500;box-shadow:0 0 0 1px rgba(255,255,255,.28),0 10px 28px -10px rgba(21,48,42,.5);opacity:0;pointer-events:none;transition:opacity .2s var(--ease),transform .2s var(--ease)}
 .copy-note.is-on{opacity:1;transform:translate(-50%,0)}
+/* Clinicians page layout, Nov 18 2026 at Dourado's request: a split opening with the photo, four quick facts, two
+   cards, photo rows that alternate sides, the glowing panel and the questions. Built by clinicians_main in build_pages.py. */
+.cl-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.cl-hero .crumbs{margin-bottom:14px}
+.cl-hero .hw-photo{aspect-ratio:4/3.2;box-shadow:0 1px 2px rgba(21,48,42,.06),0 18px 40px -24px rgba(21,48,42,.35)}
+.cl-facts{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cl-facts li{background:#fff;border-radius:18px;padding:18px 20px;box-shadow:0 1px 2px rgba(21,48,42,.06),0 8px 22px -14px rgba(21,48,42,.28);display:grid;gap:4px}
+.cl-facts b{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--ink);line-height:1.25}
+.cl-facts span{color:var(--ink-soft);font-size:.95rem;line-height:1.4}
+.cl-body{padding-top:72px}
+.cl-split h2,.cl-hours h2{font-size:1.35rem;margin-bottom:10px}
+.cl-split p,.cl-hours p{color:var(--ink-soft);margin:0 0 10px}
+.cl-rows{margin-top:88px}
+.cl-row .hw-copy h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:12px}
+.cl-row .hw-copy>p{color:var(--ink-soft)}
+.cl-checks{grid-template-columns:1fr 1fr;column-gap:20px}
+.cl-chips{list-style:none;margin:14px 0 16px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.cl-chips li{padding:6px 14px;border-radius:999px;background:var(--mint);border:1px solid var(--line);font-size:.92rem;font-weight:500;color:var(--ink)}
+.cl-row .hw-note{color:var(--ink-soft);font-size:.97rem;margin-top:16px}
+.cl-promise{margin-top:96px}
+.cl-promise p{margin:0 0 10px}
+.cl-hours{margin-top:22px}
+@media (max-width:1000px){.cl-facts{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.cl-hero{grid-template-columns:1fr;gap:28px}.cl-rows{margin-top:56px}.cl-promise{margin-top:60px}.cl-body{padding-top:48px}}
+@media (max-width:560px){.cl-checks{grid-template-columns:1fr}.cl-facts{gap:10px;margin-top:32px}.cl-facts li{padding:14px 16px}.cl-facts b{font-size:1.05rem}}
+.cl-row .hw-note a,.cl-split a,.cl-hours a{color:var(--jade);text-decoration:underline;text-underline-offset:3px}
+.edu-diagram{width:100%;height:auto}

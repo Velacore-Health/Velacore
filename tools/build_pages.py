@@ -128,6 +128,93 @@ def flow_main(a, faq_html):
   </main>"""
 
 
+def clinicians_main(a, faq_html):
+    """Clinicians page, Nov 18 2026 at Dourado's request for a layout that is not one long column. The same parts as
+    How it works: a split opening with the photo, four quick facts, two cards, photo rows that alternate sides, a
+    glowing panel and the questions. Every sentence is read from a["sections"]; nothing is typed twice."""
+    sec = dict(a["sections"])
+    photos = a.get("photos", {})
+
+    def pic(rel, alt, eager=False):
+        stem = rel.split("/")[-1]
+        small = ROOT / "public" / "images" / "lifestyle" / f"{stem}-800.webp"
+        srcset = f' srcset="images/{rel}-800.webp 800w, images/{rel}.webp 1600w" sizes="(max-width:900px) 100vw, 560px"' if small.exists() else ""
+        w, h = img_size(f"{rel}.webp")
+        return (f'<figure class="hw-photo"><img src="images/{rel}.webp"{srcset} width="{w}" height="{h}" alt="{html.escape(alt)}"'
+                f' loading="{"eager" if eager else "lazy"}" /></figure>')
+
+    def body(heading, skip=()):
+        return "".join(block(b) for i, b in enumerate(sec[heading]) if i not in skip)
+
+    def checks(text, cls="hw-facts"):
+        return f'<ul class="{cls}">' + "".join(f"<li>{l.strip()[2:]}</li>" for l in text.split("\n") if l.strip()) + "</ul>"
+
+    facts = "".join(f"<li><b>{t}</b><span>{d}</span></li>" for t, d in CLIN_FACTS)
+    cred = sec["Credentialed before they review an intake"]
+    video = sec["Video visits"]
+    decide = sec["What a clinician can decide"]
+    states = "".join(f"<li>{l.strip()[2:]}</li>" for l in video[2].split("\n") if l.strip())
+    rows = [
+        ("Credentialed before they review an intake", f'<p>{cred[0]}</p>{checks(cred[1], "hw-facts cl-checks")}<p class="hw-note">{cred[2]}</p>'),
+        ("Video visits", f'<p>{video[0]}</p><p>{video[1]}</p><ul class="cl-chips">{states}</ul><p>{video[3]}</p>'),
+        ("What a clinician can decide", f'{checks(decide[0])}<p class="hw-note">{decide[1]}</p>'),
+    ]
+    row_html = "".join(f"""
+          <li class="hw-step cl-row">
+            {pic(*photos[h])}
+            <div class="hw-copy">
+              <h2>{h}</h2>
+              {copy}
+            </div>
+          </li>""" for h, copy in rows)
+    hero = pic(*a["hero"], eager=True) if a.get("hero") else ""
+    return f"""  <main>
+    <section class="section on-cream page-top hw-top cl-top">
+      <div class="container">
+        <div class="cl-hero">
+          <div>
+            <p class="crumbs"><a href="index.html">Home</a> / Clinicians</p>
+            <h1>{a["h1"]}</h1>
+            <p class="hw-sub">{a["lede"]}</p>
+            <div class="hw-cta"><a href="index.html#goals" class="btn btn-primary" data-find>Find your program</a> <a href="how-it-works.html" class="btn btn-ghost">How it works</a></div>
+          </div>
+          {hero}
+        </div>
+        <ul class="cl-facts">{facts}</ul>
+      </div>
+    </section>
+    <section class="section hw-body cl-body">
+      <div class="container">
+        <div class="hw-split cl-split">
+          <div class="hw-card"><h2>Who reviews your intake</h2>{body("Who reviews your intake")}</div>
+          <div class="hw-card"><h2>Licensed in your state</h2>{body("Licensed in your state")}</div>
+        </div>
+        <ol class="hw-steps cl-rows">{row_html}
+        </ol>
+        <div class="hw-promise cl-promise">
+          <h2>Independent of Velacore</h2>
+          {body("Independent of Velacore")}
+        </div>
+        <div class="hw-card cl-hours"><h2>Hours</h2>{body("Hours")}</div>
+        <div class="hw-faq">{faq_html}</div>
+        <p class="edu-note">{NOTE}</p>
+        <div class="art-next">
+          <a href="index.html#goals" class="btn btn-primary" data-find>Find your program</a>
+        </div>
+      </div>
+    </section>
+  </main>"""
+
+
+# The four quick facts at the top of the Clinicians page. Each one restates a line already on the page.
+CLIN_FACTS = [
+    ("MD, DO and NP", "Physicians and nurse practitioners"),
+    ("All 50 states and DC", "Licensed where you live"),
+    ("7am to 7pm Central", "Clinician hours. Support runs 24 hours a day"),
+    ("Video on request", "At no extra cost"),
+]
+
+
 def price_cards():
     """One card per program in the home page card style: vial photo, form line, first month price, the
     12-week plan, Learn more and Start visit. Every figure is read from the program data in build_programs.py."""
@@ -239,7 +326,7 @@ def page(a):
     ld_html = "\n".join(f'  <script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     faq_html = f'<section class="art-faq" aria-label="Common questions"><h2>Common questions</h2><div class="faq">{faq}</div></section>' if faq else ""
     programs = "".join(f'<a href="programs/{p["slug"]}.html">{p["name"]}</a>' for p in bp.PROGRAMS)
-    main_html = flow_main(a, faq_html) if a.get("flow") else pricing_main(a, faq_html) if a.get("pricing") else f"""  <main>
+    main_html = flow_main(a, faq_html) if a.get("flow") else pricing_main(a, faq_html) if a.get("pricing") else clinicians_main(a, faq_html) if a["slug"] == "clinicians" else f"""  <main>
     <article class="section art">
       <div class="container art-wrap">
         <p class="crumbs"><a href="index.html">Home</a> / {a["h1"]}</p>
