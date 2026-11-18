@@ -16,7 +16,8 @@ OUT = ROOT / "public" / "images" / "learn" / "cards"
 CARDS = {
     "safe": ("lifestyle/clinicians-review.jpg", 0.55),
     "stop": ("lifestyle/clinicians-video.jpg", 0.5),
-    "right-for-me": ("lifestyle/step-visit.jpg", 0.5),
+    # Nov 18 2026 at Dourado's request: a glass clipboard and stethoscope render, in the same style as the peptides card.
+    "right-for-me": ("lifestyle/learn-evaluation.jpg", 0.0),
     # Nov 18 2026: the four forms side by side, a Gemini edit of the approved product photos; 0.58 keeps both end risers in frame.
     "taken": ("products/learn-forms.jpg", 0.58),
     "made": ("lifestyle/pharmacy-lab.jpg", 0.5),

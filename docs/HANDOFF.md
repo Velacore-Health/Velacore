@@ -47,6 +47,16 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+Nov 18 2026, late morning, local only, vc-reviewer PASS on every piece. Changes in this batch:
+- Side menu: mouse drag on the card rows and the panel.
+- Email links also copy the address with a short note.
+- Clinicians page rebuilt as a visual layout by clinicians_main in build_pages.py.
+- New step-visit photo, a woman at a laptop, on How it works step 1.
+- Learn cards: right for me is a glass clipboard render, How is it taken shows the four forms side by side, and Peptides vs. GLP-1s is a glass sphere render with a page-text key.
+- BRAND.md section 5 records the 3D exception for education visuals. Originals are in assets-in, and the crops come from tools/make_learn_cards.py.
+Waits for Dourado's push.
+Still open from the design pass: the program hero's empty space on desktop, the two Semaglutide form tiles, the Semaglutide oral tile photo cut at the right edge, the goal card thumbnails cropping caps, uneven phone card margins, three footer column sets and the shorter legal nav.
+
 Nov 18 2026, about 3:20 AM: pushed 0d5ea6c on Dourado's "push what we can now", verified live. The live audit shows 16 pass and only the Start placeholder fail, with no overflow on home, Pricing or Learn at 375 and 1280.
 
 Next session, Dourado's plan: update images where needed. The list:
