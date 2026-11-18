@@ -47,6 +47,8 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+Nov 18 2026, afternoon: pushed 5e3357b with four docs-only commits, on Dourado's "push it" and a second yes for the extra commits. vc-reviewer PASS, verified live; the live audit shows 16 pass and only the Start placeholder fail. Titles and metas on every page follow docs/seo-titles-nov18.md. The top bar on all pages now reads "A telehealth platform. Independent licensed clinicians decide. Prescription required." and carries the home page business-model disclosure. The home hub H1 is "GLP-1 and peptide programs, online", with the sub line "Prescription only. No consultation fee. Shipping included." The pricing meta fills its from prices from the program data in build_pages.py. Still waiting: Dourado's screenshots of the sexual health and HRT pages from the Nov 12 Agile proposal, Velacore payout column cropped out, before those pages are built.
+
 Nov 18 2026, early afternoon: pushed 3daa4d7 on Dourado's "push it", vc-reviewer PASS, verified live. Every small product picture is now a square cut around the label by tools/make_thumbs.py, so each name reads at 54 px. The home Not sure tile shows the clipboard render. Phone Learn article cards show a label close-up, except the comparison card, which keeps both vials so neither drug is singled out.
 
 Nov 18 2026, about noon: pushed 9a14f3d on Dourado's "push it", verified live. The new styles and card images were served about 20 seconds after the push. The live audit shows 16 pass and only the Start placeholder fail. Learn, Clinicians and How it works have no overflow and no broken images at 375 and 1280.
