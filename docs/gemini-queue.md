@@ -359,3 +359,33 @@ Exactly one bottle, closed. No loose tablets, no other objects, no hands, no syr
 ```
 
 Reject any result where a word on the label is misspelled, a line is added, or the bottle is cut off at an edge.
+
+### Results, Nov 18 2026 late, sent by Dourado from his tablet
+
+- J, Sexual Health: passed on the first try. The label matches the artwork word for word, with the blue line and dash. Filed as `assets-in/products/sexual-health.jpg`, 1792 by 2400. Not converted into public/ until the program launches.
+- K, Women's HRT: rejected. Gemini kept the old Semaglutide small print, PRESCRIPTION COMPOUNDED and a misspelled S03A COMPOUNDING PHARMACY, and the violet line instead of plum. Retry K2 edits the passed Sexual Health image instead.
+- I, Semaglutide oral: rejected. The lying bottle is still cut off at the right edge. Retry I2 asks for a zoom out.
+
+### K2. Women's HRT retry
+
+Attach the passed Sexual Health image first, then `label-womens-hrt.png`.
+
+```
+Edit the first attached photo. Keep everything exactly the same: the bottle, the cap, the riser, the marble, the mint wall, the light, the shadows and the framing.
+
+Change only two things on the label. Replace the words Sexual Health with the words Women's HRT, in the same serif font, size, color and position, matching the second attached label artwork. Change the thin blue line under the dark green panel and the short blue dash under the name to plum, the same plum as in the second attached label.
+
+Every other part of the label stays exactly as it is: the dark green panel with the white Velacore Health logo, FOR PRESCRIPTION USE ONLY, and Rx ONLY in its outlined pill. Add no other words or lines.
+```
+
+### I2. Semaglutide oral retry
+
+Attach the original `semaglutide-oral.jpg`.
+
+```
+Edit the attached photo by zooming the camera out by about 20 percent, keeping the vertical 3 by 4 frame. Everything in the scene stays exactly the same and in the same place relative to everything else: the standing bottle on the white marble riser, the bottle lying on its side, its loose cap and the spilled tablets, the marble tabletop, the soft mint wall, the light and the shadows.
+
+After zooming out, the whole bottle lying on its side, its whole label and the whole cap must sit fully inside the frame, with a clear strip of marble between them and the right edge. Extend the marble tabletop and the mint wall naturally to fill the new space.
+
+Every label stays word for word as it is now. Add no other text anywhere. No other objects, no hands, no syringe, no needle.
+```
