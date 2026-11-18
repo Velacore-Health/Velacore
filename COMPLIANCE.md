@@ -44,6 +44,15 @@ table are the only public list. Glutathione is the one exception to the written-
 Dourado decided it in chat on Nov 13 2026 on the strength of the Nov 12 call. Any further addition
 needs Dourado's decision, OpenLoop's confirmation in writing, and vc-reviewer clearing it.
 
+Nov 18 2026, Dourado's decision in chat: add a **sexual health** category to the public site. The
+Nov 2 OpenLoop proposal lists it, sexual health vials and troches at $99 to $156 per pack and a
+daily tadalafil 28 pack at $112, eligibility 21 and over. Only items OpenLoop names in writing may be
+named on the site, with OpenLoop's forms and prices; nothing is built until the exact product list is
+in hand, and vc-reviewer clears every page. Before launch, confirm the category is in the signed
+Agile order and check LegitScript and the Meta and Google ad rules for it. Testosterone and hair
+medication are not decided and stay off the site until OpenLoop confirms them in writing and Dourado
+decides.
+
 Descriptors are deliberately **mechanistic/factual**, not benefit claims (e.g. "GLP-1 receptor
 agonist," not "melts fat"). Keep it that way.
 
