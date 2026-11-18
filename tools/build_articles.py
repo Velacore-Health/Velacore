@@ -176,6 +176,8 @@ CARD_PHOTO = {
     "how-to-get-a-glp-1-prescription-online": "article-glp1-online",
 }
 PRODUCT_CARDS = {"article-503a", "article-sema-tirz", "article-microdosing"}
+# Phone close-ups of one label, from tools/make_thumbs.py. The phone picture of the GLP-1 online card has no label.
+PHONE_THUMB = {"what-is-a-503a-compounding-pharmacy": "nad", "what-is-microdosing-glp-1": "microdosing"}  # the comparison card keeps both vials so neither drug is singled out
 
 
 def between(text, start, end, new):
@@ -203,6 +205,10 @@ def main():
         if a["slug"] in CARD_PHOTO and (PUB / f"{stem}-480.webp").exists():
             img = (f'<img src="{stem}-960.webp" srcset="{stem}-480.webp 480w, {stem}-960.webp 960w" '
                    f'sizes="(max-width:700px) 120px, (max-width:1000px) 45vw, 280px" width="960" height="640" alt="" loading="lazy" />')
+            # On phones the card picture is about 120 px, too small to read a vial label, so it shows the label close-up.
+            thumb = PHONE_THUMB.get(a["slug"])
+            if thumb and (PUB / "images" / "products" / "thumbs" / f"{thumb}.webp").exists():
+                img = f'<picture><source media="(max-width:700px)" srcset="images/products/thumbs/{thumb}.webp" />{img}</picture>'
         return f'<li><a class="art-card" href="learn/{a["slug"]}.html">{img}<span>{a["h1"]}</span></a></li>'
     cards = "".join(card(a) for a in ARTICLES)
     # three of the card photos show product vials, so the illustration note sits under the cards

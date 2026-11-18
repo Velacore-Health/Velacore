@@ -1063,3 +1063,6 @@ p,li,figcaption,dd,.section-sub{text-wrap:pretty}
 .pep-small span{font-size:max(14px,3.9cqw);line-height:1.35;color:var(--ink-soft)}
 .pep-small b{display:block;font-family:var(--display);font-weight:600;font-size:max(16px,5cqw);color:var(--ink);line-height:1.15;margin-bottom:.15em}
 .edu-grid-note{margin-top:14px}
+/* Learn article cards: on phones the picture element swaps in a label close-up and fills the left column. */
+.art-card picture{display:block}
+@media (max-width:700px){.art-card picture{height:100%}.art-card picture img{height:100%;min-height:88px}}
