@@ -895,7 +895,8 @@ body.panel-open{overflow:hidden}
 .faq-photo{max-width:760px;margin:0 auto 30px}
 /* Program cards, Nov 17 2026 at Dourado's request for sharper product photos: the card zooms in on the vial so the label
    reads larger. The photo files hold far more pixels than the card shows, so the zoom costs no sharpness. */
-.tcard:not(.tcard-wide) .tcard-media .tcard-photo{transform:scale(1.28);transform-origin:50% 46%}
+/* Eased Nov 18 2026, Dourado found 1.28 a tad too tight: the cap was cut at the top. 1.06 keeps the cap and riser in frame. */
+.tcard:not(.tcard-wide) .tcard-media .tcard-photo{transform:scale(1.06);transform-origin:50% 44%;object-position:50% 34%}
 .prog-media .tcard-photo{transform:none}
 /* Form tiles, Nov 18 2026: the zoom on the bottle is cut into the tile photos themselves, see tools/prepare_images.py.
    Zooming in the browser and then shrinking blurred them. */
