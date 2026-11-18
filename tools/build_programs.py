@@ -31,8 +31,8 @@ def img_size(rel):
 PROGRAMS = [
     {
         "slug": "tirzepatide", "name": "Tirzepatide", "cat": "Weight", "image": "products/tirzepatide.webp",
-        "title": "Tirzepatide Program, Reviewed Online",
-        "meta": "Compounded tirzepatide injection reviewed and prescribed by licensed clinicians in all 50 states. $199 first month, then $279 a month, shipping included. Prescription required.",
+        "title": "Compounded Tirzepatide, Online Visit",
+        "meta": "Compounded tirzepatide injection. A licensed clinician decides. $199 first month, then $279 a month. Shipping included. Prescription required.",
         "lede": "A dual GIP and GLP-1 receptor agonist, prepared as an injection by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
         "chips": ["Prescription only", "Injection, 5 dose levels", "Ships every 4 weeks"],
         "plans": [
@@ -62,8 +62,8 @@ PROGRAMS = [
     },
     {
         "slug": "semaglutide", "name": "Semaglutide", "cat": "Weight", "image": "products/semaglutide.webp",
-        "title": "Semaglutide Program, Reviewed Online",
-        "meta": "Compounded semaglutide, as an injection or an oral form, reviewed and prescribed by licensed clinicians in all 50 states. Injection $149 first month, then $229 a month; oral $259 a month; shipping included. Prescription required.",
+        "title": "Compounded Semaglutide, Online Visit",
+        "meta": "Compounded semaglutide. A licensed clinician decides. Injection $149 first month, then $229 a month; oral $259 a month. Prescription required.",
         "lede": "A GLP-1 receptor agonist, prepared as an injection or an oral form by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
         "chips": ["Prescription only", "Injection or oral", "Ships every 4 weeks"],
         "plans": [
@@ -96,8 +96,8 @@ PROGRAMS = [
     },
     {
         "slug": "microdosing", "name": "Microdosing GLP-1", "cat": "Weight, entry tier", "image": "products/microdosing.webp",
-        "title": "Microdosing GLP-1 Program, Reviewed Online",
-        "meta": "Low-dose GLP-1 combined with NAD+, B12 or amino acids, oral or injection, prescribed by licensed clinicians. $129 first month, then $179 a month, shipping included. Prescription required.",
+        "title": "Microdosing GLP-1 Program Online",
+        "meta": "Low-dose GLP-1 with vitamins or amino acids, oral or injection. A licensed clinician decides. $129 first month, then $179 a month. Prescription required.",
         "lede": "A low dose of a GLP-1 medication combined with NAD+, B12 or amino acids, in an oral or injectable form, prescribed only when a licensed clinician decides it is appropriate for you.",
         "chips": ["Prescription only", "Oral or injection, 7 formulations", "Ships every 4 weeks"],
         "plans": [
@@ -127,8 +127,8 @@ PROGRAMS = [
     },
     {
         "slug": "nad", "name": "NAD+", "cat": "Vitality", "image": "products/nad.webp",
-        "title": "NAD+ Program, Reviewed Online",
-        "meta": "NAD+ as an injection, nasal spray or oral dropper, prescribed by licensed clinicians in all 50 states. $129 first month, then $199 a month, shipping included. Prescription required.",
+        "title": "NAD+ Online Visit: Injection, Nasal, Oral",
+        "meta": "NAD+ injection, nasal spray or oral dropper. A licensed clinician decides. $129 first month, then $199 a month. Shipping included. Prescription required.",
         "lede": "Nicotinamide adenine dinucleotide, a coenzyme found in every cell, prepared as an injection, nasal spray or oral dropper by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
         "chips": ["Prescription only", "Injection, nasal or oral", "Ships every 4 weeks"],
         "plans": [
@@ -161,8 +161,8 @@ PROGRAMS = [
     },
     {
         "slug": "glutathione", "name": "Glutathione", "cat": "Vitality", "image": "products/glutathione.webp",
-        "title": "Glutathione Program, Reviewed Online",
-        "meta": "Glutathione in the form your clinician prescribes, prepared by a licensed 503A pharmacy, in all 50 states. $129 first month, then $199 a month, shipping included. Prescription required.",
+        "title": "Compounded Glutathione, Online Visit",
+        "meta": "Glutathione, a peptide of three amino acids. A licensed clinician decides. $129 first month, then $199 a month. Shipping included. Prescription required.",
         "lede": "Glutathione, a peptide made of three amino acids, prescribed only when a licensed clinician decides it is appropriate for you and prepared by a licensed 503A compounding pharmacy in the form the clinician chooses.",
         "chips": ["Prescription only", "Form set by your clinician", "Ships every 4 weeks"],
         "plans": [
@@ -192,8 +192,8 @@ PROGRAMS = [
     },
     {
         "slug": "sermorelin", "name": "Sermorelin", "cat": "Hormone support", "image": "products/sermorelin.webp",
-        "title": "Sermorelin Program, Reviewed Online",
-        "meta": "Compounded sermorelin injection prescribed by licensed clinicians in all 50 states. $129 first month, then $199 a month, shipping included. Prescription required.",
+        "title": "Compounded Sermorelin, Online Visit",
+        "meta": "Compounded sermorelin injection. A licensed clinician decides. $129 first month, then $199 a month. Shipping included. Prescription required.",
         "lede": "A growth hormone-releasing hormone analog, prepared as an injection by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
         "chips": ["Prescription only", "Injection", "Ships every 4 weeks"],
         "plans": [
@@ -466,7 +466,7 @@ def page(p):
   <link rel="icon" href="../logo-mark.png" />
 </head>
 <body class="prog-{p["slug"]}">
-  <div class="topbar"><span>Clinician-reviewed telehealth, available in <b>all 50 states</b>. Prescription required.</span></div>
+  <div class="topbar"><span>A telehealth platform. Independent licensed clinicians decide. Prescription required.</span></div>
   <header class="site-header" id="top">
     <div class="container nav">
       <a href="../index.html" class="brand" aria-label="Velacore Health home">
@@ -620,7 +620,7 @@ def page(p):
 # Start page copy. Drafted by vc-copy in docs/funnel-copy.md; tokens are filled per program.
 START = {
     "title": "Start your {Program} visit",
-    "meta": "Before your {Program} visit: a short online intake on our telehealth partner's secure site, review by a licensed clinician, and a full refund if you are not prescribed. Prescription required.",
+    "meta": "A short online intake on our partner's secure site, then a licensed clinician decides. Full refund if not prescribed. Prescription required.",
     "h1": "Before you start your {Program} visit",
     "price": "{note} Shipping included.",
     # The intake length is not confirmed by OpenLoop in writing, so this says "a few minutes".

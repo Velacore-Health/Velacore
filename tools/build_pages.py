@@ -367,7 +367,7 @@ def page(a):
   <link rel="icon" href="logo-mark.png" />
 </head>
 <body class="article-page">
-  <div class="topbar"><span>Clinician-reviewed telehealth, available in <b>all 50 states</b>. Prescription required.</span></div>
+  <div class="topbar"><span>A telehealth platform. Independent licensed clinicians decide. Prescription required.</span></div>
   <header class="site-header" id="top">
     <div class="container nav">
       <a href="index.html" class="brand" aria-label="Velacore Health home">
@@ -424,8 +424,15 @@ def between(text, start, end, new):
 def main():
     for a in PAGES:
         assert len(a["title"]) <= 60, (a["slug"], "title over 60", len(a["title"]))
-        assert len(a["meta"]) <= 155, (a["slug"], "meta over 155", len(a["meta"]))
+        assert "{{" in a["meta"] or len(a["meta"]) <= 155, (a["slug"], "meta over 155", len(a["meta"]))
         assert "$" not in json.dumps(a), (a["slug"], "a price is typed in the copy")
+        if "{{low_first}}" in a["meta"]:
+            # The lowest first month and lowest monthly price across programs, read from the program data.
+            lows = [re.match(r"^\$(\d+) your first month, then \$(\d+) a month",
+                             next(x for x in q["plans"] if x["id"] == "monthly")["note"]).groups() for q in bp.PROGRAMS]
+            a = {**a, "meta": a["meta"].replace("{{low_first}}", "$" + str(min(int(f) for f, _ in lows)))
+                                    .replace("{{low_then}}", "$" + str(min(int(t) for _, t in lows)))}
+            assert len(a["meta"]) <= 155, (a["slug"], "meta over 155", len(a["meta"]))
         (PUB / f"{a['slug']}.html").write_text(page(a), encoding="utf-8")
         print("wrote", f"public/{a['slug']}.html")
     sm = PUB / "sitemap.xml"

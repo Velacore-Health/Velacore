@@ -96,7 +96,7 @@ def page(a):
   <link rel="icon" href="../logo-mark.png" />
 </head>
 <body class="article-page">
-  <div class="topbar"><span>Clinician-reviewed telehealth, available in <b>all 50 states</b>. Prescription required.</span></div>
+  <div class="topbar"><span>A telehealth platform. Independent licensed clinicians decide. Prescription required.</span></div>
   <header class="site-header" id="top">
     <div class="container nav">
       <a href="../index.html" class="brand" aria-label="Velacore Health home">

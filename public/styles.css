@@ -1066,3 +1066,7 @@ p,li,figcaption,dd,.section-sub{text-wrap:pretty}
 /* Learn article cards: on phones the picture element swaps in a label close-up and fills the left column. */
 .art-card picture{display:block}
 @media (max-width:700px){.art-card picture{height:100%}.art-card picture img{height:100%;min-height:88px}}
+
+/* Nov 18 2026: the platform line in the top bar wraps to two lines on a phone; keep the two lines even. */
+.topbar{text-wrap:balance}
+.hub-lede span{white-space:nowrap}

@@ -7,7 +7,7 @@ ARTICLES = [
     {
         "slug": "what-is-a-503a-compounding-pharmacy",
         "hero": ("lifestyle/pharmacy-lab", "A pharmacist in a clean room weighing powder on a balance"),
-        "title": "What is a 503A compounding pharmacy? 503A vs 503B",
+        "title": "What Is a 503A Pharmacy? 503A vs 503B",
         "meta": "A 503A pharmacy compounds medication for one patient from a prescription. How it differs from a 503B outsourcing facility, and who regulates each.",
         "h1": "What is a 503A compounding pharmacy, and how is it different from 503B?",
         "topic": "Pharmacy",
@@ -64,7 +64,7 @@ ARTICLES = [
     {
         "slug": "semaglutide-vs-tirzepatide",
         "hero": ("products/learn-sema-tirz", "Velacore Health Semaglutide and Tirzepatide vials side by side"),
-        "title": "Semaglutide vs tirzepatide: how the two differ",
+        "title": "Semaglutide vs Tirzepatide Explained",
         "meta": "Semaglutide acts on the GLP-1 receptor. Tirzepatide acts on the GIP and GLP-1 receptors. A plain look at the mechanisms. Prescription required.",
         "h1": "Semaglutide and tirzepatide: how the two differ",
         "topic": "GLP-1",
@@ -121,7 +121,7 @@ ARTICLES = [
     {
         "slug": "what-is-microdosing-glp-1",
         "hero": ("products/learn-microdosing", "Velacore Health Microdosing GLP-1 vial and oral dropper"),
-        "title": "What is microdosing GLP-1? Low dose vs standard dose",
+        "title": "What Is Microdosing GLP-1?",
         "meta": "Microdosing GLP-1 means a lower dose than standard programs. It is not an FDA-defined term. What it means and how our program describes it.",
         "h1": "What is microdosing GLP-1?",
         "topic": "GLP-1",
@@ -178,8 +178,8 @@ ARTICLES = [
     {
         "slug": "how-to-get-a-glp-1-prescription-online",
         "hero": ("lifestyle/learn-glp1-online", "Hands holding a phone over a kitchen table"),
-        "title": "How to get a GLP-1 prescription online: the steps",
-        "meta": "Online intake, review by a licensed clinician, a video visit in some states, then a pharmacy fills. A prescription is not guaranteed.",
+        "title": "How to Get a GLP-1 Prescription Online",
+        "meta": "The steps: an online intake, review by a licensed clinician, a video visit in some states, then a 503A pharmacy fills. A prescription is not guaranteed.",
         "h1": "How getting a GLP-1 prescription online works",
         "topic": "Telehealth",
         "reviewed": "2026-11-13",

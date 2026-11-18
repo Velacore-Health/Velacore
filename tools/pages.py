@@ -9,8 +9,8 @@
 PAGES = [
     {
         "slug": "how-it-works",
-        "title": "How Velacore works: intake, clinician review, pharmacy",
-        "meta": "Online intake, a licensed clinician reviews it, then a 503A pharmacy fills. What happens at each step. Prescription required.",
+        "title": "How It Works: Intake, Review, Pharmacy",
+        "meta": "You answer questions online, a licensed clinician decides whether to prescribe, and a 503A pharmacy fills and ships the order. Prescription required.",
         "h1": "How Velacore works",
         "lede": "Velacore coordinates. An independent licensed clinician decides. A licensed 503A compounding pharmacy fills. This page sets out each step in order. Prescription required.",
         # The visual layout, added Nov 16 2026 on Dourado's note that the page read like a worksheet.
@@ -105,8 +105,8 @@ PAGES = [
     },
     {
         "slug": "clinicians",
-        "title": "The clinicians who review your intake",
-        "meta": "Physicians and nurse practitioners licensed in your state review every intake. They are independent of Velacore. Prescription required.",
+        "title": "Independent Licensed Clinicians",
+        "meta": "Physicians and nurse practitioners licensed in your state review each intake. Independent of Velacore, credentialed before care. Prescription required.",
         "h1": "The clinicians who review your intake",
         "lede": "Every intake is reviewed by a physician or nurse practitioner who holds an active license in your state. The clinician is independent of Velacore, and the prescribing decision is theirs alone.",
         # Photos, Nov 17 2026, prompts in docs/gemini-site-set-nov17.md. A slot stays empty until its file exists.
@@ -182,8 +182,8 @@ PAGES = [
     {
         "slug": "pricing",
         "pricing": True,   # visual layout, Nov 17 2026: cards first, short bands, the paragraphs below fold under them
-        "title": "Pricing: what one program price includes",
-        "meta": "One price per program with no separate consultation or physician fee. Plans, payment methods, refunds and cancellation. Prescription required.",
+        "title": "GLP-1 and Peptide Program Prices",
+        "meta": "First month from {{low_first}}, then from {{low_then}} a month. One price covers medication, clinician reviews and shipping. No consultation fee. Prescription required.",
         "h1": "Pricing",
         "lede": "Each program has one price, shown before you start. There is no separate consultation or physician fee. Prescription required.",
         "sections": [
@@ -233,8 +233,8 @@ PAGES = [
     },
     {
         "slug": "about",
-        "title": "About us: a telehealth coordination platform",
-        "meta": "Velacore Health is a telehealth coordination platform operated by First Venture Group LLC. What we do and what we do not do. Prescription required.",
+        "title": "About Our Telehealth Platform",
+        "meta": "Velacore Health is a telehealth platform operated by First Venture Group LLC. Independent clinicians decide. 503A pharmacies fill. Prescription required.",
         "h1": "About Velacore Health",
         "lede": "Velacore Health is a telehealth coordination platform. We connect adults in the United States with independent licensed clinicians and licensed 503A compounding pharmacies.",
         "hero": ("lifestyle/about-hero", "A woman on a sofa reading her phone, a dog asleep beside her"),
@@ -286,7 +286,7 @@ PAGES = [
     },
     {
         "slug": "contact",
-        "title": "Contact us",
+        "title": "Contact Us",
         "meta": "Email Velacore Health about programs, pricing and policies. Medical questions go to your clinician. In an emergency call 911. Prescription required.",
         "h1": "Contact us",
         "lede": "Velacore Health coordinates access to licensed clinicians and 503A pharmacies. Here is who to reach for what.",
