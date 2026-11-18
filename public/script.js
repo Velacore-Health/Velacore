@@ -44,6 +44,41 @@
     closeBtn.addEventListener('click', function () { close(true); });
     overlay.addEventListener('click', function () { close(true); });
     panel.addEventListener('click', function (e) { if (e.target.closest('a')) close(false); });
+    // Mouse drag scroll, Nov 18 2026 at Dourado's request, the same feel as the program row. Pull a row of cards sideways
+    // to slide it, or pull anywhere up or down to scroll the menu. Touch and the wheel scroll natively.
+    // A drag never counts as a click on a link.
+    var x0 = null, y0 = 0, row = null, sx = 0, sy = 0, axis = null;
+    panel.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0 || e.target.closest('button')) return;
+      x0 = e.clientX; y0 = e.clientY; axis = null;
+      row = e.target.closest('.panel-progs'); sx = row ? row.scrollLeft : 0; sy = panel.scrollTop;
+    });
+    panel.addEventListener('pointermove', function (e) {
+      if (x0 === null) return;
+      var dx = e.clientX - x0, dy = e.clientY - y0;
+      if (!axis && Math.max(Math.abs(dx), Math.abs(dy)) > 6) {
+        axis = row && Math.abs(dx) >= Math.abs(dy) ? 'x' : 'y';
+        (axis === 'x' ? row : panel).classList.add('is-dragging');
+        panel.classList.add('is-grabbing');
+        panel.setPointerCapture(e.pointerId);
+      }
+      if (axis === 'x') row.scrollLeft = sx - dx;
+      else if (axis === 'y') panel.scrollTop = sy - dy;
+    });
+    function dragEnd() {
+      if (x0 === null) return;
+      x0 = null;
+      if (axis) {
+        (axis === 'x' ? row : panel).classList.remove('is-dragging');
+        panel.classList.remove('is-grabbing');
+        var block = function (ev) { ev.preventDefault(); ev.stopPropagation(); };
+        panel.addEventListener('click', block, true);
+        setTimeout(function () { panel.removeEventListener('click', block, true); }, 60);
+      }
+      axis = null;
+    }
+    panel.addEventListener('pointerup', dragEnd); panel.addEventListener('pointercancel', dragEnd);
+    panel.addEventListener('dragstart', function (e) { e.preventDefault(); });
     document.addEventListener('keydown', function (e) {
       if (!panel.classList.contains('is-open')) return;
       if (e.key === 'Escape') { close(true); return; }
@@ -320,5 +355,27 @@
     if (carSec) new IntersectionObserver(function (e) { carVisible = e[0].isIntersecting; update(); }, { threshold: 0.05 }).observe(carSec);
     update();
   }
+
+  // Email links, Nov 18 2026: on a computer with no mail app set up, a mailto link does nothing. Every email link
+  // also copies the address and says so, and still opens the mail app where there is one. Nothing is sent anywhere.
+  (function () {
+    if (!document.querySelector('a[href^="mailto:"]')) return;
+    // the empty live region exists from page load so screen readers announce the first message
+    var note = document.createElement('div'), hide = null;
+    note.className = 'copy-note'; note.setAttribute('role', 'status'); note.setAttribute('aria-live', 'polite');
+    document.body.appendChild(note);
+    function say(text) {
+      note.textContent = text; note.classList.add('is-on');
+      clearTimeout(hide); hide = setTimeout(function () { note.classList.remove('is-on'); }, 3200);
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
+      if (!a) return;
+      var addr = a.getAttribute('href').slice(7).split('?')[0];
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(addr).then(function () { say('Email address copied: ' + addr); }, function () { say('Our email: ' + addr); });
+      } else { say('Our email: ' + addr); }
+    });
+  })();
 
 })();
