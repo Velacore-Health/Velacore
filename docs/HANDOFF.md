@@ -47,6 +47,8 @@ Bryan is non-technical: explain steps plainly and don't assume knowledge.
 
 ## Status as of Nov 13, 2026 (newest; read first)
 
+Nov 18 2026, early afternoon: pushed 3daa4d7 on Dourado's "push it", vc-reviewer PASS, verified live. Every small product picture is now a square cut around the label by tools/make_thumbs.py, so each name reads at 54 px. The home Not sure tile shows the clipboard render. Phone Learn article cards show a label close-up, except the comparison card, which keeps both vials so neither drug is singled out.
+
 Nov 18 2026, about noon: pushed 9a14f3d on Dourado's "push it", verified live. The new styles and card images were served about 20 seconds after the push. The live audit shows 16 pass and only the Start placeholder fail. Learn, Clinicians and How it works have no overflow and no broken images at 375 and 1280.
 
 Nov 18 2026, late morning, local only, vc-reviewer PASS on every piece. Changes in this batch:
