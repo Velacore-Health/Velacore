@@ -1,3 +1,29 @@
+"""Sexual health and women's HRT, approved by Dourado on Nov 18 2026, limited to the items OpenLoop names in writing.
+
+The switch: a program joins the live site only when its slug is listed in LIVE. While LIVE is empty the build output
+of the live site is unchanged and the pages exist only as drafts in drafts/programs, made by tools/build_drafts.py.
+Before a slug goes in LIVE, every open item below must be closed in writing and vc-reviewer must pass the page.
+The launch steps are in docs/launch-sexual-health-hrt.md.
+"""
+
+LIVE = []
+
+# Template lines that state facts not yet confirmed for these categories, swapped on the program page and the Start page.
+# vc-reviewer Nov 18 2026: the 503A fill, shipping and the refund if not prescribed are unconfirmed for these categories.
+# Remove a swap once OpenLoop confirms the template's own line in writing.
+SWAPS = [
+    ("Filled by a licensed 503A pharmacy, shipping included", "Filled by a licensed pharmacy"),
+    ("prepared and labeled by a licensed 503A pharmacy", "prepared and labeled by a licensed pharmacy"),
+    ("the licensed clinician decides; the 503A pharmacy fills.", "the licensed clinician decides; a licensed pharmacy fills."),
+    ("<span>503A compounding pharmacies</span>", "<span>Licensed pharmacies</span>"),
+    ("<span>Shipping included, no hidden fees</span>", "<span>Prescription only</span>"),
+    ("<li><span class=\"dot\"></span> Refunded in full if not prescribed</li>", "<li><span class=\"dot\"></span> Refund terms to be confirmed by OpenLoop</li>"),
+    # Start page
+    ("Full refund if not prescribed. ", ""),
+    (" Shipping included.</p>", "</p>"),
+    ("a licensed 503A pharmacy fills your order and ships it to you. If not, your payment is refunded in full.", "a licensed pharmacy fills your order and ships it to you."),
+]
+
 DRAFTS = [
     {
         "slug": "sexual-health", "name": "Sexual Health", "cat": "Sexual health", "image": "products/sexual-health.webp",
@@ -44,7 +70,6 @@ DRAFTS = [
             "Whether the category is in the signed Agile order.",
             "What the single-dose vials are, taken by mouth or by injection. The page must state the form before launch.",
             "Product image products/sexual-health.webp is not made yet.",
-            "The build's first_month function expects a monthly plan with a first month price; these plans have neither, so the menu and phone bar need a different price line.",
         ],
     },
     {
@@ -89,7 +114,9 @@ DRAFTS = [
             "How the two non-hormonal pills, paroxetine and desvenlafaxine, may be named in a menopause program. The attorney and OpenLoop's clinical team must clear the wording, and the safety block must cover both.",
             "Menopause in the page title was cleared by vc-reviewer on Nov 18 2026, on condition the page never names a symptom or a result.",
             "Product image products/womens-hrt.webp is not made yet.",
-            "The build's first_month function expects a monthly plan with a first month price; this plan has neither, so the menu and phone bar need a different price line.",
         ],
     },
 ]
+
+for _d in DRAFTS:
+    _d["swaps"] = SWAPS

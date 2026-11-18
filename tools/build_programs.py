@@ -223,6 +223,20 @@ PROGRAMS = [
     },
 ]
 
+# Nov 18 2026: sexual health and women's HRT. Their data lives in tools/draft_programs.py and joins the live site only
+# when the slug is listed in draft_programs.LIVE. While LIVE is empty this build writes exactly what it did before.
+def _load_drafts():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("draft_programs", ROOT / "tools" / "draft_programs.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+_dp = _load_drafts()
+LIVE_DRAFTS = [d for d in _dp.DRAFTS if d["slug"] in _dp.LIVE]
+PROGRAMS += LIVE_DRAFTS
+
 # The forms that need no injection, Nov 17 2026: (link, name, thumb, line). Used by the Treatments dropdown and the side panel.
 NEEDLE_FREE = [("semaglutide.html#forms", "Semaglutide oral", "images/products/thumbs/semaglutide-oral.webp", "Taken by mouth daily"),
                ("nad.html#forms", "NAD+ nasal spray", "images/products/thumbs/nad-nasal.webp", "A nasal spray"),
@@ -240,6 +254,8 @@ MENU = [
      ("Hormone support", [("sermorelin", "Sermorelin", "images/products/thumbs/sermorelin.webp", "GHRH analog injection")])],
     [("Needle-free", NEEDLE_FREE)],
 ]
+if LIVE_DRAFTS:
+    MENU[2].append(("Sexual and women's health", [(d["slug"], d["name"], f"images/products/thumbs/{d['slug']}.webp", d["chips"][1]) for d in LIVE_DRAFTS]))
 
 
 def first_month(p):
@@ -248,6 +264,20 @@ def first_month(p):
     m = re.match(r"^(\$\d+) your first month", note)
     assert m, (p["slug"], note)
     return m.group(1)
+
+
+def price_line(p):
+    """One short price line for menus and cards, read from the plan notes so no price is typed twice. Monthly programs
+    show the first month. A single plan billed every few weeks shows the month and the charge, per vc-reviewer Nov 18 2026.
+    Programs sold by the pack show the lowest pack price."""
+    if any(x["id"] == "monthly" for x in p["plans"]):
+        return f"{first_month(p)} first month"
+    first = p["plans"][0]
+    m = re.match(r"^(\$\d+) charged every (\d+ weeks)", first["note"])
+    if len(p["plans"]) == 1 and m:
+        return f'{first["price"]} a month, billed {m.group(1)} every {m.group(2)}'
+    assert all(x["unit"] == "/pack" for x in p["plans"]), p["slug"]
+    return f'From ${min(int(x["price"].lstrip("$")) for x in p["plans"])} a pack'
 
 
 def prod_srcset(rel, prefix, sizes):
@@ -303,6 +333,13 @@ GOALS = [("weight", "Weight", "Tirzepatide, Semaglutide, Microdosing GLP-1"),
 GOAL_THUMB = {"weight": "tirzepatide", "vitality": "nad", "hormone": "sermorelin"}  # Nov 17 2026: one vial fills the small tile
 
 
+def panel_thumb(p, prefix):
+    """The program's small photo, or the logo mark until that photo exists."""
+    if (ROOT / "public" / "images" / "products" / "thumbs" / f"{p['slug']}.webp").exists():
+        return f'<img src="{prefix}images/products/thumbs/{p["slug"]}.webp" width="216" height="216" alt="" loading="lazy" />'
+    return f'<img class="panel-logo" src="{prefix}logo-mark.svg" width="119" height="128" alt="" loading="lazy" />'
+
+
 def side_panel(prefix):
     """The slide-in menu, Nov 17 2026: the goal question, the six programs with their first month price,
     the site links, one button. The same on every page; prefix is '' at the root and '../' one level down."""
@@ -310,8 +347,8 @@ def side_panel(prefix):
         f'<li><a href="{prefix}index.html#goals-{g}" data-pick-goal="{g}"><img src="{prefix}images/products/thumbs/{GOAL_THUMB[g]}.webp" width="216" height="216" alt="" loading="lazy" />'
         f'<span><b>{name}</b><small>{sub}</small></span><i aria-hidden="true"></i></a></li>' for g, name, sub in GOALS)
     progs = "".join(
-        f'<a class="panel-prog" href="{prefix}programs/{p["slug"]}.html"><img src="{prefix}images/products/thumbs/{p["slug"]}.webp" width="216" height="216" alt="" loading="lazy" />'
-        f'<b>{p["name"]}</b><small>{first_month(p)} first month</small></a>' for p in PROGRAMS)
+        f'<a class="panel-prog" href="{prefix}programs/{p["slug"]}.html">{panel_thumb(p, prefix)}'
+        f'<b>{p["name"]}</b><small>{price_line(p)}</small></a>' for p in PROGRAMS)
     links = [("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("learn.html", "Learn"), ("clinicians.html", "Clinicians"),
              ("faq.html", "FAQ"), ("about.html", "About"), ("contact.html", "Contact")]
     more = "".join(f'<a href="{prefix}{h}">{t}</a>' for h, t in links)
@@ -400,7 +437,42 @@ def mcta_price(p):
     m = re.match(r"(\$\d+) your first month, then (\$\d+) a month", first["note"])
     if m:
         return f'<span class="mcta-price"><b>{m.group(1)} first month</b><small>then {m.group(2)}/mo</small></span>'
+    line = price_line(p)
+    if ", billed " in line:
+        a, b = line.split(", ", 1)
+        return f'<span class="mcta-price"><b>{a}</b><small>{b}</small></span>'
+    if line.startswith("From "):
+        return f'<span class="mcta-price"><b>{line}</b><small>{p["name"]}</small></span>'
     return f'<span class="mcta-price"><b>{first["price"]}{first["unit"]}</b><small>{p["name"]}</small></span>'
+
+
+def render(p):
+    """The finished program page: the template, then the program's line swaps, then its safety block when it has one."""
+    s = page(p)
+    for a, b in p.get("swaps", []):
+        s = s.replace(a, b)
+    if p.get("safety"):
+        block = f'''    <section class="section blk" id="safety">
+      <div class="container">
+        <div class="blk-card blk-card-mint">
+          <h2>Important safety information</h2>
+          <p>{p["safety"]}</p>
+        </div>
+      </div>
+    </section>
+
+'''
+        assert s.count('    <section class="please-note">') == 1
+        s = s.replace('    <section class="please-note">', block + '    <section class="please-note">', 1)
+    return s
+
+
+def render_start(p):
+    """The finished Start page, with the program's line swaps."""
+    s = start_page(p)
+    for a, b in p.get("swaps", []):
+        s = s.replace(a, b)
+    return s
 
 
 def page(p):
@@ -596,7 +668,7 @@ def page(p):
         <p>A telehealth platform coordinating access to licensed clinicians and 503A compounding pharmacies.</p>
       </div>
       <nav class="footer-col" aria-label="Programs"><h4>Programs</h4>
-        <a href="tirzepatide.html">Tirzepatide</a><a href="semaglutide.html">Semaglutide</a><a href="microdosing.html">Microdosing GLP-1</a><a href="nad.html">NAD+</a><a href="glutathione.html">Glutathione</a><a href="sermorelin.html">Sermorelin</a></nav>
+        {"".join(f'<a href="{q["slug"]}.html">{q["name"]}</a>' for q in PROGRAMS)}</nav>
       <nav class="footer-col" aria-label="More"><h4>More</h4>
         <a href="../how-it-works.html">How it works</a><a href="../learn.html">Learn</a><a href="../faq.html">FAQ</a><a href="../pricing.html">Pricing</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav>
       <nav class="footer-col" aria-label="Legal"><h4>Legal</h4>
@@ -702,11 +774,11 @@ def start_page(p):
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     for p in PROGRAMS:
-        (OUT / f"{p['slug']}.html").write_text(page(p), encoding="utf-8")
+        (OUT / f"{p['slug']}.html").write_text(render(p), encoding="utf-8")
         print("wrote", f"public/programs/{p['slug']}.html")
     START_OUT.mkdir(parents=True, exist_ok=True)
     for p in PROGRAMS:
-        (START_OUT / f"{p['slug']}.html").write_text(start_page(p), encoding="utf-8")
+        (START_OUT / f"{p['slug']}.html").write_text(render_start(p), encoding="utf-8")
         print("wrote", f"public/start/{p['slug']}.html")
 
 

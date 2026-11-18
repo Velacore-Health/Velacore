@@ -29,15 +29,7 @@ def load(name):
 bp = load("build_programs")
 DRAFTS = load("draft_programs").DRAFTS
 
-# Template lines that state facts not yet confirmed for these categories.
-SWAPS = [
-    ("Filled by a licensed 503A pharmacy, shipping included", "Filled by a licensed pharmacy"),
-    ("prepared and labeled by a licensed 503A pharmacy", "prepared and labeled by a licensed pharmacy"),
-    ("the licensed clinician decides; the 503A pharmacy fills.", "the licensed clinician decides; a licensed pharmacy fills."),
-    # vc-reviewer Nov 18 2026: shipping and the refund if not prescribed are unconfirmed for these categories.
-    ("<span>Shipping included, no hidden fees</span>", "<span>Prescription only</span>"),
-    ("<li><span class=\"dot\"></span> Refunded in full if not prescribed</li>", "<li><span class=\"dot\"></span> Refund terms to be confirmed by OpenLoop</li>"),
-]
+# The line swaps that keep unconfirmed facts off these pages live in tools/draft_programs.py, applied by bp.render.
 
 STYLE = """  <style>
     .draft-bar{background:#FFF4D6;color:#5A4300;text-align:center;font-weight:600;padding:10px 16px;font-size:.95rem}
@@ -48,28 +40,17 @@ STYLE = """  <style>
 
 
 def draft_page(p):
-    s = bp.page(p)
+    s = bp.render(p)
     # vc-reviewer Nov 18 2026: no analytics on these drafts; whether any tag may fire at launch is the attorney's call.
     assert s.count(bp.GA) == 1
     s = s.replace(bp.GA + "\n", "", 1)
-    for a, b in SWAPS:
-        s = s.replace(a, b)
     s = s.replace('<meta name="viewport" content="width=device-width, initial-scale=1.0" />',
                   '<meta name="viewport" content="width=device-width, initial-scale=1.0" />\n  <meta name="robots" content="noindex, nofollow" />', 1)
     s = s.replace("</head>", STYLE + "</head>", 1)
     s = s.replace(f'<body class="prog-{p["slug"]}">',
                   f'<body class="prog-{p["slug"]}">\n  <div class="draft-bar" role="note">Draft, not live. Waiting on OpenLoop for the open items below.</div>', 1)
     items = "".join(f"<li>{html.escape(x)}</li>" for x in p["open_items"])
-    extra = f'''    <section class="section blk" id="safety">
-      <div class="container">
-        <div class="blk-card blk-card-mint">
-          <h2>Important safety information</h2>
-          <p>{html.escape(p["safety"])}</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section blk draft-open">
+    extra = f'''    <section class="section blk draft-open">
       <div class="container">
         <div class="blk-card blk-card-mint">
           <h2>Open before launch</h2>

@@ -220,6 +220,9 @@ def price_cards():
     12-week plan, Learn more and Start visit. Every figure is read from the program data in build_programs.py."""
     cards = []
     for p in bp.PROGRAMS:
+        if not any(x["id"] == "monthly" for x in p["plans"]):
+            cards.append(pack_card(p))
+            continue
         monthly = next(x for x in p["plans"] if x["id"] == "monthly")
         week12 = next(x for x in p["plans"] if x["id"] == "12week")
         m = re.match(r"^(\$\d+) your first month, then (\$\d+) a month", monthly["note"])
@@ -236,6 +239,29 @@ def price_cards():
             f'<a class="tcard-link" href="programs/{p["slug"]}.html">What the price includes</a>'
             f'<a href="start/{p["slug"]}.html" class="btn btn-primary btn-block btn-sm" data-start="{p["slug"]}">Start visit</a></div></article>')
     return '<div class="tgrid pr-grid">' + "".join(cards) + "</div>"
+
+
+CAT_KEY = {"Vitality": "vitality", "Hormone support": "hormone", "Sexual health": "sexual", "Women's health": "women"}
+
+
+def pack_card(p):
+    """Nov 18 2026: the card for a program with no monthly plan, sexual health and women's HRT. Same look as the others;
+    the price line comes from bp.price_line and each plan's own price, so nothing is typed twice."""
+    if (PUB / "images" / p["image"]).exists():
+        wi, he = img_size(p["image"])
+        media = (f'<img class="tcard-photo" src="images/{p["image"]}"{bp.prod_srcset(p["image"], "", "(max-width:700px) 92vw, 380px")} '
+                 f'width="{wi}" height="{he}" alt="Velacore Health {p["name"]}" loading="lazy" />')
+    else:
+        media = '<img class="brand-tile" src="logo-mark.svg" alt="" width="119" height="128" loading="lazy" />'
+    line = bp.price_line(p)
+    big, small = (line.split(", ", 1) if ", billed " in line else (line, ""))
+    plans = " ".join(f'{pl["label"]}: {"from " if pl["note"].startswith("From") else ""}{pl["price"]}{pl["unit"]}.' for pl in p["plans"]) if len(p["plans"]) > 1 else ""
+    return (f'<article class="tcard" data-cat="{CAT_KEY.get(p["cat"], "weight")}" id="price-{p["slug"]}"><div class="tcard-media"><span class="tcard-cat">{p["cat"]}</span>{media}</div>'
+            f'<div class="tcard-body"><h3>{p["name"]}</h3><p class="tcard-mech">{p["chips"][1]}. {p["chips"][2]}.</p>'
+            f'<div class="tcard-meta"><span class="tcard-price">{big} <small>{small}</small></span><span class="tcard-rx">Rx only</span></div>'
+            + (f'<p class="tcard-plan">{plans}</p>' if plans else "") +
+            f'<a class="tcard-link" href="programs/{p["slug"]}.html">What the price includes</a>'
+            f'<a href="start/{p["slug"]}.html" class="btn btn-primary btn-block btn-sm" data-start="{p["slug"]}">Start visit</a></div></article>')
 
 
 def img_size(rel):
@@ -429,7 +455,8 @@ def main():
         if "{{low_first}}" in a["meta"]:
             # The lowest first month and lowest monthly price across programs, read from the program data.
             lows = [re.match(r"^\$(\d+) your first month, then \$(\d+) a month",
-                             next(x for x in q["plans"] if x["id"] == "monthly")["note"]).groups() for q in bp.PROGRAMS]
+                             next(x for x in q["plans"] if x["id"] == "monthly")["note"]).groups()
+                    for q in bp.PROGRAMS if any(x["id"] == "monthly" for x in q["plans"])]
             a = {**a, "meta": a["meta"].replace("{{low_first}}", "$" + str(min(int(f) for f, _ in lows)))
                                     .replace("{{low_then}}", "$" + str(min(int(t) for _, t in lows)))}
             assert len(a["meta"]) <= 155, (a["slug"], "meta over 155", len(a["meta"]))
