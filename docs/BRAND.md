@@ -108,7 +108,7 @@ Lifestyle photos: candid everyday routines in real homes and neighborhoods, cool
 
 Every image passes the reject list in `docs/gemini-prompts.md` before it goes on the site.
 
-Illustrations: thin pine or jade line icons on mint, as on the education cards. No 3D renders, no clip art, no stock-looking isometric scenes.
+Illustrations: thin pine or jade line icons on mint, as on the education cards. No 3D renders, no clip art, no stock-looking isometric scenes. Exception, Dourado's direction Nov 18 2026: an education visual may be a calm photoreal 3D render in pine, jade, mint and white, like the glass sphere on the Learn card Peptides vs. GLP-1s, made with no words in it; its labels are set as page text so they stay sharp and exact. Still no clip art, no DNA helix, no purple, nothing shaped like a pill.
 
 Files: product images are `public/images/products/<program>.webp` and people and scenes are `public/images/lifestyle/<name>.webp`, one fixed name each. Drop Gemini output in `assets-in/products/` or `assets-in/lifestyle/` and run `tools/prepare_images.py`. Prompts are in `docs/gemini-prompts.md`.
 

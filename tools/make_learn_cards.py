@@ -19,7 +19,8 @@ CARDS = {
     "right-for-me": ("lifestyle/step-visit.jpg", 0.5),
     "taken": ("lifestyle/step-delivery.jpg", 0.5),
     "made": ("lifestyle/pharmacy-lab.jpg", 0.5),
-    "difference": ("lifestyle/about-hero.jpg", 0.5),
+    # Nov 18 2026: the peptides card is a Gemini render with the sphere on the left; the words sit in the space on the right.
+    "difference": ("lifestyle/learn-peptides.jpg", 1.0),
     "article-503a": ("lifestyle/goal-vitality.jpg", 0.35),
     "article-sema-tirz": ("products/learn-sema-tirz.jpg", 0.5),
     "article-microdosing": ("products/learn-microdosing.jpg", 0.5),
