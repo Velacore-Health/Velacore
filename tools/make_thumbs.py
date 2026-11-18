@@ -21,7 +21,7 @@ BOXES = {
     "nad-nasal": (668, 1255, 480),
     "nad-oral": (648, 1165, 520),
     "microdosing-oral": (648, 1165, 520),
-    "semaglutide-oral": (600, 744, 608),
+    "semaglutide-oral": (637, 846, 528),  # Nov 18 2026: one standing bottle, the two-bottle photo retired
 }
 # Not a product: the Not sure tile on the home page shows the glass clipboard, which has no label to read.
 OTHER = {"not-sure": ("lifestyle/learn-evaluation.jpg", (330, 150, 1300))}

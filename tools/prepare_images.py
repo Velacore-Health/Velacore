@@ -1,11 +1,13 @@
 """Converts images dropped in assets-in/ into the site's format.
 
-Run from the repo root:  python -I tools/prepare_images.py
+Run from the repo root:  python -I tools/prepare_images.py semaglutide-oral
+Name the files to convert, without the extension. Nov 18 2026: run with no names it reconverts every image, and the
+results differ from the files that are live, so always name the ones that changed.
 
 assets-in/products/  -> public/images/products/<name>.webp   the five program vials
 assets-in/lifestyle/ -> public/images/lifestyle/<name>.webp  people and scenes
 Each PNG or JPG is resized to 1600 px on the long side and saved as WebP at quality 88. Product photos are
-sharpened, saved at quality 92, and get an 800 wide copy for cards on phones.
+1200 wide, sharpened, saved at quality 92, and get an 800 wide copy for cards on phones.
 Prompts and file names are in docs/gemini-prompts.md. Uses ffmpeg. Nothing else is touched.
 """
 import subprocess
@@ -46,11 +48,15 @@ def main():
     return 0
 
 
+ONLY = {a.lower() for a in sys.argv[1:]}
+
+
 def convert(IN, OUT, EXPECTED):
     IN.mkdir(parents=True, exist_ok=True)
     OUT.mkdir(parents=True, exist_ok=True)
     # Nov 18 2026: files starting with an underscore are kept versions, never converted.
-    files = sorted(p for p in IN.iterdir() if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"} and not p.name.startswith("_"))
+    files = sorted(p for p in IN.iterdir() if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"} and not p.name.startswith("_")
+                   and (not ONLY or p.stem.lower() in ONLY))
     for src in files:
         name = src.stem.lower().replace(" ", "-")
         dst = OUT / f"{name}.webp"
@@ -59,7 +65,7 @@ def convert(IN, OUT, EXPECTED):
         if OUT.name == "products":
             # Nov 17 2026: product photos are sharpened after a Lanczos resize, and get an 800 copy for cards on phones.
             cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(src),
-                   "-vf", "scale='if(gt(iw,ih),1600,-2)':'if(gt(iw,ih),-2,1600)':flags=lanczos,unsharp=5:5:0.5:5:5:0",
+                   "-vf", "scale=1200:-2:flags=lanczos,unsharp=5:5:0.5:5:5:0",  # 1200 wide, the size of the live product photos
                    "-c:v", "libwebp", "-quality", "92", str(dst)]
             subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf", "scale=800:-2:flags=lanczos,unsharp=5:5:0.6:5:5:0",
                             "-c:v", "libwebp", "-quality", "92", str(OUT / f"{name}-800.webp")], capture_output=True, text=True)

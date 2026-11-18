@@ -29,7 +29,7 @@ Every item here must be done first. The open items for each page are also listed
 4. If any item is filled outside a 503A pharmacy, the site-wide 503A wording in the footer, the please-note block and the trust strip is broadened.
 5. The attorney decides whether any analytics may run on these pages.
 6. Each line swap in `SWAPS` that OpenLoop confirms is removed, and the "Draft placeholder" words come out of the FAQ answers.
-7. Product images follow `docs/BRAND.md`: drop `sexual-health.png` and `womens-hrt.png` in `assets-in/products/`, run `python -I tools/prepare_images.py`, then make the small menu photos with `tools/make_thumbs.py`.
+7. Product images: done Nov 18 2026 and checked against the label artwork. They wait in `assets-in/products/` as `_hold-sexual-health.jpg` and `_hold-womens-hrt.jpg`, so the converter skips them. On launch day drop the `_hold-` from each name, run `python -I tools/prepare_images.py sexual-health womens-hrt`, add a box for each to `tools/make_thumbs.py` and run it. Their labels carry only FOR PRESCRIPTION USE ONLY; if OpenLoop confirms the items are compounded, the labels and photos are remade.
 8. vc-reviewer passes both pages for launch.
 
 ## On launch day
