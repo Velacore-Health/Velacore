@@ -51,9 +51,9 @@ named on the site, with OpenLoop's forms and prices; nothing is built until the 
 in hand, and vc-reviewer clears every page. Before launch, confirm the category is in the signed
 Agile order and check LegitScript and the Meta and Google ad rules for it. The same day Dourado added **women's HRT** on the same terms:
 the proposal lists female HRT, estradiol or non-hormonal, $79 a month billed $237 per 12 weeks, with
-HRT labs paid by the patient. Testosterone and hair
-medication are not decided and stay off the site until OpenLoop confirms them in writing and Dourado
-decides.
+HRT labs paid by the patient. Other catalog categories he raised
+the same day are not decided and stay off the site, unnamed here, until OpenLoop confirms them in
+writing and Dourado decides.
 
 Descriptors are deliberately **mechanistic/factual**, not benefit claims (e.g. "GLP-1 receptor
 agonist," not "melts fat"). Keep it that way.
