@@ -389,3 +389,18 @@ After zooming out, the whole bottle lying on its side, its whole label and the w
 
 Every label stays word for word as it is now. Add no other text anywhere. No other objects, no hands, no syringe, no needle.
 ```
+
+### Results of the retries, Nov 18 2026 late
+
+- K2, Women's HRT: passed. Label matches the artwork, plum line and dash. Filed as `assets-in/products/womens-hrt.jpg`, 1792 by 2400. Not converted into public/ until the program launches.
+- I2, Semaglutide oral: rejected again. Gemini did not zoom out, the lying bottle is still cut off, and it misspelled 503A as S03A. Two edit attempts have failed to move the lying bottle. Vale's recommendation, I3: one standing bottle, made by swapping the label on the passed Sexual Health image, so it matches the two new bottles.
+
+### I3. Semaglutide oral, one standing bottle
+
+Attach the passed Sexual Health image first, then `label-semaglutide.png`.
+
+```
+Edit the first attached photo. Keep everything exactly the same: the bottle, the cap, the riser, the marble, the mint wall, the light, the shadows and the framing.
+
+Replace the label on the bottle with the second attached label artwork, exactly as designed: the dark green panel with the white Velacore Health logo, the thin violet line, the word Semaglutide, the short violet dash, then three lines in small capitals, FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, and Rx ONLY in its outlined pill. 503A begins with the number five. Do not add, remove or change any word. The label stays sharp and fully readable.
+```
