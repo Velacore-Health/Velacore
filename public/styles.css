@@ -366,7 +366,9 @@ body.prog-microdosing{--cap:var(--cap-jade)}
 .edu-body h3{font-size:1.3rem;margin-bottom:10px}
 .edu-body p{color:var(--ink-soft);font-size:.97rem}
 .edu-note{color:var(--ink-faint);font-size:.88rem;margin-top:34px;max-width:54rem}
-.edu-cta{margin-top:22px}
+/* Nov 18 2026: same button row as .blk-actions; the two buttons stacked with no gap on phones. */
+.edu-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+@media (max-width:700px){.edu-cta .btn{flex:1 1 100%}}
 @media(max-width:940px){.edu-intro{grid-template-columns:1fr;gap:32px}.edu-grid{grid-template-columns:1fr}}
 
 /* ---------- Legal pages ---------- */
@@ -969,3 +971,45 @@ body.panel-open{overflow:hidden}
   .art-card img{height:100%;aspect-ratio:auto;min-height:88px}
   .art-card span{padding:12px 16px;font-size:1rem}
 }
+/* Typesetting, Nov 18 2026 site check at Dourado's request. Headings balance their lines and body text avoids a single
+   word on its last line. Fine print is held to about 75 characters a line so it reads, and the smallest fine print
+   comes up from 12.8 to 13.8 px. Centered notes stay centered under their narrower width. */
+h1,h2,h3,h4{text-wrap:balance}
+p,li,figcaption,dd,.section-sub{text-wrap:pretty}
+.img-note,.edu-note,.treat-note,.hub-note,.please-note p{max-width:75ch}
+.section-sub{max-width:62ch}
+.section-head.center .section-sub,.goals-grid + .img-note,.ch-step[data-step="3"] .img-note,.pr-cards .treat-note{margin-left:auto;margin-right:auto}
+.intake-fine{font-size:.86rem}
+.price-fine{font-size:.86rem}
+.faq-body p,.art-meta{max-width:72ch}
+/* Site check fixes, Nov 18 2026, phone and desktop. */
+.intake-list .btn{align-items:center;text-align:center}
+.cta-points li{align-items:flex-start}
+.cta-points .dot{margin-top:.55em}
+@media (max-width:700px){.trust-items{flex-direction:column;align-items:flex-start;gap:8px;width:fit-content;margin:0 auto}}
+.pr-body{padding-top:64px}
+@media (max-width:420px){.ch-track{gap:6px}.ch-track li{padding:0 12px 0 5px;gap:6px;font-size:.88rem}.ch-track li span{width:28px;height:28px}}
+.section-head h1{margin-bottom:14px}
+.closing-cta .btn{margin-top:14px}
+.sp-back{white-space:nowrap}
+@media (max-width:700px){.art-card span{padding:14px 16px}}
+.nf{min-height:80vh;display:grid;place-items:center;text-align:center;padding:48px 24px}
+.nf .brand{justify-content:center;margin-bottom:28px}
+.nf h1{font-size:clamp(2rem,5vw,3rem);margin:0 0 14px}
+.nf p{color:var(--ink-soft);font-size:1.1rem;margin:0 auto 28px;max-width:34ch}
+.nf .blk-actions{justify-content:center;margin-top:0}
+@media (max-width:700px){.nf .blk-actions .btn{flex:1 1 100%}}
+@media (max-width:700px){.trust-items span{align-items:flex-start}.trust-items span::before{flex:none;margin-top:.55em}}
+.pr-split2 .hw-card h3{font-size:1.35rem}
+/* Dark panels with halos, Nov 18 2026 at Dourado's direction: the pine blocks were flat and hard. Each now carries two
+   soft glows from the logo family, jade from the upper right and helix blue from the lower left, over a short pine
+   fade, with the same faint grain as the home top and a soft jade halo underneath. No violet, so no purple-to-blue
+   pairing. White text measures 8 to 1 and the soft text 4.9 to 1 at the brightest point of the glow. */
+.hw-promise,.blk-card-pine{position:relative;isolation:isolate;overflow:hidden;background:
+  radial-gradient(70% 95% at 100% 0%,rgba(10,130,104,.55) 0%,rgba(10,130,104,0) 72%),
+  radial-gradient(60% 85% at 0% 100%,rgba(62,95,192,.30) 0%,rgba(62,95,192,0) 70%),
+  linear-gradient(160deg,#173A32 0%,#15302A 100%);
+  box-shadow:0 1px 2px rgba(21,48,42,.12),0 28px 60px -32px rgba(10,122,97,.55)}
+.hw-promise::before,.blk-card-pine::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* The home promise band sits on white like the other card sections, so the glowing card is the only dark shape. */
+.section.guarantee.blk{background:#fff}
