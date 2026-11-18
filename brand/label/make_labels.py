@@ -1,6 +1,6 @@
 """Renders the Velacore product label as flat artwork, one PNG per program.
 
-Run from the repo root:  python -I brand/label/make_labels.py
+Run from the repo root:  python -I brand/label/make_labels.py   or name slugs to make only those labels.
 Output: brand/label/label-<slug>.png, 1200 x 1600 px.
 Style A, pine band, chosen by Dourado Nov 11 2026: the designer's logo reversed out in white on a
 pine panel, a fine line in the program color, the program name in Fraunces, the three
@@ -8,6 +8,7 @@ prescription lines and Rx ONLY in an outlined pill. Follows docs/BRAND.md sectio
 These files are attached to the Gemini vial prompts so the label comes out exact.
 """
 import base64
+import sys
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
@@ -23,7 +24,13 @@ PROGRAMS = [
     ("nad", "NAD+", "#8A6BC9"),
     ("glutathione", "Glutathione", "#8A6BC9"),
     ("sermorelin", "Sermorelin", "#8A6BC9"),
+    # Nov 18 2026, hidden programs: whether these items are compounded or 503A filled is not confirmed by OpenLoop,
+    # so their labels carry only the first prescription line. Colors are Vale's pick from the logo family, in BRAND.md.
+    ("sexual-health", "Sexual Health", "#3E5FC0", "For prescription use only"),
+    ("womens-hrt", "Women's HRT", "#7E2A7B", "For prescription use only"),
 ]
+LINES = "For prescription use only<br>Prescription compounded<br>503A compounding pharmacy"
+
 
 PAGE = """<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..600,0..100&family=Hanken+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -47,7 +54,7 @@ canvas.logo{display:block;width:560px;height:auto}
   <div class="body">
     <div class="name">{name}</div>
     <div class="dash"></div>
-    <div class="lines">For prescription use only<br>Prescription compounded<br>503A compounding pharmacy</div>
+    <div class="lines">{lines}</div>
     <div class="rx">Rx ONLY</div>
   </div>
 </div>
@@ -81,8 +88,11 @@ def main():
     with sync_playwright() as p:
         b = p.chromium.launch()
         pg = b.new_page(viewport={"width": 1200, "height": 1600})
-        for slug, name, color in PROGRAMS:
-            pg.set_content(PAGE.replace("{c}", color).replace("{name}", name).replace("LOGO", LOGO),
+        only = sys.argv[1:]
+        for slug, name, color, *lines in PROGRAMS:
+            if only and slug not in only:
+                continue
+            pg.set_content(PAGE.replace("{c}", color).replace("{name}", name).replace("{lines}", lines[0] if lines else LINES).replace("LOGO", LOGO),
                            wait_until="networkidle")
             size = pg.evaluate("window.ready")
             out = OUT / f"label-{slug}.png"

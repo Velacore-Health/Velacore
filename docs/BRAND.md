@@ -59,6 +59,8 @@ Program colors, picked from the logo gradient. Each program owns one, used as it
 | NAD+ | Helix violet | #8A6BC9 |
 | Glutathione | Helix violet | #8A6BC9 |
 | Sermorelin | Helix violet | #8A6BC9 |
+| Sexual Health, hidden until launch | Helix blue | #3E5FC0 |
+| Women's HRT, hidden until launch | Logo plum | #7E2A7B |
 
 Logo gradient, read from the designer's SVG on Nov 6: three stops, mint green #78CBA9 at 0, blue #3A8EC6 at 0.36, magenta #DD25DA at 1, running from the upper right of the helix to the lower left. The site's program colors, helix blue #3E5FC0 and helix violet #8A6BC9, are mid-tones picked from that gradient for stripes and caps; they are not the stops themselves. Keep both: the stops for anything that reproduces the logo, the mid-tones for program colors.
 
@@ -136,7 +138,7 @@ Every vial cap is deep matte pine, #15302A, with a silver crimp. The program col
 - `brand/logo/VelaCore Health_01`, `_02`, `_03`: the designer's package, source of truth. The .svg and .ai in `_01` are the vectors.
 - `public/logo-full.png`, `public/logo-mark.png`: the site's derived files, see section 1.
 - `brand/velacore-brand-card.html` and `brand/velacore-brand-card.png`: a one-page card with the logo, the palette and the type, to upload alongside any Gemini or Canva prompt so the tool sees the brand.
-- `brand/label/`: the five approved vial labels and the script that makes them.
+- `brand/label/`: the approved vial labels and the script that makes them. The Sexual Health and Women's HRT labels, added Nov 18 2026, carry only FOR PRESCRIPTION USE ONLY until OpenLoop confirms whether those items are compounded.
 - `docs/gemini-prompts.md`: the current image prompts. `docs/image-brief.md` holds the retired set 1.
 - `docs/BRAND.md`: this file.
 

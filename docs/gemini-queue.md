@@ -313,3 +313,49 @@ Photoreal candid photograph, horizontal 4 by 3, like a real moment someone caugh
 ```
 
 Reject if: any readable screen, any text, a logo, a medical item, a gym or workout look, a visibly thin or muscular build, or a face that reads as a known person.
+
+## Three product images, Nov 18 2026 late, sent to Dourado's tablet
+
+All three edit the same photo, `assets-in/products/semaglutide-oral.jpg`, so they match the set. New chat each time, Images on, aspect ratio 3:4. Vale files each download by its name and runs prepare_images. Sexual Health and Women's HRT stay off the site until those programs launch.
+
+### I. Semaglutide oral, the lying bottle cut off at the right edge, save as `semaglutide-oral`
+
+Attach `semaglutide-oral.jpg`.
+
+```
+Edit the attached photo. Keep everything exactly as it is: the standing bottle and its label, the white marble riser, the marble tabletop, the soft mint wall, the daylight from the upper left, the soft shadows and the vertical 3 by 4 framing.
+
+Change only one thing. The bottle lying on its side, its loose cap and the spilled tablets are cut off at the right edge. Move all three a little to the left and slightly toward the camera, so the whole bottle, its whole label and the whole cap sit fully inside the frame, with a clear strip of marble and mint wall between them and the right edge.
+
+The label on the lying bottle stays word for word as it is now. Add no other text anywhere. No other objects, no hands, no syringe, no needle.
+```
+
+### J. Sexual Health, save as `sexual-health`
+
+Attach `semaglutide-oral.jpg` first, then `label-sexual-health.png`.
+
+```
+Edit the first attached photo. Keep the scene the same: the white marble riser, the pale marble tabletop with soft gray veining, the soft mint wall fading to white, the daylight from the upper left, the soft shadows, the camera height and the vertical 3 by 4 framing.
+
+Remove the bottle lying on its side, its loose cap and every loose tablet, and fill that area with the same clean marble tabletop. Move the riser and the standing bottle to the center of the frame. The standing bottle stays the same: semi-translucent mint green, closed, with its deep pine green cap.
+
+Replace the label on the standing bottle with the second attached label artwork, exactly as designed: the dark green top panel with the white Velacore Health logo, the thin blue line, the words Sexual Health, the short blue dash, FOR PRESCRIPTION USE ONLY, and Rx ONLY in its outlined pill. Do not add, remove or change any word. The label wraps the front of the bottle, sharp and fully readable.
+
+Exactly one bottle, closed. No loose tablets, no other objects, no hands, no syringe, no needle, and no other text anywhere.
+```
+
+### K. Women's HRT, save as `womens-hrt`
+
+Attach `semaglutide-oral.jpg` first, then `label-womens-hrt.png`.
+
+```
+Edit the first attached photo. Keep the scene the same: the white marble riser, the pale marble tabletop with soft gray veining, the soft mint wall fading to white, the daylight from the upper left, the soft shadows, the camera height and the vertical 3 by 4 framing.
+
+Remove the bottle lying on its side, its loose cap and every loose tablet, and fill that area with the same clean marble tabletop. Move the riser and the standing bottle to the center of the frame. The standing bottle stays the same: semi-translucent mint green, closed, with its deep pine green cap.
+
+Replace the label on the standing bottle with the second attached label artwork, exactly as designed: the dark green top panel with the white Velacore Health logo, the thin plum line, the words Women's HRT, the short plum dash, FOR PRESCRIPTION USE ONLY, and Rx ONLY in its outlined pill. Do not add, remove or change any word. The label wraps the front of the bottle, sharp and fully readable.
+
+Exactly one bottle, closed. No loose tablets, no other objects, no hands, no syringe, no needle, and no other text anywhere.
+```
+
+Reject any result where a word on the label is misspelled, a line is added, or the bottle is cut off at an edge.
