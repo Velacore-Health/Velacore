@@ -131,7 +131,7 @@ The approved artwork is `brand/label/label-<program>.png`, made by `brand/label/
 
 Nothing else. No seals, no stars, no "FDA", no benefit words, no dosage claims on the mock label.
 
-Every vial cap is deep matte pine, #15302A, with a silver crimp. The program color appears only in the label's thin line and dash. Amber glass for every liquid bottle, the droppers and the nasal sprays alike, by Dourado's choice Nov 17 2026, replacing white for nasal sprays; for tablets a tall straight-sided prescription vial in semi-translucent mint green with a flat pine child-resistant cap, never a vitamin-bottle shape, by Dourado's choice Nov 17 2026; the Semaglutide oral shot shows two vials, one on its side with a few plain unmarked tablets spilled, the one product shot allowed props.
+Every vial cap is deep matte pine, #15302A, with a silver crimp. The program color appears only in the label's thin line and dash. Amber glass for every liquid bottle, the droppers and the nasal sprays alike, by Dourado's choice Nov 17 2026, replacing white for nasal sprays; for tablets a tall straight-sided prescription vial in semi-translucent mint green with a flat pine child-resistant cap, never a vitamin-bottle shape, by Dourado's choice Nov 17 2026; the Semaglutide oral shot shows one closed standing vial on the marble riser, no props. Changed Nov 18 2026: the earlier two-vial shot with spilled tablets was cut off at the right edge, and two Gemini edits could not fix it. The hidden Sexual Health and Women's HRT shots use the same bottle.
 
 ## 7. Files and where they live
 

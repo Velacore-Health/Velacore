@@ -72,7 +72,7 @@ Reject if: any extra or missing arm, hand or finger, any readable text, clutter,
 
 ### E. Semaglutide oral, asked by Dourado Nov 17
 
-Done Nov 17 on the fourth prompt: two semi-translucent mint green prescription vials, one on its side with tablets spilled. Filed as `semaglutide-oral.jpg`, site copy `public/images/products/semaglutide-oral.webp`, not placed on any page yet.
+Done Nov 17 on the fourth prompt: two semi-translucent mint green prescription vials, one on its side with tablets spilled. Replaced Nov 18 2026 by one standing vial, see I3 below; the two-vial photo is kept as `_prev-semaglutide-oral-two-bottles.jpg`. Filed as `semaglutide-oral.jpg`, site copy `public/images/products/semaglutide-oral.webp`, not placed on any page yet.
 
 The written proposal prices Semaglutide oral and gives 5 or 10 mg a day, but not the form. Dourado thinks it is a tablet, so it is drawn as a closed white pill bottle per BRAND.md section 6, no loose pills shown. Still to confirm with OpenLoop; the question is in `docs/openloop-email-draft.md`. Not placed on the site until Dourado adds Semaglutide oral as an offering.
 
