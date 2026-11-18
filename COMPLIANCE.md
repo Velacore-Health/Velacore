@@ -49,7 +49,9 @@ Nov 2 OpenLoop proposal lists it, sexual health vials and troches at $99 to $156
 daily tadalafil 28 pack at $112, eligibility 21 and over. Only items OpenLoop names in writing may be
 named on the site, with OpenLoop's forms and prices; nothing is built until the exact product list is
 in hand, and vc-reviewer clears every page. Before launch, confirm the category is in the signed
-Agile order and check LegitScript and the Meta and Google ad rules for it. Testosterone and hair
+Agile order and check LegitScript and the Meta and Google ad rules for it. The same day Dourado added **women's HRT** on the same terms:
+the proposal lists female HRT, estradiol or non-hormonal, $79 a month billed $237 per 12 weeks, with
+HRT labs paid by the patient. Testosterone and hair
 medication are not decided and stay off the site until OpenLoop confirms them in writing and Dourado
 decides.
 
