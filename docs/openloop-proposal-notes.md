@@ -66,3 +66,30 @@ Microdosing options are combinations of a GLP-1 with NAD, B12, L-carnitine, inos
 - 12 month initial term, 60 day notice to terminate for any reason.
 - Added business lines need an MSA addendum and a separate implementation fee.
 - LegitScript through OpenLoop: $3,000 flat with expedited review, 2 to 4 weeks. Renewal $2,000. On our own: $975 plus $2,150, plus $2,500 to expedite, 6 to 12 weeks.
+
+## Nov 12 proposal, sexual health and women's HRT
+
+Source: "Velacore Health - OpenLoop - Proposal - 11_12_26 (1).pdf", 30 pages, in the Velacore Workspace Drive. Read Nov 18 2026 in the Drive viewer on Dourado's OK, not downloaded. Pages 15, 16, 24 and 25. Patient prices only; the column showing what Velacore receives is left out. Every page is footed "Illustrative only; subject to clinician judgment, state law and availability" and "Final terms per executed Order Form". Both categories match the Nov 2 proposal item for item and price for price.
+
+Women's HRT, menopause and perimenopause, pages 15 and 16:
+- Medication: estradiol pill, patch or gel; estradiol vaginal cream plus progesterone if needed; or a non-hormonal paroxetine pill or desvenlafaxine pill.
+- Patient price: $79 a month, paid as $237 for each 12 weeks.
+- Journey: a comprehensive intake reviewed by an affiliated or contracted medical group clinician, async first, or a scheduled video visit where a state requires it; then a quarterly async refill intake, with a video visit on request.
+- Labs are ordered as merited, are not in the price, and are paid by the patient.
+- Not stated: an eligibility age, and whether each item is compounded or an FDA-approved product.
+
+Sexual health, pages 24 and 25:
+- Eligibility: 21 and over. Patients 75 and over are eligible only for single-ingredient medications.
+- Journey: an async intake review first, or a scheduled video visit when required; then an async 12-week refill review, with a video visit on request.
+- Single-dose vials, 10 pack:
+  - Sildenafil + tadalafil + apomorphine + L-citrulline, 70+4.5+1.25+50 mg: $119.
+  - Sildenafil + tadalafil + apomorphine, 40+5+2 mg: $109.
+  - Sildenafil + tadalafil, 40+11 or 40+22 mg: $99.
+  - Silodosin + tadalafil, 7+4 mg: $99.
+- Dissolving tablets or troches, pouch of 6 or 12 packets:
+  - Sildenafil + tadalafil + apomorphine, 110+22+2 or 55+11+2 mg: $102 for 6, $156 for 12.
+  - Sildenafil + tadalafil, 110+22 or 55+11 mg: $96 for 6, $144 for 12.
+  - Silodosin + tadalafil, 8+10 mg: $96 for 6, $144 for 12.
+- Tadalafil daily, 2.5 or 5 mg, 28 pack: $112.
+- OpenLoop's product names, such as "Double Powered" and "Go Long", are left off the site; they read as performance claims.
+- Not stated: which pharmacy fills these, which items are compounded, and the safety information text.
