@@ -17,7 +17,8 @@ CARDS = {
     "safe": ("lifestyle/clinicians-review.jpg", 0.55),
     "stop": ("lifestyle/clinicians-video.jpg", 0.5),
     "right-for-me": ("lifestyle/step-visit.jpg", 0.5),
-    "taken": ("lifestyle/step-delivery.jpg", 0.5),
+    # Nov 18 2026: the four forms side by side, a Gemini edit of the approved product photos; 0.58 keeps both end risers in frame.
+    "taken": ("products/learn-forms.jpg", 0.58),
     "made": ("lifestyle/pharmacy-lab.jpg", 0.5),
     # Nov 18 2026: the peptides card is a Gemini render with the sphere on the left; the words sit in the space on the right.
     "difference": ("lifestyle/learn-peptides.jpg", 1.0),
