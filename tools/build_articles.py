@@ -168,6 +168,16 @@ def page(a):
 """
 
 
+# Learn hub card photo per article, files in public/images/learn/cards/<name>-480 and -960.
+CARD_PHOTO = {
+    "what-is-a-503a-compounding-pharmacy": "article-503a",
+    "semaglutide-vs-tirzepatide": "article-sema-tirz",
+    "what-is-microdosing-glp-1": "article-microdosing",
+    "how-to-get-a-glp-1-prescription-online": "article-glp1-online",
+}
+PRODUCT_CARDS = {"article-503a", "article-sema-tirz", "article-microdosing"}
+
+
 def between(text, start, end, new):
     i, j = text.index(start) + len(start), text.index(end)
     return text[:i] + "\n" + new + "\n" + text[j:]
@@ -185,16 +195,21 @@ def main():
     for old in OUT.glob("*.html"):
         if old.name not in keep:
             old.unlink(); print("removed", old.name)
-    # Learn hub list, grouped by topic
-    topics = {}
-    for a in ARTICLES:
-        topics.setdefault(a["topic"], []).append(a)
-    cards = "".join(
-        f'<div class="art-topic"><h3>{t}</h3><ul>' + "".join(f'<li><a href="learn/{a["slug"]}.html">{a["h1"]}</a></li>' for a in items) + "</ul></div>"
-        for t, items in topics.items())
+    # Learn hub, Nov 18 2026 at Dourado's request for the Hims look: one photo card per article. Card photos are made
+    # by tools/make_learn_cards.py; a card without one falls back to text only.
+    def card(a):
+        stem = f'images/learn/cards/{CARD_PHOTO.get(a["slug"], "")}'
+        img = ""
+        if a["slug"] in CARD_PHOTO and (PUB / f"{stem}-480.webp").exists():
+            img = (f'<img src="{stem}-960.webp" srcset="{stem}-480.webp 480w, {stem}-960.webp 960w" '
+                   f'sizes="(max-width:700px) 120px, (max-width:1000px) 45vw, 280px" width="960" height="640" alt="" loading="lazy" />')
+        return f'<li><a class="art-card" href="learn/{a["slug"]}.html">{img}<span>{a["h1"]}</span></a></li>'
+    cards = "".join(card(a) for a in ARTICLES)
+    # three of the card photos show product vials, so the illustration note sits under the cards
+    note = f'<p class="img-note art-note">{bp.PRODUCT_NOTE}</p>' if any(CARD_PHOTO.get(a["slug"]) in PRODUCT_CARDS for a in ARTICLES) else ""
     hub = PUB / "learn.html"
     hub.write_text(between(hub.read_text(encoding="utf-8"), "<!-- articles:start -->", "<!-- articles:end -->",
-                           f'        <div class="art-list">{cards}</div>'), encoding="utf-8")
+                           f'        <ul class="art-cards">{cards}</ul>{note}'), encoding="utf-8")
     sm = PUB / "sitemap.xml"
     lines = "\n".join(f'  <url><loc>{SITE}/learn/{a["slug"]}</loc><lastmod>{a["reviewed"]}</lastmod><priority>0.6</priority></url>' for a in ARTICLES)
     sm.write_text(between(sm.read_text(encoding="utf-8"), "<!-- articles:start -->", "<!-- articles:end -->", lines), encoding="utf-8")
