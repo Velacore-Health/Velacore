@@ -1071,3 +1071,30 @@ p,li,figcaption,dd,.section-sub{text-wrap:pretty}
 /* Nov 18 2026: the platform line in the top bar wraps to two lines on a phone; keep the two lines even. */
 .topbar{text-wrap:balance}
 .hub-lede span{white-space:nowrap}
+
+/* Nov 19 2026: program page first screen. Under the Start button, three short answers. On a phone the price box
+   moves up under the name, with a small product photo beside the price, so the first screen shows the product,
+   the price, the plan choice and the Start button. The description, the facts and the large photo follow.
+   The switch is at 940, where the hero already stacks into one column. */
+.pb-thumb{display:none}
+.pb-points{display:grid;gap:10px;margin:16px 0 0;padding:0;list-style:none}
+.pb-points li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;line-height:1.45;color:var(--ink)}
+.pb-points .check{width:20px;height:20px;font-size:.66rem;margin-top:1px}
+@media (max-width:940px){
+  .prog-hero{padding-top:12px}
+  .prog-hero .crumbs{margin-bottom:6px}
+  .prog-grid{display:flex;flex-direction:column;gap:0}
+  .prog-copy,.prog-side{display:contents}
+  .prog-copy h1{order:1;margin-bottom:12px}
+  .prog-cat{order:2;margin:0 0 16px}
+  .price-box{order:3;padding:18px}
+  .hero-lede{order:4;margin-top:30px}
+  .prog-copy .hero-chips{order:5}
+  .facts{order:6}
+  .prog-media{order:7;margin-top:30px}
+  .img-note{order:8;margin-top:10px}
+  .pb-head{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+  .pb-thumb{display:block;flex:none;width:96px;height:96px;border-radius:var(--r-sm);object-fit:cover}
+  .pb-price{flex:1;min-width:0}
+  .pb-price .price-note{margin-bottom:0}
+}

@@ -427,6 +427,34 @@ def intake_key(p):
     return "nad+" if p["slug"] == "nad" else p["slug"]
 
 
+def pb_thumb(p):
+    """Nov 19 2026: the small product photo beside the price, shown on phones only so the first screen carries
+    the product, the price and the Start button. The large photo further down keeps the alt text and the image note."""
+    if (ROOT / "public" / "images" / "products" / "thumbs" / f"{p['slug']}.webp").exists():
+        return f'<img class="pb-thumb" src="../images/products/thumbs/{p["slug"]}.webp" width="216" height="216" alt="" />'
+    return ""
+
+
+def plan_thumb(p, pl):
+    """A plan with its own form photo, such as Semaglutide oral, swaps the phone thumbnail when it is chosen."""
+    thumbs = ROOT / "public" / "images" / "products" / "thumbs"
+    if not (thumbs / f"{p['slug']}.webp").exists():
+        return ""
+    own = f"{p['slug']}-{pl['id']}.webp"
+    return f' data-thumb="../images/products/thumbs/{own if (thumbs / own).exists() else p["slug"] + ".webp"}"'
+
+
+def pb_points(p):
+    """Nov 19 2026: three short answers under the Start button, the most common worry first, each line taken from
+    copy already on the site. Draft programs keep only the clinician line until OpenLoop confirms refund and shipping."""
+    pts = ["One price with shipping. No consultation fee.",
+           "A licensed clinician decides what is appropriate.",
+           "Full refund if not prescribed."]
+    if p.get("swaps"):
+        pts = pts[1:2]
+    return '<ul class="pb-points">' + "".join(f'<li><span class="check" aria-hidden="true">✓</span> {x}</li>' for x in pts) + "</ul>"
+
+
 def start_button(p, cls="btn btn-primary", prefix="../"):
     """Every Start your visit button leads to the program's Start page, never straight to the intake."""
     return f'<a class="{cls}" href="{prefix}start/{p["slug"]}.html" data-start="{p["slug"]}">Start your visit</a>'
@@ -480,7 +508,7 @@ def page(p):
     media = f'<img class="tcard-photo" src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:900px) 92vw, 560px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Velacore Health {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.svg" alt="" width="119" height="128" />'
     plans = "\n".join(
         f'''          <label class="plan-option">
-            <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{" checked" if i == 0 else ""} />
+            <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{plan_thumb(p, pl)}{" checked" if i == 0 else ""} />
             <span class="plan-name">{pl["label"]}</span><span class="plan-amt">{pl["price"]}{pl["unit"]}</span>
           </label>''' for i, pl in enumerate(p["plans"]))
     first = p["plans"][0]
@@ -574,16 +602,19 @@ def page(p):
             <div class="tcard prog-media"><div class="tcard-media">{media}</div></div>
             <p class="img-note">Illustrative image. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
             <div class="price-box" id="priceBox">
+              <div class="pb-head">{pb_thumb(p)}<div class="pb-price">
               <div class="price-top">
                 <span class="price-big" id="planPrice">{first["price"]}<small id="planUnit">{first["unit"]}</small></span>
                 <span class="tcard-rx">Rx only</span>
               </div>
               <p class="price-note" id="planNote">{first["note"]}</p>
+              </div></div>
               <div class="plan-select" role="radiogroup" aria-label="Choose a plan">
 {plans}
               </div>
               {start_button(p, "btn btn-primary btn-block")}
               <p class="price-fine">{DISCLAIMER}</p>
+              {pb_points(p)}
             </div>
           </div>
         </div>

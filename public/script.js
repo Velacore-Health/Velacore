@@ -363,6 +363,8 @@
         priceEl.childNodes[0].nodeValue = inp.getAttribute('data-price');
         unitEl.textContent = inp.getAttribute('data-unit');
         noteEl.textContent = inp.getAttribute('data-note');
+        var thumb = document.querySelector('.pb-thumb');
+        if (thumb && inp.getAttribute('data-thumb')) thumb.src = inp.getAttribute('data-thumb');
       });
     });
   }
