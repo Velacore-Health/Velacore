@@ -394,8 +394,9 @@ def mega_menu(prefix):
                 rows.append(f'<a class="mega-item" href="{prefix}programs/{href}">{thumb}<span><b>{name}</b><small>{sub}</small></span></a>')
             groups.append(f'<h4>{cat}</h4>{"".join(rows)}')
         cols.append(f'<div class="mega-col">{"".join(groups)}</div>')
-    return (f'<div class="nav-item has-mega"><a href="{prefix}index.html#treatments" aria-haspopup="true" aria-expanded="false">Treatments</a>'
-            f'<div class="mega" role="menu">{"".join(cols)}'
+    # Nov 19 2026: a plain disclosure, not role="menu"; script.js keeps aria-expanded true to what is shown and closes it on Escape.
+    return (f'<div class="nav-item has-mega"><a href="{prefix}index.html#treatments" aria-expanded="false">Treatments</a>'
+            f'<div class="mega">{"".join(cols)}'
             f'<div class="mega-col mega-cta"><h4>Not sure?</h4><p>Two quick questions narrow it down. A licensed clinician reviews your intake and decides what is appropriate.</p>'
             f'<a class="btn btn-primary btn-sm" href="{prefix}index.html#goals">Find your program</a></div></div></div>')
 

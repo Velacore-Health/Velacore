@@ -102,6 +102,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 }
 .mega::before{content:"";position:absolute;left:0;right:0;top:-20px;height:20px}
 .has-mega:hover .mega,.has-mega:focus-within .mega,.has-mega.open .mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);transition-delay:0s}
+.has-mega.is-dismissed:not(.open) .mega{opacity:0;visibility:hidden}
 .mega-col h4{font-family:var(--body);font-size:.9rem;color:var(--ink-soft);margin-bottom:12px;font-weight:600}
 .mega-item{display:flex;align-items:center;gap:12px;padding:8px;border-radius:var(--r-sm);transition:background .15s}
 .mega-item:hover{background:var(--mint)}

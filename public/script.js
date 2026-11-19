@@ -122,13 +122,42 @@
         e.preventDefault();
         e.stopPropagation();
         var open = item.classList.toggle('open');
-        trigger.setAttribute('aria-expanded', String(open));
+        item.classList.toggle('is-dismissed', !open);
+        syncMega(item);
       }
     });
   });
   document.addEventListener('click', function (e) {
     document.querySelectorAll('.has-mega.open').forEach(function (item) {
-      if (!item.contains(e.target)) { item.classList.remove('open'); item.querySelector('a').setAttribute('aria-expanded', 'false'); }
+      if (!item.contains(e.target)) { item.classList.remove('open'); syncMega(item); }
+    });
+  });
+
+  // Keep aria-expanded true to what is on screen, and let Escape close the dropdown and return focus to Treatments
+  function megaShown(item) {
+    if (item.classList.contains('open')) return true;
+    if (item.classList.contains('is-dismissed') || window.matchMedia('(max-width: 780px)').matches) return false;
+    return item.matches(':hover') || item.matches(':focus-within');
+  }
+  function syncMega(item) { item.querySelector('a').setAttribute('aria-expanded', String(megaShown(item))); }
+  document.querySelectorAll('.has-mega').forEach(function (item) {
+    item.addEventListener('mouseenter', function () { syncMega(item); });
+    item.addEventListener('mouseleave', function () { item.classList.remove('is-dismissed'); syncMega(item); });
+    item.addEventListener('focusin', function () { syncMega(item); });
+    item.addEventListener('focusout', function (e) {
+      if (!item.contains(e.relatedTarget)) { item.classList.remove('open', 'is-dismissed'); }
+      setTimeout(function () { syncMega(item); }, 0);
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    document.querySelectorAll('.has-mega').forEach(function (item) {
+      if (!megaShown(item)) return;
+      var hadFocus = item.contains(document.activeElement);
+      item.classList.remove('open');
+      item.classList.add('is-dismissed');
+      if (hadFocus) item.querySelector('a').focus();
+      syncMega(item);
     });
   });
 
