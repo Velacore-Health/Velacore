@@ -1189,3 +1189,6 @@ p,.hub-text span,.tcard-mech,.form-tiles p{text-wrap:pretty}
    is a block so the source tag never becomes a layout item. */
 .goal-media picture{display:block;width:100%}
 @media (min-width:421px) and (max-width:860px){.goal-media{display:block;position:relative;min-height:180px}.goal-media picture{position:absolute;inset:0}.goal-media img{position:absolute;inset:0;aspect-ratio:auto;width:100%;height:100%;object-fit:cover;object-position:50% 50%}.goal-tile[data-goal="hormone"] .goal-media img{object-position:50% 35%}}
+/* Nov 20 2026, Dourado: up to 1299 px the Hormone card uses the same Sermorelin cuts as the Tirzepatide card, so both vials read the same size */
+@media (max-width:700px){.hub-hormone{min-height:192px}}
+@media (max-width:1299px){.hub-hormone img{object-position:50% 50%}}

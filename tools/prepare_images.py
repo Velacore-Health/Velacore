@@ -73,7 +73,7 @@ def tiles_only():
 
 
 def home_weight_card():
-    """python -I tools/prepare_images.py --home  remakes the two Tirzepatide cuts on the home weight card from the studio
+    """python -I tools/prepare_images.py --home  remakes the Tirzepatide and Sermorelin cuts on the two big home cards from the studio
     shot. tirzepatide-480 is the whole photo for phones. tirzepatide-wide is a 4 by 3 cut for 701 to 1299 px with the vial
     a little right of center, since the card text sits on the left: the plain left margin of the photo is mirrored to
     widen it, so no vial is ever cut or faded."""
@@ -89,6 +89,15 @@ def home_weight_card():
     run(wide.format(w=1200, h=900), "tirzepatide-wide.webp")
     run(wide.format(w=800, h=600), "tirzepatide-wide-800.webp")
     print("wrote tirzepatide-480, tirzepatide-wide and tirzepatide-wide-800 from " + src.relative_to(ROOT).as_posix())
+    # Nov 20 2026, Dourado: on phones and tablets the Sermorelin vial on the home Hormone card read smaller than the
+    # Tirzepatide vial beside it. The same two cuts from the Sermorelin studio shot make both vials the same size.
+    ssrc = studio_or(ROOT / "assets-in" / "products" / "sermorelin.jpg", "sermorelin")
+    srun = lambda vf, dst: subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(ssrc), "-vf", vf, "-c:v", "libwebp",
+                                           "-quality", "92", str(out / dst)], capture_output=True, text=True)
+    srun("scale=480:642:flags=lanczos,unsharp=5:5:0.6:5:5:0", "sermorelin-480.webp")
+    srun(wide.format(w=1200, h=900), "sermorelin-wide.webp")
+    srun(wide.format(w=800, h=600), "sermorelin-wide-800.webp")
+    print("wrote sermorelin-480, sermorelin-wide and sermorelin-wide-800 from " + ssrc.relative_to(ROOT).as_posix())
     return 0
 
 
