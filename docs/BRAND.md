@@ -116,7 +116,9 @@ Files: product images are `public/images/products/<program>.webp` and people and
 
 ## 6. The product label
 
-Every vial, bottle and spray carries the same label, so the shelf reads as one brand:
+This label lives only in our pictures. Settled Nov 19 2026 by Dourado: the vials patients receive will not carry Velacore branding; the pharmacy labels them. So every picture of a labeled vial is an illustration and keeps the illustration note beside it, on the site, in ads and in video.
+
+Every vial, bottle and spray in our pictures carries the same label, so the shelf reads as one brand:
 
 Style A, pine band, chosen by Dourado Nov 11 2026:
 
@@ -146,4 +148,4 @@ Every vial cap is deep matte pine, #15302A, with a silver crimp. The program col
 
 1. Closed Nov 6: the designer's package is in `brand/logo/`, downloaded from the business Drive with Dourado's OK.
 2. Gradient stops recorded in section 2. The wordmark typeface cannot be read from the package, the letters are outlines; ask the designer if it is ever needed. Decide whether the site's light-ground logo, gradient mark with black wordmark, is the approved fourth version or whether the site should use version 03 all black on light grounds. Dourado.
-3. Closed Nov 11: Dourado asked for Velacore branding on the vials, so the label carries the full logo. See section 6.
+3. Closed Nov 11: Dourado asked for Velacore branding on the vials, so the label carries the full logo. See section 6. Nov 19: that branding is for our pictures only; dispensed vials will not carry it.
