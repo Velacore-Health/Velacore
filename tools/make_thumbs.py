@@ -4,8 +4,8 @@ Run from the repo root:  python -I tools/make_thumbs.py
 
 Nov 18 2026, Dourado: every label in the small pictures must be legible and visible. A whole bottle shrunk to about
 56 px leaves the product name unreadable and often cut off, so each thumbnail is now a square cut around the label,
-from the logo band down to the line under the product name, ending above the fine print so no half-cut text shows, taken from the full-size original in assets-in/products and saved at
-216 px, then sharpened once. The boxes below are measured on each original, in its own pixels: left, top, side.
+from the logo band down to the line under the product name, ending above the fine print so no half-cut text shows, taken from the full-size original in assets-in/products, saved at 432 px
+and sharpened once. Nov 19 2026: raised from 216 px, because the phone menu shows them up to 106 CSS px, about 318 device px. The boxes below are measured on each original, in its own pixels: left, top, side.
 """
 import subprocess
 import sys
@@ -25,7 +25,7 @@ BOXES = {
 }
 # Not a product: the Not sure tile on the home page shows the glass clipboard, which has no label to read.
 OTHER = {"not-sure": ("lifestyle/learn-evaluation.jpg", (330, 150, 1300))}
-SIZE = 216
+SIZE = 432
 
 
 def main():
