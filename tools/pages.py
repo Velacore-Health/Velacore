@@ -183,7 +183,7 @@ PAGES = [
         "slug": "pricing",
         "pricing": True,   # visual layout, Nov 17 2026: cards first, short bands, the paragraphs below fold under them
         "title": "GLP-1 and Peptide Program Prices",
-        "meta": "First month from {{low_first}}, then from {{low_then}} a month. One price covers medication, clinician reviews and shipping. No consultation fee. Prescription required.",
+        "meta": "Programs from {{low_then}} a month. One price covers medication, clinician reviews and shipping. No consultation fee. Prescription required.",
         "h1": "Pricing",
         "lede": "Each program has one price, shown before you start. There is no separate consultation or physician fee. Prescription required.",
         "sections": [

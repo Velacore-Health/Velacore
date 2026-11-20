@@ -22,14 +22,16 @@ prescribed).
 Decided by Dourado on Nov 6 2026 for the OpenLoop platform. The public, LegitScript-scannable
 site names **only these**:
 
-| Treatment | Public descriptor (factual, no efficacy claims) | Launch price, month to month, planned |
+| Treatment | Public descriptor (factual, no efficacy claims) | Price, month to month, OpenLoop's fixed price |
 |-----------|--------------------------------------------------|--------------|
-| Tirzepatide | Dual GIP / GLP-1 receptor agonist, injection | $279, $199 first month |
-| Semaglutide | GLP-1 receptor agonist, injection or oral form | Injection $229, $149 first month; oral $259, from the written proposal, Dourado's decision Nov 17 2026, form to confirm with OpenLoop |
-| Microdosing GLP-1 | Low-dose GLP-1 combined with vitamins or amino acids, oral or injection | $179 |
-| NAD+ | NAD+ injectable, nasal or oral dropper | $199 |
-| Glutathione | Glutathione, a peptide of three amino acids, in the form the clinician prescribes | $199, placeholder |
-| Sermorelin | Growth hormone–releasing hormone analog, injection | $199 |
+| Tirzepatide | Dual GIP / GLP-1 receptor agonist, injection | $249; 12-week $239 a month |
+| Semaglutide | GLP-1 receptor agonist, injection or oral form | Injection $209, 12-week $199 a month; oral $259, form to confirm with OpenLoop |
+| Microdosing GLP-1 | Low-dose GLP-1 combined with vitamins or amino acids, oral or injection | $179; 12-week $169 a month |
+| NAD+ | NAD+ injectable, nasal or oral dropper | $229; 12-week $179 a month |
+| Glutathione | Glutathione, a peptide of three amino acids, in the form the clinician prescribes | $145; 12-week $129 a month |
+| Sermorelin | Growth hormone–releasing hormone analog, injection | $229; 12-week $179 a month |
+
+Nov 20 2026: OpenLoop wrote that Agile prices are fixed and partners cannot change them. The prices above are the Nov 12 Agile proposal prices, with no first month price, on Dourado's OK. OpenLoop also confirmed in writing that Glutathione is an injection available in all 50 states. The paragraphs below are history.
 
 Glutathione was off the site from Nov 6 to Nov 13 2026 because the Nov 2 Launchpad proposal left it
 out. Dourado put it back Nov 13 2026 after the OpenLoop rep named it as an Agile program on the

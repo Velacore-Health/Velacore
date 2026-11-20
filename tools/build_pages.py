@@ -216,7 +216,7 @@ CLIN_FACTS = [
 
 
 def price_cards():
-    """One card per program in the home page card style: vial photo, form line, first month price, the
+    """One card per program in the home page card style: vial photo, form line, monthly price, the
     12-week plan, Learn more and Start visit. Every figure is read from the program data in build_programs.py."""
     cards = []
     for p in bp.PROGRAMS:
@@ -225,9 +225,6 @@ def price_cards():
             continue
         monthly = next(x for x in p["plans"] if x["id"] == "monthly")
         week12 = next(x for x in p["plans"] if x["id"] == "12week")
-        m = re.match(r"^(\$\d+) your first month, then (\$\d+) a month", monthly["note"])
-        assert m, (p["slug"], monthly["note"])
-        first, then = m.group(1), m.group(2)
         w = re.match(r"^(\$\d+) charged up front", week12["note"]); assert w, p["slug"]
         wi, he = img_size(p["image"])
         cards.append(
@@ -506,13 +503,10 @@ def main():
         assert len(a["title"]) <= 60, (a["slug"], "title over 60", len(a["title"]))
         assert "{{" in a["meta"] or len(a["meta"]) <= 155, (a["slug"], "meta over 155", len(a["meta"]))
         assert "$" not in json.dumps(a), (a["slug"], "a price is typed in the copy")
-        if "{{low_first}}" in a["meta"]:
-            # The lowest first month and lowest monthly price across programs, read from the program data.
-            lows = [re.match(r"^\$(\d+) your first month, then \$(\d+) a month",
-                             next(x for x in q["plans"] if x["id"] == "monthly")["note"]).groups()
-                    for q in bp.PROGRAMS if any(x["id"] == "monthly" for x in q["plans"])]
-            a = {**a, "meta": a["meta"].replace("{{low_first}}", "$" + str(min(int(f) for f, _ in lows)))
-                                    .replace("{{low_then}}", "$" + str(min(int(t) for _, t in lows)))}
+        if "{{low_then}}" in a["meta"]:
+            # The lowest month to month price across programs, read from the program data.
+            lows = [int(bp.monthly_price(q).lstrip("$")) for q in bp.PROGRAMS if any(x["id"] == "monthly" for x in q["plans"])]
+            a = {**a, "meta": a["meta"].replace("{{low_then}}", "$" + str(min(lows)))}
             assert len(a["meta"]) <= 155, (a["slug"], "meta over 155", len(a["meta"]))
         (PUB / f"{a['slug']}.html").write_text(page(a), encoding="utf-8")
         print("wrote", f"public/{a['slug']}.html")

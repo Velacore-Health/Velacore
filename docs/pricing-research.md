@@ -4,6 +4,8 @@ Goal: pick price points that win volume without the business breaking when patie
 Sources are mostly 2026 comparison/affiliate sites and vendor blogs (listed at the end); treat all
 figures as directional and verify on provider sites before quoting them anywhere.
 
+**Nov 20 2026, settled in writing:** OpenLoop wrote that Agile prices are fixed and partners cannot change retail pricing. On Dourado's OK the site now shows only OpenLoop's Nov 12 proposal prices, with no first month price and no price slash. The launch prices, first month offers and A/B test below are history.
+
 **Nov 12 2026 update:** Velacore chose OpenLoop Agile. On Agile, OpenLoop sets the retail price,
 so the launch prices and the A/B test in sections 4 and 5 were written for Launchpad and do not
 apply as written. Keep the market research; replace the plan with the prices in the updated Agile

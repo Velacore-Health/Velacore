@@ -33,12 +33,12 @@ PROGRAMS = [
     {
         "slug": "tirzepatide", "name": "Tirzepatide", "cat": "Weight", "image": "products/tirzepatide.webp",
         "title": "Compounded Tirzepatide, Online Visit",
-        "meta": "Compounded tirzepatide injection. A licensed clinician decides. $199 first month, then $279 a month. Shipping included. Prescription required.",
+        "meta": "Compounded tirzepatide injection. A licensed clinician decides. $249 a month. Shipping included. Prescription required.",
         "lede": "A dual GIP and GLP-1 receptor agonist, prepared as an injection by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
         "chips": ["Prescription only", "Injection, 5 dose levels", "Ships every 4 weeks"],
         "plans": [
-            {"id": "monthly", "label": "Month to month", "price": "$279", "unit": "/mo", "note": "$199 your first month, then $279 a month. Cancel any time."},
-            {"id": "12week", "label": "12-week plan", "price": "$249", "unit": "/mo", "note": "$747 charged up front, shipped every 4 weeks."},
+            {"id": "monthly", "label": "Month to month", "price": "$249", "unit": "/mo", "note": "$249 a month. Cancel any time."},
+            {"id": "12week", "label": "12-week plan", "price": "$239", "unit": "/mo", "note": "$717 charged up front, shipped every 4 weeks."},
         ],
         "what_h": "What tirzepatide is",
         "what": [
@@ -64,11 +64,11 @@ PROGRAMS = [
     {
         "slug": "semaglutide", "name": "Semaglutide", "cat": "Weight", "image": "products/semaglutide.webp",
         "title": "Compounded Semaglutide, Online Visit",
-        "meta": "Compounded semaglutide. A licensed clinician decides. Injection $149 first month, then $229 a month; oral $259 a month. Prescription required.",
+        "meta": "Compounded semaglutide. A licensed clinician decides. Injection $209 a month; oral $259 a month. Prescription required.",
         "lede": "A GLP-1 receptor agonist, prepared as an injection or an oral form by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
         "chips": ["Prescription only", "Injection or oral", "Ships every 4 weeks"],
         "plans": [
-            {"id": "monthly", "label": "Injection, month to month", "price": "$229", "unit": "/mo", "note": "$149 your first month, then $229 a month. Cancel any time."},
+            {"id": "monthly", "label": "Injection, month to month", "price": "$209", "unit": "/mo", "note": "$209 a month. Cancel any time."},
             {"id": "12week", "label": "Injection, 12-week plan", "price": "$199", "unit": "/mo", "note": "$597 charged up front, shipped every 4 weeks."},
             {"id": "oral", "label": "Oral, month to month", "price": "$259", "unit": "/mo", "note": "$259 a month for the oral form, taken by mouth daily. Cancel any time."},
         ],
@@ -78,7 +78,7 @@ PROGRAMS = [
             "The compounded version is prepared by a licensed 503A compounding pharmacy to your clinician's prescription. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
         ],
         "facts": ["GLP-1 receptor agonist", "Injection: five dose levels, 0.8 mg to 8.96 mg per 4 weeks", "Oral: 5 mg or 10 mg a day", "Clinician review before every dose change", "Baseline labs at a national lab, included", "Optional nausea medication at a local pharmacy, if your clinician prescribes it"],
-        "forms": [("Injection", "products/semaglutide.webp", "A small self-injection under the skin. Supplies included. $149 first month, then $229 a month."),
+        "forms": [("Injection", "products/semaglutide.webp", "A small self-injection under the skin. Supplies included. $209 a month."),
                   ("Oral", "products/semaglutide-oral.webp", "Taken by mouth daily. No needle. $259 a month.")],
         "journey": [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
@@ -98,12 +98,12 @@ PROGRAMS = [
     {
         "slug": "microdosing", "name": "Microdosing GLP-1", "cat": "Weight, entry tier", "image": "products/microdosing.webp",
         "title": "Microdosing GLP-1 Program Online",
-        "meta": "Low-dose GLP-1 with vitamins or amino acids, oral or injection. A licensed clinician decides. $129 first month, then $179 a month. Prescription required.",
+        "meta": "Low-dose GLP-1 with vitamins or amino acids, oral or injection. A licensed clinician decides. $179 a month. Prescription required.",
         "lede": "A low dose of a GLP-1 medication combined with NAD+, B12 or amino acids, in an oral or injectable form, prescribed only when a licensed clinician decides it is appropriate for you.",
         "chips": ["Prescription only", "Oral or injection, 7 formulations", "Ships every 4 weeks"],
         "plans": [
-            {"id": "monthly", "label": "Month to month", "price": "$179", "unit": "/mo", "note": "$129 your first month, then $179 a month. Cancel any time."},
-            {"id": "12week", "label": "12-week plan", "price": "$159", "unit": "/mo", "note": "$477 charged up front, shipped every 4 weeks."},
+            {"id": "monthly", "label": "Month to month", "price": "$179", "unit": "/mo", "note": "$179 a month. Cancel any time."},
+            {"id": "12week", "label": "12-week plan", "price": "$169", "unit": "/mo", "note": "$507 charged up front, shipped every 4 weeks."},
         ],
         "what_h": "What the microdosing program is",
         "what": [
@@ -129,12 +129,12 @@ PROGRAMS = [
     {
         "slug": "nad", "name": "NAD+", "cat": "Vitality", "image": "products/nad.webp",
         "title": "NAD+ Online Visit: Injection, Nasal, Oral",
-        "meta": "NAD+ injection, nasal spray or oral dropper. A licensed clinician decides. $129 first month, then $199 a month. Shipping included. Prescription required.",
+        "meta": "NAD+ injection, nasal spray or oral dropper. A licensed clinician decides. $229 a month. Shipping included. Prescription required.",
         "lede": "Nicotinamide adenine dinucleotide, a coenzyme found in every cell, prepared as an injection, nasal spray or oral dropper by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
         "chips": ["Prescription only", "Injection, nasal or oral", "Ships every 4 weeks"],
         "plans": [
-            {"id": "monthly", "label": "Month to month", "price": "$199", "unit": "/mo", "note": "$129 your first month, then $199 a month. Cancel any time."},
-            {"id": "12week", "label": "12-week plan", "price": "$169", "unit": "/mo", "note": "$507 charged up front, shipped every 4 weeks."},
+            {"id": "monthly", "label": "Month to month", "price": "$229", "unit": "/mo", "note": "$229 a month. Cancel any time."},
+            {"id": "12week", "label": "12-week plan", "price": "$179", "unit": "/mo", "note": "$537 charged up front, shipped every 4 weeks."},
         ],
         "what_h": "What NAD+ is",
         "what": [
@@ -163,12 +163,12 @@ PROGRAMS = [
     {
         "slug": "glutathione", "name": "Glutathione", "cat": "Vitality", "image": "products/glutathione.webp",
         "title": "Compounded Glutathione, Online Visit",
-        "meta": "Glutathione, a peptide of three amino acids. A licensed clinician decides. $129 first month, then $199 a month. Shipping included. Prescription required.",
+        "meta": "Glutathione, a peptide of three amino acids. A licensed clinician decides. $145 a month. Shipping included. Prescription required.",
         "lede": "Glutathione, a peptide made of three amino acids, prescribed only when a licensed clinician decides it is appropriate for you and prepared by a licensed 503A compounding pharmacy in the form the clinician chooses.",
         "chips": ["Prescription only", "Form set by your clinician", "Ships every 4 weeks"],
         "plans": [
-            {"id": "monthly", "label": "Month to month", "price": "$199", "unit": "/mo", "note": "$129 your first month, then $199 a month. Cancel any time."},
-            {"id": "12week", "label": "12-week plan", "price": "$169", "unit": "/mo", "note": "$507 charged up front, shipped every 4 weeks."},
+            {"id": "monthly", "label": "Month to month", "price": "$145", "unit": "/mo", "note": "$145 a month. Cancel any time."},
+            {"id": "12week", "label": "12-week plan", "price": "$129", "unit": "/mo", "note": "$387 charged up front, shipped every 4 weeks."},
         ],
         "what_h": "What glutathione is",
         "what": [
@@ -194,12 +194,12 @@ PROGRAMS = [
     {
         "slug": "sermorelin", "name": "Sermorelin", "cat": "Hormone support", "image": "products/sermorelin.webp",
         "title": "Compounded Sermorelin, Online Visit",
-        "meta": "Compounded sermorelin injection. A licensed clinician decides. $129 first month, then $199 a month. Shipping included. Prescription required.",
+        "meta": "Compounded sermorelin injection. A licensed clinician decides. $229 a month. Shipping included. Prescription required.",
         "lede": "A growth hormone-releasing hormone analog, prepared as an injection by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
         "chips": ["Prescription only", "Injection", "Ships every 4 weeks"],
         "plans": [
-            {"id": "monthly", "label": "Month to month", "price": "$199", "unit": "/mo", "note": "$129 your first month, then $199 a month. Cancel any time."},
-            {"id": "12week", "label": "12-week plan", "price": "$169", "unit": "/mo", "note": "$507 charged up front, shipped every 4 weeks."},
+            {"id": "monthly", "label": "Month to month", "price": "$229", "unit": "/mo", "note": "$229 a month. Cancel any time."},
+            {"id": "12week", "label": "12-week plan", "price": "$179", "unit": "/mo", "note": "$537 charged up front, shipped every 4 weeks."},
         ],
         "what_h": "What sermorelin is",
         "what": [
@@ -259,20 +259,19 @@ if LIVE_DRAFTS:
     MENU[2].append(("Sexual and women's health", [(d["slug"], d["name"], f"images/products/thumbs/{d['slug']}.webp", d["chips"][1]) for d in LIVE_DRAFTS]))
 
 
-def first_month(p):
-    """The first month price, read from the monthly plan note so it is never typed twice."""
-    note = next(x for x in p["plans"] if x["id"] == "monthly")["note"]
-    m = re.match(r"^(\$\d+) your first month", note)
-    assert m, (p["slug"], note)
-    return m.group(1)
+def monthly_price(p):
+    """The month to month price, read from the monthly plan so it is never typed twice. Nov 20 2026: OpenLoop wrote that
+    Agile prices are fixed and partners cannot change them, so the site shows OpenLoop's price only, with no first month
+    price and no price slash. Dourado's OK the same day."""
+    return next(x for x in p["plans"] if x["id"] == "monthly")["price"]
 
 
 def price_line(p):
-    """One short price line for menus and cards, read from the plan notes so no price is typed twice. Monthly programs
-    show the first month. A single plan billed every few weeks shows the month and the charge, per vc-reviewer Nov 18 2026.
-    Programs sold by the pack show the lowest pack price."""
+    """One short price line for menus and cards, read from the plan data so no price is typed twice. Monthly programs
+    show the month to month price. A single plan billed every few weeks shows the month and the charge, per vc-reviewer
+    Nov 18 2026. Programs sold by the pack show the lowest pack price."""
     if any(x["id"] == "monthly" for x in p["plans"]):
-        return f"{first_month(p)} first month"
+        return f"{monthly_price(p)} a month"
     first = p["plans"][0]
     m = re.match(r"^(\$\d+) charged every (\d+ weeks)", first["note"])
     if len(p["plans"]) == 1 and m:
@@ -281,22 +280,11 @@ def price_line(p):
     return f'From ${min(int(x["price"].lstrip("$")) for x in p["plans"])} a pack'
 
 
-def first_and_then(p):
-    """The first month price and the regular monthly price, both read from the monthly plan note."""
-    note = next(x for x in p["plans"] if x["id"] == "monthly")["note"]
-    m = re.match(r"^(\$\d+) your first month, then (\$\d+) a month", note)
-    assert m, (p["slug"], note)
-    return m.group(1), m.group(2)
-
-
-def was(price):
-    """Price slash, Nov 19 2026, Dourado's call: the regular monthly price, struck through, in front of the first
-    month price. It is the price charged every month after the first, never an invented compare-at price, and the
-    words next to it always say "then $X/mo". Screen readers hear "Monthly price after the first month", since many skip
-    strikethrough, and that label cannot be read as a former sale price.
-    Where it goes, per vc-reviewer Nov 19 2026: only on a short price line whose headline is the first month price, with
-    "then $X/mo" beside it. Never inside a sentence, on a "from" price, or where the regular price is already the big figure."""
-    return f'<s class="was"><span class="vh">Monthly price after the first month </span>{price}</s> '
+def week12_line(p):
+    """The 12-week plan line on program cards, read from the plan data, plus the oral form price where there is one."""
+    w = next(x for x in p["plans"] if x["id"] == "12week")
+    up = re.match(r"^(\$\d+) charged up front", w["note"]).group(1)
+    return f'12-week plan {w["price"]}/mo, {up} up front.' + "".join(f' Oral form {x["price"]}/mo.' for x in p["plans"] if x["id"] == "oral")
 
 
 def injection(p):
@@ -307,15 +295,13 @@ def injection(p):
 def price_html(p):
     """price_line with the price slash, for the menu cards."""
     if any(x["id"] == "monthly" for x in p["plans"]):
-        first, then = first_and_then(p)
-        return f"{was(then)}{first} first&nbsp;month<br>then {then}/mo{injection(p)}"
+        return f"{monthly_price(p)} a&nbsp;month{injection(p)}"
     return price_line(p)
 
 
 def tcard_price(p):
     """The price on a program card, home page and pricing page alike."""
-    first, then = first_and_then(p)
-    return f'<span class="tcard-price">{was(then)}{first} <small>first month, then {then}/mo{injection(p)}</small></span>'
+    return f'<span class="tcard-price">{monthly_price(p)} <small>a month{injection(p)}</small></span>'
 
 
 def prod_srcset(rel, prefix, sizes):
@@ -379,7 +365,7 @@ def panel_thumb(p, prefix):
 
 
 def side_panel(prefix):
-    """The slide-in menu, Nov 17 2026: the goal question, the six programs with their first month price,
+    """The slide-in menu, Nov 17 2026: the goal question, the six programs with their monthly price,
     the site links, one button. The same on every page; prefix is '' at the root and '../' one level down."""
     goals = "".join(
         f'<li><a href="{prefix}index.html#goals-{g}" data-pick-goal="{g}"><img src="{prefix}images/products/thumbs/{GOAL_THUMB[g]}.webp" width="216" height="216" alt="" loading="lazy" />'
@@ -543,9 +529,8 @@ def start_button(p, cls="btn btn-primary", prefix="../"):
 def mcta_price(p):
     """Phone bar price: two short lines so the full price always shows."""
     first = p["plans"][0]
-    m = re.match(r"(\$\d+) your first month, then (\$\d+) a month", first["note"])
-    if m:
-        return f'<span class="mcta-price"><b>{was(m.group(2))}{m.group(1)} first&nbsp;month</b><small>then {m.group(2)}/mo{injection(p)}</small></span>'
+    if first["id"] == "monthly":
+        return f'<span class="mcta-price"><b>{first["price"]} a&nbsp;month</b><small>{p["name"]}{injection(p)}</small></span>'
     line = price_line(p)
     if ", billed " in line:
         a, b = line.split(", ", 1)

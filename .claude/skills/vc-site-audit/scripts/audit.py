@@ -349,9 +349,7 @@ def audit_prices(live):
             add("REVIEW", f"{p}: stopgap surfaces show " + ", ".join(f"{s} ${v}" for s, v in stop_vals.items()) + f"; public/ shows ${'/$'.join(map(str, sorted(current)))}. Expected until the store is retired")
         plan = CFG["planned_prices"].get(p)
         if plan and current and current != {plan}:
-            add("REVIEW", f"{p}: shows ${'/$'.join(map(str, sorted(current)))}, planned month-to-month is ${plan} once the platform is signed")
-        if p == "glutathione" and current:
-            add("REVIEW", "glutathione is listed on Dourado's Nov 13 2026 decision; confirm it against the written Agile proposal")
+            add("FAIL", f"{p}: shows ${'/$'.join(map(str, sorted(current)))}, OpenLoop's fixed month to month price is ${plan}")
     live["price_table"] = "\n".join(rows)
 
 
