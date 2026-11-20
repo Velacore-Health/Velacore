@@ -186,11 +186,12 @@
           <p class="section-sub">Prescription only. Pick where you want to start; the online visit takes it from there.</p>
         </div>
 
-        <div class="filters" role="tablist" aria-label="Filter treatments">
-          <button class="filter is-active" data-filter="all">All</button>
-          <button class="filter" data-filter="weight">Weight</button>
-          <button class="filter" data-filter="vitality">Vitality</button>
-          <button class="filter" data-filter="hormone">Hormone support</button>
+        <!-- Filters, Nov 19 2026: plain on/off buttons, not tabs. One line that scrolls sideways on phones. -->
+        <div class="filters" role="group" aria-label="Filter treatments">
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true" aria-controls="tgrid">All</button>
+          <button type="button" class="filter" data-filter="weight" aria-pressed="false" aria-controls="tgrid">Weight</button>
+          <button type="button" class="filter" data-filter="vitality" aria-pressed="false" aria-controls="tgrid">Vitality</button>
+          <button type="button" class="filter" data-filter="hormone" aria-pressed="false" aria-controls="tgrid">Hormone support</button>
         </div>
 
         <!-- Program row, Nov 17 2026: one row that slides, the same on every screen. Drag, swipe, arrows or arrow keys. -->
@@ -364,7 +365,7 @@
             <h2>New to peptides?</h2>
             <p>What they are, how they are made, how they are taken, and how they differ from GLP-1s. A 50 second video and a plain-language page.</p>
           </div>
-          <a href="learn.html" class="btn btn-primary">Watch the explainer</a>
+          <a href="learn.html" class="btn btn-ghost">Watch the explainer</a>
         </div>
       </div>
     </section>
@@ -420,7 +421,7 @@
           <a class="step-link" href="clinicians.html">How clinicians are credentialed</a>
         </div>
         </div>
-        <div class="why-cta"><a href="#goals" class="btn btn-primary" data-find>Find your program</a></div>
+        <!-- Nov 19 2026: the Find your program button here was removed; the guarantee band right below carries the same button. -->
       </div>
     </section>
 

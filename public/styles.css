@@ -683,7 +683,7 @@ body.panel-open{overflow:hidden}
 
 
 /* Funnel fixes per vc-reviewer Nov 13 2026 */
-.tcard .btn-sm{min-height:44px}
+.tcard .btn-sm{min-height:48px}
 .tcard-link{min-height:44px;display:inline-flex;align-items:center}
 .sp-card a[aria-disabled="true"]::after{content:none}
 .sp-side .img-note{margin-top:10px}
@@ -1098,3 +1098,32 @@ p,li,figcaption,dd,.section-sub{text-wrap:pretty}
   .pb-price{flex:1;min-width:0}
   .pb-price .price-note{margin-bottom:0}
 }
+
+/* Program row and filters on phones, Nov 19 2026, from a reel Dourado liked.
+   Each swipe stops with a card in the center and a sliver of its neighbours on each side. The centered card is full size,
+   the neighbours sit a little smaller, driven by the scroll itself. It moves only when the person swipes.
+   Browsers without scroll-driven animation, and anyone with reduced motion, get the same row at full size.
+   The filter row stays on one line and scrolls sideways instead of wrapping. */
+@media (max-width:700px){
+  .filters{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;margin:-6px -24px 26px;padding:6px 24px 8px;scroll-padding-inline:24px;scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .filter{flex:none}
+  .filter:first-child{margin-left:auto}
+  .filter:last-child{margin-right:auto}
+}
+@media (max-width:480px){
+  .prow-track{scroll-padding-inline:0;padding-inline:calc(50% - min(138px,37vw))}
+  .prow-track .tcard{flex-basis:min(276px,74vw);scroll-snap-align:center}
+  .prow-track .tcard-link{min-height:48px}
+  .prow::before{content:"";position:absolute;z-index:1;top:0;bottom:18px;left:0;width:40px;background:linear-gradient(to left,rgba(238,245,241,0),var(--mint));pointer-events:none;transition:opacity .2s}
+  .prow.at-start::before{opacity:0}
+}
+@supports (grid-template-rows:subgrid){
+  @media (max-width:480px){.prow-track{grid-auto-columns:min(276px,74vw)}}
+}
+@supports (animation-timeline:view()){
+  @media (max-width:480px) and (prefers-reduced-motion:no-preference){
+    .prow-track .tcard{animation:prowFocus linear both;animation-timeline:view(inline);animation-range:cover}
+  }
+}
+@keyframes prowFocus{0%,20%{transform:scale(.93)}50%{transform:none}80%,100%{transform:scale(.93)}}

@@ -178,7 +178,8 @@
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       var f = btn.getAttribute('data-filter');
-      filterBtns.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      filterBtns.forEach(function (b) { b.classList.toggle('is-active', b === btn); b.setAttribute('aria-pressed', String(b === btn)); });
+      if (btn.scrollIntoView) btn.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
       cards.forEach(function (card) {
         var cat = card.getAttribute('data-cat');
         var show = f === 'all' || cat === f || cat === 'all';
@@ -197,6 +198,7 @@
       if (prev) prev.disabled = track.scrollLeft <= 2;
       if (next) next.disabled = track.scrollLeft >= max - 2;
       root.classList.toggle('at-end', track.scrollLeft >= max - 2);
+      root.classList.toggle('at-start', track.scrollLeft <= 2);
     }
     function by(dx) { track.scrollBy({ left: dx, behavior: reduce ? 'auto' : 'smooth' }); }
     if (prev) prev.addEventListener('click', function () { by(-step()); });
@@ -231,6 +233,18 @@
     }
     track.addEventListener('pointerup', end); track.addEventListener('pointercancel', end);
     track.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    // Nov 19 2026, per vc-reviewer: when Tab lands on a link in a card, bring that whole card to its snap spot,
+    // centered on phones, so the focused link and its ring are always on screen. Mouse drags are left alone.
+    track.addEventListener('focusin', function (e) {
+      var card = e.target.closest && e.target.closest('.tcard');
+      if (!card || x0 !== null) return;
+      try { if (!e.target.matches(':focus-visible')) return; } catch (err) {}
+      var r = card.getBoundingClientRect(), t = track.getBoundingClientRect(), cs = getComputedStyle(card);
+      var left = cs.scrollSnapAlign.indexOf('center') > -1
+        ? r.left + r.width / 2 - t.left + track.scrollLeft - track.clientWidth / 2
+        : r.left - t.left + track.scrollLeft - (parseFloat(getComputedStyle(track).scrollPaddingLeft) || 0);
+      track.scrollTo({ left: Math.max(0, left), behavior: reduce ? 'auto' : 'smooth' });
+    });
     filterBtns.forEach(function (b) { b.addEventListener('click', function () { track.scrollTo({ left: 0, behavior: 'auto' }); setTimeout(sync, 30); }); });
   });
 
@@ -374,16 +388,47 @@
   var heroSec = document.querySelector('.hero, .hub, .prog-hero');
   var intakeSec = document.getElementById('intake') || document.getElementById('start');
   if (mobileCta && 'IntersectionObserver' in window) {
-    var heroVisible = !!heroSec, intakeVisible = false, carVisible = false; // pages without a hero show the bar at once
+    var heroVisible = !!heroSec, intakeVisible = false, carVisible = false, btnsVisible = false, chVisible = false; // pages without a hero show the bar at once
     var carSec = document.querySelector('[data-prow]');
     var update = function () {
-      var show = !heroVisible && !intakeVisible && !carVisible;
+      var chRes = document.getElementById('chResults');
+      var show = !heroVisible && !intakeVisible && !carVisible && !btnsVisible && !(chVisible && chRes && chRes.children.length);
       mobileCta.classList.toggle('is-shown', show);
       mobileCta.classList.toggle('is-hidden', !show);
     };
     if (heroSec) new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; update(); }, { threshold: 0.1 }).observe(heroSec);
     if (intakeSec) new IntersectionObserver(function (e) { intakeVisible = e[0].isIntersecting; update(); }, { threshold: 0.05 }).observe(intakeSec);
     if (carSec) new IntersectionObserver(function (e) { carVisible = e[0].isIntersecting; update(); }, { threshold: 0.05 }).observe(carSec);
+    // the chooser's results are the answer to Find your program, so the bar steps aside while they are on screen
+    var chResEl = document.getElementById('chResults');
+    if (chResEl) new IntersectionObserver(function (e) { chVisible = e[0].isIntersecting; update(); }).observe(chResEl);
+    // Nov 19 2026, one main button per screen: the bar also steps aside while any other green button in the page is in view.
+    // Buttons added later, like the chooser's result cards, are watched too, and removed ones stop counting.
+    var inView = [], mainEl = document.querySelector('main');
+    if (mainEl) {
+      var recount = function () {
+        inView = inView.filter(function (b) { return document.documentElement.contains(b); });
+        btnsVisible = inView.length > 0; update();
+      };
+      var btnObs = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          var i = inView.indexOf(e.target);
+          if (e.isIntersecting && i < 0) inView.push(e.target);
+          if (!e.isIntersecting && i >= 0) inView.splice(i, 1);
+        });
+        recount();
+      });
+      var watchIn = function (node) {
+        if (node.nodeType !== 1 || mobileCta.contains(node)) return;
+        if (node.matches('.btn-primary')) btnObs.observe(node);
+        Array.prototype.forEach.call(node.querySelectorAll('.btn-primary'), function (b) { btnObs.observe(b); });
+      };
+      watchIn(mainEl);
+      if ('MutationObserver' in window) new MutationObserver(function (ms) {
+        ms.forEach(function (m) { Array.prototype.forEach.call(m.addedNodes, watchIn); });
+        recount();
+      }).observe(mainEl, { childList: true, subtree: true });
+    }
     update();
   }
 
