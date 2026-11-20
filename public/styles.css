@@ -1189,6 +1189,14 @@ p,.hub-text span,.tcard-mech,.form-tiles p{text-wrap:pretty}
    is a block so the source tag never becomes a layout item. */
 .goal-media picture{display:block;width:100%}
 @media (min-width:421px) and (max-width:860px){.goal-media{display:block;position:relative;min-height:180px}.goal-media picture{position:absolute;inset:0}.goal-media img{position:absolute;inset:0;aspect-ratio:auto;width:100%;height:100%;object-fit:cover;object-position:50% 50%}.goal-tile[data-goal="hormone"] .goal-media img{object-position:50% 35%}}
-/* Nov 20 2026, Dourado: up to 1299 px the Hormone card uses the same Sermorelin cuts as the Tirzepatide card, so both vials read the same size */
-@media (max-width:700px){.hub-hormone{min-height:192px}}
-@media (max-width:1299px){.hub-hormone img{object-position:50% 50%}}
+/* Nov 20 2026, Dourado: no cut vials on the two big home cards. Up to 1299 px both cards show the 4 by 3 studio cut, which holds
+   the whole vial top to bottom. The photo box is never wider than 4 by 3, so the photo is only ever trimmed at its plain sides. */
+@media (max-width:700px){.hub-hormone{min-height:192px}.hub-card img{object-position:56% 50%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}}
+@media (min-width:701px) and (max-width:1000px){.hub-card{grid-template-columns:1fr 268px}}
+@media (min-width:1001px) and (max-width:1299px){.hub-card{grid-template-columns:1fr min(48%,288px)}}
+@media (min-width:701px) and (max-width:1299px){.hub-card img{object-position:50% 50%}}
+@media (min-width:1300px){.hub-weight img{object-position:50% 50%}}
+/* Nov 20 2026, Dourado: on phones the three-vial photo uses the closer goal-weight-hub cut in the weight section and on the Weight goal card */
+.wband-photo picture{display:block}
+/* Nov 20 2026, Dourado, no cut vials: on phones each goal photo fills the card's photo box and is placed so every vial shows whole */
+@media (max-width:420px){.goal-media{position:relative}.goal-media img{position:absolute;inset:0;aspect-ratio:auto;width:100%;height:100%;object-position:50% 50%}.goal-tile[data-goal="vitality"] .goal-media img{object-position:50% 44%}.goal-tile[data-goal="hormone"] .goal-media img{object-position:50% 40%}}

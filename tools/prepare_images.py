@@ -90,14 +90,23 @@ def home_weight_card():
     run(wide.format(w=800, h=600), "tirzepatide-wide-800.webp")
     print("wrote tirzepatide-480, tirzepatide-wide and tirzepatide-wide-800 from " + src.relative_to(ROOT).as_posix())
     # Nov 20 2026, Dourado: on phones and tablets the Sermorelin vial on the home Hormone card read smaller than the
-    # Tirzepatide vial beside it. The same two cuts from the Sermorelin studio shot make both vials the same size.
+    # Tirzepatide vial beside it. The same wide cut from the Sermorelin studio shot makes both vials the same size; since the
+    # no-cut fix the home cards use only the wide cuts at every width up to 1299 px, and tirzepatide-480 is kept but unused.
     ssrc = studio_or(ROOT / "assets-in" / "products" / "sermorelin.jpg", "sermorelin")
     srun = lambda vf, dst: subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(ssrc), "-vf", vf, "-c:v", "libwebp",
                                            "-quality", "92", str(out / dst)], capture_output=True, text=True)
-    srun("scale=480:642:flags=lanczos,unsharp=5:5:0.6:5:5:0", "sermorelin-480.webp")
     srun(wide.format(w=1200, h=900), "sermorelin-wide.webp")
     srun(wide.format(w=800, h=600), "sermorelin-wide-800.webp")
-    print("wrote sermorelin-480, sermorelin-wide and sermorelin-wide-800 from " + ssrc.relative_to(ROOT).as_posix())
+    print("wrote sermorelin-wide and sermorelin-wide-800 from " + ssrc.relative_to(ROOT).as_posix())
+    # Nov 20 2026, Dourado: from 1300 px the weight card shows the three-vial photo, and the trio read small. This cut,
+    # 1590 by 1120 from x 325 y 345 of the 2400 by 1792 goal-weight photo, fills about seven tenths of the card height with
+    # the trio, the same as the Sermorelin vial beside it, a little right of center, with nothing cut.
+    gsrc = ROOT / "assets-in" / "lifestyle" / "goal-weight.jpg"
+    for w, h in ((800, 564), (1200, 845)):
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(gsrc), "-vf",
+                        f"crop=1590:1120:325:345,scale={w}:{h}:flags=lanczos,unsharp=5:5:0.5:5:5:0", "-c:v", "libwebp",
+                        "-quality", "90", str(out / f"goal-weight-hub-{w}.webp")], capture_output=True, text=True)
+    print("wrote goal-weight-hub-800 and -1200 from " + gsrc.relative_to(ROOT).as_posix())
     return 0
 
 
