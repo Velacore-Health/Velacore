@@ -93,6 +93,9 @@ def home_weight_card():
 
 
 GOAL_SIZES = ((480, 360), (800, 600), (1200, 900))
+# Nov 20 2026, Dourado: between 421 and 580 px the goal tiles are two columns about as tall as wide, and the 4 by 3 photo
+# floated small in them. These square cuts, x, y and side in the 2400 by 1792 source, center the products so they fill the column.
+GOAL_SQUARE = {"goal-weight": (412, 158, 1600), "goal-vitality": (304, 0, 1792), "goal-hormone": (304, 0, 1792)}
 
 
 def goal_sizes(names):
@@ -109,6 +112,12 @@ def goal_sizes(names):
             subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf",
                             f"scale={w}:{h}:flags=lanczos,unsharp=5:5:{amount}:5:5:0", "-c:v", "libwebp", "-quality", "90",
                             str(out / f"{name}-{w}.webp")], capture_output=True, text=True)
+        if name in GOAL_SQUARE:
+            x, y, side = GOAL_SQUARE[name]
+            for w in (480, 800):
+                subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf",
+                                f"crop={side}:{side}:{x}:{y},scale={w}:{w}:flags=lanczos,unsharp=5:5:0.6:5:5:0", "-c:v", "libwebp",
+                                "-quality", "90", str(out / f"{name}-sq-{w}.webp")], capture_output=True, text=True)
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf", "scale=1600:-2", "-c:v", "libwebp",
                         "-quality", "88", str(out / f"{name}.webp")], capture_output=True, text=True)
         print(f"wrote {name}-480, -800, -1200 and the 1600 master")
