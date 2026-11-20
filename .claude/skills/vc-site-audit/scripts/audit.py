@@ -512,6 +512,50 @@ def audit_seo(use_live):
     add("PASS", f"{clean} pages have complete SEO tags and the right indexing")
 
 
+BASE_SLUGS = ["tirzepatide", "semaglutide", "microdosing", "nad", "glutathione", "sermorelin"]
+
+
+def audit_coverage():
+    """Nov 20 2026, Dourado: when a hidden program launches, every section that lists programs must carry it. Checks each
+    live program, the six plus any slug switched on in tools/draft_programs.py LIVE, on every surface that lists programs.
+    The full launch list, including the parts a script cannot judge, is docs/launch-sexual-health-hrt.md."""
+    section("2b. Every live program on every surface")
+    spec = importlib.util.spec_from_file_location("draft_programs", ROOT / "tools" / "draft_programs.py")
+    dp = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(dp)
+    slugs = BASE_SLUGS + [s for s in dp.LIVE if s not in BASE_SLUGS]
+    read = lambda rel: (PUBLIC / rel).read_text(encoding="utf-8") if (PUBLIC / rel).exists() else ""
+    index, pricing, script, sitemap = read("index.html"), read("pricing.html"), read("script.js"), read("sitemap.xml")
+    m = re.search(r'id="tgrid".*?</section>', index, re.S)
+    row = m.group(0) if m else ""
+    m = re.search(r"var MAP = \{(.*?)\};", script, re.S)
+    chooser = m.group(1) if m else ""
+    m = re.search(r'<div class="mega">(.*?)</div></div></div>', index, re.S)
+    mega = m.group(1) if m else ""
+    checks = [
+        ("program page", lambda s: (PUBLIC / "programs" / f"{s}.html").exists()),
+        ("Start page", lambda s: (PUBLIC / "start" / f"{s}.html").exists()),
+        ("pricing card", lambda s: f'id="price-{s}"' in pricing),
+        ("home program row", lambda s: f'data-start="{s}"' in row),
+        ("program chooser", lambda s: f"'{s}'" in chooser),
+        ("Treatments menu", lambda s: f"programs/{s}.html" in mega),
+        ("sitemap", lambda s: f"programs/{s}" in sitemap),
+        ("footer", lambda s: f"programs/{s}.html" in pricing.split("<footer", 1)[-1]),
+        ("product photo", lambda s: (PUBLIC / "images" / "products" / f"{s}.webp").exists() and (PUBLIC / "images" / "products" / f"{s}-800.webp").exists()),
+        ("menu thumbnail", lambda s: (PUBLIC / "images" / "products" / "thumbs" / f"{s}.webp").exists()),
+        ("home row square photo", lambda s: (PUBLIC / "images" / "products" / "sq" / f"{s}-800.webp").exists()),
+    ]
+    gaps = []
+    for s in slugs:
+        miss = [name for name, ok in checks if not ok(s)]
+        if miss:
+            gaps.append(f"{s}: missing from {', '.join(miss)}")
+    add("FAIL" if gaps else "PASS", f"{len(slugs)} live programs checked on {len(checks)} surfaces" + (": " + "; ".join(gaps) if gaps else ", every one present"))
+    if dp.LIVE:
+        add("REVIEW", "a hidden program is live: work through docs/launch-sexual-health-hrt.md, including the parts no script checks, "
+                      "such as program counts in the copy, the goal tiles, the meta descriptions and the Learn and FAQ pages")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-live", action="store_true")
@@ -524,6 +568,7 @@ def main():
 
     audit_compliance()
     audit_local()
+    audit_coverage()
     if not a.no_live:
         audit_live(live)
     audit_prices(live)
