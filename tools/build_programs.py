@@ -292,7 +292,9 @@ def was(price):
     """Price slash, Nov 19 2026, Dourado's call: the regular monthly price, struck through, in front of the first
     month price. It is the price charged every month after the first, never an invented compare-at price, and the
     words next to it always say "then $X/mo". Screen readers hear "Monthly price after the first month", since many skip
-    strikethrough, and that label cannot be read as a former sale price."""
+    strikethrough, and that label cannot be read as a former sale price.
+    Where it goes, per vc-reviewer Nov 19 2026: only on a short price line whose headline is the first month price, with
+    "then $X/mo" beside it. Never inside a sentence, on a "from" price, or where the regular price is already the big figure."""
     return f'<s class="was"><span class="vh">Monthly price after the first month </span>{price}</s> '
 
 

@@ -30,6 +30,18 @@ for name in PAGES:
             return new
         s, cards = re.subn(r'<article class="tcard".*?</article>', card, s, flags=re.S)
         print("home cards checked:", cards)
+        # The Tired of needles tiles carry a short first month price line too; same slash, same source.
+        def tile(m):
+            li = m.group(0)
+            h = re.search(r'href="programs/([a-z-]+)\.html', li)
+            # An oral tile is priced by its form, not by the program it links to, so it is never rewritten here.
+            if not h or h.group(1) not in slugs or "data-oral" in li[:40]:
+                return li
+            first, then = bp.first_and_then(slugs[h.group(1)])
+            return re.sub(r'(?:<s class="was">.*?</s> )?\$\d+ first month(?:, then \$\d+/mo)?\.',
+                          lambda _: f"{bp.was(then)}{first} first month, then {then}/mo.", li, count=1)
+        s, tiles = re.subn(r'<li[^>]*><a href="programs/[^"]+"><img [^>]*>.*?</li>', tile, s, flags=re.S)
+        print("needle-free tiles checked:", tiles)
     if name in ("learn.html", "faq.html"):
         band = bp.goal_band("")
         if "<!-- goalband:start -->" in s:
