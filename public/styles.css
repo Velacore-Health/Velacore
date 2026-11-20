@@ -1133,3 +1133,12 @@ p,li,figcaption,dd,.section-sub{text-wrap:pretty}
 s.was{color:var(--ink-faint);font-weight:500;text-decoration-thickness:1.5px;margin-right:.1em}
 .tcard-price s.was{font-family:var(--body);font-size:.66em}
 @media (max-width:359px){.mcta-price s.was{display:none}}
+
+/* Program price box on the smallest phones, Nov 19 2026: at 320 px the thumb, the price and Rx only needed about
+   323 px plus padding side by side, so the page scrolled sideways. Up to 380 px the thumb shrinks and Rx only may wrap under the price. */
+@media (max-width:380px){
+  .price-box{min-width:0;max-width:100%}
+  .pb-head{gap:12px}
+  .pb-thumb{width:72px;height:72px}
+  .price-top{flex-wrap:wrap;row-gap:2px}
+}

@@ -455,6 +455,8 @@ TRUST = """    <div class="trust-bar">
       </div>
     </div>"""
 
+# Nov 19 2026, per vc-reviewer: the same sentence pricing.html and the home page carry, now that prices show a slash.
+PRICE_PENDING = "The prices shown are illustrative until our telehealth services partner's final price list is confirmed."
 DISCLAIMER = "Prescription required. Starting a visit is not a guarantee of treatment. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Individual results vary. Not appropriate for everyone. Your clinician decides whether this program is appropriate for you."
 
 
@@ -648,7 +650,7 @@ def page(p):
 {plans}
               </div>
               {start_button(p, "btn btn-primary btn-block")}
-              <p class="price-fine">{DISCLAIMER}</p>
+              <p class="price-fine">{PRICE_PENDING} {DISCLAIMER}</p>
               {pb_points(p)}
             </div>
           </div>
@@ -820,7 +822,7 @@ def start_page(p):
         <p class="sp-handoff">{fill(START["handoff"])}</p>
         {button}
         {pending}
-        <p class="price-fine">{DISCLAIMER}</p>
+        <p class="price-fine">{PRICE_PENDING} {DISCLAIMER}</p>
       </div>
       <div class="sp-side"><div class="sp-media" aria-hidden="true">{media}</div><p class="img-note">Illustrative image. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p></div>
     </div>
