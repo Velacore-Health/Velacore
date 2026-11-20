@@ -26,6 +26,14 @@ FOLDERS = {
 FORM_TILES = {"semaglutide", "semaglutide-oral", "nad", "nad-nasal", "nad-oral", "microdosing-oral"}
 TILE_WIDTHS = (300, 450, 600, 900)
 TILE_CROP = "crop=trunc(iw*0.862/2)*2:trunc(ih*0.862/2)*2:trunc(iw*0.069):trunc(ih*0.099)"
+# Nov 20 2026: two studio shots sit differently in their frames. The Microdosing dropper stands lower, so its cut moves
+# down to line its base up with the others; the nasal spray is taller, so its cut is looser and higher to keep the tip;
+# the NAD+ dropper gets the same looser cut so its bulb has room above it.
+TILE_CROP_FOR = {
+    "microdosing-oral": "crop=trunc(iw*0.85/2)*2:trunc(ih*0.85/2)*2:trunc(iw*0.075):trunc(ih*0.15)",
+    "nad-nasal": "crop=trunc(iw*0.90/2)*2:trunc(ih*0.90/2)*2:trunc(iw*0.05):trunc(ih*0.04)",
+    "nad-oral": "crop=trunc(iw*0.90/2)*2:trunc(ih*0.90/2)*2:trunc(iw*0.05):trunc(ih*0.05)",
+}
 
 
 def make_tiles(src, out, name):
@@ -33,11 +41,35 @@ def make_tiles(src, out, name):
     for w in TILE_WIDTHS:
         amount = 0.8 if w <= 450 else 0.6
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src),
-                        "-vf", f"{TILE_CROP},scale={w}:{w * 4 // 3}:flags=lanczos,unsharp=3:3:{amount}:3:3:0",
+                        "-vf", f"{TILE_CROP_FOR.get(name, TILE_CROP)},scale={w}:{w * 4 // 3}:flags=lanczos,unsharp=3:3:{amount}:3:3:0",
                         "-c:v", "libwebp", "-quality", "92", str(out / f"{name}-{w}.webp")], capture_output=True, text=True)
 
 
+def studio_or(src, name):
+    """Nov 20 2026, Dourado: the needle-free and form tiles use the studio shots, no marble, when one exists in
+    assets-in/products/studio/<name>.jpg; otherwise the photo dropped in assets-in/products."""
+    studio = ROOT / "assets-in" / "products" / "studio" / f"{name}.jpg"
+    if studio.exists():
+        return studio
+    print(f"WARNING no studio shot for {name}: using {src.name}, the marble photo. Restore assets-in/products/studio from the backup.")
+    return src
+
+
+def tiles_only():
+    """python -I tools/prepare_images.py --tiles  remakes only the form tiles, leaving the main product photos alone."""
+    for name in sorted(FORM_TILES):
+        src = studio_or(ROOT / "assets-in" / "products" / f"{name}.jpg", name)
+        if not src.exists():
+            print(f"MISSING {name}")
+            continue
+        make_tiles(src, ROOT / "public" / "images" / "products" / "tiles", name)
+        print(f"wrote tiles/{name}-*.webp from {src.relative_to(ROOT).as_posix()}")
+    return 0
+
+
 def main():
+    if "--tiles" in sys.argv[1:]:
+        return tiles_only()
     total = 0
     for folder, expected in FOLDERS.items():
         total += convert(ROOT / "assets-in" / folder, ROOT / "public" / "images" / folder, expected)
@@ -48,7 +80,7 @@ def main():
     return 0
 
 
-ONLY = {a.lower() for a in sys.argv[1:]}
+ONLY = {a.lower() for a in sys.argv[1:] if not a.startswith("--")}
 
 
 def convert(IN, OUT, EXPECTED):
@@ -61,7 +93,7 @@ def convert(IN, OUT, EXPECTED):
         name = src.stem.lower().replace(" ", "-")
         dst = OUT / f"{name}.webp"
         if OUT.name == "products" and name in FORM_TILES:
-            make_tiles(src, OUT / "tiles", name)
+            make_tiles(studio_or(src, name), OUT / "tiles", name)
         if OUT.name == "products":
             # Nov 17 2026: product photos are sharpened after a Lanczos resize, and get an 800 copy for cards on phones.
             cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(src),
