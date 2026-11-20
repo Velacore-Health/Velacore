@@ -314,6 +314,14 @@
           
           card.removeAttribute('data-d'); card.removeAttribute('style'); card.removeAttribute('aria-hidden');
           card.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
+          // Nov 20 2026, Dourado, no cut vials: the program row uses square cuts for its square photo boxes; the chooser card
+          // box is taller, 4 by 5, so it takes the program's full portrait photo back.
+          var sqi = card.querySelector('.tcard-photo'), sqm = sqi && /^(.*)sq\/([a-z0-9-]+)-\d+\.webp$/.exec(sqi.getAttribute('src'));
+          if (sqm) {
+            sqi.src = sqm[1] + sqm[2] + '.webp';
+            sqi.srcset = sqm[1] + sqm[2] + '-800.webp 800w, ' + sqm[1] + sqm[2] + '.webp 1200w';
+            sqi.width = 1200; sqi.height = 1608;
+          }
           card.querySelectorAll('a, button').forEach(function (el) { el.removeAttribute('tabindex'); });
           // needle-free answer: where the program has an oral tile, the card shows the oral form, its photo and its price, read from that tile
           var oral = form === 'noneedle' && document.querySelector('[data-oral="' + slug + '"]');

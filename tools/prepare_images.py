@@ -107,6 +107,22 @@ def home_weight_card():
                         f"crop=1590:1120:325:345,scale={w}:{h}:flags=lanczos,unsharp=5:5:0.5:5:5:0", "-c:v", "libwebp",
                         "-quality", "90", str(out / f"goal-weight-hub-{w}.webp")], capture_output=True, text=True)
     print("wrote goal-weight-hub-800 and -1200 from " + gsrc.relative_to(ROOT).as_posix())
+    # Nov 20 2026, Dourado, no cut vials and nothing overlapping: the home program cards show a square photo box with the
+    # category label in its top left corner. These square cuts hold the whole vial with its cap below the label: the
+    # 1792 by 2400 studio shot gets 204 px of plain margin on each side and 95 px of plain wall above, filled by repeating the
+    # edge pixels so the wall tone carries on with no fold, then is cut 2200 by 2200 from the top, so the cap sits at
+    # 21 percent of the height with even room below the base.
+    (out / "sq").mkdir(exist_ok=True)
+    for name in ("tirzepatide", "semaglutide", "microdosing", "nad", "glutathione", "sermorelin"):
+        nsrc = studio_or(ROOT / "assets-in" / "products" / f"{name}.jpg", name)
+        for w in (800, 1200):
+            r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(nsrc), "-vf",
+                                "pad=2200:2495:204:95,fillborders=left=204:right=204:top=95:mode=smear,crop=2200:2200:0:0,"
+                                f"scale={w}:{w}:flags=lanczos,unsharp=5:5:0.5:5:5:0", "-c:v", "libwebp", "-quality", "90",
+                                str(out / "sq" / f"{name}-{w}.webp")], capture_output=True, text=True)
+            if r.returncode:
+                print(f"FAILED sq/{name}-{w}: {r.stderr.strip()}")
+    print("wrote sq/<program>-800 and -1200 for the six home program cards")
     return 0
 
 

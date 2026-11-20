@@ -1200,3 +1200,7 @@ p,.hub-text span,.tcard-mech,.form-tiles p{text-wrap:pretty}
 .wband-photo picture{display:block}
 /* Nov 20 2026, Dourado, no cut vials: on phones each goal photo fills the card's photo box and is placed so every vial shows whole */
 @media (max-width:420px){.goal-media{position:relative}.goal-media img{position:absolute;inset:0;aspect-ratio:auto;width:100%;height:100%;object-position:50% 50%}.goal-tile[data-goal="vitality"] .goal-media img{object-position:50% 44%}.goal-tile[data-goal="hormone"] .goal-media img{object-position:50% 40%}}
+/* Nov 20 2026, Dourado, nothing overlapping: on the taller 4 by 5 program cards the photo shows its full top, so the vial cap sits below the category label */
+.tcard:not(.tcard-wide) .tcard-media .tcard-photo{transform:none;object-position:50% 0%}
+/* the home program row uses square cuts that already hold the whole vial below the label, shown centered with no zoom */
+.prow-track .tcard:not(.tcard-wide) .tcard-media .tcard-photo{transform:none;object-position:50% 50%}
