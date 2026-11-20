@@ -18,8 +18,9 @@ CARDS = {
     "stop": ("lifestyle/clinicians-video.jpg", 0.5),
     # Nov 18 2026 at Dourado's request: a glass clipboard and stethoscope render, in the same style as the peptides card.
     "right-for-me": ("lifestyle/learn-evaluation.jpg", 0.0),
-    # Nov 18 2026: the four forms side by side, a Gemini edit of the approved product photos; 0.58 keeps both end risers in frame.
-    "taken": ("products/learn-forms.jpg", 0.58),
+    # Nov 20 2026: the four forms side by side in the studio look, a Gemini edit of the four approved studio photos;
+    # 0.48 centers the row. The marble version is kept as _marble-learn-forms.jpg.
+    "taken": ("products/learn-forms.jpg", 0.48),
     "made": ("lifestyle/pharmacy-lab.jpg", 0.5),
     # Nov 18 2026: the peptides card is a Gemini render with the sphere on the left; the words sit in the space on the right.
     "difference": ("lifestyle/learn-peptides.jpg", 1.0),
