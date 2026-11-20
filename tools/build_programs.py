@@ -401,7 +401,8 @@ def side_panel(prefix):
             f'    <p class="panel-kicker">Needle-free</p><div class="panel-progs">{nofree}</div>\n'
             f'    <p class="panel-kicker">More</p><nav class="panel-links" aria-label="Pages">{more}</nav>\n'
             f'    <div class="panel-foot"><a href="{prefix}index.html#goals" class="btn btn-primary btn-block" data-find>Find your program</a>'
-            f'<p>Prescription required. A licensed clinician reviews your intake and decides what is appropriate for you.</p></div>\n'
+            f'<p>Prescription required. A licensed clinician reviews your intake and decides what is appropriate for you.</p>'
+            f'<p>{PRODUCT_NOTE}</p></div>\n'
             f'  </aside>\n  <!-- panel:end -->')
 
 
@@ -436,7 +437,7 @@ def mega_menu(prefix):
     return (f'<div class="nav-item has-mega"><a href="{prefix}index.html#treatments" aria-expanded="false">Treatments</a>'
             f'<div class="mega">{"".join(cols)}'
             f'<div class="mega-col mega-cta"><h4>Not sure?</h4><p>Two quick questions narrow it down. A licensed clinician reviews your intake and decides what is appropriate.</p>'
-            f'<a class="btn btn-primary btn-sm" href="{prefix}index.html#goals">Find your program</a></div></div></div>')
+            f'<a class="btn btn-primary btn-sm" href="{prefix}index.html#goals">Find your program</a><p class="mega-note">{PRODUCT_NOTE}</p></div></div></div>')
 
 
 GA = """  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2PQL4DLF8"></script>
@@ -584,7 +585,7 @@ def render_start(p, choice=None):
 
 
 def page(p):
-    media = f'<img class="tcard-photo" src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:900px) 92vw, 560px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Velacore Health {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.svg" alt="" width="119" height="128" />'
+    media = f'<img class="tcard-photo" src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:900px) 92vw, 560px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Illustration: {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.svg" alt="" width="119" height="128" />'
     plans = "\n".join(
         f'''          <label class="plan-option">
             <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{plan_thumb(p, pl)}{plan_start(p, pl)}{" checked" if i == 0 else ""} />
@@ -605,7 +606,7 @@ def page(p):
     if p.get("forms"):
         tiles = "".join(
             f'<li><a href="../start/{start_slug(p, FORM_CHOICES[p["slug"]][name][0])}.html" data-start="{p["slug"]}" data-form-pick>'
-            f'<img {tile_img(img, "../", TILE_SIZES_WIDE)} alt="Velacore Health {p["name"]} {name.lower()}" loading="lazy" /><div><b>{name}</b><p>{line}</p></div></a></li>'
+            f'<img {tile_img(img, "../", TILE_SIZES_WIDE)} alt="Illustration: {p["name"]} {name.lower()}" loading="lazy" /><div><b>{name}</b><p>{line}</p></div></a></li>'
             for name, img, line in p["forms"] if (ROOT / "public" / "images" / img).exists())
         forms = f'''
     <!-- Forms, Nov 17 2026: one card, one photo per form. Shown only where the program data lists forms. -->

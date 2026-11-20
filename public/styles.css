@@ -1180,3 +1180,5 @@ p,.hub-text span,.tcard-mech,.form-tiles p{text-wrap:pretty}
 /* Price box picture, Nov 19 2026, Dourado: the whole product in portrait, filling the height beside the price. */
 @media (max-width:940px){.pb-thumb{width:96px;height:128px;object-fit:cover;background:var(--mint);border-radius:var(--r-sm)}}
 @media (max-width:360px){.pb-thumb{width:78px;height:104px}}
+/* The illustration note inside the menus, Nov 19 2026: the menus show product pictures on every page, so they carry it too. */
+.mega-cta .mega-note{font-size:.78rem;line-height:1.45;color:var(--ink-faint);margin:12px 0 0}

@@ -232,7 +232,7 @@ def price_cards():
         wi, he = img_size(p["image"])
         cards.append(
             f'<article class="tcard" data-cat="{ {"Vitality": "vitality", "Hormone support": "hormone"}.get(p["cat"], "weight") }" id="price-{p["slug"]}"><div class="tcard-media"><span class="tcard-cat">{p["cat"]}</span>'
-            f'<img class="tcard-photo" src="images/{p["image"]}"{bp.prod_srcset(p["image"], "", "(max-width:700px) 92vw, 380px")} width="{wi}" height="{he}" alt="Velacore Health {p["name"]} vial" loading="lazy" /></div>'
+            f'<img class="tcard-photo" src="images/{p["image"]}"{bp.prod_srcset(p["image"], "", "(max-width:700px) 92vw, 380px")} width="{wi}" height="{he}" alt="Illustration: {p["name"]} vial" loading="lazy" /></div>'
             f'<div class="tcard-body"><h3>{p["name"]}</h3><p class="tcard-mech">{p["chips"][1]}. {p["chips"][2]}.</p>'
             f'<div class="tcard-meta">{bp.tcard_price(p)}<span class="tcard-rx">Rx only</span></div>'
             f'<p class="tcard-plan">12-week plan {week12["price"]}/mo, {w.group(1)} up front.' + ''.join(f' Oral form {x["price"]}/mo.' for x in p["plans"] if x["id"] == "oral") + '</p>'
@@ -250,7 +250,7 @@ def pack_card(p):
     if (PUB / "images" / p["image"]).exists():
         wi, he = img_size(p["image"])
         media = (f'<img class="tcard-photo" src="images/{p["image"]}"{bp.prod_srcset(p["image"], "", "(max-width:700px) 92vw, 380px")} '
-                 f'width="{wi}" height="{he}" alt="Velacore Health {p["name"]}" loading="lazy" />')
+                 f'width="{wi}" height="{he}" alt="Illustration: {p["name"]}" loading="lazy" />')
     else:
         media = '<img class="brand-tile" src="logo-mark.svg" alt="" width="119" height="128" loading="lazy" />'
     line = bp.price_line(p)

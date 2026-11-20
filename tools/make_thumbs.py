@@ -30,6 +30,9 @@ SIZE = 432
 # or bottle on its riser, 78 percent of the photo, saved at 312 by 416 for sharp 3x phone screens.
 FULL = ["tirzepatide", "semaglutide", "microdosing", "nad", "glutathione", "sermorelin", "semaglutide-oral"]
 FULL_CROP = "crop=trunc(iw*0.78/2)*2:trunc(ih*0.78/2)*2:trunc(iw*0.11):trunc(ih*0.10),scale=312:416:flags=lanczos,unsharp=3:3:0.6:3:3:0"
+# Nov 19 2026, Dourado: studio shots with a soft shadow and no marble replace the riser photo in the price box once each
+# is approved. They live in assets-in/products/studio/<name>.jpg at 3 by 4; the cut keeps 90 percent so the shadow shows.
+STUDIO_CROP = "crop=trunc(iw*0.90/2)*2:trunc(ih*0.90/2)*2:trunc(iw*0.05):trunc(ih*0.07),scale=312:416:flags=lanczos,unsharp=3:3:0.6:3:3:0"
 
 
 def main():
@@ -46,14 +49,16 @@ def main():
                             "-c:v", "libwebp", "-quality", "92", str(dst)], capture_output=True, text=True)
         print(("FAILED " if r.returncode else "wrote ") + dst.relative_to(ROOT).as_posix())
     for name in FULL:
-        src = ROOT / "assets-in" / "products" / f"{name}.jpg"
+        studio = ROOT / "assets-in" / "products" / "studio" / f"{name}.jpg"
+        src = studio if studio.exists() else ROOT / "assets-in" / "products" / f"{name}.jpg"
         if not src.exists():
             print(f"MISSING {src.relative_to(ROOT).as_posix()}")
             continue
         dst = OUT / f"{name}-full.webp"
-        r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf", FULL_CROP, "-c:v", "libwebp", "-quality", "90", str(dst)],
+        crop = STUDIO_CROP if src == studio else FULL_CROP
+        r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf", crop, "-c:v", "libwebp", "-quality", "90", str(dst)],
                            capture_output=True, text=True)
-        print(("FAILED " if r.returncode else "wrote ") + dst.relative_to(ROOT).as_posix())
+        print(("FAILED " if r.returncode else "wrote ") + dst.relative_to(ROOT).as_posix() + (" from studio" if src == studio else ""))
     return 0
 
 

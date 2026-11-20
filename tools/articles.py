@@ -63,7 +63,7 @@ ARTICLES = [
     },
     {
         "slug": "semaglutide-vs-tirzepatide",
-        "hero": ("products/learn-sema-tirz", "Velacore Health Semaglutide and Tirzepatide vials side by side"),
+        "hero": ("products/learn-sema-tirz", "Illustration: Semaglutide and Tirzepatide vials side by side"),
         "title": "Semaglutide vs Tirzepatide Explained",
         "meta": "Semaglutide acts on the GLP-1 receptor. Tirzepatide acts on the GIP and GLP-1 receptors. A plain look at the mechanisms. Prescription required.",
         "h1": "Semaglutide and tirzepatide: how the two differ",
@@ -120,7 +120,7 @@ ARTICLES = [
     },
     {
         "slug": "what-is-microdosing-glp-1",
-        "hero": ("products/learn-microdosing", "Velacore Health Microdosing GLP-1 vial and oral dropper"),
+        "hero": ("products/learn-microdosing", "Illustration: Microdosing GLP-1 vial and oral dropper"),
         "title": "What Is Microdosing GLP-1?",
         "meta": "Microdosing GLP-1 means a lower dose than standard programs. It is not an FDA-defined term. What it means and how our program describes it.",
         "h1": "What is microdosing GLP-1?",
