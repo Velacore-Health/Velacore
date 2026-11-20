@@ -449,6 +449,69 @@ def audit_render(outdir, live, use_live):
 
 
 # ---------------------------------------------------------------- main
+def audit_seo(use_live):
+    """Nov 19 2026, Dourado: every build must stay SEO'd and indexable. Indexable pages need a title, a meta
+    description, a canonical on the clean URL the host serves, Open Graph and Twitter tags, one h1, alt on every image,
+    and a sitemap entry. Funnel pages are noindex on purpose and must stay out of the sitemap."""
+    section("5. SEO tags and indexing")
+    site = CFG["live_base"].rstrip("/")
+    sm = set(re.findall(r"<loc>([^<]+)</loc>", (PUBLIC / "sitemap.xml").read_text(encoding="utf-8")))
+    clean, seen_t, seen_d = 0, {}, {}
+    for f in sorted(PUBLIC.rglob("*.html")):
+        rel = f.relative_to(PUBLIC).as_posix()
+        s = f.read_text(encoding="utf-8")
+        head = s[:s.find("</head>")]
+        def meta(pat):
+            m = re.search(pat, head, re.S | re.I)
+            return html.unescape(m.group(1)).strip() if m else ""
+        title, desc = meta(r"<title>(.*?)</title>"), meta(r'<meta name="description" content="([^"]*)"')
+        canon, robots = meta(r'<link rel="canonical" href="([^"]*)"'), meta(r'<meta name="robots" content="([^"]*)"')
+        url = site + "/" if rel == "index.html" else site + "/" + rel[:-5]
+        noindex = "noindex" in robots
+        fails, reviews = [], []
+        if not title: fails.append("no title")
+        elif len(title) > 60: reviews.append(f"title is {len(title)} characters, over 60")
+        if rel == "404.html":
+            if not noindex: fails.append("404 page is not noindex")
+        elif noindex:
+            if url in sm: fails.append("noindex page is listed in the sitemap")
+        else:
+            if not desc: fails.append("no meta description")
+            elif not 70 <= len(desc) <= 160: reviews.append(f"meta description is {len(desc)} characters")
+            if canon != url: fails.append(f"canonical is '{canon or 'missing'}', should be {url}")
+            for k in ("og:title", "og:description", "og:url", "og:image"):
+                if not meta(rf'<meta property="{k}" content="([^"]*)"'): fails.append(f"no {k}")
+            if meta(r'<meta property="og:url" content="([^"]*)"') not in ("", url): reviews.append("og:url differs from the canonical")
+            if not meta(r'<meta name="twitter:card" content="([^"]*)"'): reviews.append("no twitter:card")
+            if url not in sm: fails.append("indexable page missing from the sitemap")
+        h1s = len(re.findall(r"<h1[\s>]", s))
+        if h1s != 1: reviews.append(f"{h1s} h1 tags")
+        if re.search(r"<img(?![^>]*\balt=)[^>]*>", s): fails.append("an image has no alt attribute")
+        for x in fails: add("FAIL", f"{rel}: {x}")
+        for x in reviews: add("REVIEW", f"{rel}: {x}")
+        clean += not fails and not reviews
+        if not noindex and rel != "404.html":
+            seen_t.setdefault(title, []).append(rel)
+            seen_d.setdefault(desc, []).append(rel)
+    for label, seen in (("title", seen_t), ("meta description", seen_d)):
+        for text, pages in seen.items():
+            if text and len(pages) > 1:
+                add("REVIEW", f"same {label} on {', '.join(pages)}")
+    for loc in sorted(sm):
+        path = loc[len(site):].strip("/")
+        if path and not (PUBLIC / (path + ".html")).exists():
+            add("FAIL", f"sitemap lists {loc} but no page exists")
+    if use_live:
+        # A sitemap URL must answer 200 itself; one that redirects first is flagged by Search Console.
+        bad = []
+        for loc in sorted(sm):
+            code, final, _ = fetch(loc)
+            if code != 200 or final.rstrip("/") != loc.rstrip("/"):
+                bad.append(f"{loc} ({code}, ends at {final})")
+        add("FAIL" if bad else "PASS", f"live sitemap URLs that do not answer 200 directly: {', '.join(bad)}" if bad else f"all {len(sm)} sitemap URLs answer 200 on the live site with no redirect")
+    add("PASS", f"{clean} pages have complete SEO tags and the right indexing")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-live", action="store_true")
@@ -464,6 +527,7 @@ def main():
     if not a.no_live:
         audit_live(live)
     audit_prices(live)
+    audit_seo(not a.no_live)
     if not a.no_render:
         audit_render(outdir, live, not a.no_live)
 

@@ -61,4 +61,10 @@
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "SAMEORIGIN"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(self), camera=(self), microphone=(self)"
+    # Nov 19 2026: the site uses no location, camera or microphone, and intake runs on the partner's site, so all three are off.
+    Permissions-Policy = "geolocation=(), camera=(), microphone=(), payment=(), usb=()"
+    # A narrow policy that blocks plugins, foreign base tags, foreign framing and form posts elsewhere, and loads any
+    # http resource on the page over https. It does not restrict scripts, styles or fonts, so Google Analytics and
+    # Google Fonts keep working. If OpenLoop ever offers an embedded intake or checkout instead of a link,
+    # frame-ancestors, form-action and payment=() must change first.
+    Content-Security-Policy = "base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests"
