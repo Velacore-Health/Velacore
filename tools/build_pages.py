@@ -238,7 +238,54 @@ def price_cards():
             f'<p class="tcard-plan">12-week plan {week12["price"]}/mo, {w.group(1)} up front.' + ''.join(f' Oral form {x["price"]}/mo.' for x in p["plans"] if x["id"] == "oral") + '</p>'
             f'<a class="tcard-link" href="programs/{p["slug"]}.html">What the price includes</a>'
             f'<a href="start/{p["slug"]}.html" class="btn btn-primary btn-block btn-sm" data-start="{p["slug"]}">Start visit</a></div></article>')
-    return '<div class="tgrid pr-grid">' + "".join(cards) + "</div>"
+    return ('<div class="tgrid pr-grid">' + "".join(cards) + "</div>"
+            + '<div class="section-head center pr-forms-head"><h2>Needle-free forms</h2><p class="section-sub">Each of these forms is taken '
+              'without a needle. A licensed clinician decides which form is appropriate for you.</p></div>'
+            + '<div class="tgrid pr-grid pr-forms-grid">' + "".join(form_cards()) + "</div>")
+
+
+def form_cards():
+    """Nov 20 2026, Dourado: the pricing page carries a card for each needle-free form the site lists, Semaglutide oral,
+    NAD+ nasal spray, NAD+ oral dropper and the Microdosing GLP-1 oral options. Each form line and price is read from the
+    program data in build_programs.py: the Semaglutide oral price from its oral plan, the NAD+ and Microdosing forms at
+    their program's own price."""
+    progs = {p["slug"]: p for p in bp.PROGRAMS}
+    out = []
+
+    def card(p, title, img, alt, mech, price, plan, link, start):
+        wi, he = img_size(img)
+        return (f'<article class="tcard" data-cat="{CAT_KEY.get(p["cat"], "weight")}" id="price-form-{start}"><div class="tcard-media"><span class="tcard-cat">{p["cat"]}</span>'
+                f'<img class="tcard-photo" src="images/{img}"{bp.prod_srcset(img, "", "(max-width:700px) 92vw, 380px")} width="{wi}" height="{he}" alt="Illustration: {alt}" loading="lazy" /></div>'
+                f'<div class="tcard-body"><h3>{title}</h3><p class="tcard-mech">{mech}</p>'
+                f'<div class="tcard-meta">{price}<span class="tcard-rx">Rx only</span></div>'
+                f'<p class="tcard-plan">{plan}</p>'
+                f'<a class="tcard-link" href="{link}">What the price includes</a>'
+                f'<a href="start/{start}.html" class="btn btn-primary btn-block btn-sm" data-start="{start}">Start visit</a></div></article>')
+
+    def week12(p):
+        w12 = next(x for x in p["plans"] if x["id"] == "12week")
+        up = re.match(r"^(\$\d+) charged up front", w12["note"]).group(1)
+        return f'12-week plan {w12["price"]}/mo, {up} up front.'
+
+    sema = progs["semaglutide"]
+    oral = next(x for x in sema["plans"] if x["id"] == "oral")
+    line = next(f for f in sema["forms"] if f[0] == "Oral")[2]
+    out.append(card(sema, "Semaglutide oral", "products/semaglutide-oral.webp", "Semaglutide oral bottle",
+                    re.sub(r"\s*\$\d+ a month\.?$", "", line),
+                    f'<span class="tcard-price">{oral["price"]} <small>a month, oral form</small></span>',
+                    "Month to month. " + oral["note"].split(". ")[-1], "programs/semaglutide.html#forms", "semaglutide-oral"))
+    nad = progs["nad"]
+    for name, img, line in nad["forms"]:
+        if name == "Injection":
+            continue
+        slug = "nad-" + {"Nasal spray": "nasal", "Oral dropper": "oral"}[name]
+        out.append(card(nad, f"NAD+ {name.lower()}", img, f"NAD+ {name.lower()}", line, bp.tcard_price(nad), week12(nad),
+                        "programs/nad.html#forms", slug))
+    micro = progs["microdosing"]
+    out.append(card(micro, "Microdosing GLP-1 oral", "products/microdosing-oral.webp", "Microdosing GLP-1 oral dropper bottle",
+                    f'Oral options among the {re.search(r"(\d+) formulations", micro["chips"][1]).group(1)} formulations. The clinician picks the form.', bp.tcard_price(micro), week12(micro),
+                    "programs/microdosing.html", "microdosing"))
+    return out
 
 
 CAT_KEY = {"Vitality": "vitality", "Hormone support": "hormone", "Sexual health": "sexual", "Women's health": "women"}

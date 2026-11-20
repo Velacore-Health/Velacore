@@ -129,7 +129,9 @@ def home_weight_card():
 GOAL_SIZES = ((480, 360), (800, 600), (1200, 900))
 # Nov 20 2026, Dourado: between 421 and 580 px the goal tiles are two columns about as tall as wide, and the 4 by 3 photo
 # floated small in them. These square cuts, x, y and side in the 2400 by 1792 source, center the products so they fill the column.
-GOAL_SQUARE = {"goal-weight": (412, 158, 1600), "goal-vitality": (304, 0, 1792), "goal-hormone": (304, 0, 1792)}
+# Nov 20 2026, Dourado on his Samsung tablet: the trio read small beside the other goal photos, so its square is tighter,
+# and outside 421 to 580 px the Weight card uses the closer goal-weight-hub cut.
+GOAL_SQUARE = {"goal-weight": (472, 185, 1480), "goal-vitality": (304, 0, 1792), "goal-hormone": (304, 0, 1792)}
 
 
 def goal_sizes(names):

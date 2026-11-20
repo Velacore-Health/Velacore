@@ -1185,7 +1185,7 @@ p,.hub-text span,.tcard-mech,.form-tiles p{text-wrap:pretty}
 
 /* Nov 20 2026, Dourado: between 421 and 860 px the goal tiles are two columns and the 4 by 3 photo floated small in its
    column. The photo now fills the column: from 421 to 580 the column is about square, so a square cut centered on the
-   products is served; from 581 to 860 the column is wider than tall and the 4 by 3 photo covers it. The picture element
+   products is served; from 581 to 860 the column is wider than tall and the photo covers it, the 4 by 3 photo or, on the Weight card, the closer trio cut. The picture element
    is a block so the source tag never becomes a layout item. */
 .goal-media picture{display:block;width:100%}
 @media (min-width:421px) and (max-width:860px){.goal-media{display:block;position:relative;min-height:180px}.goal-media picture{position:absolute;inset:0}.goal-media img{position:absolute;inset:0;aspect-ratio:auto;width:100%;height:100%;object-fit:cover;object-position:50% 50%}.goal-tile[data-goal="hormone"] .goal-media img{object-position:50% 35%}}
@@ -1196,7 +1196,7 @@ p,.hub-text span,.tcard-mech,.form-tiles p{text-wrap:pretty}
 @media (min-width:1001px) and (max-width:1299px){.hub-card{grid-template-columns:1fr min(48%,288px)}}
 @media (min-width:701px) and (max-width:1299px){.hub-card img{object-position:50% 50%}}
 @media (min-width:1300px){.hub-weight img{object-position:50% 50%}}
-/* Nov 20 2026, Dourado: on phones the three-vial photo uses the closer goal-weight-hub cut in the weight section and on the Weight goal card */
+/* Nov 20 2026, Dourado: the three-vial photo uses the closer goal-weight-hub cut in the weight section on phones, and on the Weight goal card at every width except 421 to 580 px, where its own square cut is served */
 .wband-photo picture{display:block}
 /* Nov 20 2026, Dourado, no cut vials: on phones each goal photo fills the card's photo box and is placed so every vial shows whole */
 @media (max-width:420px){.goal-media{position:relative}.goal-media img{position:absolute;inset:0;aspect-ratio:auto;width:100%;height:100%;object-position:50% 50%}.goal-tile[data-goal="vitality"] .goal-media img{object-position:50% 44%}.goal-tile[data-goal="hormone"] .goal-media img{object-position:50% 40%}}
@@ -1204,3 +1204,10 @@ p,.hub-text span,.tcard-mech,.form-tiles p{text-wrap:pretty}
 .tcard:not(.tcard-wide) .tcard-media .tcard-photo{transform:none;object-position:50% 0%}
 /* the home program row uses square cuts that already hold the whole vial below the label, shown centered with no zoom */
 .prow-track .tcard:not(.tcard-wide) .tcard-media .tcard-photo{transform:none;object-position:50% 50%}
+/* Nov 20 2026, Dourado on his Samsung tablet: from 861 px the Weight card uses the closer trio cut, which is wider than 4 by 3, so it fills the photo box the same way */
+@media (min-width:861px){.goal-tile[data-goal="weight"] .goal-media{position:relative}.goal-tile[data-goal="weight"] .goal-media picture{position:absolute;inset:0}.goal-tile[data-goal="weight"] .goal-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}}
+/* Nov 20 2026, Dourado: the pricing page also carries the needle-free forms */
+.pr-forms-head{margin-top:56px}
+@media (min-width:1101px){.pr-forms-grid{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:941px) and (max-width:1100px){.pr-forms-grid{grid-template-columns:1fr 1fr}}
+#price-form-microdosing::before{background:var(--cap-jade)}#price-form-microdosing .tcard-cat::before{background:var(--cap-jade)}
