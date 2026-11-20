@@ -326,18 +326,21 @@
           if (forms) {
             var fstart = card.querySelector('a[data-start]');
             if (fstart) { fstart.setAttribute('href', forms.getAttribute('href')); fstart.textContent = 'Choose your form'; }
-            // Nov 20 2026, Dourado: the card for a needle-free answer shows a needle-free form's photo, the first form tile's,
-            // in its full frame, and its line names only the forms without a needle.
-            var ftile = forms.querySelector('img'), fimg = card.querySelector('.tcard-photo');
-            var fm = ftile && /tiles\/([a-z0-9-]+)-\d+\.webp/.exec(ftile.getAttribute('src'));
-            if (fm && fimg) {
-              var fbase = ftile.getAttribute('src').replace(/tiles\/[a-z0-9-]+-\d+\.webp$/, '');
-              fimg.src = fbase + fm[1] + '.webp';
-              fimg.srcset = fbase + fm[1] + '-800.webp 800w, ' + fbase + fm[1] + '.webp 1200w';
-              fimg.alt = ftile.alt;
-            }
             var fmech = card.querySelector('.tcard-mech');
             if (fmech) fmech.textContent = fmech.textContent.replace(/as an injection, nasal spray or oral dropper/, 'as a nasal spray or an oral dropper');
+          }
+          // Nov 20 2026, Dourado: on a needle-free answer the card shows the program's needle-free photo, taken from its
+          // Tired of needles tile in full frame, such as the NAD+ nasal spray or the Microdosing GLP-1 oral form.
+          var ntile = form === 'noneedle' && !oral && Array.prototype.filter.call(document.querySelectorAll('.form-tiles-links a'), function (a) {
+            return a.getAttribute('href').replace(/^\//, '').replace(/\.html(?=#|$)/, '').replace(/#.*$/, '') === 'programs/' + slug;
+          })[0];
+          var nimg = ntile && ntile.querySelector('img'), cphoto = card.querySelector('.tcard-photo');
+          var nm = nimg && /tiles\/([a-z0-9-]+)-\d+\.webp/.exec(nimg.getAttribute('src'));
+          if (nm && cphoto) {
+            var nbase = nimg.getAttribute('src').replace(/tiles\/[a-z0-9-]+-\d+\.webp$/, '');
+            cphoto.src = nbase + nm[1] + '.webp';
+            cphoto.srcset = nbase + nm[1] + '-800.webp 800w, ' + nbase + nm[1] + '.webp 1200w';
+            cphoto.alt = nimg.alt;
           }
           if (oral) {
             var oimg = oral.querySelector('img'), oline = oral.querySelector('p').textContent, oprice = (oline.match(/\$\d+/) || [''])[0];
