@@ -270,14 +270,15 @@
     if (!root) return;
     var MAP = {
       weight: { inject: ['tirzepatide', 'semaglutide', 'microdosing'], noneedle: ['semaglutide', 'microdosing'] },
-      vitality: { inject: ['nad', 'glutathione'], noneedle: ['nad', 'glutathione'] },
+      // Nov 20 2026, Dourado: Glutathione is left out of the needle-free answer until its form is confirmed.
+      vitality: { inject: ['nad', 'glutathione'], noneedle: ['nad'] },
       hormone: { inject: ['sermorelin'], noneedle: ['sermorelin'] }
     };
     var NOTE = {
       'weight|inject': 'Three GLP-1 programs. Tirzepatide is an injection. Semaglutide comes as an injection or an oral form. Microdosing GLP-1 is a lower dose, as an oral form or an injection. The clinician decides which program, if any, is appropriate for you.',
       'weight|noneedle': 'Semaglutide and Microdosing GLP-1 both come in an oral form. Tirzepatide is an injection only. The clinician decides the program and the form.',
       'vitality|inject': 'Two programs. NAD+ comes as an injection, a nasal spray or an oral dropper. Glutathione comes in the form the clinician prescribes.',
-      'vitality|noneedle': 'NAD+ comes as a nasal spray or an oral dropper as well as an injection. Glutathione comes in the form the clinician prescribes. The clinician decides the form.',
+      'vitality|noneedle': 'NAD+ comes as a nasal spray or an oral dropper. Glutathione is not listed here because a form without a needle is not confirmed yet. The clinician decides the form.',
       'hormone|inject': 'One program. Sermorelin is an injection. The clinician decides whether it is appropriate for you.',
       'hormone|noneedle': 'Sermorelin is an injection only. There is no spray, dropper or tablet option for this program today. The clinician decides whether it is appropriate for you.'
     };
@@ -325,6 +326,18 @@
           if (forms) {
             var fstart = card.querySelector('a[data-start]');
             if (fstart) { fstart.setAttribute('href', forms.getAttribute('href')); fstart.textContent = 'Choose your form'; }
+            // Nov 20 2026, Dourado: the card for a needle-free answer shows a needle-free form's photo, the first form tile's,
+            // in its full frame, and its line names only the forms without a needle.
+            var ftile = forms.querySelector('img'), fimg = card.querySelector('.tcard-photo');
+            var fm = ftile && /tiles\/([a-z0-9-]+)-\d+\.webp/.exec(ftile.getAttribute('src'));
+            if (fm && fimg) {
+              var fbase = ftile.getAttribute('src').replace(/tiles\/[a-z0-9-]+-\d+\.webp$/, '');
+              fimg.src = fbase + fm[1] + '.webp';
+              fimg.srcset = fbase + fm[1] + '-800.webp 800w, ' + fbase + fm[1] + '.webp 1200w';
+              fimg.alt = ftile.alt;
+            }
+            var fmech = card.querySelector('.tcard-mech');
+            if (fmech) fmech.textContent = fmech.textContent.replace(/as an injection, nasal spray or oral dropper/, 'as a nasal spray or an oral dropper');
           }
           if (oral) {
             var oimg = oral.querySelector('img'), oline = oral.querySelector('p').textContent, oprice = (oline.match(/\$\d+/) || [''])[0];
