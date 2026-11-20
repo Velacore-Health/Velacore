@@ -89,4 +89,4 @@ For questions about this page, email hello@velacorehealth.com. For questions abo
 1. Link to the partner's Notice of Privacy Practices.
 2. The dashboard and export question above. This is the most important open point on the page. The dashboard fields come from the Nov 12 call notes in `docs/HANDOFF.md`.
 3. Whether a Business Associate Agreement exists or is needed between First Venture Group LLC and the partner. The proposal notes say BAA, indemnity and breach terms have not been seen.
-4. The live FAQ says the partner's platform is "HIPAA-compliant". That is a vendor claim with no written source in the repo yet. Ask OpenLoop for it in writing or soften the FAQ line.
+4. Done Nov 19 2026: the live FAQ no longer calls the partner's platform "HIPAA-compliant"; it says "secure". Restore the stronger wording only with OpenLoop's confirmation in writing.

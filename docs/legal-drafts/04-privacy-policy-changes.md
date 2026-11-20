@@ -59,7 +59,7 @@ This Privacy Policy explains what the Velacore Health website collects, how it i
 
 - Information you give us. If you email us, we receive your name, your email address and whatever you write. This website has no forms, no accounts and no checkout.
 - Information collected automatically. When you visit, your browser sends your IP address, device and browser type, the pages you view, the links you click and the site or ad that sent you here. Our analytics provider and our web host receive this.
-- Ad tags in the page address. If you arrive from an ad, the address may carry tags that start with utm_. If you continue to the secure intake, those tags travel with the link so our partner can tell which ad you came from. We do not store them.
+- Ad tags in the page address. If you arrive from an ad, the address may carry tags that start with utm_. If you continue to the secure intake, those tags travel with the link so our partner can tell which ad you came from. Our analytics provider also records them on the pages where it runs.
 
 We do not collect health information, intake answers, identity documents or card details on this website.
 
@@ -148,7 +148,7 @@ Health records are kept by the partner, the clinicians and the pharmacy for as l
 
 ### Clause 13. h2: Your choices
 
-You can ask what we hold about you, ask us to correct or delete it, and opt out of marketing email, by writing to hello@velacorehealth.com. State-specific rights, including California, Washington and Nevada, are on the Your privacy choices page, draft `03-your-privacy-choices.md`. Rights over your health records are on the Health information and HIPAA page, draft `02-health-information-and-hipaa.md`.
+You can ask what we hold about you, or ask us to correct or delete it, by writing to hello@velacorehealth.com. State-specific rights, including California, Washington and Nevada, are on the Your privacy choices page, draft `03-your-privacy-choices.md`. Rights over your health records are on the Health information and HIPAA page, draft `02-health-information-and-hipaa.md`.
 
 ### Clause 14. h2: Links to other sites, new
 

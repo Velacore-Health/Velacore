@@ -27,7 +27,7 @@ Found while reading the live pages. These matter more than any new page.
 1. `public/privacy.html` says we collect "the health and intake information you submit through our online questionnaire" and share with "our intake form provider". Neither is true since the platform change. It also says we maintain Business Associate Agreements where we handle health information. The page is dated July 22 2026. Corrected text is in `04-privacy-policy-changes.md`, clauses 3, 5 and 7.
 2. `public/telehealth-consent.html` opens by saying that starting a visit means agreeing to that page. The binding consent is the one on the partner's intake. Corrected in `01-telehealth-consent.md`.
 3. `public/script.js` sends Google an event with the program name when a live intake link is clicked on a page that carries the Google tag. It does not fire today because the links are placeholders. It should be settled before the intake links go live. Build change for Vale, tied to the tracking decision.
-4. The live FAQ calls the partner's platform "HIPAA-compliant" and the refund policy and Terms say "Shipping is included". Both are vendor claims with no written source in the repo yet.
+4. Nov 19 2026: "HIPAA-compliant" was removed from the FAQ, program pages and Learn article; do not add it back without OpenLoop's written confirmation. The refund policy and Terms say "Shipping is included". Both are vendor claims with no written source in the repo yet.
 5. The live FAQ asks "Can I cancel or pause any time?" and answers only about cancelling.
 
 ## What the site collects, checked Nov 13 2026

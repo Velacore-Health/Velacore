@@ -18,7 +18,7 @@ Checked by reading the files in `public/`. This is the factual base for the page
 | The six Start pages | No analytics tag. A comment in the page says it stays off until Dourado makes the health-privacy call. | `public/start/*.html` |
 | The four Learn articles | No analytics tag. | `public/learn/*.html` |
 | Every page, Start pages included | Fonts load from Google Fonts. The browser contacts Google to fetch them, which shares an IP address. No cookie is set by this. | The font link in each page head |
-| Every page | If the address carries ad tags that start with utm_, our script copies them onto the Continue link to the partner's intake. Nothing is stored by us. No cookie and no browser storage is written by our own script. | `public/script.js`, the Start pages block |
+| Every page | If the address carries ad tags that start with utm_, our script copies them onto the Continue link to the partner's intake. Google Analytics records them on the pages where it runs. No cookie and no browser storage is written by our own script. | `public/script.js`, the Start pages block |
 | Pages with the Google tag | When someone clicks a live intake link, the script sends Google an event named start_visit_click with the program name and the link address. Today the intake links are placeholders, and Start pages carry no tag, so in practice the event does not fire. It would fire if a live intake link sat on a page that has the tag. | `public/script.js`, the intake links block |
 | Whole site | No form, no login, no account, no checkout, no chat, no ad pixel from Meta or any other ad network. | Search of `public/` |
 | Web host | The host keeps standard server logs. | Host is recorded in `docs/DEPLOY.md` |

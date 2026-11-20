@@ -453,7 +453,7 @@ TRUST = """    <div class="trust-bar">
       <div class="container trust-items">
         <span>Licensed clinicians in all 50 states</span>
         <span>503A compounding pharmacies</span>
-        <span>HIPAA-compliant intake on our partner's platform</span>
+        <span>Secure intake on our partner's platform</span>
         <span>Shipping included, no hidden fees</span>
       </div>
     </div>"""

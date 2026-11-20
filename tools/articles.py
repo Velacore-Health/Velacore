@@ -187,7 +187,7 @@ ARTICLES = [
         "sections": [
             ("It starts with an online intake", [
                 "Getting a GLP-1 prescription online follows the same order as getting one in person. A clinician reviews you first, and a pharmacy fills second. The difference is that the review happens through telehealth.",
-                "You pick a program and complete a secure online intake about your goals, health history and medications. The intake runs on our telehealth partner's pages, on a HIPAA-compliant platform, not on this website.",
+                "You pick a program and complete a secure online intake about your goals, health history and medications. The intake runs on our telehealth partner's pages, not on this website.",
                 'Velacore lists three GLP-1 programs: <a href="../programs/semaglutide.html">Semaglutide</a>, <a href="../programs/tirzepatide.html">Tirzepatide</a> and <a href="../programs/microdosing.html">Microdosing GLP-1</a>. Every one is prescription only.',
                 "The semaglutide and tirzepatide programs are for adults 18 to 74 with a body mass index of 27 or above, or 25 or above with a related health condition. The microdosing program is for adults 18 to 74 with a body mass index over 20.",
             ]),
