@@ -303,10 +303,13 @@
           var oral = form === 'noneedle' && document.querySelector('[data-oral="' + slug + '"]');
           // needle-free answer for a program whose forms each have their own Start page, such as NAD+: the card sends
           // the visitor to the form cards to pick one, instead of to the injection's Start page, Nov 19 2026
-          var forms = form === 'noneedle' && !oral && document.querySelector('.form-tiles-links a[href="programs/' + slug + '.html#forms"]');
+          // The live host strips .html from links, so match the tile by program name with or without it.
+          var forms = form === 'noneedle' && !oral && Array.prototype.filter.call(document.querySelectorAll('.form-tiles-links a[href$="#forms"]'), function (a) {
+            return a.getAttribute('href').replace(/^\//, '').replace(/\.html(?=#)/, '') === 'programs/' + slug + '#forms';
+          })[0];
           if (forms) {
             var fstart = card.querySelector('a[data-start]');
-            if (fstart) { fstart.setAttribute('href', 'programs/' + slug + '.html#forms'); fstart.textContent = 'Choose your form'; }
+            if (fstart) { fstart.setAttribute('href', forms.getAttribute('href')); fstart.textContent = 'Choose your form'; }
           }
           if (oral) {
             var oimg = oral.querySelector('img'), oline = oral.querySelector('p').textContent, oprice = (oline.match(/\$\d+/) || [''])[0];
