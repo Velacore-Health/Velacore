@@ -4,6 +4,21 @@
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Logo, Nov 19 2026: Dourado found that tapping it on the home page only inched the page up and added #top to the
+  // address, because #top pointed at the sticky header. The logo now links home, and when you are already on the
+  // home page it glides to the very top with a clean address. A new-tab click still opens the page normally.
+  document.querySelectorAll('a.brand').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+      var to = new URL(a.getAttribute('href'), window.location.href);
+      var path = function (p) { return p.replace(/index(\.html)?$/, '').replace(/\/$/, ''); };
+      if (to.origin !== window.location.origin || path(to.pathname) !== path(window.location.pathname)) return;
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      if (window.location.hash) history.replaceState(null, '', window.location.pathname + window.location.search);
+    });
+  });
+
   // Learn page: peptide walk-through
   Array.prototype.forEach.call(document.querySelectorAll('[data-pepwalk]'), function (w) {
     var steps = w.querySelectorAll('.pw-step');

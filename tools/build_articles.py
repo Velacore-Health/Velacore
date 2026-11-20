@@ -152,7 +152,7 @@ def page(a):
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a href="../index.html" class="brand"><img class="brand-mark" src="../logo-mark.svg" width="119" height="128" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span></a>
+        <a href="../index.html" class="brand" aria-label="Velacore Health home"><img class="brand-mark" src="../logo-mark.svg" width="119" height="128" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span></a>
         <p>A telehealth platform coordinating access to licensed clinicians and 503A compounding pharmacies.</p>
       </div>
       <nav class="footer-col" aria-label="Programs"><h4>Programs</h4>
@@ -219,7 +219,9 @@ def main():
         return f'<li><a class="art-card" href="learn/{a["slug"]}.html">{img}<span>{a["h1"]}</span></a></li>'
     cards = "".join(card(a) for a in ARTICLES)
     # three of the card photos show product vials, so the illustration note sits under the cards
-    note = f'<p class="img-note art-note">{bp.PRODUCT_NOTE}</p>' if any(CARD_PHOTO.get(a["slug"]) in PRODUCT_CARDS for a in ARTICLES) else ""
+    # Nov 19 2026, Dourado: one image note per page. The Learn page already carries it above the guide cards, worded
+    # "on this page", so the article card row adds none.
+    note = ""
     hub = PUB / "learn.html"
     hub.write_text(between(hub.read_text(encoding="utf-8"), "<!-- articles:start -->", "<!-- articles:end -->",
                            f'        <ul class="art-cards">{cards}</ul>{note}'), encoding="utf-8")

@@ -26,6 +26,10 @@ BOXES = {
 # Not a product: the Not sure tile on the home page shows the glass clipboard, which has no label to read.
 OTHER = {"not-sure": ("lifestyle/learn-evaluation.jpg", (330, 150, 1300))}
 SIZE = 432
+# Nov 19 2026, Dourado: the price box has room for the whole product, so it gets a portrait cut that shows the full vial
+# or bottle on its riser, 78 percent of the photo, saved at 312 by 416 for sharp 3x phone screens.
+FULL = ["tirzepatide", "semaglutide", "microdosing", "nad", "glutathione", "sermorelin", "semaglutide-oral"]
+FULL_CROP = "crop=trunc(iw*0.78/2)*2:trunc(ih*0.78/2)*2:trunc(iw*0.11):trunc(ih*0.10),scale=312:416:flags=lanczos,unsharp=3:3:0.6:3:3:0"
 
 
 def main():
@@ -40,6 +44,15 @@ def main():
         r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src),
                             "-vf", f"crop={side}:{side}:{x}:{y},scale={SIZE}:{SIZE}:flags=lanczos,unsharp=3:3:0.7:3:3:0",
                             "-c:v", "libwebp", "-quality", "92", str(dst)], capture_output=True, text=True)
+        print(("FAILED " if r.returncode else "wrote ") + dst.relative_to(ROOT).as_posix())
+    for name in FULL:
+        src = ROOT / "assets-in" / "products" / f"{name}.jpg"
+        if not src.exists():
+            print(f"MISSING {src.relative_to(ROOT).as_posix()}")
+            continue
+        dst = OUT / f"{name}-full.webp"
+        r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf", FULL_CROP, "-c:v", "libwebp", "-quality", "90", str(dst)],
+                           capture_output=True, text=True)
         print(("FAILED " if r.returncode else "wrote ") + dst.relative_to(ROOT).as_posix())
     return 0
 

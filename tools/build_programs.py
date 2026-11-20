@@ -496,18 +496,19 @@ def choices(p):
 def pb_thumb(p):
     """Nov 19 2026: the small product photo beside the price, shown on phones only so the first screen carries
     the product, the price and the Start button. The large photo further down keeps the alt text and the image note."""
-    if (ROOT / "public" / "images" / "products" / "thumbs" / f"{p['slug']}.webp").exists():
-        return f'<img class="pb-thumb" src="../images/products/thumbs/{p["slug"]}.webp" width="216" height="216" alt="" />'
+    # Nov 19 2026, Dourado: the whole product, not a label crop, since the price box has the height for it.
+    if (ROOT / "public" / "images" / "products" / "thumbs" / f"{p['slug']}-full.webp").exists():
+        return f'<img class="pb-thumb" src="../images/products/thumbs/{p["slug"]}-full.webp" width="312" height="416" alt="" />'
     return ""
 
 
 def plan_thumb(p, pl):
     """A plan with its own form photo, such as Semaglutide oral, swaps the phone thumbnail when it is chosen."""
     thumbs = ROOT / "public" / "images" / "products" / "thumbs"
-    if not (thumbs / f"{p['slug']}.webp").exists():
+    if not (thumbs / f"{p['slug']}-full.webp").exists():
         return ""
-    own = f"{p['slug']}-{pl['id']}.webp"
-    return f' data-thumb="../images/products/thumbs/{own if (thumbs / own).exists() else p["slug"] + ".webp"}"'
+    own = f"{p['slug']}-{pl['id']}-full.webp"
+    return f' data-thumb="../images/products/thumbs/{own if (thumbs / own).exists() else p["slug"] + "-full.webp"}"'
 
 
 def plan_start(p, pl):
@@ -613,7 +614,7 @@ def page(p):
         <div class="blk-card blk-card-mint">
           <div class="section-head">
             <h2>{ {2: "Two", 3: "Three", 4: "Four"}.get(len(p["forms"]), str(len(p["forms"]))) } forms, one program</h2>
-            <p class="section-sub">Choose the form you prefer to start your visit with. An independent, licensed clinician reviews your intake and decides whether to prescribe, and the form and the dose. Product images are illustrations; your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
+            <p class="section-sub">Choose the form you prefer to start your visit with. An independent, licensed clinician reviews your intake and decides whether to prescribe, and the form and the dose.</p>
           </div>
           <ul class="form-tiles form-tiles-links form-tiles-{len(p["forms"])}">{tiles}</ul>
         </div>
@@ -686,7 +687,7 @@ def page(p):
           </div>
           <div class="prog-side">
             <div class="tcard prog-media"><div class="tcard-media">{media}</div></div>
-            <p class="img-note">Illustrative image. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
+            <p class="img-note">Product images on this page are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
             <div class="price-box" id="priceBox">
               <div class="pb-head">{pb_thumb(p)}<div class="pb-price">
               <div class="price-top">
@@ -782,7 +783,7 @@ def page(p):
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a href="../index.html" class="brand"><img class="brand-mark" src="../logo-mark.svg" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span></a>
+        <a href="../index.html" class="brand" aria-label="Velacore Health home"><img class="brand-mark" src="../logo-mark.svg" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span></a>
         <p>A telehealth platform coordinating access to licensed clinicians and 503A compounding pharmacies.</p>
       </div>
       <nav class="footer-col" aria-label="Programs"><h4>Programs</h4>

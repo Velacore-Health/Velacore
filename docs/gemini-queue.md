@@ -4,6 +4,20 @@ The running list of what still has to be made or changed, in the order we will d
 
 Gemini video and image credits reset at 9:21 PM on Nov 16. Video gave two clips per window last time, so the two clips go first.
 
+## Nov 19: price box product shots, no marble
+
+Dourado, Nov 19: the price box picture on phones should show the whole product with no marble, just a soft shadow under it, the way Hims shows its products. Seven images, one per chat, in this order: tirzepatide, semaglutide, microdosing, nad, glutathione, sermorelin, semaglutide-oral. For each, start a new chat, Images on, aspect ratio 3:4, and attach that product's current photo from `assets-in\products`, for example `tirzepatide.jpg`. Save each download in Downloads as Gemini names it. Vale checks every label line enlarged, files it as `assets-in\products\<name>-studio.jpg` and builds the price box picture from it. Nothing goes live before vc-reviewer.
+
+```
+Edit the attached photo. Keep the vial exactly as it is: the same glass, the same deep pine green cap with its silver crimp, the same label, the same size, the same angle and the same daylight from the upper left. Remove the white marble riser and the marble tabletop completely. Stand the vial directly on a seamless, very light, warm white studio surface that curves up into the same soft mint to white background, with no visible horizon line. Add one soft, natural contact shadow directly under the base of the vial, fading gently toward the lower right, like a clean studio product photograph. Keep the vertical 3 by 4 framing with the vial centered and about 60 percent of the frame height, with even space above and below it.
+
+Keep every word on the label exactly as it is, word for word: the VELACORE HEALTH logo, the product name, FOR PRESCRIPTION USE ONLY, PRESCRIPTION COMPOUNDED, 503A COMPOUNDING PHARMACY, and Rx ONLY in its outlined pill. Add no other text anywhere. Exactly one vial. No riser, no marble, no props, no hands, no water, no reflections of other objects.
+```
+
+For `semaglutide-oral.jpg`, use the same prompt with "vial" changed to "bottle" in every place, and "deep pine green cap with its silver crimp" changed to "flat pine child-resistant cap".
+
+Reject if any label word is misspelled, if 503A has a malformed 5, if any marble is left, if the shadow floats away from the base, or if the product changed shape or color.
+
 ## Where it stands at the end of Nov 16
 
 Every Gemini item below was made and passed Vale's check on Nov 16. The prompts stay here as the record of what worked.
