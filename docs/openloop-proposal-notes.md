@@ -26,8 +26,8 @@ Every price below is marked by OpenLoop as an example, subject to change, and av
 ## Unresolved, must be settled in the MSA before launch
 
 - The proposal describes patient intake and credit-card entry happening "through Velacore Health's interface" with an API into OpenLoop's EHR. The Nov 4 demo described Launchpad as OpenLoop-hosted, Velacore-branded intake and portal pages that we only link to. The site plan assumes the demo version, links out, no card entry on our site. Get the Launchpad hosted model in writing.
-- Retail price is ours to set within a floor and ceiling per the demo. The ceiling is not in the proposal. Our planned $229 and $279 month-to-month prices sit above the proposal's $209 and $249 examples, so confirm they are allowed.
-- Glutathione is not in the proposal at all. It appeared in the demo. Confirm or drop it.
+- Settled Nov 20 2026 in writing: prices are fixed by OpenLoop and partners cannot change them. The old note follows. Retail price is ours to set within a floor and ceiling per the demo. The ceiling is not in the proposal. Our planned $229 and $279 month-to-month prices sit above the proposal's $209 and $249 examples, so confirm they are allowed.
+- Settled: the Nov 12 proposal lists Glutathione, and OpenLoop confirmed in writing Nov 20 2026 that it is an injection available in all 50 states.
 - Tirzepatide oral appears in the dose table but has no price page.
 
 ## Programs and example patient prices, per 4 weeks unless noted
@@ -93,3 +93,21 @@ Sexual health, pages 24 and 25:
 - Tadalafil daily, 2.5 or 5 mg, 28 pack: $112.
 - OpenLoop's product names, such as "Double Powered" and "Go Long", are left off the site; they read as performance claims.
 - Not stated: which pharmacy fills these, which items are compounded, and the safety information text.
+
+## Written answers, OpenLoop email Nov 20 2026
+
+Source: email from Johnny Nguyen at OpenLoop to Bryan, Nov 20 2026 4:18 PM, copying Jordan Narlock and Jonathan, answering our first question email. Jordan is sending the MSA in a separate email. The email itself stays in the inbox; this is the summary.
+
+- Example site that passed LegitScript on OpenLoop: boldyouwellness.com.
+- LegitScript: "Everything in the proposal is LegitScript certified." Read this as the programs being acceptable; LegitScript still certifies Velacore itself, so our own application and the badge rule are unchanged.
+- Prices: with Agile, prices are fixed and partners cannot change retail pricing. The site must show OpenLoop's prices exactly, with no first month price of our own. See the price table in "Status as of" in docs/HANDOFF.md, Nov 16 entry, for the Nov 12 proposal amounts.
+- Partner fee: OpenLoop offered screenshots to settle whether the fee varies by medication. Medication not yet shipped is refunded to the patient. If a patient disputes a charge and wins, both OpenLoop's and the partner's fees are refunded. On prepaid plans the partner fee is paid all up front.
+- Care coaching: "Care Coaching is included." This does not answer whether our own site may mention it, so the site keeps no coaching language.
+- Approval of our materials: OpenLoop is still looking into the process.
+- Billing and patient support are OpenLoop's.
+- Tracking: standard Meta and Google tags are fine on our public pages, including the page with the Start button, as long as nothing is placed on OpenLoop's intake or portal.
+- Partner dashboard columns, from their screenshot: patient name, patient key, email, phone number, program, last medication name, subscription, active, date of purchase, end date, next invoice. Refunds appear within 24 hours. It exports as a CSV file. Any export holds patient information: it never goes in this repo or on our servers.
+- Glutathione: injection, available in all 50 states. Oral tirzepatide is offered; no price yet.
+- Intake: one intake link covers everything. The link cannot carry a plan choice, so patients choose again inside the intake. OpenLoop suggests one Medical Weight Loss link or one Get Started button. The intake stays on Agile's own web address, not ours. Links usually arrive about 3 days after signing.
+
+Not answered yet: which fee amount is correct, whether the site may mention coaching, the approval process, whether patients enter health and card details only on the hosted pages, how often the dashboard updates and whether cancellations show, whether the BAA covers viewing and exporting the dashboard, what the oral semaglutide and oral microdosing forms look like when they arrive, whether the one link covers NAD+, Glutathione and Sermorelin as well as weight loss, and the Order Form and BAA.
