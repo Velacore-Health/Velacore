@@ -678,8 +678,7 @@ body.panel-open{overflow:hidden}
 .ch-results .tcard{display:flex}
 .ch-step[data-step="3"] .img-note{text-align:center;max-width:52rem;margin:0 auto}
 @media (max-width:680px){.ch-options{grid-template-columns:1fr}.ch-results,.ch-results:has(> :nth-child(2):last-child){grid-template-columns:1fr;max-width:420px}}
-@media (prefers-reduced-motion:no-preference){.ch-step{animation:chIn .35s var(--ease)}}
-@keyframes chIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* Nov 19 2026: the fade-up on each chooser step was removed, so the program row is the home page's one motion moment. */
 
 
 /* Funnel fixes per vc-reviewer Nov 13 2026 */
@@ -1101,7 +1100,7 @@ p,li,figcaption,dd,.section-sub{text-wrap:pretty}
 
 /* Program row and filters on phones, Nov 19 2026, from a reel Dourado liked.
    Each swipe stops with a card in the center and a sliver of its neighbours on each side. The centered card is full size,
-   the neighbours sit a little smaller, driven by the scroll itself. It moves only when the person swipes.
+   the neighbours sit a little smaller, driven by the scroll itself. It moves only when the person swipes, taps an arrow or tabs through it. This is the home page's one motion moment.
    Browsers without scroll-driven animation, and anyone with reduced motion, get the same row at full size.
    The filter row stays on one line and scrolls sideways instead of wrapping. */
 @media (max-width:700px){
