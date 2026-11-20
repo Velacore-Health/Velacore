@@ -23,6 +23,17 @@ BOXES = {
     "microdosing-oral": (648, 1165, 520),
     "semaglutide-oral": (637, 846, 528),  # Nov 18 2026: one standing bottle, the two-bottle photo retired
 }
+# Nov 20 2026, Dourado chose the studio look for the whole site. The same label cuts, measured on the studio shots in
+# assets-in/products/studio, which frame each product differently from the marble photos. Used whenever the studio shot exists.
+SVIAL = (576, 905, 640)
+STUDIO_BOXES = {
+    "tirzepatide": SVIAL, "semaglutide": SVIAL, "microdosing": SVIAL,
+    "nad": SVIAL, "glutathione": SVIAL, "sermorelin": SVIAL,
+    "semaglutide-oral": (566, 880, 660),
+    "nad-nasal": (636, 1040, 520),
+    "nad-oral": (620, 990, 560),
+    "microdosing-oral": (605, 1110, 590),
+}
 # Not a product: the Not sure tile on the home page shows the glass clipboard, which has no label to read.
 OTHER = {"not-sure": ("lifestyle/learn-evaluation.jpg", (330, 150, 1300))}
 SIZE = 432
@@ -37,7 +48,14 @@ STUDIO_CROP = "crop=trunc(iw*0.90/2)*2:trunc(ih*0.90/2)*2:trunc(iw*0.05):trunc(i
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    jobs = [(n, ROOT / "assets-in" / "products" / f"{n}.jpg", box) for n, box in BOXES.items()]
+    jobs = []
+    for n, box in BOXES.items():
+        studio = ROOT / "assets-in" / "products" / "studio" / f"{n}.jpg"
+        if studio.exists() and n in STUDIO_BOXES:
+            jobs.append((n, studio, STUDIO_BOXES[n]))
+        else:
+            print(f"WARNING no studio shot for {n}: using the marble photo")
+            jobs.append((n, ROOT / "assets-in" / "products" / f"{n}.jpg", box))
     jobs += [(n, ROOT / "assets-in" / rel, box) for n, (rel, box) in OTHER.items()]
     for name, src, (x, y, side) in jobs:
         if not src.exists():

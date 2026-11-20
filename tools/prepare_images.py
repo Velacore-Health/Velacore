@@ -45,6 +45,11 @@ def make_tiles(src, out, name):
                         "-c:v", "libwebp", "-quality", "92", str(out / f"{name}-{w}.webp")], capture_output=True, text=True)
 
 
+# Nov 20 2026, Dourado: the whole site uses the studio look. These product photos come from the studio shots.
+STUDIO_PRODUCTS = {"tirzepatide", "semaglutide", "microdosing", "nad", "glutathione", "sermorelin",
+                   "nad-nasal", "nad-oral", "microdosing-oral", "semaglutide-oral"}
+
+
 def studio_or(src, name):
     """Nov 20 2026, Dourado: the needle-free and form tiles use the studio shots, no marble, when one exists in
     assets-in/products/studio/<name>.jpg; otherwise the photo dropped in assets-in/products."""
@@ -67,9 +72,56 @@ def tiles_only():
     return 0
 
 
+def home_weight_card():
+    """python -I tools/prepare_images.py --home  remakes the two Tirzepatide cuts on the home weight card from the studio
+    shot. tirzepatide-480 is the whole photo for phones. tirzepatide-wide is a 4 by 3 cut for 701 to 1299 px with the vial
+    a little right of center, since the card text sits on the left: the plain left margin of the photo is mirrored to
+    widen it, so no vial is ever cut or faded."""
+    src = studio_or(ROOT / "assets-in" / "products" / "tirzepatide.jpg", "tirzepatide")
+    out = ROOT / "public" / "images" / "products"
+    run = lambda vf, dst: subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf", vf, "-c:v", "libwebp",
+                                          "-quality", "92", str(out / dst)], capture_output=True, text=True)
+    run("scale=480:642:flags=lanczos,unsharp=5:5:0.6:5:5:0", "tirzepatide-480.webp")
+    # In the 1792 by 2400 studio shot the vial is centered; cut the full width from y 250 to 2050, then mirror 544 px of
+    # plain margin on the left and 64 on the right, so the frame is 2400 by 1800 with the vial at 60 percent across.
+    wide = ("crop=1792:1800:0:250,split=3[a][b][c];[b]crop=544:1800:0:0,hflip[l];[c]crop=64:1800:1728:0,hflip[r];"
+            "[l][a][r]hstack=inputs=3,scale={w}:{h}:flags=lanczos,unsharp=5:5:0.5:5:5:0")
+    run(wide.format(w=1200, h=900), "tirzepatide-wide.webp")
+    run(wide.format(w=800, h=600), "tirzepatide-wide-800.webp")
+    print("wrote tirzepatide-480, tirzepatide-wide and tirzepatide-wide-800 from " + src.relative_to(ROOT).as_posix())
+    return 0
+
+
+GOAL_SIZES = ((480, 360), (800, 600), (1200, 900))
+
+
+def goal_sizes(names):
+    """python -I tools/prepare_images.py --goals goal-hormone  makes the 480, 800 and 1200 px copies of a home goal photo
+    from assets-in/lifestyle/<name>.jpg, plus the 1600 px master. Nov 20 2026, studio look."""
+    out = ROOT / "public" / "images" / "lifestyle"
+    for name in names:
+        src = ROOT / "assets-in" / "lifestyle" / f"{name}.jpg"
+        if not src.exists():
+            print(f"MISSING {src.relative_to(ROOT).as_posix()}")
+            continue
+        for w, h in GOAL_SIZES:
+            amount = 0.7 if w <= 480 else 0.5
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf",
+                            f"scale={w}:{h}:flags=lanczos,unsharp=5:5:{amount}:5:5:0", "-c:v", "libwebp", "-quality", "90",
+                            str(out / f"{name}-{w}.webp")], capture_output=True, text=True)
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf", "scale=1600:-2", "-c:v", "libwebp",
+                        "-quality", "88", str(out / f"{name}.webp")], capture_output=True, text=True)
+        print(f"wrote {name}-480, -800, -1200 and the 1600 master")
+    return 0
+
+
 def main():
+    if "--goals" in sys.argv[1:]:
+        return goal_sizes(sorted(ONLY))
     if "--tiles" in sys.argv[1:]:
         return tiles_only()
+    if "--home" in sys.argv[1:]:
+        return home_weight_card()
     total = 0
     for folder, expected in FOLDERS.items():
         total += convert(ROOT / "assets-in" / folder, ROOT / "public" / "images" / folder, expected)
@@ -92,8 +144,10 @@ def convert(IN, OUT, EXPECTED):
     for src in files:
         name = src.stem.lower().replace(" ", "-")
         dst = OUT / f"{name}.webp"
+        if OUT.name == "products" and name in STUDIO_PRODUCTS:
+            src = studio_or(src, name)
         if OUT.name == "products" and name in FORM_TILES:
-            make_tiles(studio_or(src, name), OUT / "tiles", name)
+            make_tiles(src if name in STUDIO_PRODUCTS else studio_or(src, name), OUT / "tiles", name)
         if OUT.name == "products":
             # Nov 17 2026: product photos are sharpened after a Lanczos resize, and get an 800 copy for cards on phones.
             cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(src),
