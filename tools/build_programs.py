@@ -280,6 +280,41 @@ def price_line(p):
     return f'From ${min(int(x["price"].lstrip("$")) for x in p["plans"])} a pack'
 
 
+def first_and_then(p):
+    """The first month price and the regular monthly price, both read from the monthly plan note."""
+    note = next(x for x in p["plans"] if x["id"] == "monthly")["note"]
+    m = re.match(r"^(\$\d+) your first month, then (\$\d+) a month", note)
+    assert m, (p["slug"], note)
+    return m.group(1), m.group(2)
+
+
+def was(price):
+    """Price slash, Nov 19 2026, Dourado's call: the regular monthly price, struck through, in front of the first
+    month price. It is the price charged every month after the first, never an invented compare-at price, and the
+    words next to it always say "then $X/mo". Screen readers hear "Monthly price after the first month", since many skip
+    strikethrough, and that label cannot be read as a former sale price."""
+    return f'<s class="was"><span class="vh">Monthly price after the first month </span>{price}</s> '
+
+
+def injection(p):
+    """Semaglutide has an oral form at a different price, so its injection prices say injection."""
+    return ", injection" if any(x["id"] == "oral" for x in p["plans"]) else ""
+
+
+def price_html(p):
+    """price_line with the price slash, for the menu cards."""
+    if any(x["id"] == "monthly" for x in p["plans"]):
+        first, then = first_and_then(p)
+        return f"{was(then)}{first} first&nbsp;month<br>then {then}/mo{injection(p)}"
+    return price_line(p)
+
+
+def tcard_price(p):
+    """The price on a program card, home page and pricing page alike."""
+    first, then = first_and_then(p)
+    return f'<span class="tcard-price">{was(then)}{first} <small>first month, then {then}/mo{injection(p)}</small></span>'
+
+
 def prod_srcset(rel, prefix, sizes):
     """Nov 17 2026: product photos come in a sharpened 1200 master and an 800 copy, both made from the full-size
     original in assets-in. The browser picks the smaller one on small screens so no card is soft from heavy scaling."""
@@ -348,7 +383,7 @@ def side_panel(prefix):
         f'<span><b>{name}</b><small>{sub}</small></span><i aria-hidden="true"></i></a></li>' for g, name, sub in GOALS)
     progs = "".join(
         f'<a class="panel-prog" href="{prefix}programs/{p["slug"]}.html">{panel_thumb(p, prefix)}'
-        f'<b>{p["name"]}</b><small>{price_line(p)}</small></a>' for p in PROGRAMS)
+        f'<b>{p["name"]}</b><small>{price_html(p)}</small></a>' for p in PROGRAMS)
     links = [("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("learn.html", "Learn"), ("clinicians.html", "Clinicians"),
              ("faq.html", "FAQ"), ("about.html", "About"), ("contact.html", "Contact")]
     more = "".join(f'<a href="{prefix}{h}">{t}</a>' for h, t in links)
@@ -465,7 +500,7 @@ def mcta_price(p):
     first = p["plans"][0]
     m = re.match(r"(\$\d+) your first month, then (\$\d+) a month", first["note"])
     if m:
-        return f'<span class="mcta-price"><b>{m.group(1)} first month</b><small>then {m.group(2)}/mo</small></span>'
+        return f'<span class="mcta-price"><b>{was(m.group(2))}{m.group(1)} first&nbsp;month</b><small>then {m.group(2)}/mo{injection(p)}</small></span>'
     line = price_line(p)
     if ", billed " in line:
         a, b = line.split(", ", 1)

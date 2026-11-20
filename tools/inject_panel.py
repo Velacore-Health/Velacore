@@ -17,6 +17,19 @@ for name in PAGES:
     else:
         j = s.index("  </header>") + len("  </header>")
         s = s[:j] + "\n  " + panel + s[j:]
+    if name == "index.html":
+        # The home program cards are hand-written, but their prices come from the program data, Nov 19 2026.
+        slugs = {p["slug"]: p for p in bp.PROGRAMS if any(x["id"] == "monthly" for x in p["plans"])}
+        def card(m):
+            block = m.group(0)
+            st = re.search(r'data-start="([a-z-]+)"', block)
+            if not st or st.group(1) not in slugs:
+                return block
+            new, n = re.subn(r'<span class="tcard-price">.*?</small></span>', lambda _: bp.tcard_price(slugs[st.group(1)]), block, count=1, flags=re.S)
+            assert n == 1, st.group(1)
+            return new
+        s, cards = re.subn(r'<article class="tcard".*?</article>', card, s, flags=re.S)
+        print("home cards checked:", cards)
     if name in ("learn.html", "faq.html"):
         band = bp.goal_band("")
         if "<!-- goalband:start -->" in s:
