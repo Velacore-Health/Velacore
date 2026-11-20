@@ -1142,3 +1142,8 @@ s.was{color:var(--ink-faint);font-weight:500;text-decoration-thickness:1.5px;mar
   .pb-thumb{width:72px;height:72px}
   .price-top{flex-wrap:wrap;row-gap:2px}
 }
+
+/* Start pages for one form, Nov 19 2026: the line that names what the patient picked. */
+.sp-choice{font-weight:600;color:var(--ink);margin:0 0 12px}
+/* Program page form cards became links Nov 19 2026; keep their own column count, not the home tiles' four. */
+@media (min-width:701px){.prog-forms .form-tiles-links{grid-template-columns:repeat(3,1fr)}.prog-forms .form-tiles-links.form-tiles-2{grid-template-columns:repeat(2,1fr)}}

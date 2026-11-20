@@ -301,6 +301,13 @@
           card.querySelectorAll('a, button').forEach(function (el) { el.removeAttribute('tabindex'); });
           // needle-free answer: where the program has an oral tile, the card shows the oral form, its photo and its price, read from that tile
           var oral = form === 'noneedle' && document.querySelector('[data-oral="' + slug + '"]');
+          // needle-free answer for a program whose forms each have their own Start page, such as NAD+: the card sends
+          // the visitor to the form cards to pick one, instead of to the injection's Start page, Nov 19 2026
+          var forms = form === 'noneedle' && !oral && document.querySelector('.form-tiles-links a[href="programs/' + slug + '.html#forms"]');
+          if (forms) {
+            var fstart = card.querySelector('a[data-start]');
+            if (fstart) { fstart.setAttribute('href', 'programs/' + slug + '.html#forms'); fstart.textContent = 'Choose your form'; }
+          }
           if (oral) {
             var oimg = oral.querySelector('img'), oline = oral.querySelector('p').textContent, oprice = (oline.match(/\$\d+/) || [''])[0];
             // the tile photo is cropped for the tile; the card takes the full frame from data-card-src when the tile gives one
@@ -310,6 +317,8 @@
             card.querySelector('.tcard-price').innerHTML = oprice + ' <small>a month, oral form</small>';
             var cplan = card.querySelector('.tcard-plan'); if (cplan) cplan.remove();
             var clink = card.querySelector('.tcard-link'); if (clink) clink.href = oral.querySelector('a').getAttribute('href');
+            // the Start button goes to the oral form's own Start page, Nov 19 2026
+            var cstart = card.querySelector('a[data-start]'); if (cstart && oral.getAttribute('data-start-href')) cstart.setAttribute('href', oral.getAttribute('data-start-href'));
           }
           out.appendChild(card);
         });
@@ -379,6 +388,18 @@
         noteEl.textContent = inp.getAttribute('data-note');
         var thumb = document.querySelector('.pb-thumb');
         if (thumb && inp.getAttribute('data-thumb')) thumb.src = inp.getAttribute('data-thumb');
+        // Nov 19 2026: a plan tied to one form, such as Semaglutide oral, sends every Start button to that form's
+        // Start page, so the patient lands on the intake for what they picked. Any UTM tags already on a link stay on it.
+        var to = inp.getAttribute('data-start-href');
+        if (to) {
+          var own = document.querySelector('#priceBox a[data-start]'), slug = own && own.getAttribute('data-start');
+          document.querySelectorAll('a[data-start="' + slug + '"]:not([data-form-pick])').forEach(function (a) {
+            var href = a.getAttribute('href') || '', q = href.indexOf('?');
+            a.setAttribute('href', to + (q > -1 ? href.slice(q) : ''));
+          });
+          var bar = document.querySelector('#mobileCta .mcta-price');
+          if (bar && inp.getAttribute('data-bar')) bar.innerHTML = inp.getAttribute('data-bar');
+        }
       });
     });
   }

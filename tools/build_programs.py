@@ -6,6 +6,7 @@ Run from the repo root after any change to prices, wording or the template:
 Prices come from docs/pricing-research.md section 5. Facts come from
 docs/openloop-proposal-notes.md. Nothing here may make an outcome claim.
 """
+import html
 import json
 import re
 import subprocess
@@ -466,6 +467,32 @@ def intake_key(p):
     return "nad+" if p["slug"] == "nad" else p["slug"]
 
 
+# What the patient picks, Nov 19 2026, Dourado: "they need to be able to select what they want because it goes to that
+# link of what they want." Each form card opens its own Start page, and each Start page carries its own intake link
+# key, so when OpenLoop sends one link per form it drops straight in. Suffix "" is the program's own Start page.
+# Values: the Start page suffix, the words for "You told us you prefer ...", and the plan whose price that page shows.
+FORM_CHOICES = {
+    # The program's own Start page carries no "You told us you prefer" line: most visitors reach it without picking a form,
+    # per vc-reviewer Nov 19 2026, so only the pages a real choice leads to name the choice.
+    "semaglutide": {"Injection": ("", "", "monthly"), "Oral": ("oral", "the oral form", "oral")},
+    "nad": {"Injection": ("", "", "monthly"), "Nasal spray": ("nasal", "the nasal spray", "monthly"),
+            "Oral dropper": ("oral", "the oral dropper", "monthly")},
+}
+
+
+def start_slug(p, suffix=""):
+    return p["slug"] + (f"-{suffix}" if suffix else "")
+
+
+def choices(p):
+    """(suffix, words, plan id, image) for every form of a program that has form choices, the default form first."""
+    out = []
+    for name, img, _ in p.get("forms", []):
+        suffix, words, plan = FORM_CHOICES[p["slug"]][name]
+        out.append((suffix, words, plan, img))
+    return out
+
+
 def pb_thumb(p):
     """Nov 19 2026: the small product photo beside the price, shown on phones only so the first screen carries
     the product, the price and the Start button. The large photo further down keeps the alt text and the image note."""
@@ -481,6 +508,18 @@ def plan_thumb(p, pl):
         return ""
     own = f"{p['slug']}-{pl['id']}.webp"
     return f' data-thumb="../images/products/thumbs/{own if (thumbs / own).exists() else p["slug"] + ".webp"}"'
+
+
+def plan_start(p, pl):
+    """A plan tied to its own form, such as Semaglutide oral, sends every Start button on the page to that form's
+    Start page, and the phone bar shows that plan's price. Other programs get nothing extra."""
+    forms = {plan: suffix for suffix, _, plan, _ in choices(p) if suffix and plan != p["plans"][0]["id"]}
+    if not forms:
+        return ""
+    suffix = forms.get(pl["id"], "")
+    bar = mcta_price(p) if not suffix else f'<span class="mcta-price"><b>{pl["price"]} a month</b><small>{p["name"]}, {pl["label"].split(",")[0].lower()} form</small></span>'
+    inner = bar[len('<span class="mcta-price">'):-len("</span>")]
+    return f' data-start-href="../start/{start_slug(p, suffix)}.html" data-bar="{html.escape(inner, quote=True)}"'
 
 
 def pb_points(p):
@@ -535,9 +574,9 @@ def render(p):
     return s
 
 
-def render_start(p):
+def render_start(p, choice=None):
     """The finished Start page, with the program's line swaps."""
-    s = start_page(p)
+    s = start_page(p, choice)
     for a, b in p.get("swaps", []):
         s = s.replace(a, b)
     return s
@@ -547,7 +586,7 @@ def page(p):
     media = f'<img class="tcard-photo" src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:900px) 92vw, 560px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Velacore Health {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.svg" alt="" width="119" height="128" />'
     plans = "\n".join(
         f'''          <label class="plan-option">
-            <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{plan_thumb(p, pl)}{" checked" if i == 0 else ""} />
+            <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{plan_thumb(p, pl)}{plan_start(p, pl)}{" checked" if i == 0 else ""} />
             <span class="plan-name">{pl["label"]}</span><span class="plan-amt">{pl["price"]}{pl["unit"]}</span>
           </label>''' for i, pl in enumerate(p["plans"]))
     first = p["plans"][0]
@@ -564,7 +603,8 @@ def page(p):
     forms = ""
     if p.get("forms"):
         tiles = "".join(
-            f'<li><img {tile_img(img, "../", TILE_SIZES_WIDE)} alt="Velacore Health {p["name"]} {name.lower()}" loading="lazy" /><div><b>{name}</b><p>{line}</p></div></li>'
+            f'<li><a href="../start/{start_slug(p, FORM_CHOICES[p["slug"]][name][0])}.html" data-start="{p["slug"]}" data-form-pick>'
+            f'<img {tile_img(img, "../", TILE_SIZES_WIDE)} alt="Velacore Health {p["name"]} {name.lower()}" loading="lazy" /><div><b>{name}</b><p>{line}</p></div></a></li>'
             for name, img, line in p["forms"] if (ROOT / "public" / "images" / img).exists())
         forms = f'''
     <!-- Forms, Nov 17 2026: one card, one photo per form. Shown only where the program data lists forms. -->
@@ -573,9 +613,9 @@ def page(p):
         <div class="blk-card blk-card-mint">
           <div class="section-head">
             <h2>{ {2: "Two", 3: "Three", 4: "Four"}.get(len(p["forms"]), str(len(p["forms"]))) } forms, one program</h2>
-            <p class="section-sub">Your clinician decides the form and the dose from your intake. Product images are illustrations; your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
+            <p class="section-sub">Choose the form you prefer to start your visit with. An independent, licensed clinician reviews your intake and decides whether to prescribe, and the form and the dose. Product images are illustrations; your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
           </div>
-          <ul class="form-tiles form-tiles-{len(p["forms"])}">{tiles}</ul>
+          <ul class="form-tiles form-tiles-links form-tiles-{len(p["forms"])}">{tiles}</ul>
         </div>
       </div>
     </section>
@@ -779,17 +819,23 @@ START = {
 }
 
 
-def start_page(p):
-    fill = lambda s: s.replace("{Program}", p["name"]).replace("{note}", p["plans"][0]["note"])
-    link = INTAKE.get(intake_key(p), "")
+def start_page(p, choice=None):
+    suffix, words, plan_id, form_img = choice or ("", "", None, None)
+    plan = next((x for x in p["plans"] if x["id"] == plan_id), p["plans"][0])
+    fill = lambda s: s.replace("{Program}", p["name"]).replace("{note}", plan["note"])
+    key = intake_key(p) + (f"-{suffix}" if suffix else "")
+    # One link per program is what Dourado expects from OpenLoop; a form's own link wins only if OpenLoop gives one.
+    link = INTAKE.get(key, "") or INTAKE.get(intake_key(p), "")
+    chose = f'\n        <p class="sp-choice">You told us you prefer {words}. An independent, licensed clinician reviews your intake and decides whether to prescribe, and the form and the dose.</p>' if words else ""
+    image = form_img or p["image"]
     steps = "".join(f'<li><span class="sp-num" aria-hidden="true">{i}</span><p>{fill(s)}</p></li>' for i, s in enumerate(START["steps"], 1))
     if link:
-        button = f'<a class="btn btn-primary btn-block" href="{link}" data-intake="{intake_key(p)}" rel="noopener">{fill(START["button"])}</a>'
+        button = f'<a class="btn btn-primary btn-block" href="{link}" data-intake="{key}" rel="noopener">{fill(START["button"])}</a>'
         pending = ""
     else:
-        button = f'<a class="btn btn-primary btn-block" href="#" data-intake="{intake_key(p)}" aria-disabled="true">{fill(START["button"])}</a>'
+        button = f'<a class="btn btn-primary btn-block" href="#" data-intake="{key}" aria-disabled="true">{fill(START["button"])}</a>'
         pending = f'<p class="sp-pending">{fill(START["pending"]).replace("hello@velacorehealth.com", "<a href=\"mailto:hello@velacorehealth.com\">hello@velacorehealth.com</a>")}</p>'
-    media = f'<img src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:700px) 80vw, 400px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else ""
+    media = f'<img src="../images/{image}"{prod_srcset(image, "../", "(max-width:700px) 80vw, 400px")} width="{img_size(image)[0]}" height="{img_size(image)[1]}" alt="" />' if image and (ROOT / "public" / "images" / image).exists() else ""
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -812,13 +858,13 @@ def start_page(p):
       <a href="../index.html" class="brand" aria-label="Velacore Health home">
         <img class="brand-mark" src="../logo-mark.svg" alt="Velacore Health" /><span class="brand-name">Velacore <span class="brand-accent">Health</span></span>
       </a>
-      <a class="sp-back" href="../programs/{p["slug"]}.html">Back<span class="sp-back-name"> to {p["name"]}</span></a>
+      <a class="sp-back" href="../programs/{p["slug"]}.html{'#forms' if suffix else ''}">Back<span class="sp-back-name"> to {p["name"]}</span></a>
     </div>
   </header>
   <main class="section sp-main">
     <div class="container sp-grid">
       <div class="sp-card">
-        <h1>{fill(START["h1"])}</h1>
+        <h1>{fill(START["h1"])}</h1>{chose}
         <p class="sp-price">{fill(START["price"])}</p>
         <ol class="sp-steps">{steps}</ol>
         <p class="sp-handoff">{fill(START["handoff"])}</p>
@@ -849,8 +895,10 @@ def main():
         print("wrote", f"public/programs/{p['slug']}.html")
     START_OUT.mkdir(parents=True, exist_ok=True)
     for p in PROGRAMS:
-        (START_OUT / f"{p['slug']}.html").write_text(render_start(p), encoding="utf-8")
-        print("wrote", f"public/start/{p['slug']}.html")
+        for c in choices(p) or [None]:
+            name = start_slug(p, c[0] if c else "")
+            (START_OUT / f"{name}.html").write_text(render_start(p, c), encoding="utf-8")
+            print("wrote", f"public/start/{name}.html")
 
 
 if __name__ == "__main__":
