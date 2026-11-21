@@ -629,14 +629,14 @@ def page(p):
   <meta property="og:description" content="{p["meta"]}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.velacorehealth.com/programs/{p["slug"]}" />
-  <meta property="og:image" content="https://www.velacorehealth.com/images/og.png" />
+  <meta property="og:image" content="https://www.velacorehealth.com/images/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Velacore Health" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{p["title"]} | Velacore Health" />
   <meta name="twitter:description" content="{p["meta"]}" />
-  <meta name="twitter:image" content="https://www.velacorehealth.com/images/og.png" />
+  <meta name="twitter:image" content="https://www.velacorehealth.com/images/og.jpg" />
   <link rel="canonical" href="https://www.velacorehealth.com/programs/{p["slug"]}" />
   <script type="application/ld+json">
   {{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{faq_ld}]}}

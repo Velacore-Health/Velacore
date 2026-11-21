@@ -116,7 +116,7 @@ Files: product images are `public/images/products/<program>.webp` and people and
 
 ## 6. The product label
 
-This label lives only in our pictures. Settled Nov 19 2026 by Dourado: the vials patients receive will not carry Velacore branding; the pharmacy labels them. So every picture of a labeled vial is an illustration and carries the illustration note. On the site that is one note per page, worded "Product images on this page are illustrations", placed by the first product picture; Dourado asked Nov 19 2026 to stop repeating it in every section. In ads and video the note sits on the same frame or creative as the picture.
+This label lives only in our pictures. Settled Nov 19 2026 by Dourado: the vials patients receive will not carry Velacore branding; the pharmacy labels them. So every picture of a labeled vial is an illustration and carries the illustration note. On the site that is one note per page, worded "Product images on this page are illustrations", placed by the first product picture; Dourado asked Nov 19 2026 to stop repeating it in every section. In ads and video the note sits on the same frame or creative as the picture. The share picture, `public/images/og.jpg`, built by `tools/make_og.py`, is seen away from the page, so it carries the note on the frame too, Nov 20 2026.
 
 Every vial, bottle and spray in our pictures carries the same label, so the shelf reads as one brand:
 

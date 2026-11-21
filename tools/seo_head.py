@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://www.velacorehealth.com"
-OG = f"{SITE}/images/og.png"
+OG = f"{SITE}/images/og.jpg"
 PAGES = {
     "privacy": "What the Velacore Health website collects, how it is used and who receives it. It does not collect health information or sell personal information.",
     "terms": "Terms for using Velacore Health, a telehealth coordination platform, not a medical practice. Covers eligibility, billing, renewals and governing law.",

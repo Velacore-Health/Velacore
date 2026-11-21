@@ -448,14 +448,14 @@ def page(a):
   <meta property="og:description" content="{html.escape(a["meta"])}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{url}" />
-  <meta property="og:image" content="{SITE}/images/og.png" />
+  <meta property="og:image" content="{SITE}/images/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Velacore Health" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{html.escape(a["title"])}" />
   <meta name="twitter:description" content="{html.escape(a["meta"])}" />
-  <meta name="twitter:image" content="{SITE}/images/og.png" />
+  <meta name="twitter:image" content="{SITE}/images/og.jpg" />
   <link rel="canonical" href="{url}" />
 {ld_html}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
