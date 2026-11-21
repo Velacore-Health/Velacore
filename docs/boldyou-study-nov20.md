@@ -46,3 +46,4 @@ Bold You's own words, not OpenLoop's in writing, so unconfirmed until OpenLoop a
 ## Not verified
 
 - Their LegitScript status. No LegitScript badge or seal appears on their site, and the LegitScript lookup page needs a human robot check, so Vale could not run it. Dourado can check it at legitscript.com.
+- Nov 20 2026, later: Dourado ran the LegitScript lookup himself and could not find the site, then hit the daily lookup limit. So their certification is unconfirmed and their wording is not a safe model. OpenLoop called it a site that passed; ask OpenLoop which name or address it is certified under.
