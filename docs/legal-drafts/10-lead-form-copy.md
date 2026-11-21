@@ -15,6 +15,8 @@ Two things in this draft differ from the brief on purpose. Both are explained in
 
 ## 1. The box on the Start page
 
+Note from Vale, Nov 20 2026: the State label, its picker line and the state clause in the privacy wording are dropped. The box is first name and email only, per docs/start-lead-form-plan.md.
+
 Sits in the Start page card, above the Continue button. Class names are left to Vale. The same words go on all nine Start pages, with no program name anywhere in the box.
 
 ### Heading, element: h2
