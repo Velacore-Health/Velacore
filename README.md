@@ -32,7 +32,6 @@ outside `public/` is served.
 | `docs/` | Handoff, deploy notes, brand guide, research and plans. Never served. |
 | `brand/` | The brand card used with image prompts. |
 | `netlify.toml` | Netlify settings: publish folder, clean addresses, security headers. |
-| `vercel.json` | Settings for the old Vercel copy, which is not yet closed. See `docs/DEPLOY.md`. |
 | `velacore-preview.html` | A one-file design preview from the first draft. Not served and not kept current. |
 
 ## Build and preview

@@ -1,5 +1,6 @@
 # Netlify configuration for the Velacore Health static site.
-# Mirrors vercel.json: publish public/, clean URLs, no trailing slash, same security headers.
+# Publishes public/ with clean URLs, no trailing slash and the security headers below. It began as a mirror of
+# vercel.json, which was removed Nov 20 2026 when the old Vercel project was deleted.
 # Drafted Nov 6 2026 for the host move; live on the velacore-health Netlify project since Nov 8 2026.
 
 [build]

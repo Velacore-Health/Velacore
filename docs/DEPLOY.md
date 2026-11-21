@@ -14,8 +14,8 @@ Corrected Nov 20 2026 to match what is live. The older plan sections further dow
 - Files: GitHub, repository Velacore under the Velacore-Health account, branch claude/velacore-health-website-qnjdnh. The site is the `public/` folder only. Nothing in `docs/`, `tools/`, `brand/` or `drafts/` is served.
 - Live address: https://www.velacorehealth.com, served by the Netlify project velacore-health from `public/` using `netlify.toml` in the repo. Netlify has published every push to the branch since Nov 8 2026, and the domain has pointed at it since Nov 13 2026. velacorehealth.com without the www and velacore.health both forward to the www address.
 - Domain: velacorehealth.com is registered at Squarespace, with DNS on Google Cloud DNS through Squarespace. The web records point at Netlify. The mail records point at Google Workspace and must never be touched.
-- Second publisher, still live, checked Nov 20 2026: the old Vercel project still builds from `vercel.json` on every push, and https://velacore.vercel.app shows the current site. Two publishers for one folder is one too many. Closing it is Dourado's click in the Vercel dashboard, see Open decisions.
-- Third copy, checked Nov 20 2026: https://velacore-health.netlify.app, the Netlify project's own address, shows the current site and does not forward to the www address. The 23 pages meant for search each name www.velacorehealth.com as their canonical address, so search engines are told which copy is the real one; the nine Start pages and the 404 page are marked noindex instead. A forward can be added in `netlify.toml` on Dourado's word.
+- One publisher only. Dourado deleted the old Vercel project on Nov 20 2026, after pausing it first and seeing the real site stay up. https://velacore.vercel.app now answers 404, deployment not found, and `vercel.json` is out of the repo. The Vercel account itself still exists with no projects in it.
+- Second copy, checked Nov 20 2026: https://velacore-health.netlify.app, the Netlify project's own address, shows the current site and does not forward to the www address. The 23 pages meant for search each name www.velacorehealth.com as their canonical address, so search engines are told which copy is the real one; the nine Start pages and the 404 page are marked noindex instead. A forward can be added in `netlify.toml` on Dourado's word.
 - GitHub Pages is off. The workflow file `.github/workflows/deploy-pages.yml` is no longer in the repo.
 - What the site connects to: Google Fonts, Google Analytics 4 tag G-B2PQL4DLF8 on the pages where it is allowed, schema.org markup. No forms, no server code, no keys, no patient health information. Intake, card entry and the patient portal live on the telehealth partner's hosted pages.
 
@@ -30,7 +30,7 @@ Corrected Nov 20 2026 to match what is live. The older plan sections further dow
 ## What it costs
 
 - Netlify, the live host: one team on the Personal plan at $9 a month, shared with the Salvage Health project, as read from the account on Nov 6 2026 and not read again since. A production deploy costs 15 credits, so changes are batched. Running out of credits pauses every site in the team.
-- The Vercel lines below were written before the move. They matter now only because the Vercel project is still publishing a second copy.
+- The Vercel lines below were written before the move and are kept as the record. The Vercel project was deleted Nov 20 2026, so none of them is a cost today. Seen on its settings page that day: upgrade offers to the Pro plan, which suggests it sat on the free plan.
 - Vercel plan: UNCONFIRMED. Dourado reads it under the Vercel project, Settings, Billing. Vercel's own terms say the free Hobby plan is for non-commercial use, so a business site needs Pro. Dourado's rule for Velacore: nothing on a free plan.
 - Whether Vercel is linked to the GitHub repository for automatic deploys: UNCONFIRMED. Visible under the project's Settings, Git.
 - Domain: UNCONFIRMED whether anything other than velacore.vercel.app is attached. Visible under Settings, Domains.
@@ -76,11 +76,10 @@ Salvage Health keeps its push address disabled between deploys and works from a 
 
 - In git, the way that leaves a record: `git revert <commit>` on the branch, run the checks, push again on Dourado's word. This is the only undo used so far.
 - Netlify also keeps a list of past deploys in the project's Deploys screen, and an older one can be published again from there. Not tried on this project yet, and whether it costs credits is UNCONFIRMED. It would be Dourado's click.
-- While the Vercel project still publishes, a revert and push also puts its copy back.
 
 ## Cutover to Netlify, the plan
 
-Done: the Netlify project went live Nov 8 2026 and the domain moved Nov 13 2026. What follows is the plan as written before the move, kept as the record. The one step never finished is retiring the Vercel project.
+Done: the Netlify project went live Nov 8 2026 and the domain moved Nov 13 2026. What follows is the plan as written before the move, kept as the record. The last step, retiring the Vercel project, was finished Nov 20 2026.
 
 Drafted Nov 6 2026 after Kevin read the Netlify account: one team on the Personal plan at $9 a month, about 4,700 credits available, auto recharge off, only the Salvage Health project in it, builds one at a time. A second project in that team is fine on credits.
 
@@ -134,6 +133,6 @@ Clicks only Dourado can do for the move:
 ## Open decisions, Dourado's
 
 1. Closed Nov 6: Netlify, Dourado's decision given to Kevin in chat. The GitHub Pages workflow is out of the repo. Whether Velacore gets its own Netlify team for separate credits is still his call.
-2. Open, found Nov 20 2026: the Vercel project was never retired and still publishes a second copy at velacore.vercel.app on every push. To close it Dourado either deletes the Vercel project or disconnects it from the GitHub repository, in the Vercel dashboard. After that `vercel.json` can come out of the repo. The Vercel plan, link and domain lines above stay UNCONFIRMED until then.
+2. Closed Nov 20 2026: Dourado deleted the Vercel project. Its only address was velacore.vercel.app; our domain was never attached to it. Left for him if he wants it tidy: the empty Vercel account, and the Vercel app on the GitHub side, if it is still installed, which is removed in GitHub under the organization settings, installed apps.
 3. Open, found Nov 20 2026: whether velacore-health.netlify.app should forward to www.velacorehealth.com. One rule in `netlify.toml`, shipped in a normal batch on his word.
 4. Whether the Google Analytics tag may stay on pages that name prescription programs. A question for compliance counsel, not an agent.
