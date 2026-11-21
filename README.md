@@ -1,83 +1,64 @@
-# Velacore Health — Website
+# Velacore Health website
 
-Marketing website for **Velacore Health**, a **telehealth platform** that coordinates access to
-independent, licensed physicians and 503A compounding pharmacies. All prescribing decisions are made
-solely by the independent physician; all treatments are prescription only.
+The marketing website for Velacore Health, a telehealth coordination platform that connects patients
+to independent licensed physicians and 503A compounding pharmacies. Velacore is never the provider or
+the prescriber. Every prescribing decision is made by the independent clinician, and every treatment
+is prescription only.
 
-Built as a fast, self-contained static site — no build step, no dependencies. Just open
-`index.html` or deploy the folder anywhere. Intended to **replace** the current site.
+Rewritten Nov 20 2026. The earlier version of this file described the first one-page draft and is in
+git history.
 
-> **Compliance — read first:** the public site names **only the five permitted treatments**
-> (Tirzepatide, Semaglutide, NAD+, Glutathione, Sermorelin) and contains **no restricted product
-> names, no coaching language, and no health claims.** Before changing any wording, read
-> **[`COMPLIANCE.md`](./COMPLIANCE.md)** — including why restricted products must live behind a
-> **server-side** member gate (a client-side password does not work) and what's still outstanding.
+## Read these first
 
-## Swapping in images
+- `CLAUDE.md` the working rules, the repo map, the build order and the two checks.
+- `docs/HANDOFF.md` the state file: what exists, what was decided, what is open.
+- `COMPLIANCE.md` the rules the public site must follow, including which treatments may be named.
+- `docs/DEPLOY.md` where the site lives and how a change goes live.
+- `docs/BRAND.md` logos, colors, type, voice and the image rules.
 
-Every image is a dashed **placeholder** — search the HTML for `img-slot` and replace each block
-with an `<img>`. Suggested dimensions are noted inside each placeholder and in nearby comments
-(hero visual, provider headshot, five treatment photos).
+## Where the site lives
 
-## Structure
+The live site is https://www.velacorehealth.com, published by Netlify from the `public/` folder on
+every push to the branch `claude/velacore-health-website-qnjdnh`, using `netlify.toml`. Nothing
+outside `public/` is served.
 
-The deployable website lives in **`public/`** (that folder is what gets served — everything
-outside it, like this README and `COMPLIANCE.md`, stays private and off the live site).
+## What is in the repo
 
-| Path | Purpose |
-|------|---------|
-| `public/index.html` | All page content and sections |
-| `public/styles.css` | Full design system (colors, layout, responsive) |
-| `public/script.js` | Mobile nav, FAQ accordion, scroll reveals |
-| `vercel.json` | Vercel config (serves `public/`, security headers) |
-| `.github/workflows/deploy-pages.yml` | Auto-deploys `public/` to GitHub Pages |
-| `velacore-preview.html` | Self-contained design preview (for the Artifact link) — not deployed |
+| Path | What it is |
+|------|------------|
+| `public/` | The site. Most pages are generated; see the Build section of `CLAUDE.md`. |
+| `tools/` | The builders and their data: programs, stand-alone pages, articles, menu and prices, share picture. |
+| `drafts/` | Hidden pages that are built but never served. |
+| `docs/` | Handoff, deploy notes, brand guide, research and plans. Never served. |
+| `brand/` | The brand card used with image prompts. |
+| `netlify.toml` | Netlify settings: publish folder, clean addresses, security headers. |
+| `vercel.json` | Settings for the old Vercel copy, which is not yet closed. See `docs/DEPLOY.md`. |
+| `velacore-preview.html` | A one-file design preview from the first draft. Not served and not kept current. |
 
-## Sections
+## Build and preview
 
-1. **Hero** — telehealth positioning, "Start online visit" CTA, image slot
-2. **How it works** — 5 steps (online visit → physician review → 503A fulfillment → coordination → refund)
-3. **Why Velacore** — 4 pillars
-4. **Treatments** — the 5 permitted products (Tirzepatide, Semaglutide, NAD+, Glutathione, Sermorelin) with prices + "refund if not prescribed" badges
-5. **Providers** — "Meet a prescribing provider" (Dr. Broussard, independent)
-6. **Guarantee** — prescribe-or-refund
-7. **FAQ** — prescription-required, model, refund, states
-8. **Get started** — embedded JotForm telehealth intake (form `261070496021449`)
-9. **Please note** — critical compliance disclaimer
-10. **Footer** — nav, states-served, medical/legal disclaimer
+Pages are built with Python from the repo root. The builders and their order are listed in the Build
+section of `CLAUDE.md`. On this Windows machine Python is `python` or `py`.
 
-## Preview locally
+To preview, serve `public/` at http://localhost:8000:
 
-```bash
-# From the project folder:
-python3 -m http.server 8000 --directory public
-# then open http://localhost:8000
+```
+python -m http.server 8000 --directory public
 ```
 
-## Deploy
+## Before anything goes live
 
-### Vercel (recommended)
-1. Sign in at <https://vercel.com> with GitHub.
-2. **Add New → Project → Import** `Velacore-Health/Velacore`.
-3. Set **Production Branch** to `claude/velacore-health-website-qnjdnh` (Settings → Git), or make
-   that branch the repo default first. `vercel.json` already serves `public/`.
-4. **Deploy.** Add the `velacorehealth.com` domain under Settings → Domains and follow the DNS steps.
+Both checks must pass, the compliance reviewer must return PASS, and Bryan Dourado must approve that
+exact batch. The steps are in `docs/DEPLOY.md`.
 
-### GitHub Pages (backup)
-1. Repo **Settings → Pages → Build and deployment → Source = "GitHub Actions".**
-2. The `deploy-pages.yml` workflow publishes `public/` on every push to the site branch.
+- `python -I .claude/skills/vc-compliance-check/scripts/check.py`
+- `python -I .claude/skills/vc-site-audit/scripts/audit.py --no-live`
 
-## Before going live — replace the placeholders
+## Rules that never bend
 
-- [ ] **Intake form** — wire `#leadForm` to your JotForm telehealth intake (see `NOTE` in `index.html` / `TODO` in `script.js`).
-- [ ] **Treatment prices** — confirm the five program prices are current.
-- [ ] **Member gate** — build the **server-authenticated** member area for restricted products, then point "Member login" at it (see `COMPLIANCE.md`).
-- [ ] **States served** — replace the placeholder line with the confirmed licensed-states list.
-- [ ] **Legal pages** — Privacy, Terms, Telehealth consent (footer links are stubs).
-- [ ] **Contact email** — update `hello@velacorehealth.com`.
-- [ ] **Compliance review** — LegitScript pre-submission audit + healthcare attorney (see `COMPLIANCE.md`).
-
-> ⚠️ **Regulatory note:** Telehealth and prescription marketing is heavily regulated. The public
-> site names only the five permitted treatments and carries no health claims — keep it that way.
-> Have all copy, disclaimers, and the intake flow reviewed by qualified legal/clinical advisors
-> before launch.
+- The public site names only the treatments approved in `COMPLIANCE.md`.
+- No efficacy or outcome claims and no coaching language.
+- The FDA compounded-medication disclaimer stays on product pages.
+- The LegitScript badge stays off until certification is issued in Velacore's name.
+- No secrets, cost sheets, license documents or patient data in the repo.
+- Patient health data never touches our servers. Intake runs on the partner's hosted forms.
