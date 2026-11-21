@@ -31,7 +31,7 @@ PAGES = [
                 {"word": "Delivery", "short": "A pharmacy ships it", "title": "A pharmacy prepares and ships it",
                  "img": "step-delivery", "w": 1600, "h": 1194, "alt": "A dog sniffing a plain shipping box on the front step",
                  "line": "If you are prescribed, a licensed 503A compounding pharmacy prepares your medication and ships it to you.",
-                 "facts": ["Ongoing plans ship every four weeks", "Baseline labs at a national laboratory, at no cost to you, on the Semaglutide and Tirzepatide programs"],
+                 "facts": ["Ongoing plans ship every four weeks", "Baseline labs at a national laboratory, at no cost to you when the clinician orders them, on the Semaglutide and Tirzepatide programs"],
                  "note": "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
                  "more": "Pharmacy fulfillment"},
                 {"word": "Support", "short": "Reviews and support continue", "title": "Reviews and support continue",
@@ -65,12 +65,12 @@ PAGES = [
             ("Pharmacy fulfillment", [
                 "If the clinician prescribes, a licensed 503A compounding pharmacy prepares your medication to that prescription and ships it to you. Ongoing plans ship every four weeks.",
                 "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
-                "For the Semaglutide and Tirzepatide programs, the clinician also orders baseline labs at a national laboratory at no cost to you. In most cases you can start medication before the results are back. For other programs the clinician will tell you if labs are recommended.",
+                "In most cases you do not need labs before your first prescription. The clinician asks for them first only if your intake calls for it. For the Semaglutide and Tirzepatide programs, baseline labs the clinician orders are done at a national laboratory at no cost to you. For other programs the clinician will tell you if labs are recommended.",
                 'A 503A pharmacy prepares medication for one named patient from a valid prescription. Our article on <a href="learn/what-is-a-503a-compounding-pharmacy.html">what a 503A compounding pharmacy is</a> explains the term.',
             ]),
             ("Ongoing reviews and support", [
                 "A prescription is not a one-time event. The clinician reviews your intake updates on a schedule that depends on the program.",
-                '- <strong><a href="programs/semaglutide.html">Semaglutide</a> and <a href="programs/tirzepatide.html">Tirzepatide</a>.</strong> Each month you update a short intake. The clinician reviews it with your labs and decides whether to hold or change the dose. Once your dose is steady, reviews move to every three months.\n'
+                '- <strong><a href="programs/semaglutide.html">Semaglutide</a> and <a href="programs/tirzepatide.html">Tirzepatide</a>.</strong> Each month you update a short intake. The clinician reviews it with any lab results and decides whether to hold or change the dose. Once your dose is steady, reviews move to every three months.\n'
                 '- <strong><a href="programs/microdosing.html">Microdosing GLP-1</a>.</strong> The first prescription is a 4-week supply. After that you update a short intake every 12 weeks and the clinician reviews it.\n'
                 '- <strong><a href="programs/nad.html">NAD+</a>, <a href="programs/glutathione.html">Glutathione</a> and <a href="programs/sermorelin.html">Sermorelin</a>.</strong> The first prescription is a 4-week supply. The clinician reviews an intake update at 3 to 4 weeks before writing a 12-week refill, and reviews continue every 12 weeks.',
                 "Nothing about your prescription changes without a clinician's review.",
@@ -98,7 +98,7 @@ PAGES = [
         ],
         "faq": [
             ("Do I have to speak with a clinician live?", "In most states, no. Most reviews happen without a live appointment. A video visit is required for the first prescription in Arkansas, the District of Columbia, Delaware, Kansas, Mississippi, New Mexico, Rhode Island and West Virginia."),
-            ("Can I start medication before my lab results are back?", "For the Semaglutide and Tirzepatide programs, in most cases yes. The clinician reviews the results at your first monthly review. That decision belongs to the clinician."),
+            ("Do I need labs before I start medication?", "For the Semaglutide and Tirzepatide programs, in most cases no. The clinician asks for them first only if your intake calls for it. That decision belongs to the clinician."),
             ("How often does medication ship?", "Ongoing plans ship every four weeks."),
             ("Does Velacore decide whether I am prescribed?", "No. The independent licensed clinician decides, based solely on clinical judgment. Velacore coordinates access and education."),
         ],
@@ -167,7 +167,7 @@ PAGES = [
                 "- Which program, if any, is appropriate for you.\n"
                 "- The form and the dose, within the options of the program.\n"
                 "- Whether to hold or change a dose at each review.\n"
-                "- Whether labs are recommended. For the Semaglutide and Tirzepatide programs, baseline labs are ordered at a national laboratory at no cost to you.\n"
+                "- Whether you need labs, and when. For the Semaglutide and Tirzepatide programs, baseline labs the clinician orders are done at a national laboratory at no cost to you.\n"
                 "- For the Semaglutide and Tirzepatide programs, whether to prescribe an optional nausea medication that you pick up at a local pharmacy.",
                 'If the clinician does not prescribe, nothing is ordered and your program payment is refunded in full. The order of events is set out on the <a href="how-it-works.html">how it works page</a>.',
             ]),
@@ -193,7 +193,7 @@ PAGES = [
                 "- The clinician's review of your intake and of each intake update after that.\n"
                 "- A video visit on request, at no extra cost.\n"
                 "- Patient support 24 hours a day, every day.\n"
-                "- For the Semaglutide and Tirzepatide programs, baseline labs at a national laboratory.",
+                "- For the Semaglutide and Tirzepatide programs, baseline labs at a national laboratory when the clinician orders them.",
                 "There is no separate consultation fee and no separate physician fee. Each program page lists exactly what its price includes.",
             ]),
             ("Two ways to pay", [

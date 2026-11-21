@@ -68,7 +68,8 @@ ARTICLES = [
         "meta": "Semaglutide acts on the GLP-1 receptor. Tirzepatide acts on the GIP and GLP-1 receptors. A plain look at the mechanisms. Prescription required.",
         "h1": "Semaglutide and tirzepatide: how the two differ",
         "topic": "GLP-1",
-        "reviewed": "2026-11-13",
+        "published": "2026-11-13",
+        "reviewed": "2026-11-20",
         "answer": "Semaglutide is a GLP-1 receptor agonist, which means it acts on one hormone receptor. Tirzepatide is a dual GIP and GLP-1 receptor agonist, which means it acts on two. Both are prescription only, and a licensed clinician decides whether either one is appropriate.",
         "sections": [
             ("What GLP-1 and GIP are", [
@@ -91,7 +92,7 @@ ARTICLES = [
                 "- Both act on the GLP-1 receptor.\n"
                 "- Both are given by injection under the skin. In our programs the clinician writes the schedule on your prescription.\n"
                 "- Both are prescription only.\n"
-                "- In our programs, both include baseline labs at a national laboratory, shipping and clinician reviews in the program price.",
+                "- In our programs, the program price for both includes shipping, clinician reviews and baseline labs at a national laboratory when the clinician orders them.",
                 "The compounded versions in our programs are prepared by a licensed 503A compounding pharmacy to your clinician's prescription. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
             ]),
             ("What this article does not compare", [
@@ -183,7 +184,8 @@ ARTICLES = [
         "meta": "The steps: an online intake, review by a licensed clinician, a video visit in some states, then a 503A pharmacy fills. A prescription is not guaranteed.",
         "h1": "How getting a GLP-1 prescription online works",
         "topic": "Telehealth",
-        "reviewed": "2026-11-13",
+        "published": "2026-11-13",
+        "reviewed": "2026-11-20",
         "answer": "You complete an online intake, a licensed clinician reviews it and decides whether to prescribe, and if they do, a pharmacy prepares the medication and ships it to you. In a few states the first prescription requires a live video visit. A prescription is not guaranteed.",
         "sections": [
             ("It starts with an online intake", [
@@ -205,7 +207,7 @@ ARTICLES = [
             ("A pharmacy fills the prescription", [
                 "If the clinician prescribes, a licensed 503A compounding pharmacy prepares your medication and ships it to your door. Shipping is included, and ongoing plans ship every four weeks.",
                 "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
-                "For the semaglutide and tirzepatide programs, baseline labs are ordered through a national laboratory at no cost to you. In most cases you can start medication before the lab work is back, and the clinician reviews it at your first monthly check-in.",
+                "In most cases you do not need labs before your first prescription. The clinician asks for them first only if your intake calls for it. For the semaglutide and tirzepatide programs, baseline labs the clinician orders are done through a national laboratory at no cost to you, and the clinician reviews the results at your next check-in.",
                 "After that, the clinician reviews your progress each month until your dose is steady, then quarterly.",
             ]),
             ("Paying without insurance", [
