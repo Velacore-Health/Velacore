@@ -31,6 +31,21 @@
   status = 301
   force = true
 
+# Nov 20 2026: the project's own Netlify address showed a full second copy of the site. It now forwards every
+# visit to the one main address, page for page, so search engines and shared links only ever meet one site.
+# Deploy previews use other addresses and are not touched by this rule.
+[[redirects]]
+  from = "https://velacore-health.netlify.app/*"
+  to = "https://www.velacorehealth.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://velacore-health.netlify.app/*"
+  to = "https://www.velacorehealth.com/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/index.html"
   to = "/"
