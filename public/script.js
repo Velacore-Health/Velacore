@@ -270,15 +270,15 @@
     if (!root) return;
     var MAP = {
       weight: { inject: ['tirzepatide', 'semaglutide', 'microdosing'], noneedle: ['semaglutide', 'microdosing'] },
-      // Nov 20 2026, Dourado: Glutathione is left out of the needle-free answer until its form is confirmed.
+      // Nov 20 2026: Glutathione is an injection, confirmed by the partner in writing, so it is not in the needle-free answer.
       vitality: { inject: ['nad', 'glutathione'], noneedle: ['nad'] },
       hormone: { inject: ['sermorelin'], noneedle: ['sermorelin'] }
     };
     var NOTE = {
       'weight|inject': 'Three GLP-1 programs. Tirzepatide is an injection. Semaglutide comes as an injection or an oral form. Microdosing GLP-1 is a lower dose, as an oral form or an injection. The clinician decides which program, if any, is appropriate for you.',
-      'weight|noneedle': 'Semaglutide and Microdosing GLP-1 both come in an oral form. Tirzepatide is an injection only. The clinician decides the program and the form.',
-      'vitality|inject': 'Two programs. NAD+ comes as an injection, a nasal spray or an oral dropper. Glutathione comes in the form the clinician prescribes.',
-      'vitality|noneedle': 'NAD+ comes as a nasal spray or an oral dropper. Glutathione is not listed here because a form without a needle is not confirmed yet. The clinician decides the form.',
+      'weight|noneedle': 'Semaglutide and Microdosing GLP-1 both come in an oral form. Tirzepatide is listed here as an injection. The clinician decides the program and the form.',
+      'vitality|inject': 'Two programs. NAD+ comes as an injection, a nasal spray or an oral dropper. Glutathione comes as an injection.',
+      'vitality|noneedle': 'NAD+ comes as a nasal spray or an oral dropper. Glutathione is an injection, so it is not listed here. The clinician decides which form of NAD+ is appropriate.',
       'hormone|inject': 'One program. Sermorelin is an injection. The clinician decides whether it is appropriate for you.',
       'hormone|noneedle': 'Sermorelin is an injection only. There is no spray, dropper or tablet option for this program today. The clinician decides whether it is appropriate for you.'
     };
@@ -439,9 +439,10 @@
             var href = a.getAttribute('href') || '', q = href.indexOf('?');
             a.setAttribute('href', to + (q > -1 ? href.slice(q) : ''));
           });
-          var bar = document.querySelector('#mobileCta .mcta-price');
-          if (bar && inp.getAttribute('data-bar')) bar.innerHTML = inp.getAttribute('data-bar');
         }
+        // Nov 20 2026: the phone bar follows the selected plan on every program.
+        var bar = document.querySelector('#mobileCta .mcta-price');
+        if (bar && inp.getAttribute('data-bar')) bar.innerHTML = inp.getAttribute('data-bar');
       });
     });
   }

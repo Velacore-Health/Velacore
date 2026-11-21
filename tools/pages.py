@@ -21,7 +21,7 @@ PAGES = [
                 {"word": "Intake", "short": "Answer questions online", "title": "Answer a few questions online",
                  "img": "step-visit", "w": 1600, "h": 1194, "alt": "A woman typing on her laptop at her kitchen table",
                  "line": "Pick a program and complete a secure intake about your goals, health history and medications.",
-                 "facts": ['Not sure which program? <a href="index.html#goals" data-find>Find your program</a> walks you through it', "The intake runs on our telehealth partner's secure pages"],
+                 "facts": ['Not sure which program? <a href="index.html#goals" data-find>Find your program</a> walks you through it', "The intake runs on our telehealth services partner's secure pages"],
                  "more": "Online intake"},
                 {"word": "Review", "short": "A clinician reviews it", "title": "A licensed clinician reviews it",
                  "img": "step-clinician", "w": 1600, "h": 1194, "alt": "Hands of a clinician in a white coat writing notes on a patient chart at a clinic desk",
@@ -41,7 +41,7 @@ PAGES = [
                  "more": "Ongoing reviews and support"},
             ],
             "promise": {"title": "Not prescribed? Your program payment is refunded in full.",
-                        "line": "A prescription is not guaranteed. After you start, you can cancel at any time, and you can request a refund for any month whose medication has not yet been ordered. Medications are non-returnable once dispensed."},
+                        "line": "A prescription is not guaranteed. After you start, you can cancel at any time, and you can request a refund for any billing period whose medication has not yet been ordered. Medications are non-returnable once dispensed."},
             "scope": "What Velacore does and does not do",
         },
         "sections": [
@@ -60,7 +60,7 @@ PAGES = [
             ("Clinician review", [
                 "A physician or nurse practitioner licensed in your state reviews your intake. The clinician decides whether to prescribe, based solely on clinical judgment. Velacore has no say in that decision.",
                 "Most reviews happen without a live appointment. A video visit is required for the first prescription in Arkansas, the District of Columbia, Delaware, Kansas, Mississippi, New Mexico, Rhode Island and West Virginia. Everywhere else a video visit is optional, and you can request one at any time at no extra cost.",
-                'Clinician hours are 7am to 7pm Central Time. More about who the clinicians are and how they are credentialed is on the <a href="clinicians.html">clinicians page</a>.',
+                'Clinician hours are 7am to 7pm Central Time and do not include holidays. More about who the clinicians are and how they are credentialed is on the <a href="clinicians.html">clinicians page</a>.',
             ]),
             ("Pharmacy fulfillment", [
                 "If the clinician prescribes, a licensed 503A compounding pharmacy prepares your medication to that prescription and ships it to you. Ongoing plans ship every four weeks.",
@@ -79,7 +79,7 @@ PAGES = [
             ("If the clinician does not prescribe", [
                 "A prescription is not guaranteed. Prescriptions are issued only when the clinician decides one is clinically appropriate.",
                 "If the clinician does not prescribe, nothing is ordered and your program payment is refunded in full to your original payment method.",
-                'After you start, you can cancel at any time for any reason. You can request a refund for any month whose medication has not yet been ordered. Medications are non-returnable once dispensed, as required by federal and state pharmacy law. The full terms are in the <a href="refund-policy.html">refund policy</a>.',
+                'After you start, you can cancel at any time for any reason. You can request a refund for any billing period whose medication has not yet been ordered. Medications are non-returnable once dispensed, as required by federal and state pharmacy law. The full terms are in the <a href="refund-policy.html">refund policy</a>.',
             ]),
             ("What Velacore does and does not do", [
                 "Velacore Health is a telehealth coordination platform. Here is what that covers.",
@@ -200,11 +200,10 @@ PAGES = [
                 "Each program offers two plan types.",
                 "- <strong>Month to month.</strong> You are charged every 4 weeks, which is 13 charges in a full year. You can cancel at any time.\n"
                 "- <strong>Prepaid plan.</strong> You are charged once, up front. Medication still ships every four weeks. The 12-week plan is priced in the cards above. A 24-week plan is also offered, and a 52-week plan on some programs.",
-                "You choose the plan when you start. The clinician's review is the same on both.",
+                "You choose the plan inside the secure intake. The clinician's review is the same on both.",
             ]),
             ("Programs and prices", [
                 "{{price_table}}",
-                "The prices shown are illustrative until our telehealth services partner's final price list is confirmed.",
                 "Every program is prescription only, and the clinician decides whether a program is appropriate for you. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
             ]),
             ("What is not included or not accepted", [
@@ -218,7 +217,7 @@ PAGES = [
             ]),
             ("Refunds and cancellation", [
                 "If the clinician does not prescribe, nothing is ordered and your program payment is refunded in full.",
-                "You can cancel at any time, for any reason, from your patient portal or by contacting support. Cancellation stops future charges. A month whose medication has already been ordered will still ship and is not refunded.",
+                "You can cancel at any time, for any reason, from your patient portal or by contacting support. Cancellation stops future charges. A billing period whose medication has already been ordered will still ship and is not refunded.",
                 "You can request a refund at any time for any reason. The refund covers every billing period for which medication has not yet been ordered. On a 12-week plan, the shipments not yet ordered are refunded on the same basis.",
                 'Refunds go back to the original payment method. The full terms are in the <a href="refund-policy.html">refund policy</a>.',
             ]),
@@ -227,7 +226,7 @@ PAGES = [
             ("Is there a consultation fee?", "No. There is no separate consultation fee and no separate physician fee. The clinician's review is part of the program price."),
             ("Can I pay with an FSA or HSA card?", "Yes. FSA and HSA cards are accepted, along with Visa, Mastercard, Apple Pay and Google Pay."),
             ("Can I bill a program to my insurance?", "No. Programs are paid out of pocket and are not billed to insurance."),
-            ("What happens to a 12-week plan if I cancel?", 'Cancellation stops future charges, and the shipments not yet ordered are refunded. A month whose medication has already been ordered will still ship and is not refunded. The full terms are in the <a href="refund-policy.html">refund policy</a>.'),
+            ("What happens to a 12-week plan if I cancel?", 'Cancellation stops future charges, and the shipments not yet ordered are refunded. A billing period whose medication has already been ordered will still ship and is not refunded. The full terms are in the <a href="refund-policy.html">refund policy</a>.'),
             ("Whose name will be on my card statement?", "Our telehealth services partner's. It handles billing and issues refunds."),
         ],
     },
@@ -334,7 +333,7 @@ PAGES = [
             ]),
             ("Prices", [
                 "Every price on this site is read from one list, so each page shows the same number.",
-                'Prices are set by our telehealth services partner, not by Velacore. You can see them on the <a href="pricing.html">pricing page</a>. The prices shown are illustrative until our telehealth services partner\'s final price list is confirmed.',
+                'Prices are set by our telehealth services partner, not by Velacore. You can see them on the <a href="pricing.html">pricing page</a>.',
             ]),
             ("A licensed clinician decides", [
                 "Velacore Health is a telehealth coordination platform. We are not a provider or a prescriber, and this website does not give medical advice.",

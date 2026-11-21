@@ -15,7 +15,7 @@ OG = f"{SITE}/images/og.jpg"
 PAGES = {
     "privacy": "What the Velacore Health website collects, how it is used and who receives it. It does not collect health information or sell personal information.",
     "terms": "Terms for using Velacore Health, a telehealth coordination platform, not a medical practice. Covers eligibility, billing, renewals and governing law.",
-    "refund-policy": "Your program payment is refunded in full if the clinician does not prescribe. You can cancel any time, and any month not yet ordered can be refunded.",
+    "refund-policy": "Your program payment is refunded in full if the clinician does not prescribe. You can cancel any time, and any billing period not yet ordered can be refunded.",
     "telehealth-consent": "What you agree to when you start an online visit. Covers how telehealth works, independent licensed clinicians, risks, and your right to withdraw.",
 }
 BLOCK = re.compile(r"\n  <!-- seo:start -->.*?<!-- seo:end -->", re.S)

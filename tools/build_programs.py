@@ -3,8 +3,8 @@
 Run from the repo root after any change to prices, wording or the template:
     python -I tools/build_programs.py
 
-Prices come from docs/pricing-research.md section 5. Facts come from
-docs/openloop-proposal-notes.md. Nothing here may make an outcome claim.
+Prices are the partner's fixed prices, recorded in docs/HANDOFF.md and checked by the site audit against
+audit-config.json. Facts come from docs/openloop-proposal-notes.md. Nothing here may make an outcome claim.
 """
 import html
 import json
@@ -55,10 +55,10 @@ PROGRAMS = [
         "eligibility": "Adults 18 to 74 with a body mass index of 27 or above, or 25 or above with a related health condition. The clinician makes the final decision on every intake.",
         "faq": [
             ("Is this the same as a brand-name medication?", "No. This is a compounded medication prepared by a licensed 503A pharmacy to your clinician's prescription. Compounded medications are not FDA approved. Your clinician will discuss what that means for you."),
-            ("How is the dose decided?", "Your clinician starts at the lowest level and reviews a short update from you each month before any increase. There are five levels. You never move up without a review."),
+            ("How is the dose decided?", "Your clinician sets your starting level and reviews a short update from you each month before any increase. There are five levels. You never move up without a review."),
             ("What does the price include?", "The medication, injection supplies, clinician reviews, baseline labs at a national laboratory when your clinician orders them, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I switch plans or cancel?", "Yes. Cancel any time for any reason from your patient portal. Any month whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
         ],
     },
     {
@@ -89,10 +89,10 @@ PROGRAMS = [
         "eligibility": "Adults 18 to 74 with a body mass index of 27 or above, or 25 or above with a related health condition. The clinician makes the final decision on every intake.",
         "faq": [
             ("Is this the same as a brand-name medication?", "No. This is a compounded medication prepared by a licensed 503A pharmacy to your clinician's prescription. Compounded medications are not FDA approved. Your clinician will discuss what that means for you."),
-            ("How is the dose decided?", "Your clinician starts at the lowest level and reviews a short update from you each month before any increase. The injection has five levels and the oral form two daily doses. You never move up without a review."),
+            ("How is the dose decided?", "Your clinician sets your starting level and reviews a short update from you each month before any increase. The injection has five levels and the oral form two daily doses. You never move up without a review."),
             ("What does the price include?", "The medication, any supplies your form needs, clinician reviews, baseline labs at a national laboratory when your clinician orders them, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I switch plans or cancel?", "Yes. Cancel any time for any reason from your patient portal. Any month whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
         ],
     },
     {
@@ -123,7 +123,7 @@ PROGRAMS = [
             ("Which formulation will I get?", "Your clinician chooses from seven, based on your intake. Options include oral and injectable forms with NAD+, B12, L-carnitine, inositol, magnesium, L-theanine, methionine or choline."),
             ("What does the price include?", "The medication, supplies, unlimited clinician consults, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any month whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
         ],
     },
     {
@@ -157,38 +157,38 @@ PROGRAMS = [
             ("Do I need labs?", "Not as a rule. Your clinician will tell you if labs are recommended for you."),
             ("What does the price include?", "The medication, supplies, clinician reviews, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any month whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
         ],
     },
     {
         "slug": "glutathione", "name": "Glutathione", "cat": "Vitality", "image": "products/glutathione.webp",
         "title": "Compounded Glutathione, Online Visit",
-        "meta": "Glutathione, a peptide of three amino acids. A licensed clinician decides. $145 every 4 weeks. Shipping included. Prescription required.",
-        "lede": "Glutathione, a peptide made of three amino acids, prescribed only when a licensed clinician decides it is appropriate for you and prepared by a licensed 503A compounding pharmacy in the form the clinician chooses.",
-        "chips": ["Prescription only", "Form set by your clinician", "Ships every 4 weeks"],
+        "meta": "Glutathione injection, a peptide of three amino acids. A licensed clinician decides. $145 every 4 weeks. Shipping included. Prescription required.",
+        "lede": "Glutathione, a peptide made of three amino acids, prepared as an injection by a licensed 503A compounding pharmacy and prescribed only when a licensed clinician decides it is appropriate for you.",
+        "chips": ["Prescription only", "Injection", "Ships every 4 weeks"],
         "plans": [
             {"id": "monthly", "label": "Month to month", "price": "$145", "unit": "/4 wks", "note": "$145 every 4 weeks. Cancel any time."},
             {"id": "12week", "label": "12-week plan", "price": "$129", "unit": "/4 wks", "note": "$387 charged up front, shipped every 4 weeks."},
         ],
         "what_h": "What glutathione is",
         "what": [
-            "Glutathione is a peptide made of three amino acids: glutamate, cysteine and glycine. The body makes it and uses it as an antioxidant inside cells. In this program your clinician chooses the form and sets the dose, and a licensed 503A compounding pharmacy prepares it to that prescription.",
+            "Glutathione is a peptide made of three amino acids: glutamate, cysteine and glycine. The body makes it and uses it as an antioxidant inside cells. In this program it comes as an injection. Your clinician sets the dose, and a licensed 503A compounding pharmacy prepares it to that prescription.",
             "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Whether glutathione is appropriate for you is the clinician's decision.",
         ],
-        "facts": ["A peptide of three amino acids", "Form and dose set by your clinician", "Written instructions included", "Clinician review at each refill", "Video visit on request, at no extra cost", "Patient support 24 hours a day"],
+        "facts": ["A peptide of three amino acids", "Injection, with the dose set by your clinician", "Written instructions included", "Clinician review at each refill", "Video visit on request, at no extra cost", "Patient support 24 hours a day"],
         "journey": [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
-            ("First prescription", "If appropriate, the clinician prescribes a 4-week supply in the form that fits you."),
+            ("First prescription", "If appropriate, the clinician prescribes a 4-week supply."),
             ("Refill review at 3 to 4 weeks", "You update a short intake and the clinician reviews it before writing a 12-week refill."),
             ("12-week reviews", "Reviews continue every 12 weeks. Refills ship every 4 weeks. Changes and cancellation run through your patient portal."),
         ],
         "eligibility": "Adults 18 and over, per our Terms of Service. The clinician makes the final decision on every intake.",
         "faq": [
-            ("Which form should I choose?", "You do not need to choose. Your clinician decides the form and dose from your intake, and the licensed 503A pharmacy prepares it to that prescription. Your written instructions cover how to use it."),
+            ("What form does it come in?", "An injection. Your clinician sets the dose from your intake, and the licensed 503A pharmacy prepares it to that prescription. Your written instructions cover how to use it."),
             ("Do I need labs?", "Your clinician will tell you if labs are recommended for you."),
             ("What does the price include?", "The medication, clinician reviews, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any month whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
         ],
     },
     {
@@ -219,7 +219,7 @@ PROGRAMS = [
             ("Do I need labs?", "Not as a rule. Your clinician will tell you if labs are recommended for you."),
             ("What does the price include?", "The medication, injection supplies, clinician reviews, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any month whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
         ],
     },
 ]
@@ -251,7 +251,7 @@ MENU = [
                  ("semaglutide", "Semaglutide", "images/products/thumbs/semaglutide.webp", "GLP-1, injection or oral"),
                  ("microdosing", "Microdosing GLP‑1", "images/products/thumbs/microdosing.webp", "Low dose, oral or injection")])],
     [("Vitality", [("nad", "NAD+", "images/products/thumbs/nad.webp", "Injection, nasal or oral"),
-                   ("glutathione", "Glutathione", "images/products/thumbs/glutathione.webp", "Form set by clinician")]),
+                   ("glutathione", "Glutathione", "images/products/thumbs/glutathione.webp", "Injection")]),
      ("Hormone support", [("sermorelin", "Sermorelin", "images/products/thumbs/sermorelin.webp", "GHRH analog injection")])],
     [("Needle-free", NEEDLE_FREE)],
 ]
@@ -453,8 +453,6 @@ TRUST = """    <div class="trust-bar">
       </div>
     </div>"""
 
-# Nov 19 2026, per vc-reviewer: the same sentence pricing.html and the home page carry, now that prices show a slash.
-PRICE_PENDING = "The prices shown are illustrative until our telehealth services partner's final price list is confirmed."
 DISCLAIMER = "Prescription required. Starting a visit is not a guarantee of treatment. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Individual results vary. Not appropriate for everyone. Your clinician decides whether this program is appropriate for you."
 
 
@@ -506,6 +504,21 @@ def plan_thumb(p, pl):
     return f' data-thumb="../images/products/thumbs/{own if (thumbs / own).exists() else p["slug"] + "-full.webp"}"'
 
 
+def plan_bar(p, pl):
+    """What the phone bar shows when this plan is selected, Nov 20 2026: the bar follows the plan, so a patient comparing
+    plans never sees the month to month price beside a 12-week choice. Every figure is read from the plan."""
+    forms = {plan: label for suffix, label, plan, _ in choices(p) if suffix and plan != p["plans"][0]["id"]}
+    if pl["id"] in forms:
+        inner = f'<b>{pl["price"]} {PERIOD_NB}</b><small>{p["name"]}, {pl["label"].split(",")[0].lower()} form</small>'
+    elif pl["id"] == "12week" and re.match(r"^(\$\d+) charged up front", pl["note"]):
+        up = re.match(r"^(\$\d+) charged up front", pl["note"]).group(1)
+        inner = f'<b>{pl["price"]} per 4&nbsp;weeks</b><small>12-week plan, {up} up front</small>'
+    else:
+        s = mcta_price(p)
+        inner = s[len('<span class="mcta-price">'):-len("</span>")]
+    return f' data-bar="{html.escape(inner, quote=True)}"'
+
+
 def plan_start(p, pl):
     """A plan tied to its own form, such as Semaglutide oral, sends every Start button on the page to that form's
     Start page, and the phone bar shows that plan's price. Other programs get nothing extra."""
@@ -513,9 +526,7 @@ def plan_start(p, pl):
     if not forms:
         return ""
     suffix = forms.get(pl["id"], "")
-    bar = mcta_price(p) if not suffix else f'<span class="mcta-price"><b>{pl["price"]} {PERIOD_NB}</b><small>{p["name"]}, {pl["label"].split(",")[0].lower()} form</small></span>'
-    inner = bar[len('<span class="mcta-price">'):-len("</span>")]
-    return f' data-start-href="../start/{start_slug(p, suffix)}.html" data-bar="{html.escape(inner, quote=True)}"'
+    return f' data-start-href="../start/{start_slug(p, suffix)}.html"'
 
 
 def pb_points(p):
@@ -581,7 +592,7 @@ def page(p):
     media = f'<img class="tcard-photo" src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:900px) 92vw, 560px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Illustration: {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.svg" alt="" width="119" height="128" />'
     plans = "\n".join(
         f'''          <label class="plan-option">
-            <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{plan_thumb(p, pl)}{plan_start(p, pl)}{" checked" if i == 0 else ""} />
+            <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{plan_thumb(p, pl)}{plan_start(p, pl)}{plan_bar(p, pl)}{" checked" if i == 0 else ""} />
             <span class="plan-name">{pl["label"]}</span><span class="plan-amt">{pl["price"]}{pl["unit"]}</span>
           </label>''' for i, pl in enumerate(p["plans"]))
     first = p["plans"][0]
@@ -694,7 +705,7 @@ def page(p):
 {plans}
               </div>
               {start_button(p, "btn btn-primary btn-block")}
-              <p class="price-fine">{PRICE_PENDING} {DISCLAIMER}</p>
+              <p class="price-fine">{DISCLAIMER}</p>
               {pb_points(p)}
             </div>
           </div>
@@ -751,7 +762,7 @@ def page(p):
       <div class="container cta-grid">
         <div class="cta-copy">
                     <h2>Start your {p["name"]} visit.</h2>
-          <p>You complete a secure intake on our telehealth partner's pages, a licensed clinician reviews it, and if treatment is appropriate your medication ships to your door.</p>
+          <p>You complete a secure intake on our telehealth services partner's pages, a licensed clinician reviews it, and if treatment is appropriate your medication ships to your door.</p>
           <ul class="cta-points">
             <li><span class="dot"></span> A licensed clinician makes the prescribing decision</li>
             <li><span class="dot"></span> Refunded in full if not prescribed</li>
@@ -814,7 +825,7 @@ START = {
         "A licensed clinician in your state reviews it and decides whether {Program} is appropriate for you. In a few states the first review is a live video visit.",
         "If you are prescribed, a licensed 503A pharmacy fills your order and ships it to you. If not, your payment is refunded in full.",
     ],
-    "handoff": "The next page is our telehealth partner's secure site, so you will see their name there instead of ours.",
+    "handoff": "The next page is our telehealth services partner's secure site, so you will see their name there instead of ours. You choose your plan there, and you may be asked again for other choices you made here.",
     "button": "Continue to secure intake",
     "back": "Back to {Program}",
     "pending": "The online visit for {Program} opens soon. In the meantime, email hello@velacorehealth.com with any questions.",
@@ -828,7 +839,7 @@ def start_page(p, choice=None):
     key = intake_key(p) + (f"-{suffix}" if suffix else "")
     # One link per program is what Dourado expects from OpenLoop; a form's own link wins only if OpenLoop gives one.
     link = INTAKE.get(key, "") or INTAKE.get(intake_key(p), "")
-    chose = f'\n        <p class="sp-choice">You told us you prefer {words}. An independent, licensed clinician reviews your intake and decides whether to prescribe, and the form and the dose.</p>' if words else ""
+    chose = f'\n        <p class="sp-choice">You told us you prefer {words}. You may be asked for that choice again inside the secure intake. An independent, licensed clinician reviews your intake and decides whether to prescribe, and the form and the dose.</p>' if words else ""
     image = form_img or p["image"]
     steps = "".join(f'<li><span class="sp-num" aria-hidden="true">{i}</span><p>{fill(s)}</p></li>' for i, s in enumerate(START["steps"], 1))
     if link:
@@ -872,7 +883,7 @@ def start_page(p, choice=None):
         <p class="sp-handoff">{fill(START["handoff"])}</p>
         {button}
         {pending}
-        <p class="price-fine">{PRICE_PENDING} {DISCLAIMER}</p>
+        <p class="price-fine">{DISCLAIMER}</p>
       </div>
       <div class="sp-side"><div class="sp-media" aria-hidden="true">{media}</div><p class="img-note">Illustrative image. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p></div>
     </div>

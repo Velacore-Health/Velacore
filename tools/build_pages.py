@@ -210,7 +210,7 @@ def clinicians_main(a, faq_html):
 CLIN_FACTS = [
     ("MD, DO and NP", "Physicians and nurse practitioners"),
     ("All 50 states and DC", "Licensed where you live"),
-    ("7am to 7pm Central", "Clinician hours. Support runs 24 hours a day"),
+    ("7am to 7pm Central", "Clinician hours, not on holidays. Support runs 24 hours a day"),
     ("Video on request", "At no extra cost"),
 ]
 
@@ -354,7 +354,7 @@ def pricing_main(a, faq_html):
       <div class="container">
         <div class="section-head center"><h2>Programs and prices</h2><p class="section-sub">Pay month to month or choose a 12-week plan. A licensed clinician decides whether a program is appropriate for you.</p></div>
         {price_cards()}
-        <p class="treat-note">{sec["Programs and prices"][1]} {sec["Programs and prices"][2]} Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
+        <p class="treat-note">{sec["Programs and prices"][1]} Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.</p>
       </div>
     </section>
     <section class="section on-cream">

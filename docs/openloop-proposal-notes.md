@@ -2,7 +2,7 @@
 
 Source: "Velacore Health - OpenLoop - Proposal - 11_02_26.pdf", 20 pages, dated Nov 2 2026, expires about Dec 2 2026. The PDF itself stays out of the repo. This file holds only the patient-facing facts and the terms that shape the site. The column showing what Velacore receives per program is deliberately left out; it is a cost sheet and lives only in the PDF.
 
-Every price below is marked by OpenLoop as an example, subject to change, and availability can change at any time with no notice. Nothing here goes on the site as a quote until the agreement is signed.
+Every price below is marked by OpenLoop as an example, subject to change, and availability can change at any time with no notice. Nothing here goes on the site as a quote until the agreement is signed. Update, Nov 20 2026: OpenLoop wrote that Agile prices are fixed, and on Dourado's word the site now publishes the Nov 12 proposal prices without the illustrative line. The Order Form is still unsigned; if it shows a different price, the site changes the same day.
 
 ## Who does what
 

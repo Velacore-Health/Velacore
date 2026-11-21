@@ -1222,3 +1222,5 @@ p,.hub-text span,.tcard-mech,.form-tiles p{text-wrap:pretty}
 /* Plan picker on the smallest phones, Nov 20 2026: "/4 wks" is longer than "/mo" was, so under 360 px the price sits
    on its own line under the plan name and the name never runs to three lines. */
 @media (max-width:359px){.plan-option{flex-wrap:wrap;row-gap:2px}.plan-name{flex:1 1 calc(100% - 40px)}.plan-amt{flex-basis:100%;padding-left:26px}}
+/* Article program box, Nov 20 2026: the longest button, See the Microdosing GLP-1 program, ran past the edge at 320 px. */
+.art-program .btn{max-width:100%;white-space:normal;text-align:center}

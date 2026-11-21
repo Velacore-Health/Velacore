@@ -11,7 +11,8 @@ ARTICLES = [
         "meta": "A 503A pharmacy compounds medication for one patient from a prescription. How it differs from a 503B outsourcing facility, and who regulates each.",
         "h1": "What is a 503A compounding pharmacy, and how is it different from 503B?",
         "topic": "Pharmacy",
-        "reviewed": "2026-11-13",
+        "published": "2026-11-13",
+        "reviewed": "2026-11-20",
         "answer": "A 503A compounding pharmacy is a state-licensed pharmacy that prepares a medication for one named patient after it receives a valid prescription for that patient. A 503B outsourcing facility is a different category that registers with the FDA and follows manufacturing rules. The two are named after sections 503A and 503B of the Federal Food, Drug, and Cosmetic Act.",
         "sections": [
             ("What 503A means", [
@@ -44,7 +45,7 @@ ARTICLES = [
             ("Where a 503A pharmacy fits at Velacore", [
                 "Velacore Health is a telehealth platform. Velacore coordinates access and education, the independent licensed clinician makes the prescribing decision, and a licensed 503A compounding pharmacy fills the prescription.",
                 "Every program is prescription only. You complete an online intake, a clinician licensed in your state reviews it, and medication is prepared only if that clinician prescribes. If the clinician does not prescribe, nothing is ordered and your program payment is refunded in full.",
-                'The steps are set out on the <a href="../faq.html">questions page</a>.',
+                'The steps are set out on the <a href="../how-it-works.html">how it works page</a>.',
             ]),
         ],
         "faq": [
@@ -80,7 +81,7 @@ ARTICLES = [
             ("How semaglutide works", [
                 "Semaglutide is a peptide that acts on the GLP-1 receptor. It mimics one hormone, GLP-1. That single target is why it is called a GLP-1 receptor agonist.",
                 "The FDA lists semaglutide among the GLP-1 receptor agonist medications.",
-                'In the <a href="../programs/semaglutide.html">Semaglutide program</a>, it is prepared as an injection given under the skin, with five dose levels, or as an oral form taken daily. The clinician starts at the lowest level and reviews an update from you each month before any increase.',
+                'In the <a href="../programs/semaglutide.html">Semaglutide program</a>, it is prepared as an injection given under the skin, with five dose levels, or as an oral form taken daily. The clinician sets your starting level and reviews an update from you each month before any increase.',
             ]),
             ("How tirzepatide works", [
                 "Tirzepatide is a peptide that acts on two receptors, GIP and GLP-1. It mimics two hormones instead of one. That is why it is called a dual GIP and GLP-1 receptor agonist.",
@@ -90,7 +91,7 @@ ARTICLES = [
             ("What the two have in common", [
                 "- Both are peptides.\n"
                 "- Both act on the GLP-1 receptor.\n"
-                "- Both are given by injection under the skin. In our programs the clinician writes the schedule on your prescription.\n"
+                "- In our programs both come as an injection under the skin, and Semaglutide also has an oral form. The clinician writes the schedule on your prescription.\n"
                 "- Both are prescription only.\n"
                 "- In our programs, the program price for both includes shipping, clinician reviews and baseline labs at a national laboratory when the clinician orders them.",
                 "The compounded versions in our programs are prepared by a licensed 503A compounding pharmacy to your clinician's prescription. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
@@ -190,13 +191,13 @@ ARTICLES = [
         "sections": [
             ("It starts with an online intake", [
                 "Getting a GLP-1 prescription online follows the same order as getting one in person. A clinician reviews you first, and a pharmacy fills second. The difference is that the review happens through telehealth.",
-                "You pick a program and complete a secure online intake about your goals, health history and medications. The intake runs on our telehealth partner's pages, not on this website.",
+                "You pick a program and complete a secure online intake about your goals, health history and medications. The intake runs on our telehealth services partner's pages, not on this website.",
                 'Velacore lists three GLP-1 programs: <a href="../programs/semaglutide.html">Semaglutide</a>, <a href="../programs/tirzepatide.html">Tirzepatide</a> and <a href="../programs/microdosing.html">Microdosing GLP-1</a>. Every one is prescription only.',
                 "The semaglutide and tirzepatide programs are for adults 18 to 74 with a body mass index of 27 or above, or 25 or above with a related health condition. The microdosing program is for adults 18 to 74 with a body mass index over 20.",
             ]),
             ("A licensed clinician reviews it and decides", [
                 "A physician or nurse practitioner licensed in your state reviews your intake. The licensed clinician makes the prescribing decision, based solely on clinical judgment. Velacore coordinates access and education and has no say in that decision.",
-                "The clinicians are independent providers, engaged through our telehealth services partner. They are credentialed, background checked and covered by malpractice insurance before they review intakes. Clinician hours are 7am to 7pm Central Time.",
+                "The clinicians are independent providers, engaged through our telehealth services partner. They are credentialed, background checked and covered by malpractice insurance before they review intakes. Clinician hours are 7am to 7pm Central Time and do not include holidays.",
                 "A prescription is not guaranteed. Prescriptions are issued only when clinically appropriate. If the clinician does not prescribe, nothing is ordered and your program payment is refunded in full.",
             ]),
             ("When a video visit is required", [
@@ -213,7 +214,7 @@ ARTICLES = [
             ("Paying without insurance", [
                 "Programs are paid out of pocket and are not billed to insurance. The price you see is the whole price. There is no separate consultation or physician fee, and shipping is included.",
                 "Accepted payment methods are Visa, Mastercard, FSA and HSA cards, Apple Pay and Google Pay. American Express is not accepted.",
-                'You can cancel at any time for any reason. You can request a refund for any month whose medication has not yet been ordered. The full terms are in the <a href="../refund-policy.html">refund policy</a>.',
+                'You can cancel at any time for any reason. You can request a refund for any billing period whose medication has not yet been ordered. The full terms are in the <a href="../refund-policy.html">refund policy</a>.',
             ]),
             ("What telehealth cannot do", [
                 "- It cannot promise a prescription. Starting a visit is not a guarantee of treatment.\n"
