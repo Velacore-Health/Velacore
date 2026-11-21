@@ -355,8 +355,8 @@
             // the tile photo is cropped for the tile; the card takes the full frame from data-card-src when the tile gives one
             var osrc = oimg.getAttribute('data-card-src') || oimg.src, oset = oimg.getAttribute('data-card-srcset') || oimg.srcset;
             var cimg = card.querySelector('.tcard-photo'); if (cimg) { if (oset) cimg.srcset = oset; else cimg.removeAttribute('srcset'); cimg.src = osrc; cimg.alt = oimg.alt; }
-            card.querySelector('.tcard-mech').textContent = oline.replace(/\s*\$\d+ a month\.?$/, '');
-            card.querySelector('.tcard-price').innerHTML = oprice + ' <small>a month, oral form</small>';
+            card.querySelector('.tcard-mech').textContent = oline.replace(/\s*\$\d+ every 4 weeks\.?$/, '');
+            card.querySelector('.tcard-price').innerHTML = oprice + ' <small>every 4 weeks, oral form</small>';
             var cplan = card.querySelector('.tcard-plan'); if (cplan) cplan.remove();
             var clink = card.querySelector('.tcard-link'); if (clink) clink.href = oral.querySelector('a').getAttribute('href');
             // the Start button goes to the oral form's own Start page, Nov 19 2026

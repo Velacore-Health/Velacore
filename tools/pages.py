@@ -1,4 +1,4 @@
-# Velacore stand-alone pages: how it works, clinicians, pricing, about, contact.
+# Velacore stand-alone pages: how it works, clinicians, pricing, about, contact, information standards.
 # Written by vc-copy on 2026-11-13. Same shape as ARTICLES in tools/articles.py.
 # Edit the text here, never in the built pages.
 # Every service fact traces to docs/openloop-proposal-notes.md or a page already live.
@@ -183,7 +183,7 @@ PAGES = [
         "slug": "pricing",
         "pricing": True,   # visual layout, Nov 17 2026: cards first, short bands, the paragraphs below fold under them
         "title": "GLP-1 and Peptide Program Prices",
-        "meta": "Programs from {{low_then}} a month. One price covers medication, clinician reviews and shipping. No consultation fee. Prescription required.",
+        "meta": "Programs from {{low_then}} every 4 weeks. One price covers medication, clinician reviews and shipping. No consultation fee. Prescription required.",
         "h1": "Pricing",
         "lede": "Each program has one price, shown before you start. There is no separate consultation or physician fee. Prescription required.",
         "sections": [
@@ -198,8 +198,8 @@ PAGES = [
             ]),
             ("Two ways to pay", [
                 "Each program offers two plan types.",
-                "- <strong>Month to month.</strong> You are charged each month. You can cancel at any time.\n"
-                "- <strong>Prepaid plan.</strong> You are charged once, up front. Medication still ships every four weeks. The 12-week plan is priced in the cards above, and 24 and 52 week plans are also offered.",
+                "- <strong>Month to month.</strong> You are charged every 4 weeks, which is 13 charges in a full year. You can cancel at any time.\n"
+                "- <strong>Prepaid plan.</strong> You are charged once, up front. Medication still ships every four weeks. The 12-week plan is priced in the cards above. A 24-week plan is also offered, and a 52-week plan on some programs.",
                 "You choose the plan when you start. The clinician's review is the same on both.",
             ]),
             ("Programs and prices", [
@@ -315,5 +315,51 @@ PAGES = [
             ]),
         ],
         "faq": [],
+    },
+    {
+        # Nov 20 2026, Dourado's OK after the Bold You study. Copy by vc-copy, docs/information-standards-draft.md.
+        "slug": "information-standards",
+        "title": "How We Check the Information on This Site",
+        "meta": "Where the facts and prices on this site come from, who writes them, and how to report an error. A licensed clinician decides care. Prescription required.",
+        "h1": "How we check our information",
+        "lede": "Here is where the facts on this site come from, who writes them and what we leave out on purpose. A licensed clinician decides your care, not this website.",
+        "sections": [
+            ("Where our information comes from", [
+                "Prices and most program details come from our telehealth services partner's written proposal. A few details are still being confirmed with the partner in writing.",
+                "Our education articles cite public pages from the FDA and the National Institute of Diabetes and Digestive and Kidney Diseases. Each article lists its sources.",
+            ]),
+            ("Who writes it", [
+                "Velacore Health writes the pages and the education articles on this site.",
+                "The education articles have not been reviewed by a clinician. Each article says so beside its date. They are general education, not medical advice.",
+            ]),
+            ("Prices", [
+                "Every price on this site is read from one list, so each page shows the same number.",
+                'Prices are set by our telehealth services partner, not by Velacore. You can see them on the <a href="pricing.html">pricing page</a>. The prices shown are illustrative until our telehealth services partner\'s final price list is confirmed.',
+            ]),
+            ("A licensed clinician decides", [
+                "Velacore Health is a telehealth coordination platform. We are not a provider or a prescriber, and this website does not give medical advice.",
+                "An independent licensed clinician reviews your intake and decides whether to prescribe. If the clinician prescribes, a licensed 503A compounding pharmacy fills the prescription. Prescription required.",
+                "Using this site does not create a clinician and patient relationship with Velacore.",
+            ]),
+            ("What compounded means", [
+                "In our programs, a compounded medication is prepared by a licensed 503A pharmacy for one named patient, after a clinician writes a prescription for that patient.",
+                "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
+            ]),
+            ("What we leave out on purpose", [
+                "- We make no promises about outcomes.\n"
+                "- We do not promise that you will be prescribed anything. The clinician decides.\n"
+                "- Product images are illustrations. Your medication is prepared and labeled by a licensed 503A pharmacy and may look different.",
+            ]),
+            ("Updates and corrections", [
+                "We update a page when a price, a program detail or a fact changes, not on a calendar. Each education article shows the date its text was last updated.",
+                'Found something wrong? Email <a href="mailto:hello@velacorehealth.com">hello@velacorehealth.com</a> and tell us which page. Please leave health details out of the email.',
+                "Do not email us for urgent help. If this is a medical emergency, call 911.",
+            ]),
+        ],
+        "faq": [
+            ("Has a clinician reviewed the articles on this site?", "No. Velacore Health writes them, and they have not been reviewed by a clinician. They are general education, not medical advice."),
+            ("Who sets the prices?", "Our telehealth services partner sets them. Every price on this site is read from one list, so each page shows the same number."),
+            ("Is this site medical advice?", "No. It is general information. A licensed clinician reviews your intake and makes every prescribing decision."),
+        ],
     },
 ]

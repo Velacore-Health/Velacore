@@ -215,6 +215,28 @@ CLIN_FACTS = [
 ]
 
 
+def year_table():
+    """Nov 20 2026, from the Bold You study: month to month plans are charged every 4 weeks, so a full year is 13 charges.
+    One row per month to month price, each figure read from the program data and multiplied here, never typed."""
+    def money(n):
+        return f"${n:,}"
+    rows = []
+    for p in bp.PROGRAMS:
+        for pl in p["plans"]:
+            if pl["id"] not in ("monthly", "oral"):
+                continue
+            name = p["name"] + (", oral" if pl["id"] == "oral" else bp.injection(p))
+            price = int(pl["price"].lstrip("$"))
+            rows.append(f'<tr><th scope="row">{name}</th><td>{money(price)}</td><td>{money(price * bp.CHARGES_PER_YEAR)}</td></tr>')
+    return ('<div class="yr"><h2>What a full year costs</h2>'
+            f'<p class="hw-line">Month to month plans are charged {bp.PERIOD}, so a full year is {bp.CHARGES_PER_YEAR} charges, not 12.</p>'
+            '<div class="yr-wrap"><table class="yr-table"><thead><tr><th scope="col">Program</th>'
+            f'<th scope="col">Charged {bp.PERIOD}</th><th scope="col">{bp.CHARGES_PER_YEAR} charges, one year</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>'
+            '<p class="hw-note">The one year figure is the month to month price for a full year with no change in price. '
+            'A prepaid plan is charged once, up front, at the price in its card.</p></div>')
+
+
 def price_cards():
     """One card per program in the home page card style: vial photo, form line, monthly price, the
     12-week plan, Learn more and Start visit. Every figure is read from the program data in build_programs.py."""
@@ -232,7 +254,7 @@ def price_cards():
             f'<img class="tcard-photo" src="images/{p["image"]}"{bp.prod_srcset(p["image"], "", "(max-width:700px) 92vw, 380px")} width="{wi}" height="{he}" alt="Illustration: {p["name"]} vial" loading="lazy" /></div>'
             f'<div class="tcard-body"><h3>{p["name"]}</h3><p class="tcard-mech">{p["chips"][1]}. {p["chips"][2]}.</p>'
             f'<div class="tcard-meta">{bp.tcard_price(p)}<span class="tcard-rx">Rx only</span></div>'
-            f'<p class="tcard-plan">12-week plan {week12["price"]}/mo, {w.group(1)} up front.' + ''.join(f' Oral form {x["price"]}/mo.' for x in p["plans"] if x["id"] == "oral") + '</p>'
+            f'<p class="tcard-plan">{bp.week12_line(p)}</p>'
             f'<a class="tcard-link" href="programs/{p["slug"]}.html">What the price includes</a>'
             f'<a href="start/{p["slug"]}.html" class="btn btn-primary btn-block btn-sm" data-start="{p["slug"]}">Start visit</a></div></article>')
     return ('<div class="tgrid pr-grid">' + "".join(cards) + "</div>"
@@ -260,16 +282,14 @@ def form_cards():
                 f'<a href="start/{start}.html" class="btn btn-primary btn-block btn-sm" data-start="{start}">Start visit</a></div></article>')
 
     def week12(p):
-        w12 = next(x for x in p["plans"] if x["id"] == "12week")
-        up = re.match(r"^(\$\d+) charged up front", w12["note"]).group(1)
-        return f'12-week plan {w12["price"]}/mo, {up} up front.'
+        return bp.week12_line(p, oral=False)
 
     sema = progs["semaglutide"]
     oral = next(x for x in sema["plans"] if x["id"] == "oral")
     line = next(f for f in sema["forms"] if f[0] == "Oral")[2]
     out.append(card(sema, "Semaglutide oral", "products/semaglutide-oral.webp", "Semaglutide oral bottle",
-                    re.sub(r"\s*\$\d+ a month\.?$", "", line),
-                    f'<span class="tcard-price">{oral["price"]} <small>a month, oral form</small></span>',
+                    re.sub(r"\s*\$\d+ every 4 weeks\.?$", "", line),
+                    f'<span class="tcard-price">{oral["price"]} <small>{bp.PERIOD}, oral form</small></span>',
                     "Month to month. " + oral["note"].split(". ")[-1], "programs/semaglutide.html#forms", "semaglutide-oral"))
     nad = progs["nad"]
     for name, img, line in nad["forms"]:
@@ -353,6 +373,7 @@ def pricing_main(a, faq_html):
             <p class="hw-note">{sec["Two ways to pay"][2]}</p>
           </div>
         </div>
+        {year_table()}
       </div>
     </section>
     <section class="section hw-body pr-body">
@@ -476,7 +497,7 @@ def page(a):
       <nav class="footer-col" aria-label="Programs"><h4>Programs</h4>
         {programs}</nav>
       <nav class="footer-col" aria-label="More"><h4>More</h4>
-        <a href="how-it-works.html">How it works</a><a href="clinicians.html">Clinicians</a><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+        <a href="how-it-works.html">How it works</a><a href="clinicians.html">Clinicians</a><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="information-standards.html">Information standards</a><a href="contact.html">Contact</a></nav>
       <nav class="footer-col" aria-label="Legal"><h4>Legal</h4>
         <a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="telehealth-consent.html">Telehealth Consent</a><a href="refund-policy.html">Refund Policy</a></nav>
     </div>

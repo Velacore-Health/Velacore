@@ -1207,3 +1207,18 @@ p,.hub-text span,.tcard-mech,.form-tiles p{text-wrap:pretty}
 @media (min-width:1101px){.pr-forms-grid{grid-template-columns:repeat(4,1fr)}}
 @media (min-width:941px) and (max-width:1100px){.pr-forms-grid{grid-template-columns:1fr 1fr}}
 #price-form-microdosing::before{background:var(--cap-jade)}#price-form-microdosing .tcard-cat::before{background:var(--cap-jade)}
+/* Pricing, Nov 20 2026: what a full year costs. Month to month plans are charged every 4 weeks, 13 times a year. */
+.yr{margin-top:48px}
+.yr h2{font-size:clamp(1.5rem,2.8vw,2rem);margin-bottom:12px}
+.yr-wrap{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;max-width:46rem}
+.yr-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.yr-table th,.yr-table td{padding:13px 18px;text-align:left;border-bottom:1px solid var(--line);color:var(--ink-soft);line-height:1.35}
+.yr-table thead th{font-size:.9rem;font-weight:600;color:var(--ink)}
+.yr-table tbody th{font-weight:600;color:var(--ink)}
+.yr-table td{white-space:nowrap}
+.yr-table tbody tr:last-child th,.yr-table tbody tr:last-child td{border-bottom:0}
+.yr-table th:not(:first-child),.yr-table td{text-align:right}
+@media (max-width:480px){.yr-table th,.yr-table td{padding:11px 10px;font-size:.92rem}.yr-table thead th{font-size:.8rem}}
+/* Plan picker on the smallest phones, Nov 20 2026: "/4 wks" is longer than "/mo" was, so under 360 px the price sits
+   on its own line under the plan name and the name never runs to three lines. */
+@media (max-width:359px){.plan-option{flex-wrap:wrap;row-gap:2px}.plan-name{flex:1 1 calc(100% - 40px)}.plan-amt{flex-basis:100%;padding-left:26px}}

@@ -125,7 +125,8 @@ ARTICLES = [
         "meta": "Microdosing GLP-1 means a lower dose than standard programs. It is not an FDA-defined term. What it means and how our program describes it.",
         "h1": "What is microdosing GLP-1?",
         "topic": "GLP-1",
-        "reviewed": "2026-11-13",
+        "published": "2026-11-13",
+        "reviewed": "2026-11-20",
         "answer": "Microdosing GLP-1 means taking a GLP-1 medication at a lower dose than standard programs use. The word is informal and is not a term the FDA defines. In our program it describes a low dose of a GLP-1 medication combined with other ingredients, prescribed only when a licensed clinician decides it is appropriate.",
         "sections": [
             ("What the term means", [

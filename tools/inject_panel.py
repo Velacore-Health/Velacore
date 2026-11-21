@@ -28,7 +28,7 @@ for name in PAGES:
             new, n = re.subn(r'<span class="tcard-price">.*?</small></span>', lambda _: bp.tcard_price(slugs[st.group(1)]), block, count=1, flags=re.S)
             assert n == 1, st.group(1)
             # Nov 20 2026: the 12-week line under the price comes from the same data; any words after it stay as written.
-            new, n = re.subn(r"12-week plan \$\d+/mo, \$\d+ up front\.(?: Oral form \$\d+/mo\.)?", lambda _: bp.week12_line(slugs[st.group(1)]), new, count=1)
+            new, n = re.subn(r"12-week plan \$\d+(?:/mo| per 4 weeks), \$\d+ up front\.(?: Oral form \$\d+(?:/mo| every 4 weeks)\.)?", lambda _: bp.week12_line(slugs[st.group(1)]), new, count=1)
             assert n == 1, (st.group(1), "12-week line")
             return new
         s, cards = re.subn(r'<article class="tcard".*?</article>', card, s, flags=re.S)
@@ -37,18 +37,23 @@ for name in PAGES:
         def tile(m):
             li = m.group(0)
             h = re.search(r'href="programs/([a-z-]+)\.html', li)
-            # An oral tile is priced by its form, not by the program it links to, so it is never rewritten here.
-            if not h or h.group(1) not in slugs or "data-oral" in li[:40]:
+            if not h or h.group(1) not in slugs:
                 return li
+            # An oral tile is priced by its form, not by the program it links to: its whole line is the program's Oral form line.
+            if "data-oral" in li[:40]:
+                line = next(f[2] for f in slugs[h.group(1)]["forms"] if f[0] == "Oral")
+                new, n = re.subn(r"(<b>[^<]+</b><p>)[^<]*(</p>)", lambda m: m.group(1) + line + m.group(2), li, count=1)
+                assert n == 1, "oral tile line"
+                return new
             then = bp.monthly_price(slugs[h.group(1)])
-            return re.sub(r'(?:<s class="was">.*?</s> )?\$\d+ (?:first month(?:, then \$\d+/mo)?|a month)\.',
-                          lambda _: f"{then} a month.", li, count=1)
+            return re.sub(r'(?:<s class="was">.*?</s> )?\$\d+ (?:first month(?:, then \$\d+/mo)?|a month|every 4 weeks)\.',
+                          lambda _: f"{then} {bp.PERIOD}.", li, count=1)
         s, tiles = re.subn(r'<li[^>]*><a href="programs/[^"]+"><img [^>]*>.*?</li>', tile, s, flags=re.S)
         print("needle-free tiles checked:", tiles)
         # The hero price line, Nov 20 2026: it sits in the weight band, so it is the lowest month to month price among the
         # weight programs only, per vc-reviewer, from the same source.
         low = min(int(bp.monthly_price(q).lstrip("$")) for q in slugs.values() if q["cat"].startswith("Weight"))
-        s, n = re.subn(r'<p class="hero-price">.*?</p>', f'<p class="hero-price">From ${low} a month. Shipping included.</p>', s, count=1, flags=re.S)
+        s, n = re.subn(r'<p class="hero-price">.*?</p>', f'<p class="hero-price">From ${low} {bp.PERIOD}. Shipping included.</p>', s, count=1, flags=re.S)
         assert n == 1, "hero price line"
     if name in ("learn.html", "faq.html"):
         band = bp.goal_band("")

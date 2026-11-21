@@ -24,12 +24,14 @@ site names **only these**:
 
 | Treatment | Public descriptor (factual, no efficacy claims) | Price, month to month, OpenLoop's fixed price |
 |-----------|--------------------------------------------------|--------------|
-| Tirzepatide | Dual GIP / GLP-1 receptor agonist, injection | $249; 12-week $239 a month |
-| Semaglutide | GLP-1 receptor agonist, injection or oral form | Injection $209, 12-week $199 a month; oral $259, form to confirm with OpenLoop |
-| Microdosing GLP-1 | Low-dose GLP-1 combined with vitamins or amino acids, oral or injection | $179; 12-week $169 a month |
-| NAD+ | NAD+ injectable, nasal or oral dropper | $229; 12-week $179 a month |
-| Glutathione | Glutathione, a peptide of three amino acids, in the form the clinician prescribes | $145; 12-week $129 a month |
-| Sermorelin | Growth hormone–releasing hormone analog, injection | $229; 12-week $179 a month |
+| Tirzepatide | Dual GIP / GLP-1 receptor agonist, injection | $249; 12-week $239 per 4 weeks |
+| Semaglutide | GLP-1 receptor agonist, injection or oral form | Injection $209, 12-week $199 per 4 weeks; oral $259, form to confirm with OpenLoop |
+| Microdosing GLP-1 | Low-dose GLP-1 combined with vitamins or amino acids, oral or injection | $179; 12-week $169 per 4 weeks |
+| NAD+ | NAD+ injectable, nasal or oral dropper | $229; 12-week $179 per 4 weeks |
+| Glutathione | Glutathione, a peptide of three amino acids, in the form the clinician prescribes | $145; 12-week $129 per 4 weeks |
+| Sermorelin | Growth hormone–releasing hormone analog, injection | $229; 12-week $179 per 4 weeks |
+
+Nov 20 2026: every price above is charged every 4 weeks, 13 charges in a full year, per the partner's proposal, and the site says every 4 weeks, never a month.
 
 Nov 20 2026: OpenLoop wrote that Agile prices are fixed and partners cannot change them. The prices above are the Nov 12 Agile proposal prices, with no first month price, on Dourado's OK. OpenLoop also confirmed in writing that Glutathione is an injection available in all 50 states. The paragraphs below are history.
 
