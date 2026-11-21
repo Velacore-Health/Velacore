@@ -360,7 +360,7 @@
             var cplan = card.querySelector('.tcard-plan'); if (cplan) cplan.remove();
             var clink = card.querySelector('.tcard-link'); if (clink) clink.href = oral.querySelector('a').getAttribute('href');
             // the Start button goes to the oral form's own Start page, Nov 19 2026
-            var cstart = card.querySelector('a[data-start]'); if (cstart && oral.getAttribute('data-start-href')) cstart.setAttribute('href', oral.getAttribute('data-start-href'));
+            var cstart = card.querySelector('a[data-start]'); if (cstart && oral.getAttribute('data-start-href')) { cstart.setAttribute('href', oral.getAttribute('data-start-href')); cstart.textContent = 'Start visit'; }
           }
           out.appendChild(card);
         });
@@ -416,6 +416,15 @@
     });
   });
 
+  // Start pages, Nov 20 2026: a plan picked on the program page arrives as ?plan= and is selected here.
+  (function () {
+    var spPlans = document.querySelectorAll('.sp-plan input');
+    if (!spPlans.length) return;
+    var m = /[?&]plan=([a-z0-9]+)/.exec(window.location.search);
+    if (!m) return;
+    Array.prototype.forEach.call(spPlans, function (inp) { if (inp.value === m[1]) inp.checked = true; });
+  })();
+
   // Program pages: plan selector updates the price box
   var planInputs = document.querySelectorAll('.plan-option input');
   if (planInputs.length) {
@@ -443,6 +452,18 @@
         // Nov 20 2026: the phone bar follows the selected plan on every program.
         var bar = document.querySelector('#mobileCta .mcta-price');
         if (bar && inp.getAttribute('data-bar')) bar.innerHTML = inp.getAttribute('data-bar');
+        // Nov 20 2026: the plan picked here is the one selected on the Start page. Its id rides in the Start link;
+        // the default plan and a plan with its own Start page carry nothing. UTM tags on the link stay.
+        var pbox = document.querySelector('#priceBox a[data-start]'), pslug = pbox && pbox.getAttribute('data-start');
+        var pp = inp.getAttribute('data-plan-param');
+        if (pslug) document.querySelectorAll('a[data-start="' + pslug + '"]:not([data-form-pick])').forEach(function (a) {
+          var href = a.getAttribute('href') || '', hash = '', hi = href.indexOf('#');
+          if (hi > -1) { hash = href.slice(hi); href = href.slice(0, hi); }
+          var qi = href.indexOf('?'), path = qi > -1 ? href.slice(0, qi) : href;
+          var keep = qi > -1 ? href.slice(qi + 1).split('&').filter(function (kv) { return kv && kv.indexOf('plan=') !== 0; }) : [];
+          if (pp) keep.push('plan=' + encodeURIComponent(pp));
+          a.setAttribute('href', path + (keep.length ? '?' + keep.join('&') : '') + hash);
+        });
       });
     });
   }

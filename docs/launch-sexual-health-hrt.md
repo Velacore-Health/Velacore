@@ -60,3 +60,5 @@ Dourado, Nov 20 2026: when a hidden program launches, every section of the site 
    - `docs/BRAND.md`, the program colors for the label lines
 7. Run the compliance check and the site audit. Both must pass, including section 2b. Check every new card at phone and desktop sizes for cut photos and labels that overlap a product.
 8. vc-reviewer ship review, then Dourado says push it.
+
+Added Nov 20 2026, from vc-reviewer. Before a Start page is ever built for these two programs, change `start_plans` in `tools/build_programs.py`. As written it would open the Sexual Health Start page with a Choose your plan picker that lists the medication formats, which reads as the patient choosing the medication. On these programs the clinician chooses; the Start page must show the price line only, or a picker of true billing plans if OpenLoop gives any.

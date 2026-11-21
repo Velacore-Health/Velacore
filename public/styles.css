@@ -1224,3 +1224,30 @@ p,.hub-text span,.tcard-mech,.form-tiles p{text-wrap:pretty}
 @media (max-width:359px){.plan-option{flex-wrap:wrap;row-gap:2px}.plan-name{flex:1 1 calc(100% - 40px)}.plan-amt{flex-basis:100%;padding-left:26px}}
 /* Article program box, Nov 20 2026: the longest button, See the Microdosing GLP-1 program, ran past the edge at 320 px. */
 .art-program .btn{max-width:100%;white-space:normal;text-align:center}
+
+/* Start page plan picker, Nov 20 2026. Dourado: a patient must see that there are two plans and pick one. Each row is
+   one label, so the whole row is the tap target; on phones the price drops under the plan name so nothing is cut. */
+.sp-plans{border:0;padding:0;margin:0 0 14px;min-width:0;display:grid;gap:10px}
+.sp-plans legend{padding:0;margin:0 0 12px;font-family:var(--display);font-size:1.15rem;font-weight:600;color:var(--ink)}
+.sp-plan{display:grid;grid-template-columns:22px 1fr auto;column-gap:12px;row-gap:2px;align-items:center;min-height:44px;padding:14px 16px;border:1.5px solid var(--line-strong);border-radius:var(--r-sm);background:#fff;cursor:pointer;transition:border-color .15s}
+.sp-plan:hover{border-color:var(--pine)}
+.sp-plan:has(input:checked){border-color:var(--jade);box-shadow:inset 0 0 0 1px var(--jade);background:var(--mint)}
+.sp-plan:has(input:focus-visible){outline:2px solid var(--jade);outline-offset:3px}
+.sp-plan input{accent-color:var(--jade);width:20px;height:20px;margin:0;grid-row:1 / span 2;align-self:start;margin-top:3px}
+.sp-plan-name{font-weight:600;color:var(--ink)}
+.sp-plan-price{font-weight:600;color:var(--ink);text-align:right;white-space:nowrap}
+.sp-plan-note{grid-column:2 / -1;font-size:.9rem;color:var(--ink-soft)}
+.sp-other{font-size:.95rem;color:var(--ink-soft);margin:0 0 6px}
+.sp-other a{display:inline-block;padding:11px 0;color:var(--jade);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.sp-plans + .sp-price,.sp-other + .sp-price{font-weight:500;color:var(--ink-soft);font-size:.95rem}
+@media (max-width:520px){
+  .sp-plan{grid-template-columns:22px 1fr}
+  .sp-plan input{grid-row:1 / span 3}
+  .sp-plan-price{grid-column:2;text-align:left;white-space:normal}
+  .sp-plan-note{grid-column:2}
+}
+@media (prefers-reduced-motion:reduce){.sp-plan{transition:none}}
+
+/* Nov 20 2026, Dourado: the 12-week row says what it saves, in dollars. Jade ink keeps 4.5 to 1 on the mint of a
+   selected row. */
+.sp-plan-save{grid-column:2 / -1;font-size:.9rem;font-weight:600;color:var(--jade-dark)}

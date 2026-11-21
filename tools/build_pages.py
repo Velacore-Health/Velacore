@@ -237,6 +237,11 @@ def year_table():
             'A prepaid plan is charged once, up front, at the price in its card.</p></div>')
 
 
+# Nov 20 2026, Dourado: a card that lists two plans names the next step on its button, the plan picker that opens
+# its Start page. Only the Semaglutide oral card keeps Start visit, since that form has one plan and no picker.
+CARD_BUTTON = "Choose your plan"
+
+
 def price_cards():
     """One card per program in the home page card style: vial photo, form line, monthly price, the
     12-week plan, Learn more and Start visit. Every figure is read from the program data in build_programs.py."""
@@ -256,7 +261,7 @@ def price_cards():
             f'<div class="tcard-meta">{bp.tcard_price(p)}<span class="tcard-rx">Rx only</span></div>'
             f'<p class="tcard-plan">{bp.week12_line(p)}</p>'
             f'<a class="tcard-link" href="programs/{p["slug"]}.html">What the price includes</a>'
-            f'<a href="start/{p["slug"]}.html" class="btn btn-primary btn-block btn-sm" data-start="{p["slug"]}">Start visit</a></div></article>')
+            f'<a href="start/{p["slug"]}.html" class="btn btn-primary btn-block btn-sm" data-start="{p["slug"]}">{CARD_BUTTON}</a></div></article>')
     return ('<div class="tgrid pr-grid">' + "".join(cards) + "</div>"
             + '<div class="section-head center pr-forms-head"><h2>Needle-free forms</h2><p class="section-sub">Each of these forms is taken '
               'without a needle. A licensed clinician decides which form is appropriate for you.</p></div>'
@@ -271,7 +276,7 @@ def form_cards():
     progs = {p["slug"]: p for p in bp.PROGRAMS}
     out = []
 
-    def card(p, title, img, alt, mech, price, plan, link, start):
+    def card(p, title, img, alt, mech, price, plan, link, start, button="Start visit"):
         wi, he = img_size(img)
         return (f'<article class="tcard" data-cat="{CAT_KEY.get(p["cat"], "weight")}" id="price-form-{start}"><div class="tcard-media"><span class="tcard-cat">{p["cat"]}</span>'
                 f'<img class="tcard-photo" src="images/{img}"{bp.prod_srcset(img, "", "(max-width:700px) 92vw, 380px")} width="{wi}" height="{he}" alt="Illustration: {alt}" loading="lazy" /></div>'
@@ -279,7 +284,7 @@ def form_cards():
                 f'<div class="tcard-meta">{price}<span class="tcard-rx">Rx only</span></div>'
                 f'<p class="tcard-plan">{plan}</p>'
                 f'<a class="tcard-link" href="{link}">What the price includes</a>'
-                f'<a href="start/{start}.html" class="btn btn-primary btn-block btn-sm" data-start="{start}">Start visit</a></div></article>')
+                f'<a href="start/{start}.html" class="btn btn-primary btn-block btn-sm" data-start="{start}">{button}</a></div></article>')
 
     def week12(p):
         return bp.week12_line(p, oral=False)
@@ -297,11 +302,11 @@ def form_cards():
             continue
         slug = "nad-" + {"Nasal spray": "nasal", "Oral dropper": "oral"}[name]
         out.append(card(nad, f"NAD+ {name.lower()}", img, f"NAD+ {name.lower()}", line, bp.tcard_price(nad), week12(nad),
-                        "programs/nad.html#forms", slug))
+                        "programs/nad.html#forms", slug, CARD_BUTTON))
     micro = progs["microdosing"]
     out.append(card(micro, "Microdosing GLP-1 oral", "products/microdosing-oral.webp", "Microdosing GLP-1 oral dropper bottle",
                     f'Oral options among the {re.search(r"(\d+) formulations", micro["chips"][1]).group(1)} formulations. The clinician picks the form.', bp.tcard_price(micro), week12(micro),
-                    "programs/microdosing.html", "microdosing"))
+                    "programs/microdosing.html", "microdosing", CARD_BUTTON))
     return out
 
 

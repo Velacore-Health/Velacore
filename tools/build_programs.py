@@ -288,11 +288,39 @@ def price_line(p):
     return f'From ${min(int(x["price"].lstrip("$")) for x in p["plans"])} a pack'
 
 
+def saving(p):
+    """Nov 20 2026, Dourado: what the 12-week plan saves against month to month over the same 12 weeks, in whole
+    dollars: three month to month charges minus the up-front charge. None when a program lacks either plan or the
+    12-week plan costs no less. Shown in dollars, not a percentage: the dollar figure is the larger number on every
+    program, and it is exact."""
+    m = next((x for x in p["plans"] if x["id"] == "monthly"), None)
+    w = next((x for x in p["plans"] if x["id"] == "12week"), None)
+    up = w and re.match(r"^\$(\d+) charged up front", w["note"])
+    if not (m and up):
+        return None
+    n = 3 * int(m["price"].lstrip("$")) - int(up.group(1))
+    return n if n > 0 else None
+
+
+def save_line(p, basis=False):
+    """The words that go with the saving. The cards use the short line, where the month to month price sits right
+    above it; the Start page row and the program page note name the basis, as vc-reviewer advised Nov 20 2026."""
+    n = saving(p)
+    if not n:
+        return ""
+    return f"Save ${n} over 12 weeks compared with month to month." if basis else f"Save ${n} over 12 weeks."
+
+
+def plan_note(p, pl):
+    """A plan's note for the program page price box; the 12-week plan's note ends with what it saves."""
+    return pl["note"] + (f" {save_line(p, True)}" if pl["id"] == "12week" and save_line(p) else "")
+
+
 def week12_line(p, oral=True):
     """The 12-week plan line on program cards, read from the plan data, plus the oral form price where there is one."""
     w = next(x for x in p["plans"] if x["id"] == "12week")
     up = re.match(r"^(\$\d+) charged up front", w["note"]).group(1)
-    return f'12-week plan {w["price"]} per 4 weeks, {up} up front.' + ("".join(f' Oral form {x["price"]} {PERIOD}.' for x in p["plans"] if x["id"] == "oral") if oral else "")
+    return f'12-week plan {w["price"]} per 4 weeks, {up} up front.' + (f" {save_line(p)}" if save_line(p) else "") + ("".join(f' Oral form {x["price"]} {PERIOD}.' for x in p["plans"] if x["id"] == "oral") if oral else "")
 
 
 def injection(p):
@@ -519,6 +547,35 @@ def plan_bar(p, pl):
     return f' data-bar="{html.escape(inner, quote=True)}"'
 
 
+def start_plans(p, suffix="", plan_id=None):
+    """Nov 20 2026, Dourado: the plans a patient picks between on a Start page. A plan tied to another form, such as
+    Semaglutide oral, is left out because that form has its own Start page, and that form's page has no picker since
+    it has one plan. A form sold at the program's own plans, such as the NAD+ nasal spray, gets the same picker; the
+    pricing page already lists the 12-week plan on those form cards."""
+    if suffix and plan_id not in (None, p["plans"][0]["id"]):
+        return []
+    tied = {plan for sfx, _, plan, _ in choices(p) if sfx and plan != p["plans"][0]["id"]}
+    out = [pl for pl in p["plans"] if pl["id"] not in tied]
+    return out if len(out) > 1 else []
+
+
+def plan_row(pl):
+    """The price words and the note for one plan row on a Start page, both read from the plan."""
+    if pl["id"] == "12week" and re.match(r"^\$\d+ charged up front", pl["note"]):
+        return f'{pl["price"]} per 4&nbsp;weeks', pl["note"]
+    lead = f'{pl["price"]} {PERIOD}. '
+    if pl["note"].startswith(lead):
+        return f'{pl["price"]} {PERIOD_NB}', pl["note"][len(lead):]
+    return f'{pl["price"]}{pl["unit"]}', pl["note"]
+
+
+def plan_param(p, pl):
+    """A plan the Start page can show as picked gets its id carried there in the link, so a plan chosen on the program
+    page is the one selected on the Start page. The first plan is the default and needs nothing."""
+    picks = start_plans(p)
+    return f' data-plan-param="{pl["id"]}"' if pl in picks[1:] else ""
+
+
 def plan_start(p, pl):
     """A plan tied to its own form, such as Semaglutide oral, sends every Start button on the page to that form's
     Start page, and the phone bar shows that plan's price. Other programs get nothing extra."""
@@ -592,7 +649,7 @@ def page(p):
     media = f'<img class="tcard-photo" src="../images/{p["image"]}"{prod_srcset(p["image"], "../", "(max-width:900px) 92vw, 560px")} width="{img_size(p["image"])[0]}" height="{img_size(p["image"])[1]}" alt="Illustration: {p["name"]}" fetchpriority="high" />' if p["image"] and (ROOT / "public" / "images" / p["image"]).exists() else '<img class="brand-tile" src="../logo-mark.svg" alt="" width="119" height="128" />'
     plans = "\n".join(
         f'''          <label class="plan-option">
-            <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{pl["note"]}"{plan_thumb(p, pl)}{plan_start(p, pl)}{plan_bar(p, pl)}{" checked" if i == 0 else ""} />
+            <input type="radio" name="plan" value="{pl["id"]}" data-price="{pl["price"]}" data-unit="{pl["unit"]}" data-note="{plan_note(p, pl)}"{plan_thumb(p, pl)}{plan_start(p, pl)}{plan_bar(p, pl)}{plan_param(p, pl)}{" checked" if i == 0 else ""} />
             <span class="plan-name">{pl["label"]}</span><span class="plan-amt">{pl["price"]}{pl["unit"]}</span>
           </label>''' for i, pl in enumerate(p["plans"]))
     first = p["plans"][0]
@@ -826,6 +883,17 @@ START = {
         "If you are prescribed, a licensed 503A pharmacy fills your order and ships it to you. If not, your payment is refunded in full.",
     ],
     "handoff": "The next page is our telehealth services partner's secure site, so you will see their name there instead of ours. You choose your plan there, and you may be asked again for other choices you made here.",
+    # Nov 20 2026: on a Start page with a plan picker. The partner's intake link cannot carry a choice, so this says
+    # two facts in plain words: the choice here is not sent, and the plan chosen there is the one billed. Wording
+    # accepted by vc-reviewer after it blocked a shorter line that could be read as the plan already being set.
+    "handoff_pick": "The next page is our telehealth services partner's secure site, so you will see their name there instead of ours. Your choice on this page is not sent to them. You choose your plan again on their page, and the plan you choose there is the one you are charged for. You may also be asked again for other choices you made here.",
+    # From the refund policy's Prepaid plans section, so the 12-week row carries its cancel term beside the saving.
+    "prepaid_cancel": "If you cancel, shipments not yet ordered are refunded.",
+    "plans_legend": "Choose your plan",
+    "plans_ship": "Shipping included.",
+    "other_forms": "Prefer a form without a needle?",
+    "other_forms_link": "See the other forms",
+    "other_form_link": "See the other form",
     "button": "Continue to secure intake",
     "back": "Back to {Program}",
     "pending": "The online visit for {Program} opens soon. In the meantime, email hello@velacorehealth.com with any questions.",
@@ -841,6 +909,22 @@ def start_page(p, choice=None):
     link = INTAKE.get(key, "") or INTAKE.get(intake_key(p), "")
     chose = f'\n        <p class="sp-choice">You told us you prefer {words}. You may be asked for that choice again inside the secure intake. An independent, licensed clinician reviews your intake and decides whether to prescribe, and the form and the dose.</p>' if words else ""
     image = form_img or p["image"]
+    picks = start_plans(p, suffix, plan_id)
+    if picks:
+        rows = "".join(
+            f'<label class="sp-plan"><input type="radio" name="plan" value="{pl["id"]}"{" checked" if i == 0 else ""} />'
+            f'<span class="sp-plan-name">{pl["label"]}</span><span class="sp-plan-price">{plan_row(pl)[0]}</span>'
+            f'<span class="sp-plan-note">{plan_row(pl)[1]}{" " + START["prepaid_cancel"] if pl["id"] == "12week" else ""}</span>'
+            + (f'<span class="sp-plan-save">{save_line(p, True)[:-1]}</span>' if pl["id"] == "12week" and save_line(p) else "")
+            + '</label>' for i, pl in enumerate(picks))
+        other = (f'\n        <p class="sp-other">{START["other_forms"]} <a href="../programs/{p["slug"]}.html#forms">{START["other_forms_link"] if sum(1 for sfx, _, _, _ in choices(p) if sfx) > 1 else START["other_form_link"]}</a></p>'
+                 if not suffix and any(sfx for sfx, _, _, _ in choices(p)) else "")
+        price_block = (f'<fieldset class="sp-plans"><legend>{START["plans_legend"]}</legend>{rows}</fieldset>{other}\n'
+                       f'        <p class="sp-price">{START["plans_ship"]}</p>')
+        handoff = START["handoff_pick"]
+    else:
+        price_block = f'<p class="sp-price">{fill(START["price"])}</p>'
+        handoff = START["handoff"]
     steps = "".join(f'<li><span class="sp-num" aria-hidden="true">{i}</span><p>{fill(s)}</p></li>' for i, s in enumerate(START["steps"], 1))
     if link:
         button = f'<a class="btn btn-primary btn-block" href="{link}" data-intake="{key}" rel="noopener">{fill(START["button"])}</a>'
@@ -878,9 +962,9 @@ def start_page(p, choice=None):
     <div class="container sp-grid">
       <div class="sp-card">
         <h1>{fill(START["h1"])}</h1>{chose}
-        <p class="sp-price">{fill(START["price"])}</p>
+        {price_block}
         <ol class="sp-steps">{steps}</ol>
-        <p class="sp-handoff">{fill(START["handoff"])}</p>
+        <p class="sp-handoff">{fill(handoff)}</p>
         {button}
         {pending}
         <p class="price-fine">{DISCLAIMER}</p>

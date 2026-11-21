@@ -28,7 +28,7 @@ for name in PAGES:
             new, n = re.subn(r'<span class="tcard-price">.*?</small></span>', lambda _: bp.tcard_price(slugs[st.group(1)]), block, count=1, flags=re.S)
             assert n == 1, st.group(1)
             # Nov 20 2026: the 12-week line under the price comes from the same data; any words after it stay as written.
-            new, n = re.subn(r"12-week plan \$\d+(?:/mo| per 4 weeks), \$\d+ up front\.(?: Oral form \$\d+(?:/mo| every 4 weeks)\.)?", lambda _: bp.week12_line(slugs[st.group(1)]), new, count=1)
+            new, n = re.subn(r"12-week plan \$\d+(?:/mo| per 4 weeks), \$\d+ up front\.(?: Save \$\d+ over 12 weeks\.)?(?: Oral form \$\d+(?:/mo| every 4 weeks)\.)?", lambda _: bp.week12_line(slugs[st.group(1)]), new, count=1)
             assert n == 1, (st.group(1), "12-week line")
             return new
         s, cards = re.subn(r'<article class="tcard".*?</article>', card, s, flags=re.S)

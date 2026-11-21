@@ -106,7 +106,8 @@ def parse_cards(page):
         name = re.search(r"<h3>(.*?)</h3>", body, re.S)
         # Nov 19 2026: the price slash nests spans inside tcard-price, so read up to the closing small tag first.
         price = re.search(r'class="tcard-price">(.*?</small>)</span>', body, re.S) or re.search(r'class="tcard-price">(.*?)</span>', body, re.S)
-        link = re.search(r'<a href="([^"]*)"[^>]*>\s*(Start[^<]*)</a>', body)
+        # Nov 20 2026: a program card's button reads Choose your plan, since the Start page opens with the plan picker.
+        link = re.search(r'<a href="([^"]*)"[^>]*>\s*(Start[^<]*|Choose your plan)</a>', body)
         cards.append({
             "name": html.unescape(re.sub(r"<[^>]+>", "", name.group(1))).strip() if name else "",
             "price": re.sub(r"<[^>]+>", " ", price.group(1)).split() if price else [],
