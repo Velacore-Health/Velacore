@@ -121,7 +121,7 @@ Source: PDF "Velacore Q's" attached to Jordan Narlock's email of Nov 24 2026, 3:
 3. A prepaid plan renews by itself unless the patient switches before the renewal date. The site now says so.
 4. Refunds are only for medication not yet shipped. The site's cut-off changed from ordered to shipped. How a part-used prepaid plan is refunded was not answered beyond this.
 5. Refunds go to the original payment method; programs are not billed to insurance; medication cannot be returned once dispensed. Yes to all three, which the site already said.
-6. 503A: "No, our GLP-1 products do, but others may come from 503A." This reads as GLP-1 programs filled by 503A pharmacies and the others possibly not, but the wording contradicts itself. Not acted on; asked again in writing. Until answered, 503A on non-GLP-1 pages and pictures is unconfirmed.
+6. 503A: "No, our GLP-1 products do, but others may come from 503A." This reads as GLP-1 programs filled by 503A pharmacies and the others possibly not, but the wording contradicts itself. Not acted on; asked again in writing. Later on Nov 24 Dourado said it is going to be 503A, so the site keeps 503A everywhere. OpenLoop's own written words still say No, so the follow-up asks them to confirm 503A for all six programs in writing.
 7. Microdosing oral options are offered as in the proposal schedules. First supply not stated beyond answer 8.
 8. Every prescription ships one month at a time.
 9. Labs are not required before the first month and are ordered only when a provider decides they are needed. The site now says so.
