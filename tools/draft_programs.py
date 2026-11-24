@@ -54,7 +54,7 @@ DRAFTS = [
             ("Who chooses the medication and dose?", "Your clinician decides the medication, the form and the dose from your intake."),
             ("Do I need labs?", "Your clinician will tell you if labs are recommended for you."),
             ("What if I am not prescribed?", "Draft placeholder, to be confirmed in writing by OpenLoop: nothing is ordered and the payment is refunded in full."),
-            ("Can I cancel?", "Draft placeholder, to be confirmed in writing by OpenLoop: cancel any time for any reason from your patient portal, and anything whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Draft placeholder, to be confirmed in writing by OpenLoop: cancel any time for any reason by messaging patient support, and anything whose medication has not shipped is refunded."),
         ],
         "safety": "Important safety information for every medication on this page will come from OpenLoop's clinical team, approved in writing, before the page goes live.",
         "open_items": [
@@ -98,7 +98,7 @@ DRAFTS = [
             ("How am I billed?", "$79 a month, charged as $237 every 12 weeks. Labs are not included."),
             ("Do I need labs?", "Your clinician orders labs when they are merited. Labs are not in the program price and are paid by the patient."),
             ("What if I am not prescribed?", "Draft placeholder, to be confirmed in writing by OpenLoop: nothing is ordered and the payment is refunded in full."),
-            ("Can I cancel?", "Draft placeholder, to be confirmed in writing by OpenLoop: cancel any time for any reason from your patient portal, and anything whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Draft placeholder, to be confirmed in writing by OpenLoop: cancel any time for any reason by messaging patient support, and anything whose medication has not shipped is refunded."),
         ],
         "safety": "Important safety information for every medication on this page will come from OpenLoop's clinical team, approved in writing, before the page goes live.",
         "open_items": [

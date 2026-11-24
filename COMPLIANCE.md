@@ -104,7 +104,7 @@ name anywhere in this repository.** They belong only in a gated member area (see
 
 Everything from here to the "Still required before submission" heading describes the Asher
 model and is kept for history only. Asher is canceled. The live terms are OpenLoop's: no
-separate physician fee, cancel any time, refund any month not yet ordered, OpenLoop is merchant
+separate physician fee, cancel any time, refund any month not yet shipped, settled in writing Nov 24 2026, OpenLoop is merchant
 of record, intake is hosted by OpenLoop, JotForm is retired. See `docs/openloop-proposal-notes.md`.
 Do not copy anything below onto the site.
 
@@ -179,6 +179,7 @@ $30 multi of the $30/$50 doctor cost — plus the flat $35 shipping.)
   confirmed in writing** (email 07/23/2026): "Velacore orders are fulfilled exclusively through
   White Label Pharmacy and Perfect Rx." Save emails to the compliance file.
 - [ ] Signed **Medical Director Agreement** + attorney review of provider language.
+- [ ] Attorney review of the prepaid plan renewal wording added Nov 24 2026: the site says a prepaid plan renews unless changed or cancelled before the renewal date, but not what it renews into or at what price, because OpenLoop has not said. Auto-renewal rules usually expect both.
 - [ ] 5 written SOPs; BAAs with every vendor touching patient data.
 - [x] Legal pages drafted: `privacy.html`, `terms.html`, `telehealth-consent.html`, `refund-policy.html`, linked in the footer. **⚠️ Attorney review required before launch** — especially governing-law/venue/arbitration (Tennessee, confirmed by Dourado Nov 6 2026; no arbitration clause yet), HIPAA specifics, and auto-renewal terms. Confirm the JotForm terms and payment processor match these pages.
 - [x] Intake wired to JotForm (form 261070496021449).

@@ -26,7 +26,7 @@ PAGES = [
                 {"word": "Review", "short": "A clinician reviews it", "title": "A licensed clinician reviews it",
                  "img": "step-clinician", "w": 1600, "h": 1194, "alt": "Hands of a clinician in a white coat writing notes on a patient chart at a clinic desk",
                  "line": "A physician or nurse practitioner licensed in your state reviews your intake and decides whether to prescribe.",
-                 "facts": ["Most reviews happen without a live appointment", "A video visit is yours on request, at no extra cost", "Velacore has no say in the decision"],
+                 "facts": ["Most reviews happen without a live appointment", "You can request a video visit through patient support", "Velacore has no say in the decision"],
                  "more": "Clinician review"},
                 {"word": "Delivery", "short": "A pharmacy ships it", "title": "A pharmacy prepares and ships it",
                  "img": "step-delivery", "w": 1600, "h": 1194, "alt": "A dog sniffing a plain shipping box on the front step",
@@ -37,11 +37,11 @@ PAGES = [
                 {"word": "Support", "short": "Reviews and support continue", "title": "Reviews and support continue",
                  "img": "step-support", "w": 1600, "h": 1194, "pos": "62% 50%", "alt": "A man on his sofa typing a message on his phone",
                  "line": "The clinician reviews your intake updates on a set schedule, and patient support is available 24 hours a day, every day.",
-                 "facts": ["Nothing about your prescription changes without a clinician's review", "Message your clinician through your patient portal"],
+                 "facts": ["Nothing about your prescription changes without a clinician's review", "Message patient support, who bring in a clinician when needed"],
                  "more": "Ongoing reviews and support"},
             ],
             "promise": {"title": "Not prescribed? Your program payment is refunded in full.",
-                        "line": "A prescription is not guaranteed. After you start, you can cancel at any time, and you can request a refund for any billing period whose medication has not yet been ordered. Medications are non-returnable once dispensed."},
+                        "line": "A prescription is not guaranteed. After you start, you can cancel at any time, and you can request a refund for any billing period whose medication has not yet shipped. Medications are non-returnable once dispensed."},
             "scope": "What Velacore does and does not do",
         },
         "sections": [
@@ -59,13 +59,13 @@ PAGES = [
             ]),
             ("Clinician review", [
                 "A physician or nurse practitioner licensed in your state reviews your intake. The clinician decides whether to prescribe, based solely on clinical judgment. Velacore has no say in that decision.",
-                "Most reviews happen without a live appointment. A video visit is required for the first prescription in Arkansas, the District of Columbia, Delaware, Kansas, Mississippi, New Mexico, Rhode Island and West Virginia. Everywhere else a video visit is optional, and you can request one at any time at no extra cost.",
-                'Clinician hours are 7am to 7pm Central Time and do not include holidays. More about who the clinicians are and how they are credentialed is on the <a href="clinicians.html">clinicians page</a>.',
+                "Most reviews happen without a live appointment. A video visit is required for the first prescription in Arkansas, the District of Columbia, Delaware, Kansas, Mississippi, New Mexico, Rhode Island and West Virginia. Everywhere else a video visit is optional, and you can ask patient support for one at any time.",
+                'Clinician hours are 7am to 7pm Central Time, Monday to Friday, not including holidays. More about who the clinicians are and how they are credentialed is on the <a href="clinicians.html">clinicians page</a>.',
             ]),
             ("Pharmacy fulfillment", [
                 "If the clinician prescribes, a licensed 503A compounding pharmacy prepares your medication to that prescription and ships it to you. Ongoing plans ship every four weeks.",
                 "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
-                "In most cases you do not need labs before your first prescription. The clinician asks for them first only if your intake calls for it. For the Semaglutide and Tirzepatide programs, baseline labs the clinician orders are done at a national laboratory at no cost to you. For other programs the clinician will tell you if labs are recommended.",
+                "For the Semaglutide, Tirzepatide and Microdosing GLP-1 programs, labs are not required before your first prescription. The clinician orders them only if they decide labs are needed. For the Semaglutide and Tirzepatide programs, baseline labs the clinician orders are done at a national laboratory at no cost to you. For other programs the clinician will tell you if labs are recommended.",
                 'A 503A pharmacy prepares medication for one named patient from a valid prescription. Our article on <a href="learn/what-is-a-503a-compounding-pharmacy.html">what a 503A compounding pharmacy is</a> explains the term.',
             ]),
             ("Ongoing reviews and support", [
@@ -74,12 +74,12 @@ PAGES = [
                 '- <strong><a href="programs/microdosing.html">Microdosing GLP-1</a>.</strong> The first prescription is a 4-week supply. After that you update a short intake every 12 weeks and the clinician reviews it.\n'
                 '- <strong><a href="programs/nad.html">NAD+</a>, <a href="programs/glutathione.html">Glutathione</a> and <a href="programs/sermorelin.html">Sermorelin</a>.</strong> The first prescription is a 4-week supply. The clinician reviews an intake update at 3 to 4 weeks before writing a 12-week refill, and reviews continue every 12 weeks.',
                 "Nothing about your prescription changes without a clinician's review.",
-                "Patient support is available 24 hours a day, every day. You can message your clinician or request a video visit through your patient portal. If you are experiencing a medical emergency, call 911 or go to the nearest emergency room.",
+                "Patient support is available 24 hours a day, every day. You can message patient support or ask for a video visit through your patient portal. If you are experiencing a medical emergency, call 911 or go to the nearest emergency room.",
             ]),
             ("If the clinician does not prescribe", [
                 "A prescription is not guaranteed. Prescriptions are issued only when the clinician decides one is clinically appropriate.",
                 "If the clinician does not prescribe, nothing is ordered and your program payment is refunded in full to your original payment method.",
-                'After you start, you can cancel at any time for any reason. You can request a refund for any billing period whose medication has not yet been ordered. Medications are non-returnable once dispensed, as required by federal and state pharmacy law. The full terms are in the <a href="refund-policy.html">refund policy</a>.',
+                'After you start, you can cancel at any time for any reason. You can request a refund for any billing period whose medication has not yet shipped. Medications are non-returnable once dispensed, as required by federal and state pharmacy law. The full terms are in the <a href="refund-policy.html">refund policy</a>.',
             ]),
             ("What Velacore does and does not do", [
                 "Velacore Health is a telehealth coordination platform. Here is what that covers.",
@@ -98,7 +98,7 @@ PAGES = [
         ],
         "faq": [
             ("Do I have to speak with a clinician live?", "In most states, no. Most reviews happen without a live appointment. A video visit is required for the first prescription in Arkansas, the District of Columbia, Delaware, Kansas, Mississippi, New Mexico, Rhode Island and West Virginia."),
-            ("Do I need labs before I start medication?", "For the Semaglutide and Tirzepatide programs, in most cases no. The clinician asks for them first only if your intake calls for it. That decision belongs to the clinician."),
+            ("Do I need labs before I start medication?", "For the Semaglutide and Tirzepatide programs, no, not before your first prescription. The clinician orders labs only if they decide labs are needed. That decision belongs to the clinician."),
             ("How often does medication ship?", "Ongoing plans ship every four weeks."),
             ("Does Velacore decide whether I am prescribed?", "No. The independent licensed clinician decides, based solely on clinical judgment. Velacore coordinates access and education."),
         ],
@@ -145,7 +145,7 @@ PAGES = [
                 "Every prescribing decision is made at the clinician's own clinical discretion. Velacore coordinates access and education. It does not prescribe, and it has no say in whether a clinician prescribes.",
             ]),
             ("Hours", [
-                "Clinician hours are 7am to 7pm Central Time and do not include holidays.",
+                "Clinician hours are 7am to 7pm Central Time, Monday to Friday, not including holidays.",
                 "Patient support is separate from clinician hours. It is available 24 hours a day, every day.",
                 "Telehealth is not for emergencies. If you are experiencing a medical emergency, call 911 or go to the nearest emergency room.",
             ]),
@@ -160,7 +160,7 @@ PAGES = [
                 "- New Mexico\n"
                 "- Rhode Island\n"
                 "- West Virginia",
-                "Everywhere else a video visit is optional. You can request one at any time at no extra cost.",
+                "Everywhere else a video visit is optional. You can ask patient support for one at any time.",
             ]),
             ("What a clinician can decide", [
                 "- Whether to prescribe at all. A prescription is not guaranteed.\n"
@@ -168,15 +168,15 @@ PAGES = [
                 "- The form and the dose, within the options of the program.\n"
                 "- Whether to hold or change a dose at each review.\n"
                 "- Whether you need labs, and when. For the Semaglutide and Tirzepatide programs, baseline labs the clinician orders are done at a national laboratory at no cost to you.\n"
-                "- For the Semaglutide and Tirzepatide programs, whether to prescribe an optional nausea medication that you pick up at a local pharmacy.",
+                "- For the Semaglutide and Tirzepatide programs, whether to prescribe an optional nausea medication that you pick up and pay for at a local pharmacy.",
                 'If the clinician does not prescribe, nothing is ordered and your program payment is refunded in full. The order of events is set out on the <a href="how-it-works.html">how it works page</a>.',
             ]),
         ],
         "faq": [
             ("Are the clinicians employed by Velacore?", "No. They are independent providers engaged through our telehealth services partner. Velacore does not direct their decisions."),
-            ("Can I ask for a video visit even if my state does not require one?", "Yes. You can request a video visit at any time at no extra cost."),
+            ("Can I ask for a video visit even if my state does not require one?", "Yes. You can ask patient support for a video visit at any time."),
             ("Can the clinician decide on a different program from the one I picked?", "Yes. You choose the program you want to start with, and the clinician decides which program, if any, is appropriate. If the clinician does not prescribe, your program payment is refunded in full."),
-            ("When are clinicians available?", "Clinician hours are 7am to 7pm Central Time and do not include holidays. Patient support is available 24 hours a day, every day."),
+            ("When are clinicians available?", "Clinician hours are 7am to 7pm Central Time, Monday to Friday, not including holidays. Patient support is available 24 hours a day, every day."),
         ],
     },
     {
@@ -191,7 +191,7 @@ PAGES = [
                 "The program price covers the parts of the service that would otherwise be billed one by one.",
                 "- The medication, if the clinician prescribes it.\n"
                 "- The clinician's review of your intake and of each intake update after that.\n"
-                "- A video visit on request, at no extra cost.\n"
+                "- A video visit on request, through patient support.\n"
                 "- Patient support 24 hours a day, every day.\n"
                 "- For the Semaglutide and Tirzepatide programs, baseline labs at a national laboratory when the clinician orders them.",
                 "There is no separate consultation fee and no separate physician fee. Each program page lists exactly what its price includes.",
@@ -217,8 +217,8 @@ PAGES = [
             ]),
             ("Refunds and cancellation", [
                 "If the clinician does not prescribe, nothing is ordered and your program payment is refunded in full.",
-                "You can cancel at any time, for any reason, from your patient portal or by contacting support. Cancellation stops future charges. A billing period whose medication has already been ordered will still ship and is not refunded.",
-                "You can request a refund at any time for any reason. The refund covers every billing period for which medication has not yet been ordered. On a 12-week plan, the shipments not yet ordered are refunded on the same basis.",
+                "You can cancel at any time, for any reason, by messaging patient support. Cancellation stops future charges. Medication that has already shipped is not refunded.",
+                "You can request a refund at any time for any reason. The refund covers every billing period whose medication has not yet shipped. On a 12-week plan, the shipments not yet sent are refunded on the same basis. A 12-week plan renews at the end of its term unless you change or cancel it before the renewal date.",
                 'Refunds go back to the original payment method. The full terms are in the <a href="refund-policy.html">refund policy</a>.',
             ]),
         ],
@@ -226,7 +226,7 @@ PAGES = [
             ("Is there a consultation fee?", "No. There is no separate consultation fee and no separate physician fee. The clinician's review is part of the program price."),
             ("Can I pay with an FSA or HSA card?", "Yes. FSA and HSA cards are accepted, along with Visa, Mastercard, Apple Pay and Google Pay."),
             ("Can I bill a program to my insurance?", "No. Programs are paid out of pocket and are not billed to insurance."),
-            ("What happens to a 12-week plan if I cancel?", 'Cancellation stops future charges, and the shipments not yet ordered are refunded. A billing period whose medication has already been ordered will still ship and is not refunded. The full terms are in the <a href="refund-policy.html">refund policy</a>.'),
+            ("What happens to a 12-week plan if I cancel?", 'Cancellation stops future charges, and the shipments not yet sent are refunded. Medication that has already shipped is not refunded. The full terms are in the <a href="refund-policy.html">refund policy</a>.'),
             ("Whose name will be on my card statement?", "Our telehealth services partner's. It handles billing and issues refunds."),
         ],
     },
@@ -300,7 +300,7 @@ PAGES = [
             ]),
             ("Medical questions", [
                 "Medical questions go to your clinician, not to Velacore. We cannot give medical advice.",
-                "If you are already a patient, message your clinician or ask for a video visit through your patient portal. Patient support is available 24 hours a day, every day.",
+                "If you are already a patient, message patient support or ask for a video visit through your patient portal. Patient support is available 24 hours a day, every day.",
                 "If you are not yet a patient, the place to ask is your intake. A licensed clinician reviews it and decides whether a program is appropriate for you. Prescription required.",
             ]),
             ("Billing, refunds, shipping and changes to your order", [

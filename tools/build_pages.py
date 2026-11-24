@@ -210,8 +210,8 @@ def clinicians_main(a, faq_html):
 CLIN_FACTS = [
     ("MD, DO and NP", "Physicians and nurse practitioners"),
     ("All 50 states and DC", "Licensed where you live"),
-    ("7am to 7pm Central", "Clinician hours, not on holidays. Support runs 24 hours a day"),
-    ("Video on request", "At no extra cost"),
+    ("7am to 7pm Central", "Clinician hours, Monday to Friday, not on holidays. Support runs 24 hours a day"),
+    ("Video on request", "Request one through patient support"),
 ]
 
 
@@ -385,7 +385,7 @@ def pricing_main(a, faq_html):
       <div class="container">
         <div class="hw-promise">
           <h2>Not prescribed? Your program payment is refunded in full.</h2>
-          <p>You can cancel at any time, for any reason. Every billing period whose medication has not yet been ordered is refunded. Medications are non-returnable once dispensed.</p>
+          <p>You can cancel at any time, for any reason. Every billing period whose medication has not yet shipped is refunded. Medications are non-returnable once dispensed.</p>
           {fold("More about refunds and cancellation", "Refunds and cancellation")}
           <a href="refund-policy.html">Refund policy</a>
         </div>

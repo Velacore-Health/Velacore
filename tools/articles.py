@@ -103,7 +103,7 @@ ARTICLES = [
             ]),
             ("The clinician decides which one, if either", [
                 "The licensed clinician makes the prescribing decision. You choose the program you want to start with and complete an online intake about your health, history and medications. A clinician licensed in your state reviews it and decides which program, if any, is appropriate.",
-                "Both programs are for adults 18 to 74 with a body mass index of 27 or above, or 25 or above with a related health condition. A video visit is available on request at no extra cost, and it is required for the first prescription in a few states.",
+                "Both programs are for adults 18 to 74 with a body mass index of 27 or above, or 25 or above with a related health condition. A video visit is available on request through patient support, and it is required for the first prescription in a few states.",
                 "For both programs, the clinician reviews your progress each month until your dose is steady, then quarterly. Refills ship every four weeks.",
                 "If the clinician does not prescribe, nothing is ordered and your program payment is refunded in full. Velacore coordinates access and education. It does not prescribe.",
             ]),
@@ -158,7 +158,7 @@ ARTICLES = [
             ("Who sets the dose", [
                 "The licensed clinician makes the prescribing decision, and that includes the dose. We do not publish dose figures for this program, and this article is not a dosing guide.",
                 "The process runs in the same order as every Velacore program. You complete an online intake about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. If appropriate, the clinician chooses the formulation and form and prescribes a 4-week supply.",
-                "Every 12 weeks you update a short intake and the clinician reviews it. You can request a video visit at any time at no extra cost. Refills ship every 4 weeks. The price and what it includes are set out on the program page.",
+                "Every 12 weeks you update a short intake and the clinician reviews it. You can ask patient support for a video visit at any time. Refills ship every 4 weeks. The price and what it includes are set out on the program page.",
             ]),
             ("What we do not say about microdosing", [
                 "You will find many claims online about what a low dose of a GLP-1 medication does. We do not make them. This article describes what the term means and what is in our program. It makes no statement about what the program does for any condition.",
@@ -197,24 +197,24 @@ ARTICLES = [
             ]),
             ("A licensed clinician reviews it and decides", [
                 "A physician or nurse practitioner licensed in your state reviews your intake. The licensed clinician makes the prescribing decision, based solely on clinical judgment. Velacore coordinates access and education and has no say in that decision.",
-                "The clinicians are independent providers, engaged through our telehealth services partner. They are credentialed, background checked and covered by malpractice insurance before they review intakes. Clinician hours are 7am to 7pm Central Time and do not include holidays.",
+                "The clinicians are independent providers, engaged through our telehealth services partner. They are credentialed, background checked and covered by malpractice insurance before they review intakes. Clinician hours are 7am to 7pm Central Time, Monday to Friday, not including holidays.",
                 "A prescription is not guaranteed. Prescriptions are issued only when clinically appropriate. If the clinician does not prescribe, nothing is ordered and your program payment is refunded in full.",
             ]),
             ("When a video visit is required", [
                 "People often search for a GLP-1 online with no video visit. At Velacore, that depends on the state you live in.",
                 "Most reviews happen without a live appointment. A video visit is required for the first prescription in Arkansas, the District of Columbia, Delaware, Kansas, Mississippi, New Mexico, Rhode Island and West Virginia.",
-                "Everywhere else, a video visit is optional. You can request one at any time at no extra cost.",
+                "Everywhere else, a video visit is optional. You can ask patient support for one at any time.",
             ]),
             ("A pharmacy fills the prescription", [
                 "If the clinician prescribes, a licensed 503A compounding pharmacy prepares your medication and ships it to your door. Shipping is included, and ongoing plans ship every four weeks.",
                 "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
-                "In most cases you do not need labs before your first prescription. The clinician asks for them first only if your intake calls for it. For the semaglutide and tirzepatide programs, baseline labs the clinician orders are done through a national laboratory at no cost to you, and the clinician reviews the results at your next check-in.",
+                "Labs are not required before your first prescription. The clinician orders them only if they decide labs are needed. For the semaglutide and tirzepatide programs, baseline labs the clinician orders are done through a national laboratory at no cost to you, and the clinician reviews the results at your next check-in.",
                 "After that, the clinician reviews your progress each month until your dose is steady, then quarterly.",
             ]),
             ("Paying without insurance", [
-                "Programs are paid out of pocket and are not billed to insurance. The price you see is the whole price. There is no separate consultation or physician fee, and shipping is included.",
+                "Programs are paid out of pocket and are not billed to insurance. The price you see is the whole program price. The one exception is an optional medication a clinician may prescribe for pickup at a local pharmacy, which you pay for there. There is no separate consultation or physician fee, and shipping is included.",
                 "Accepted payment methods are Visa, Mastercard, FSA and HSA cards, Apple Pay and Google Pay. American Express is not accepted.",
-                'You can cancel at any time for any reason. You can request a refund for any billing period whose medication has not yet been ordered. The full terms are in the <a href="../refund-policy.html">refund policy</a>.',
+                'You can cancel at any time for any reason. You can request a refund for any billing period whose medication has not yet shipped. The full terms are in the <a href="../refund-policy.html">refund policy</a>.',
             ]),
             ("What telehealth cannot do", [
                 "- It cannot promise a prescription. Starting a visit is not a guarantee of treatment.\n"
@@ -222,7 +222,7 @@ ARTICLES = [
                 "- It cannot skip the prescription. The FDA lists a website that does not require a prescription as a warning sign of an unsafe online pharmacy.\n"
                 "- It cannot take a medication back. Medications are non-returnable once dispensed, as required by federal and state pharmacy law.",
                 "The FDA also advises patients to get a prescription from their doctor and fill it at a state-licensed pharmacy.",
-                "Patient support is available 24 hours a day, every day, and you can message your clinician or request a video visit through your patient portal.",
+                "Patient support is available 24 hours a day, every day, and you can message patient support or ask for a video visit through your patient portal.",
             ]),
         ],
         "faq": [

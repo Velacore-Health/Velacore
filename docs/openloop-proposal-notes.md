@@ -15,7 +15,7 @@ Every price below is marked by OpenLoop as an example, subject to change, and av
 
 ## Terms that rewrite the legal pages
 
-- Cancel any time for any reason. Refund for any reason at any time, except a month whose medication has already been ordered. No separate physician fee of any kind.
+- Cancel any time for any reason. Refund for any reason at any time, except medication that has already shipped. The proposal said ordered; OpenLoop settled it as shipped in writing on Nov 24 2026, see the last section. No separate physician fee of any kind.
 - Payment methods: Visa, Mastercard, FSA and HSA cards, Apple Pay, Google Pay. No American Express.
 - Patients are charged each period per their subscription terms. Medication on 12, 24 and 52 week plans ships every four weeks.
 - GLP-1 eligibility: age 18 to 74 to start, BMI 27 or above, or 25 or above with a related condition. Microdosing: BMI over 20, age 18 to 74. Sexual health: 21 and over.
@@ -111,3 +111,27 @@ Source: email from Johnny Nguyen at OpenLoop to Bryan, Nov 20 2026 4:18 PM, copy
 - Intake: one intake link covers everything. The link cannot carry a plan choice, so patients choose again inside the intake. OpenLoop suggests one Medical Weight Loss link or one Get Started button. The intake stays on Agile's own web address, not ours. Links usually arrive about 3 days after signing.
 
 Not answered yet: which fee amount is correct, whether the site may mention coaching, the approval process, whether patients enter health and card details only on the hosted pages, how often the dashboard updates and whether cancellations show, whether the BAA covers viewing and exporting the dashboard, what the oral semaglutide and oral microdosing forms look like when they arrive, whether the one link covers NAD+, Glutathione and Sermorelin as well as weight loss, and the Order Form and BAA.
+
+## Written answers, Jordan Narlock document Nov 24 2026
+
+Source: PDF "Velacore Q's" attached to Jordan Narlock's email of Nov 24 2026, 3:32 PM, to Bryan, copying Johnny and Jonathan, answering the 17 questions from our Nov 23 reply. The PDF stays in the inbox and Downloads; this is the summary. Jordan wants to send the contract for signatures before the holiday break.
+
+1. Month to month is charged every 4 weeks. The site already says so.
+2. All plans and prices are shown at the end of the intake. Plan names and any default were not given.
+3. A prepaid plan renews by itself unless the patient switches before the renewal date. The site now says so.
+4. Refunds are only for medication not yet shipped. The site's cut-off changed from ordered to shipped. How a part-used prepaid plan is refunded was not answered beyond this.
+5. Refunds go to the original payment method; programs are not billed to insurance; medication cannot be returned once dispensed. Yes to all three, which the site already said.
+6. 503A: "No, our GLP-1 products do, but others may come from 503A." This reads as GLP-1 programs filled by 503A pharmacies and the others possibly not, but the wording contradicts itself. Not acted on; asked again in writing. Until answered, 503A on non-GLP-1 pages and pictures is unconfirmed.
+7. Microdosing oral options are offered as in the proposal schedules. First supply not stated beyond answer 8.
+8. Every prescription ships one month at a time.
+9. Labs are not required before the first month and are ordered only when a provider decides they are needed. The site now says so.
+10. A video visit is requested through customer service, since care is async first. Cost for Semaglutide, Tirzepatide and Glutathione was not stated, so the site no longer says no extra cost for those three. Microdosing, NAD+ and Sermorelin keep it from the proposal.
+11. The patient pays for nausea medication, out of pocket or with HSA, FSA or insurance. The site now says the patient pays at the pharmacy.
+12. Injection supplies and written instructions come with every injectable program.
+13. Clinician days are Monday to Friday, 7am to 7pm Central. The site now says so.
+14. In the portal, the patient messages customer service for cancelling, changes and video requests; a provider schedules an appointment if needed. The site now routes these through patient support.
+15. Intake takes 2 to 3 minutes for most people. The site keeps "a few minutes".
+16. Bold You's LegitScript name: not known. OpenLoop shares its LegitScript documentation right after signature.
+17. The proposal holds the full catalog with forms, prices and states. Every program in it is available to us except one, named in the PDF; that name is not written here. No add-on or setup fee was mentioned.
+
+Still open after this: the 503A answer, video visit cost on three programs, how a part-used prepaid plan is refunded, plan names on the intake, and the MSA, Order Form and BAA themselves.

@@ -45,12 +45,12 @@ PROGRAMS = [
             "Tirzepatide is a peptide that acts on two receptors, GIP and GLP-1, both involved in blood sugar regulation and appetite signaling. It is given as a small injection under the skin.",
             "The compounded version is prepared by a licensed 503A compounding pharmacy to your clinician's prescription. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
         ],
-        "facts": ["Dual GIP and GLP-1 receptor agonist", "Five dose levels, 8.5 mg to 44.5 mg per 4-week cycle", "Injection supplies and written instructions included", "Clinician review before every dose change", "Baseline labs included when your clinician orders them", "Optional nausea medication at a local pharmacy, if your clinician prescribes it"],
+        "facts": ["Dual GIP and GLP-1 receptor agonist", "Five dose levels, 8.5 mg to 44.5 mg per 4-week cycle", "Injection supplies and written instructions included", "Clinician review before every dose change", "Baseline labs included when your clinician orders them", "Optional nausea medication, if prescribed, paid for at your local pharmacy"],
         "journey": [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
-            ("First prescription", "If appropriate, the clinician prescribes the starting dose. In most cases you do not need labs before your first prescription. The clinician asks for them first only if your intake calls for it. When the clinician orders baseline labs, they are done at a national laboratory at no cost to you."),
+            ("First prescription", "If appropriate, the clinician prescribes the starting dose. Labs are not required before your first prescription. The clinician orders them only if they decide labs are needed. When the clinician orders baseline labs, they are done at a national laboratory at no cost to you."),
             ("Monthly reviews", "Each month you update a short intake. The clinician reviews it with any lab results and decides whether to hold or raise the dose. Nothing changes without that review."),
-            ("Steady dose, quarterly reviews", "Once your dose is steady, reviews move to every three months. Refills, changes and cancellation run through your patient portal."),
+            ("Steady dose, quarterly reviews", "Once your dose is steady, reviews move to every three months. For refills, changes or to cancel, message patient support."),
         ],
         "eligibility": "Adults 18 to 74 with a body mass index of 27 or above, or 25 or above with a related health condition. The clinician makes the final decision on every intake.",
         "faq": [
@@ -58,7 +58,7 @@ PROGRAMS = [
             ("How is the dose decided?", "Your clinician sets your starting level and reviews a short update from you each month before any increase. There are five levels. You never move up without a review."),
             ("What does the price include?", "The medication, injection supplies, clinician reviews, baseline labs at a national laboratory when your clinician orders them, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason by messaging patient support. Any billing period whose medication has not shipped is refunded."),
         ],
     },
     {
@@ -77,14 +77,14 @@ PROGRAMS = [
             "Semaglutide is a peptide that acts on the GLP-1 receptor, a pathway involved in blood sugar regulation and appetite signaling. It is given as a small injection under the skin, or taken by mouth daily in the oral form.",
             "The compounded version is prepared by a licensed 503A compounding pharmacy to your clinician's prescription. Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy.",
         ],
-        "facts": ["GLP-1 receptor agonist", "Injection: five dose levels, 0.8 mg to 8.96 mg per 4 weeks", "Oral: 5 mg or 10 mg a day", "Clinician review before every dose change", "Baseline labs included when your clinician orders them", "Optional nausea medication at a local pharmacy, if your clinician prescribes it"],
+        "facts": ["GLP-1 receptor agonist", "Injection: five dose levels, 0.8 mg to 8.96 mg per 4 weeks", "Oral: 5 mg or 10 mg a day", "Clinician review before every dose change", "Baseline labs included when your clinician orders them", "Optional nausea medication, if prescribed, paid for at your local pharmacy"],
         "forms": [("Injection", "products/semaglutide.webp", "A small self-injection under the skin. Supplies included. $209 every 4 weeks."),
                   ("Oral", "products/semaglutide-oral.webp", "Taken by mouth daily. No needle. $259 every 4 weeks.")],
         "journey": [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
-            ("First prescription", "If appropriate, the clinician prescribes the starting dose. In most cases you do not need labs before your first prescription. The clinician asks for them first only if your intake calls for it. When the clinician orders baseline labs, they are done at a national laboratory at no cost to you."),
+            ("First prescription", "If appropriate, the clinician prescribes the starting dose. Labs are not required before your first prescription. The clinician orders them only if they decide labs are needed. When the clinician orders baseline labs, they are done at a national laboratory at no cost to you."),
             ("Monthly reviews", "Each month you update a short intake. The clinician reviews it with any lab results and decides whether to hold or raise the dose. Nothing changes without that review."),
-            ("Steady dose, quarterly reviews", "Once your dose is steady, reviews move to every three months. Refills, changes and cancellation run through your patient portal."),
+            ("Steady dose, quarterly reviews", "Once your dose is steady, reviews move to every three months. For refills, changes or to cancel, message patient support."),
         ],
         "eligibility": "Adults 18 to 74 with a body mass index of 27 or above, or 25 or above with a related health condition. The clinician makes the final decision on every intake.",
         "faq": [
@@ -92,7 +92,7 @@ PROGRAMS = [
             ("How is the dose decided?", "Your clinician sets your starting level and reviews a short update from you each month before any increase. The injection has five levels and the oral form two daily doses. You never move up without a review."),
             ("What does the price include?", "The medication, any supplies your form needs, clinician reviews, baseline labs at a national laboratory when your clinician orders them, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason by messaging patient support. Any billing period whose medication has not shipped is refunded."),
         ],
     },
     {
@@ -114,8 +114,8 @@ PROGRAMS = [
         "journey": [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
             ("First prescription", "If appropriate, the clinician chooses the formulation and form and prescribes a 4-week supply."),
-            ("12-week reviews", "Every 12 weeks you update a short intake and the clinician reviews it. You can request a video visit at any time at no extra cost."),
-            ("Ongoing", "Refills ship every 4 weeks. Changes and cancellation run through your patient portal."),
+            ("12-week reviews", "Every 12 weeks you update a short intake and the clinician reviews it. You can ask patient support for a video visit at any time."),
+            ("Ongoing", "Refills ship every 4 weeks. For changes or to cancel, message patient support."),
         ],
         "eligibility": "Adults 18 to 74 with a body mass index over 20. The clinician makes the final decision on every intake.",
         "faq": [
@@ -123,7 +123,7 @@ PROGRAMS = [
             ("Which formulation will I get?", "Your clinician chooses from seven, based on your intake. Options include oral and injectable forms with NAD+, B12, L-carnitine, inositol, magnesium, L-theanine, methionine or choline."),
             ("What does the price include?", "The medication, supplies, unlimited clinician consults, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason by messaging patient support. Any billing period whose medication has not shipped is refunded."),
         ],
     },
     {
@@ -149,7 +149,7 @@ PROGRAMS = [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
             ("First prescription", "If appropriate, the clinician prescribes a 4-week supply in the form that fits you."),
             ("Refill review at 3 to 4 weeks", "You update a short intake and the clinician reviews it before writing a 12-week refill."),
-            ("12-week reviews", "Reviews continue every 12 weeks. Refills ship every 4 weeks. Changes and cancellation run through your patient portal."),
+            ("12-week reviews", "Reviews continue every 12 weeks. Refills ship every 4 weeks. For changes or to cancel, message patient support."),
         ],
         "eligibility": "Adults 18 and over, per our Terms of Service. The clinician makes the final decision on every intake.",
         "faq": [
@@ -157,7 +157,7 @@ PROGRAMS = [
             ("Do I need labs?", "Not as a rule. Your clinician will tell you if labs are recommended for you."),
             ("What does the price include?", "The medication, supplies, clinician reviews, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason by messaging patient support. Any billing period whose medication has not shipped is refunded."),
         ],
     },
     {
@@ -175,12 +175,12 @@ PROGRAMS = [
             "Glutathione is a peptide made of three amino acids: glutamate, cysteine and glycine. The body makes it and uses it as an antioxidant inside cells. In this program it comes as an injection. Your clinician sets the dose, and a licensed 503A compounding pharmacy prepares it to that prescription.",
             "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Whether glutathione is appropriate for you is the clinician's decision.",
         ],
-        "facts": ["A peptide of three amino acids", "Injection, with the dose set by your clinician", "Written instructions included", "Clinician review at each refill", "Video visit on request, at no extra cost", "Patient support 24 hours a day"],
+        "facts": ["A peptide of three amino acids", "Injection, with the dose set by your clinician", "Written instructions included", "Clinician review at each refill", "Video visit on request", "Patient support 24 hours a day"],
         "journey": [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
             ("First prescription", "If appropriate, the clinician prescribes a 4-week supply."),
             ("Refill review at 3 to 4 weeks", "You update a short intake and the clinician reviews it before writing a 12-week refill."),
-            ("12-week reviews", "Reviews continue every 12 weeks. Refills ship every 4 weeks. Changes and cancellation run through your patient portal."),
+            ("12-week reviews", "Reviews continue every 12 weeks. Refills ship every 4 weeks. For changes or to cancel, message patient support."),
         ],
         "eligibility": "Adults 18 and over, per our Terms of Service. The clinician makes the final decision on every intake.",
         "faq": [
@@ -188,7 +188,7 @@ PROGRAMS = [
             ("Do I need labs?", "Your clinician will tell you if labs are recommended for you."),
             ("What does the price include?", "The medication, clinician reviews, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason by messaging patient support. Any billing period whose medication has not shipped is refunded."),
         ],
     },
     {
@@ -211,7 +211,7 @@ PROGRAMS = [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
             ("First prescription", "If appropriate, the clinician prescribes a 4-week supply."),
             ("Refill review at 3 to 4 weeks", "You update a short intake and the clinician reviews it before writing a 12-week refill."),
-            ("12-week reviews", "Reviews continue every 12 weeks. Refills ship every 4 weeks. Changes and cancellation run through your patient portal."),
+            ("12-week reviews", "Reviews continue every 12 weeks. Refills ship every 4 weeks. For changes or to cancel, message patient support."),
         ],
         "eligibility": "Adults 18 and over, per our Terms of Service. The clinician makes the final decision on every intake.",
         "faq": [
@@ -219,7 +219,7 @@ PROGRAMS = [
             ("Do I need labs?", "Not as a rule. Your clinician will tell you if labs are recommended for you."),
             ("What does the price include?", "The medication, injection supplies, clinician reviews, shipping, and patient support around the clock. There is no separate consultation or physician fee."),
             ("What if I am not prescribed?", "Nothing is ordered and your program payment is refunded in full."),
-            ("Can I cancel?", "Yes. Cancel any time for any reason from your patient portal. Any billing period whose medication has not been ordered is refunded."),
+            ("Can I cancel?", "Yes. Cancel any time for any reason by messaging patient support. Any billing period whose medication has not shipped is refunded."),
         ],
     },
 ]
@@ -824,7 +824,7 @@ def page(p):
             <li><span class="dot"></span> A licensed clinician makes the prescribing decision</li>
             <li><span class="dot"></span> Refunded in full if not prescribed</li>
             <li><span class="dot"></span> Filled by a licensed 503A pharmacy, shipping included</li>
-            <li><span class="dot"></span> Cancel any time from your patient portal</li>
+            <li><span class="dot"></span> Cancel any time through patient support</li>
           </ul>
         </div>
         <div class="intake-card intake-list">
@@ -886,9 +886,9 @@ START = {
     # Nov 20 2026: on a Start page with a plan picker. The partner's intake link cannot carry a choice, so this says
     # two facts in plain words: the choice here is not sent, and the plan chosen there is the one billed. Wording
     # accepted by vc-reviewer after it blocked a shorter line that could be read as the plan already being set.
-    "handoff_pick": "The next page is our telehealth services partner's secure site, so you will see their name there instead of ours. Your choice on this page is not sent to them. You choose your plan again on their page, and the plan you choose there is the one you are charged for. You may also be asked again for other choices you made here.",
+    "handoff_pick": "The next page is our telehealth services partner's secure site, so you will see their name there instead of ours. Your choice on this page is not sent to them. You choose your plan again at the end of their intake, and the plan you choose there is the one you are charged for. You may also be asked again for other choices you made here.",
     # From the refund policy's Prepaid plans section, so the 12-week row carries its cancel term beside the saving.
-    "prepaid_cancel": "If you cancel, shipments not yet ordered are refunded.",
+    "prepaid_cancel": "It renews at the end of its term unless you change or cancel it before the renewal date. If you cancel, shipments not yet sent are refunded.",
     "plans_legend": "Choose your plan",
     "plans_ship": "Shipping included.",
     "other_forms": "Prefer a form without a needle?",
