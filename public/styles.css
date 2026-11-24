@@ -177,8 +177,11 @@ ul,ol{margin:0;padding:0;list-style:none}
 .step-photo img{display:block;width:100%;height:100%;object-fit:cover}
 @media (max-width:1000px){.steps-photo{grid-template-columns:1fr 1fr}.steps-photo .step-promise{grid-column:auto}}
 /* Full-width lifestyle band, no text on it. */
-.photo-band{margin:0;height:clamp(240px,50vw,640px);overflow:hidden;background:var(--mint)}
-.photo-band img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+/* Nov 24 2026: half the screen width tall, so up to 1640 px the band matches the photo's 2 to 1 shape and nothing is cut top or
+   bottom. Above that the 820 px cap crops, and the image sits high so the walkers' heads stay in. Height, not aspect-ratio, so
+   the 240 px phone minimum can never widen the page. */
+.photo-band{margin:0;height:clamp(240px,50vw,820px);overflow:hidden;background:var(--mint)}
+.photo-band img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
 @media (max-width:600px){.steps,.steps-4{grid-template-columns:1fr;gap:22px}}
 
 /* ---------- Treatments ---------- */

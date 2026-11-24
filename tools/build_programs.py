@@ -175,7 +175,7 @@ PROGRAMS = [
             "Glutathione is a peptide made of three amino acids: glutamate, cysteine and glycine. The body makes it and uses it as an antioxidant inside cells. In this program it comes as an injection. Your clinician sets the dose, and a licensed 503A compounding pharmacy prepares it to that prescription.",
             "Compounded medications are not FDA approved and are not reviewed by the FDA for safety or efficacy. Whether glutathione is appropriate for you is the clinician's decision.",
         ],
-        "facts": ["A peptide of three amino acids", "Injection, with the dose set by your clinician", "Written instructions included", "Clinician review at each refill", "Video visit on request", "Patient support 24 hours a day"],
+        "facts": ["A peptide of three amino acids", "Injection, with the dose set by your clinician", "Injection supplies and written instructions included", "Clinician review at each refill", "Video visit on request", "Patient support 24 hours a day"],
         "journey": [
             ("Online intake", "You answer questions about your health, history and goals. A licensed clinician in your state reviews it, usually without a live appointment. A video visit is available on request and required for the first prescription in a few states."),
             ("First prescription", "If appropriate, the clinician prescribes a 4-week supply."),
